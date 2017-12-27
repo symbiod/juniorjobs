@@ -16,27 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
-  gem 'rspec-rails'
-  gem 'selenium-webdriver'
-  gem "watir-rails"
-end
-
-group :development do
-  gem 'haml_lint', require: false
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'rubocop'  
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
-end
-
 # Main
-gem 'clockworksms'
+gem 'clockwork'
 gem 'gibbon'
 gem 'mechanize'
 gem 'meta-tags'
@@ -48,4 +29,26 @@ gem 'sorcery'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem "haml-rails", "~> 1.0"
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'simple_form'
+
+group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara', '~> 2.13'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'factory_bot'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem "watir-rails"
+end
+
+group :development do
+  gem 'haml_lint', require: false
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rubocop'  
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
+end

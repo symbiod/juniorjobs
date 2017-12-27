@@ -73,7 +73,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
-    clockworksms (1.1.0)
+    clockwork (2.0.2)
+      activesupport
+      tzinfo
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -113,6 +115,8 @@ GEM
     erubi (1.7.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -154,6 +158,18 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (1.5.6)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -286,6 +302,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     sexp_processor (4.10.0)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
     sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -351,15 +369,17 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.beta)
   byebug
   capybara (~> 2.13)
-  clockworksms
+  clockwork
   coffee-rails (~> 4.2)
   cucumber-rails
   database_cleaner
+  factory_bot
   gibbon
   haml-rails (~> 1.0)
   haml_lint
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (>= 3.0.5, < 3.2)
   mechanize
   meta-tags
@@ -371,6 +391,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers (~> 3.1)
   sidekiq
   simple_form
   sorcery
