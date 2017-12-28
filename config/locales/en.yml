@@ -30,4 +30,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  Subscribe: "Subscribe"
+  Succesfully_subscribed_with: "Succesfully subscribed with %{email}."
+  Email: "Email: "
+  Enter_email: "Enter email"
+  activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            email:
+              blank: "can't be blank"
+              invalid: "is invalid"
+              taken: "has already been taken"
