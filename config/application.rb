@@ -21,5 +21,14 @@ module JuniorjobsRu
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.generators do |g|
+      g.test_framework :rspec,
+                        view_spec:false,
+                        helper_specs: false,
+                        routing_specs: false,
+                        request_specs: false,
+                        controller_spec: true
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+    end
   end
 end

@@ -376,6 +376,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   cucumber-rails
   database_cleaner
+<<<<<<< fca5d4052b632374ff7bc96c35b1fec34cbffc33
   factory_bot_rails (~> 4.0)
   gibbon
   haml-rails (~> 1.0)

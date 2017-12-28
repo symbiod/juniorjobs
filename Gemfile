@@ -43,12 +43,18 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
   gem "watir-rails"
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'factory_bot_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
   gem 'haml_lint', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'rubocop'  
+  gem 'rubocop'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
