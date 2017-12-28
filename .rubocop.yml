@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - 'db/*/*'
+    - 'db/*'
+    - 'config/*/*'
+    - 'spec/spec_helper.rb'
+    - "**/*_spec.rb"
+  DisplayCopNames: true
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space

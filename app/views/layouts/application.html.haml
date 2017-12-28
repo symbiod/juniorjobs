@@ -7,4 +7,14 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .container
+      %nav.navbar.navbar-expand-sm.navbar-dark.bg-primary
+        %ul.navbar-nav
+          %nav.item= link_to 'Home', root_path, class: 'nav-link'
+          - if current_user&.subscription == true
+            %li= link_to 'Unsubscribe', subscription_path, class: 'nav-link', method: :delete, data: { confirm: 'Are you sure?' }
+          - else
+            %li= render'subscriptions/new'
+      %p.notice= notice
+      %p.alert= alert
+      = yield
