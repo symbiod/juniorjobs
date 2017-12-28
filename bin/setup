@@ -8,7 +8,6 @@ APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
 
 def system!(*args)
   system(*args) || abort("\n== Command #{ args } failed ==")
-end
 
 chdir APP_ROOT do
   # This script is a starting point to setup your application.
