@@ -2,9 +2,9 @@ class CreateJobs < ActiveRecord::Migration[5.1]
   def change
     create_table :jobs do |t|
       t.boolean :status
-      t.string   :title
-      t.text     :description
-      t.string   :employment_type
+      t.string   :title, null: false
+      t.text     :description, null: false
+      t.string   :employment_type, null: false
       t.string   :country
       t.string   :city
       t.boolean :remote
@@ -12,9 +12,9 @@ class CreateJobs < ActiveRecord::Migration[5.1]
       t.integer  :salary_from
       t.integer  :salary_to
       t.boolean :salary_by_agreement
-      t.text     :tasks
-      t.text     :requirements
-      t.text     :condition
+      t.text     :tasks, null: false
+      t.text     :requirements, null: false
+      t.text     :condition, null: false
       t.references :user, index: true
       t.timestamps
     end

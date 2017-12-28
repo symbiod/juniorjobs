@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< fca5d4052b632374ff7bc96c35b1fec34cbffc33
+
 ActiveRecord::Schema.define(version: 20171227173831) do
-
-=======
-ActiveRecord::Schema.define(version: 20_171_227_141_408) do
-
 end
+
