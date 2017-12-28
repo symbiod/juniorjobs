@@ -10,10 +10,8 @@
     .container
       %nav.navbar.navbar-expand-sm.navbar-dark.bg-primary
         %ul.navbar-nav
-          %nav.item= link_to 'Home', root_path, class: 'nav-link'
-          - if current_user&.subscription == true
-            %li= link_to 'Unsubscribe', subscription_path, class: 'nav-link', method: :delete, data: { confirm: 'Are you sure?' }
-          - else
+          %nav.item= link_to t(:Home), root_path, class: 'nav-link'
+          - unless current_user&.subscription == true
             %li= render'subscriptions/new'
       %p.notice= notice
       %p.alert= alert
