@@ -4,7 +4,9 @@ AllCops:
     - 'db/*'
     - 'config/*/*'
     - 'spec/spec_helper.rb'
-    - "**/*_spec.rb"
+    - 'bin/*'
+    - 'lib/tasks/*'
+    - 'script/*'
   DisplayCopNames: true
 
 Documentation:

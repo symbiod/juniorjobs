@@ -20,13 +20,13 @@ RSpec.describe Subscription, type: :model do
   end
 
   context 'try to create subscription with already taken email' do
-    let!(:subscription) { create(:subscription) }
-    let(:duplicate_subscription) { build(:subscription) }
+    let!(:subscription) { create(:subscription, email: 'mail@mail.com') }
+    let(:duplicate_subscription) { build(:subscription, email: 'mail@mail.com') }
     it 'show already taken error' do
       duplicate_subscription.valid?
       expect(duplicate_subscription.errors[:email]).to include("has already been taken")
     end
-  end  
+  end
 
   context 'create subscription with right email' do
     subject { build(:subscription) }

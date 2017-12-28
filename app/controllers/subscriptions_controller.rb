@@ -5,8 +5,7 @@ class SubscriptionsController < ApplicationController
 
   def create
     @subscription = Subscription.new(subscription_params)
-    @subscription.user_id = current_user if current_user
-    flash[:notice] = @subscription.save ? "Succesfully subscribed with: #{ @subscription.email }" : "Email: #{ @subscription.errors.messages[:email].join(', ') }."
+    flash[:notice] = @subscription.save ? t(:Succesfully_subscribed_with, email: @subscription.email) : "#{t(:Email)} #{@subscription.errors.messages[:email].join(', ')}."
     redirect_to root_path
   end
 
@@ -18,6 +17,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:email)
+    params.require(:subscription).permit(:email).merge(user_id: current_user&.id)
   end
 end
