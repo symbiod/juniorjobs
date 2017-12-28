@@ -13,6 +13,20 @@ class User < ApplicationRecord
   validates :roles, presence: true
   validate :roles_value, if: :roles_present?
 
+  def add_roles(*values)
+    values.map(&:to_s).each do |value|
+      roles << value if VALID_ROLES.include?(value) && !has_role?(value)
+    end
+  end
+
+  def remove_roles(*values)
+    self.roles = roles - values.map(&:to_s)
+  end
+
+  def has_role?(value)
+    roles.include?(value.to_s)
+  end
+
   private
 
   def roles_value
