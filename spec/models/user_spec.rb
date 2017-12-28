@@ -4,9 +4,10 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of :email }
   it { should validate_presence_of :password }
   it { should validate_length_of :password }
+  it { should validate_presence_of :roles }
 
   context 'create valid user' do
-    subject { build(:user, :with_roles) }
+    subject { build(:user, :junior) }
     it { is_expected.to be_valid }
   end
 
@@ -17,14 +18,14 @@ RSpec.describe User, type: :model do
   end
 
   context 'create invalid user, not unique email' do
-    let(:user) { create(:user) }
-    subject { build(:user, email: user.email) }
+    let(:user) { create(:user, :admin) }
+    subject { build(:user, :admin, email: user.email) }
 
     it { is_expected.not_to be_valid }
   end
 
   context 'add to user wrong role' do
-    let(:user) { build(:user, :with_roles, roles: [:moderator]) }
+    let(:user) { build(:user, roles: [:moderator]) }
 
     it 'show invalid role name in errors' do
       user.valid?

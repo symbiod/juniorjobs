@@ -10,14 +10,16 @@ FactoryBot.define do
     salt { salt = 'asdasdastr4325234324sdfds' }
     crypted_password { Sorcery::CryptoProviders::BCrypt.encrypt('secret', salt) }
 
-    trait :with_roles do
-      transient do
-        roles %w(junior company admin)
-      end
+    trait :junior do
+      roles ['junior']
+    end
 
-      after(:build) do |user, evaluator|
-        user.roles = evaluator.roles
-      end
+    trait :company do
+      roles ['company']
+    end
+
+    trait :admin do
+      roles ['admin']
     end
   end
 end
