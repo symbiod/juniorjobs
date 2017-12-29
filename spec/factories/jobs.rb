@@ -18,5 +18,9 @@ FactoryBot.define do
                   Знакомство с SQL;
                   BDD тестирование"
     condition ' Чай печеньки'
+
+    trait :invalid do
+      description nil
+    end
   end
 end
