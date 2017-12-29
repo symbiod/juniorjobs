@@ -30,10 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  Subscribe: "Subscribe"
-  Succesfully_subscribed_with: "Succesfully subscribed with %{email}."
-  Email: "Email: "
-  Enter_email: "Enter email"
+  home: 'Home'
+  subscribe: "Subscribe"
+  succesfully_subscribed_with: "Succesfully subscribed with %{email}."
+  email: "Email: "
+  enter_email: "Enter email"
   activerecord:
     errors:
       models:

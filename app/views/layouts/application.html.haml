@@ -10,7 +10,7 @@
     .container
       %nav.navbar.navbar-expand-sm.navbar-dark.bg-primary
         %ul.navbar-nav
-          %nav.item= link_to t(:Home), root_path, class: 'nav-link'
+          %nav.item= link_to t(:home), root_path, class: 'nav-link'
           - unless current_user&.subscription == true
             %li= render'subscriptions/new'
       %p.notice= notice
