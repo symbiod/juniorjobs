@@ -15,6 +15,27 @@ ActiveRecord::Schema.define(version: 20171227173831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "jobs", force: :cascade do |t|
+    t.boolean "status"
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "employment_type", null: false
+    t.string "country"
+    t.string "city"
+    t.boolean "remote"
+    t.string "currency"
+    t.integer "salary_from"
+    t.integer "salary_to"
+    t.boolean "salary_by_agreement"
+    t.text "tasks", null: false
+    t.text "requirements", null: false
+    t.text "condition", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
