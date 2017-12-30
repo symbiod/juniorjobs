@@ -18,10 +18,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Main
 gem 'clockwork'
+gem 'foreman'
 gem 'gibbon'
 gem 'mechanize'
 gem 'meta-tags'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'redis'
 gem 'sidekiq'
 gem 'sorcery'
 

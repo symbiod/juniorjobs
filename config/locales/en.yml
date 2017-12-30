@@ -33,7 +33,7 @@ en:
   home: 'Home'
   subscribe: "Subscribe"
   succesfully_subscribed_with: "Succesfully subscribed with %{email}."
-  email: "Email: "
+  email: "Email:"
   enter_email: "Enter email"
   activerecord:
     errors:

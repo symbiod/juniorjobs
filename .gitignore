@@ -12,6 +12,7 @@
 config/database.yml
 log/
 .byebug_history
+dump.rdb
 
 # Used by dotenv library to load environment variables.
 # .env

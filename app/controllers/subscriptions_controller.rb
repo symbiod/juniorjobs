@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :load_recource, only: :destroy
+  before_action :load_resource, only: :destroy
 
   def new
     @subscription = Subscription.new
@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     if @subscription.save
-      flash[:notice] = t(:succesfully_subscribed_with, email: @subscription.email) 
+      flash[:notice] = t(:succesfully_subscribed_with, email: @subscription.email)
     else
       flash[:notice] = "#{t(:email)} #{@subscription.errors.messages[:email].join(', ')}."
     end
@@ -21,7 +21,7 @@ class SubscriptionsController < ApplicationController
 
   private
 
-  def load_recource
+  def load_resource
     @subscription = Subscription.find(params[:id])
   end
 
