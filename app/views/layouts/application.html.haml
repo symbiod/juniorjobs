@@ -1,10 +1,14 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }
     %title JuniorjobsRu
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    = yield
+    = stylesheet_link_tag 'application', media: 'all'
+
+  %body.l-body
+    .l-flashes
+    .l-header
+    .l-content= yield
+    .l-footer
+      = javascript_include_tag 'application'
