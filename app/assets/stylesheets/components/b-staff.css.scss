@@ -1,0 +1,12 @@
+@import "global/settings";
+
+.b-staff {
+  .sign-in {
+    margin: $gutter auto;
+    padding: $gutter;
+    border: 1px solid $c-light-gray;
+    position: relative;
+    max-width: 450px;
+
+  }
+}

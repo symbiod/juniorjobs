@@ -1,15 +1,6 @@
 @import 'global/settings';
 
-.l-body {
-  > .l-flashes {
-  }
-
-  > .l-header {
-  }
-
-  > .l-content {
-  }
-
-  > .l-footer {
-  }
+.l-page {
+  font-family: $font-family-fira-sans;
+  font-size: $font-size;
 }

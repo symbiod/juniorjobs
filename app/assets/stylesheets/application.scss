@@ -1,2 +1,21 @@
-@import 'patternfly';
-@import 'views/l-body';
+@charset "utf-8";
+
+//= require theme
+//= require_tree ./overloads
+//= require_tree ./components
+//= require_tree ./views
+
+@import "global/settings";
+
+.role {
+  font-family: $font-family-passion-one;
+  height: 74px;
+  line-height: 74px;
+  font-size: 42px;
+  color: $c-white !important;
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    display: block;
+    text-align: center;
+  }
+}

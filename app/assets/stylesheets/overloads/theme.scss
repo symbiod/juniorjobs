@@ -1,0 +1,23 @@
+@import 'global/settings';
+
+@mixin flip {
+  -webkit-transform:scaleX(-1);
+  -moz-transform:scaleX(-1);
+  -ms-transform:scaleX(-1);
+  -o-transform:scaleX(-1);
+  transform:scaleX(-1)
+}
+
+.page-404 {
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+
+
+.text-align-center {
+  text-align: center !important;
+}
+
+.text-transform-uppercase {
+  text-transform: uppercase !important;
+}

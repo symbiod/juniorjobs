@@ -1,0 +1,8 @@
+ru:
+  views:
+    footer:
+      copyright: "© 2017 - %{year} Все права защищены" #, ООО КакМеняНанять"
+    headers:
+      contact_us: "Контакты"
+      terms: "Условия использования"
+      about: "О проекте"

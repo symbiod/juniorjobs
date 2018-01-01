@@ -32,6 +32,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
 gem 'patternfly-sass'
 
 # Frontend:helpers

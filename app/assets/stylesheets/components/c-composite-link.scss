@@ -1,0 +1,10 @@
+@import "global/settings";
+
+.c-composite-link {
+  font-family: $font-family-fira-sans !important;
+
+  > i.fa {
+    margin-right: 10px !important;
+    font-size: larger;
+  }
+}
