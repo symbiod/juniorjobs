@@ -1,3 +1,4 @@
+require 'clockwork'
 require 'sidekiq'
 include Clockwork
 
