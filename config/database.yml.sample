@@ -1,0 +1,18 @@
+settings: &settings
+  adapter: postgresql
+  encoding: utf8
+  min_messages: warning
+
+development:
+  <<: *settings
+  database: juniorjobs
+  user: postgres
+  password: root
+  host: 127.0.0.1
+
+test:
+  <<: *settings
+  database: juniorjobs
+  user: postgres
+  password: root
+  host: 127.0.0.1

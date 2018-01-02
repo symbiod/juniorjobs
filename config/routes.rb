@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # get '/robots.txt', to: 'seo#robots'
+  # get '/sitemap.xml', to: 'seo#sitemap', format: 'xml'
+
+  scope module: :web do
+    root 'welcome#index'
+
+    get '/about', to: 'static_pages#about'
+    get '/terms', to: 'static_pages#terms'
+    get '/contact_us', to: 'static_pages#contact_us'
+  end
 end
