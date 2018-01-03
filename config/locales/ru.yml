@@ -1,1 +1,32 @@
 ru:
+  web:
+    jobs:
+      new:
+        title: 'Создание новой вакансии'
+      form:
+        label: 'Заполните следующие поля:'
+        title: 'Название'
+        description: 'Описание'
+        tasks: 'Задачи'
+        requirements: 'Требования'
+        condition: 'Условия'
+        employment_type: 'Тип занятости'
+        country: 'Страна'
+        city: 'Город'
+        salary: 'Зарплата'
+        currency: 'Валюта'
+        salary_from: 'От'
+        salary_to: 'До'
+        salary_by_agreement: 'Зарплата по договоренности?'
+        button: 'Сохранить'
+        remote: 'Удаленная работа?'
+      create:
+        success: 'Новая вакансия успешно добавлена'
+        fail: 'Вакансия не сохранена: %{error}'
+      show:
+        location: 'Местоположение'
+        salary: 'Зарплата'
+        employment_type: 'Тип занятости'
+    helpers:
+      jobs:
+        salary_by_agreement: 'Зарплата по договоренности'

@@ -8,5 +8,5 @@ class Job < ApplicationRecord
             :requirements, :condition, presence: true
   validates :salary_from, :salary_to, numericality: { only_integer: true },
                                       allow_blank: true
-  belongs_to :user
+  belongs_to :user, optional: true
 end

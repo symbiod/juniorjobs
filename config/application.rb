@@ -39,5 +39,15 @@ module JuniorjobsRu
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
+
+    config.generators do |g|
+      g.test_framework :rspec,
+                        view_spec:false,
+                        helper_specs: false,
+                        routing_specs: false,
+                        request_specs: false,
+                        controller_spec: true
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+    end
   end
 end

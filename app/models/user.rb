@@ -4,6 +4,8 @@ class User < ApplicationRecord
   VALID_ROLES = %w[junior company admin].freeze
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
 
+  has_many :jobs
+
   validates :password, confirmation: true, presence: true,
                        length: { minimum: 6 }
 
