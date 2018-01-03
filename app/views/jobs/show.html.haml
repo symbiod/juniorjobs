@@ -1,0 +1,31 @@
+.row
+  %h1
+    = @job.title
+  .col-md-4
+    %dl
+      %dt
+        Местоположение
+      %dd
+        = location(@job)
+  .col-md-4
+    %dl
+      %dt
+        Зарплата
+      %dd
+        = salary(@job)
+  .col-md-4
+    %dl
+      %dt
+        Тип занятости
+      %dd
+        = @job.employment_type
+
+  %blockquote.blockquote-2
+    = @job.description
+  %blockquote.blockquote
+    %p
+      = @job.tasks
+    %p
+      = @job.requirements
+    %p
+      = @job.condition

@@ -36,6 +36,7 @@ gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
 gem 'patternfly-sass'
 
 # Frontend:helpers
+gem 'country_select'
 gem 'kaminari'
 gem 'simple_form'
 

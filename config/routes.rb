@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
   end
+
+  resources :jobs
 end
