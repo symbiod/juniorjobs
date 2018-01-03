@@ -4,19 +4,19 @@
   .col-md-4
     %dl
       %dt
-        Местоположение
+        = t('.location')
       %dd
         = location(@job)
   .col-md-4
     %dl
       %dt
-        Зарплата
+        = t('.salary')
       %dd
         = salary(@job)
   .col-md-4
     %dl
       %dt
-        Тип занятости
+        = t('.employment_type')
       %dd
         = @job.employment_type
 

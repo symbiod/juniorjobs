@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe JobsController, type: :controller do
+RSpec.describe Web::JobsController, type: :controller do
   describe 'POST #create' do
     context 'with valid attributes and registered user' do
       let(:user) { create(:user, :company) }
-      subject { post 'create', params: { job: attributes_for(:job).merge(user_id: user) }}
+      before { login_user(user) }
+      subject { post 'create', params: { job: attributes_for(:job) }}
 
       it 'saves the new job to database' do
         expect { subject }.to change(Job.all, :count).by(1)

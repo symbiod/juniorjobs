@@ -10,7 +10,7 @@ module JobsHelper
 
   def salary(job)
     if job.salary_by_agreement
-      t('helpers.jobs.salary_by_agreement')
+      t('web.helpers.jobs.salary_by_agreement')
     else
       salary_range = [job.salary_from, job.salary_to].compact.map { |salary| number_with_delimiter(salary) }
       salary_range.join(' - ') + " #{@job.currency}"
