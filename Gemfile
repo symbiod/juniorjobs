@@ -20,6 +20,7 @@ gem 'mechanize'
 gem 'meta-tags'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sorcery'
+gem 'i18n-tasks', '~> 0.9.19'
 
 # Jobs
 gem 'sidekiq'

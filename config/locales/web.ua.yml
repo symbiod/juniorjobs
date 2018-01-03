@@ -1,5 +1,5 @@
 ---
-ru:
+ua:
   views:
     about:
       code: Исходный код проекта на
@@ -8,14 +8,14 @@ ru:
       moderation: Для поддержания качества контента, публикуемые вакансии проходят предварительную проверку на соответствие тематике проекта.
     contacts:
       email: 'Электронная почта: juniorjobs.email@gmail.com'
-      telegram: 'Telegram: https://t.me/juniorjobs_ru'
+      telegram: 'Telegram: https://t.me/juniorjobs_com_ua'
       text: Если у Вас есть вопросы или предложения сотрудничества, пишите или звоните. Мы отвеаем очень быстро и всегда открыты новых идей.
-      twitter: 'Twitter: @juniorjobsru'
+      twitter: 'Twitter: @juniorjobscomua'
     footer:
       copyright: "© 2017 - %{year} Все права защищены"
-      facebook: https://www.facebook.com/juniorjobsru-1186070264856936/
+      facebook: https://www.facebook.com/juniorjobscomua-1533154526805521/
       supported_by: При поддержке
-      twitter: https://twitter.com/juniorjobsru
+      twitter: https://twitter.com/juniorjobscomua
     headers:
       about: О проекте
       contact_us: Контакты
@@ -24,4 +24,4 @@ ru:
       author: Автор этого сайта не несет никакой ответственности в отношении предоставляемой посетителями информации.
       free: Вакансии публикуются бесплатно. Размещаемая информация передается без изменений и принадлежит ее авторам.
       moderation: Для поддержания качества контента, публикуемые вакансии проходят предварительную проверку на соответствие тематике проекта.
-      not_allowed: Недопускается к публикации любая информация, которая может привести к нарушению законов Российский Федерации или любой другой страны.
+      not_allowed: Недопускается к публикации любая информация, которая может привести к нарушению законов Республики Украина или любой другой страны.
