@@ -1,0 +1,3 @@
+= simple_form_for :subscription, url: subscription_path, wrapper: :inline_form, html: { class: 'form-inline' } do |form|
+  = form.input :email, placeholder: t(:enter_email)
+  = form.button :submit, t(:subscribe), class: "btn btn-primary"

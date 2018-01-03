@@ -30,3 +30,16 @@ ru:
     helpers:
       jobs:
         salary_by_agreement: 'Зарплата по договоренности'
+  subscribe: "Подписаться"
+  succesfully_subscribed_with: "Успешно подписан как: %{email}."
+  email: "Email: "
+  enter_email: "Введите email"
+  activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            email:
+              blank: "не может быть пустым"
+              invalid: "невалидный"
+              taken: "уже используется"

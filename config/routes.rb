@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
     resources :jobs
   end
+  resource :subscription, only: [:new, :create, :destroy]
 end
