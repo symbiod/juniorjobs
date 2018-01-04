@@ -1,3 +1,4 @@
+<<<<<<< a2a9e9dc4b590ce2a918a5e2f771475e58ac4520
 # frozen_string_literal: true
 
 # Service for start all publish workers
@@ -9,3 +10,6 @@ class SocialWebPosterService
     TwitterWorker.perform_async(job_id)
   end
 end
+=======
+class SocialWebsPoster
+>>>>>>> wall post  vk
