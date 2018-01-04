@@ -17,6 +17,7 @@ config/gibbon.env
 config/mailchimp.env
 config/redis.env
 dump.rdb
+.generators
 
 ## Specific to RubyMotion:
 .dat*

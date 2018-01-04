@@ -23,7 +23,6 @@ gem 'sorcery'
 
 # Jobs
 gem 'sidekiq'
-gem 'redis'
 
 # Cron
 gem 'clockwork'

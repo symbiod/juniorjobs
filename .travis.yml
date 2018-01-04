@@ -14,5 +14,3 @@ before_install:
   - gem update --system
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
-
-

@@ -420,7 +420,6 @@ DEPENDENCIES
   rails (~> 5.1.4)
   rails-controller-testing
   ransack!
-  redis
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
