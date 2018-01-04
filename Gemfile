@@ -39,6 +39,7 @@ gem 'i18n-tasks', '~> 0.9.19'
 
 
 gem 'vkontakte_api', '~> 1.4'
+gem 'koala'
 
 
 # Jobs
