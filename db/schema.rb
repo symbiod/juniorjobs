@@ -27,12 +27,16 @@ ActiveRecord::Schema.define(version: 20180103150815) do
     t.integer "salary_from"
     t.integer "salary_to"
     t.boolean "salary_by_agreement"
-    t.text "tasks", null: false
     t.text "requirements", null: false
-    t.text "condition", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.string "company_email"
+    t.string "company_contact"
+    t.string "company_page"
+    t.string "company_phone"
+    t.datetime "expired_at", null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 

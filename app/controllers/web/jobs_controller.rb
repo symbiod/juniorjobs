@@ -10,8 +10,9 @@ module Web
 
     def create
       @job = current_user ? current_user.jobs.build(job_params) : Job.new(job_params)
+
       if @job.save
-        redirect_to job_path(@job), notice: t('.success')
+        redirect_to job_path(@job), notice: t('common.jobs.create.success')
       else
         render :new
       end
@@ -28,6 +29,7 @@ module Web
         :status,
         :title,
         :description,
+        :requirements,
         :employment_type,
         :country,
         :city,
@@ -36,9 +38,12 @@ module Web
         :salary_from,
         :salary_to,
         :salary_by_agreement,
-        :tasks,
-        :requirements,
-        :condition
+        :company_contact,
+        :company_email,
+        :company_name,
+        :company_page,
+        :company_phone,
+        :expired_at,
       )
     end
   end

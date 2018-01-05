@@ -1,0 +1,27 @@
+- if @jobs_published_today.any?
+  .row.mt20
+    .col-sm-12
+      %h3.title Последние
+      - @jobs_published_today.each do |job|
+        = render 'job', job: job
+
+- if @jobs_published_yesterday.any?
+  .row.mt20
+    .col-sm-12
+      %h3 Вчера
+      - @jobs_published_yesterday.each do |job|
+        = render 'job', job: job
+
+- if @jobs_published_last_week.any?
+  .row.mt20
+    .col-sm-12
+      %h3 За неделю
+      - @jobs_published_last_week.each do |job|
+        = render 'job', job: job
+
+- if @jobs_published_last_month.any?
+  .row.mt20
+    .col-sm-12
+      %h3 За месяц
+      - @jobs_published_last_month.each do |job|
+        = render 'job', job: job

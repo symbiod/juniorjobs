@@ -129,6 +129,8 @@ GEM
       json
       thread
       thread_safe
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.7.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -418,6 +420,7 @@ DEPENDENCIES
   country_select
   cucumber-rails
   database_cleaner
+  enum_help
   factory_bot_rails (~> 4.0)
   foreman
   gibbon

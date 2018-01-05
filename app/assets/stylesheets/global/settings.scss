@@ -11,13 +11,14 @@ $gutter: 20px;
 // Forms
 
 // Colors
-$c-white: white;
-$c-blue: #428bca;
-$c-gray: #707080;
-$c-light-gray: #e1e1e1;
-
 $c-alert: #ff9800;
 $c-error: #d9534f;
 $c-notice: #2196F3;
 $c-success: #5cb85c;
+
+$c-white: white;
+$c-blue: #428bca;
+$c-gray: #707080;
+$c-light-gray: #e1e1e1;
+$c-green: $c-success;
 

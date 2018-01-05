@@ -6,12 +6,8 @@ class User < ApplicationRecord
 
   has_many :jobs
 
-  validates :password, confirmation: true, presence: true,
-                       length: { minimum: 6 }
-
-  validates :email, uniqueness: true, presence: true,
-                    format: { with: EMAIL_REGEX }
-
+  validates :password, confirmation: true, presence: true, length: { minimum: 6 }
+  validates :email, uniqueness: true, presence: true, format: { with: EMAIL_REGEX }
   validates :roles, presence: true
   validate :roles_value, if: :roles_present?
 

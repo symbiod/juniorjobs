@@ -20,6 +20,7 @@ module JuniorjobsRu
 
     config.autoload_paths += %W[
       #{config.root}/app/utilities
+      #{config.root}/app/scopes
     ]
 
     config.assets.quiet = true

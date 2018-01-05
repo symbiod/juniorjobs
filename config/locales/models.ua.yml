@@ -1,0 +1,32 @@
+---
+ua:
+  activerecord:
+    attributes:
+      job:
+        city: Город
+        company_contact: Контакт
+        company_email: Почта
+        company_name: Название компании
+        company_page: Страница компании
+        company_phone: Телефон
+        currencies:
+          byn: BYN
+          rub: RYB
+          uah: UAH
+          usd: USD
+        description: Описание проекта
+        employment_types:
+          contract: Контракт (Временная)
+          full: Полная занятость
+          internal: Стажировка
+          part: Частичная занятость
+        expired_ats:
+          month: На месяц - до %{date}
+          week: На неделю - до %{date}
+          weeks: На 2 недели - до %{date}
+        remote: Возможна удаленная работа
+        requirements: Требования
+        salary_by_agreement: По договоренности
+        salary_from: Зарплата от
+        salary_to: Зарплата до
+        title: Название вакансия

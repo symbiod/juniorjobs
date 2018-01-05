@@ -1,5 +1,11 @@
 ---
 ru:
+  common:
+    create: Создать
+    jobs:
+      create:
+        fail: 'Вакансия не сохранена: %{error}'
+        success: Новая вакансия успешно добавлена
   views:
     about:
       code: Исходный код проекта на
