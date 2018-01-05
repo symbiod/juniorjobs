@@ -13,6 +13,11 @@ config/database.yml
 /log/
 # Used by dotenv library to load environment variables.
 # .env
+config/gibbon.env
+config/mailchimp.env
+config/redis.env
+dump.rdb
+.generators
 
 ## Specific to RubyMotion:
 .dat*

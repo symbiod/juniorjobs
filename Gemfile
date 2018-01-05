@@ -14,6 +14,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 
 # Common
+gem 'foreman'
 gem 'gibbon'
 gem 'mechanize'
 gem 'meta-tags'
