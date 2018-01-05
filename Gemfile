@@ -10,6 +10,7 @@ ruby '2.5.0'
 # Rails
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
+gem 'dotenv'
 
 gem 'puma', '~> 3.7'
 
