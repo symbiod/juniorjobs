@@ -1,4 +1,5 @@
 language: ruby
+sudo: true
 
 rvm:
 - 2.5.0
@@ -9,8 +10,17 @@ notifications:
 
 services:
   - postgresql
+  - docker
 
 before_install:
   - gem update --system
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    cp config/database.yml.sample config/database.yml
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+    bin/build-image
+    fi
+
