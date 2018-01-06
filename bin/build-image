@@ -1,0 +1,1 @@
+docker build -t howtohireme/juniorjobs.ru -f Dockerfile .
