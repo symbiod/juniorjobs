@@ -18,7 +18,9 @@ before_install:
   - cp config/database.yml.travis config/database.yml
 
 after_success:
-  - cp config/database.yml.sample config/database.yml
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - bin/build-image
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    cp config/database.yml.sample config/database.yml
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+    bin/build-image
+    fi
 
