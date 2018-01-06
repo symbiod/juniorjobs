@@ -10,6 +10,7 @@ ENV RAILS_ENV production
 
 RUN gem install foreman
 RUN bundle install --deployment --without development test
+RUN cp config/database.yml.sample config/database.yml
 
 RUN rake assets:precompile
 

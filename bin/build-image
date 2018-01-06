@@ -1,1 +1,2 @@
 docker build -t howtohireme/juniorjobs.ru -f Dockerfile .
+docker push howtohireme/juniorjobs.ru
