@@ -1,6 +1,7 @@
 class Job < ApplicationRecord
   belongs_to :user, optional: true
 
+  validates :token, presence: true
   validates :title, length: { minimum: 5, maximum: 50 }
   validates :description, length: { minimum: 10, maximum: 1200 }
   validates :title, :employment, :description, :requirements, presence: true

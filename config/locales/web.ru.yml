@@ -4,9 +4,17 @@ ru:
     submit: Отправить
     jobs:
       create:
+        success: 'Новая вакансия успешно добавлена'
+        incorrect_token: 'Неверный токен'
         fail: 'Вакансия не сохранена: %{error}'
-        success: Новая вакансия успешно добавлена
-    subscribe: Подписаться
+        job_was_created_and_needs_to_review: "Вакансия была создана и нуждается в одобрении."
+        you_may_edit_it_on_this_link: 'Вы можете редактировать ей по ссылке:'
+        you_created_the_job_on_juniorjobs: 'Вы создали вакансию на juniorjobs.'
+        edit_job: 'редактировать вакансию.'
+    subscribe: "Подписаться"
+    succesfully_subscribed_with: "Успешно подписан как: %{email}."
+    email: "Email: "
+    enter_email: "Введите email"    
     success: Выполнено успешно
   views:
     about:

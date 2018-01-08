@@ -56,6 +56,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'watir-rails'
   gem 'rails-controller-testing'
+  gem 'letter_opener'
 end
 
 group :test do

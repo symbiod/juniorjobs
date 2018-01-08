@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      = t('.job_was_created_and_needs_to_review')
+    %p
+      = t('.you_may_edit_it_on_this_link')
+      = link_to t('.edit_job'), edit_job_path(@jop, token: @job.token)
