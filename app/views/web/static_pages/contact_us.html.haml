@@ -1,8 +1,7 @@
 = render 'shared/page_header', header: t('views.headers.contact_us')
 
 %section.section
-  %p Если у Вас есть вопросы или предложения сотрудничества, пишите или звоните. Мы отвеаем очень быстро и всегда открыты новых идей.
-  %p Телефон: + 7 (495) 144-69-86
-  %p Электронная почта: office@howtohireme.ru
-  %p Twitter: @juniorjobsru
-  = render'web/subscriptions/new'
+  %p= t('views.contacts.text')
+  %p= t('views.contacts.email')
+  %p= t('views.contacts.twitter')
+  %p= t('views.contacts.telegram')

@@ -1,12 +1,5 @@
 ---
-ru:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Возникли ошибки: %{errors}'
-        restrict_dependent_destroy:
-          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
-          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+by:
   date:
     abbr_day_names:
     - Вс
@@ -78,9 +71,9 @@ ru:
         one: около %{count} года
         other: около %{count} лет
       almost_x_years:
-        one: почти 1 год
         few: почти %{count} года
         many: почти %{count} лет
+        one: почти 1 год
         other: почти %{count} лет
       half_a_minute: меньше минуты
       less_than_x_minutes:
@@ -113,16 +106,16 @@ ru:
         many: "%{count} месяцев"
         one: "%{count} месяц"
         other: "%{count} месяца"
-      x_years:
-        few: "%{count} года"
-        many: "%{count} лет"
-        one: "%{count} год"
-        other: "%{count} года"
       x_seconds:
         few: "%{count} секунды"
         many: "%{count} секунд"
         one: "%{count} секунду"
         other: "%{count} секунды"
+      x_years:
+        few: "%{count} года"
+        many: "%{count} лет"
+        one: "%{count} год"
+        other: "%{count} года"
     prompts:
       day: День
       hour: Часов
@@ -135,7 +128,6 @@ ru:
     messages:
       accepted: нужно подтвердить
       blank: не может быть пустым
-      present: нужно оставить пустым
       confirmation: не совпадает со значением поля %{attribute}
       empty: не может быть пустым
       equal_to: может иметь лишь значение, равное %{count}
@@ -151,6 +143,8 @@ ru:
       not_a_number: не является числом
       not_an_integer: не является целым числом
       odd: может иметь лишь четное значение
+      other_than: должно отличаться от %{count}
+      present: нужно оставить пустым
       required: не может отсутствовать
       taken: уже существует
       too_long:
@@ -168,7 +162,6 @@ ru:
         many: неверной длины (может быть длиной ровно %{count} символов)
         one: неверной длины (может быть длиной ровно %{count} символ)
         other: неверной длины (может быть длиной ровно %{count} символа)
-      other_than: должно отличаться от %{count}
     template:
       body: 'Проблемы возникли со следующими полями:'
       header:
@@ -265,3 +258,7 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  subscribe: "Подписаться"
+  succesfully_subscribed_with: "Успешно подписан как: %{email}."
+  email: "Email: "
+  enter_email: "Введите email"

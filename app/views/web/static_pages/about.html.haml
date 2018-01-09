@@ -1,7 +1,9 @@
 = render 'shared/page_header', header: t('views.headers.about')
 
 %section.section
-  %p JuniorJob.ru является некоммерческим проектом. Его основная цель - поддержка сообщества молодых разработчиков.
-  %p Вакансии публикуются бесплатно. Размещаемая информация передается без изменений и принадлежит ее авторам.
-  %p Для поддержания качества контента, публикуемые вакансии проходят предварительную проверку на соответствие тематике проекта.
-  %p Исходный код проекта на #{link_to 'Github', 'https://github.com/howtohireme/juniorjobs.ru'}
+  %p= t('views.about.mission')
+  %p= t('views.about.free')
+  %p= t('views.about.moderation')
+  %p
+    = t('views.about.code')
+    = link_to 'Github', 'https://github.com/howtohireme/juniorjobs.ru'

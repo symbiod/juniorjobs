@@ -10,6 +10,7 @@ ruby '2.5.0'
 # Rails
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
+gem 'dotenv'
 
 gem 'puma', '~> 3.7'
 
@@ -20,6 +21,7 @@ gem 'mechanize'
 gem 'meta-tags'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sorcery'
+gem 'i18n-tasks', '~> 0.9.19'
 
 # Jobs
 gem 'sidekiq'
@@ -40,6 +42,7 @@ gem 'patternfly-sass'
 gem 'country_select'
 gem 'kaminari'
 gem 'simple_form'
+gem 'enum_help'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
