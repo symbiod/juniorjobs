@@ -53,7 +53,6 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.0'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', '~> 3.1'
   gem 'watir-rails'
   gem 'rails-controller-testing'
   gem 'letter_opener'
