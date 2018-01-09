@@ -15,7 +15,7 @@ by:
           uah: UAH
           usd: USD
         description: Описание проекта
-        employment_types:
+        employments:
           contract: Контракт (Временная)
           full: Полная занятость
           internal: Стажировка
@@ -30,3 +30,5 @@ by:
         salary_from: Зарплата от
         salary_to: Зарплата до
         title: Название вакансия
+      subscription:
+        email: Введите почту, чтоб подписаться на рассылку с новыми вакансиями

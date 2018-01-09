@@ -5,41 +5,44 @@ RSpec.describe Subscription, type: :model do
 
   describe 'try to create subscription with invalid email' do
     let(:subscription_invalid) { build(:guest_subscription, email: 'qwerty') }
-    it 'show is invalid error' do
-      subscription_invalid.valid?
-      expect(subscription_invalid.errors[:email]).to include I18n.t('activerecord.errors.models.subscription.attributes.email.invalid')
-    end
+
+    before { subscription_invalid.valid? }
+
+    subject {subscription_invalid.errors[:email] }
+
+    it { is_expected.to include I18n.t('errors.subscription.attributes.email.invalid') }
   end
   
   describe 'try to create subscription with blank email' do
     let(:subscription_blank) { build(:guest_subscription, email: '') }
-    it "show can't be blank error" do
-      subscription_blank.valid?
-      expect(subscription_blank.errors[:email]).to include I18n.t('activerecord.errors.models.subscription.attributes.email.blank')
-    end
+
+    before { subscription_blank.valid? }
+
+    subject { subscription_blank.errors[:email] }
+
+    it { is_expected.to include I18n.t('errors.subscription.attributes.email.blank') }
   end
 
   describe 'try to create subscription with already taken email' do
-    let!(:subscription) { create(:guest_subscription, email: 'mail@mail.com') }  
+    let!(:subscription) { create(:guest_subscription, email: 'mail@mail.com') }
     let(:duplicate_subscription) { build(:guest_subscription, email: 'mail@mail.com') }
-    it 'show already taken error' do
-      duplicate_subscription.valid?
-      expect(duplicate_subscription.errors[:email]).to include I18n.t('activerecord.errors.models.subscription.attributes.email.taken')
-    end
+
+    before { duplicate_subscription.valid? }
+
+    subject { duplicate_subscription.errors[:email] }
+
+    it { is_expected.to include I18n.t('errors.subscription.attributes.email.taken') }
   end
 
   describe 'registered user can to subscribe and unsubscribe' do
-    let!(:subscription) { create(:user_subscription, email: 'mail@mail.com') }
-    
-    it "user subscribe" do
-      subscription.valid?
-      expect(subscription.user_id).to_not eq nil
-    end
+    let(:email) { 'mail@mail.com' }
+    let(:subscription) { create(:user_subscription, email: email) }
 
-    it "user unsubscribe" do
-      subscription.destroy
-      expect(Subscription.first).to eq nil
-    end
+    before { subscription.destroy }
+
+    subject { Subscription.find_by(email: email) }
+
+    it { is_expected.to be_falsey }
   end
 
   describe 'create subscription with right email' do

@@ -3,12 +3,12 @@ class Job < ApplicationRecord
 
   validates :title, length: { minimum: 5, maximum: 50 }
   validates :description, length: { minimum: 10, maximum: 1200 }
-  validates :title, :employment_type, :description, :requirements, presence: true
+  validates :title, :employment, :description, :requirements, presence: true
   validates :company_name, :company_contact, :company_email, presence: true
   validates :salary_from, :salary_to, numericality: { only_integer: true }, allow_blank: true
 
-  enum employment_type: %w[full part contract internal]
-  enum currency: %w[rub usd byn uah]
+  enum employments: { full: 0, part: 1, contract: 2, internal: 3 }
+  enum currency: { rub: 0, usd: 1, byn: 2, uah: 3 }
 
   scope :published_today, Jobs::Published::TodayScope
   scope :published_yesterday, Jobs::Published::YesterdayScope

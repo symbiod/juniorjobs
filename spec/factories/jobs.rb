@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :job do
     title 'Разработчик'
-    employment_type 'full'
+    employment 'full'
     city  'Москва'
     description 'Штатный программист'
     requirements 'Работать много и пить кофе'

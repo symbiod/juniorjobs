@@ -4,7 +4,7 @@
   .form-group.well
     %h3 Описание Вакансии
     = f.input :title, label: false, placeholder: t('activerecord.attributes.job.title')
-    = f.select :employment_type, Job.employment_types.keys.map { |type| [t("activerecord.attributes.job.employment_types.#{type}"), type] }, { label: false, include_blank: false }, { class: 'form-control' }
+    = f.select :employment, Job.employments.keys.map { |type| [t("activerecord.attributes.job.employments.#{type}"), type] }, { label: false, include_blank: false }, { class: 'form-control' }
     = f.input :description, label: false, placeholder: t('activerecord.attributes.job.description'), input_html: { class: 'form-control mt20', rows: 10 }
     = f.input :requirements, label: false, placeholder: t('activerecord.attributes.job.requirements'), input_html: { class: 'form-control', rows: 20  }
 
@@ -46,5 +46,4 @@
       = 'Публикуя, вакансию вы соглашаетесь с'
       = link_to 'Условями работы сервиса', terms_path, class: ''
 
-  = f.button :submit, t('common.create'), style: 'color: white; background-color: #5cb85c; font-size: 28px;'
-
+  = f.button :submit, t('common.submit'), style: 'color: white; background-color: #5cb85c;'

@@ -1,11 +1,13 @@
 ---
 by:
   common:
-    create: Создать
+    submit: Отправить
     jobs:
       create:
         fail: 'Вакансия не сохранена: %{error}'
         success: Новая вакансия успешно добавлена
+    subscribe: Подписаться
+    success: Выполнено успешно
   views:
     about:
       code: Исходный код проекта на

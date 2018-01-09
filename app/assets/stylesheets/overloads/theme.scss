@@ -29,3 +29,39 @@
 .text-transform-uppercase {
   text-transform: uppercase !important;
 }
+
+.subscription {
+  margin-top: 30px;
+  border: none;
+  background-color: $c-green;
+
+  .form {
+    width: auto !important;
+
+    .form-group {
+      margin: 0;
+
+      .submit {
+        padding: 7px !important;
+      }
+    }
+  }
+}
+
+.form-group {
+  &.with-checkbox {
+    margin: 0;
+    padding-top: 7px;
+
+    input[type="checkbox"] {
+       display: inline-block;
+       margin: 0;
+    }
+
+    label {
+       display: inline-block;
+       margin: 0;
+       padding-left: 10px;
+     }
+  }
+}

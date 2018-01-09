@@ -1,3 +1,6 @@
-= simple_form_for :subscription, url: subscription_path, wrapper: :inline_form, html: { class: 'form-inline' } do |form|
-  = form.input :email, placeholder: t(:enter_email)
-  = form.button :submit, t(:subscribe), class: "btn btn-primary"
+.well.subscription
+  = simple_form_for :subscription, url: subscription_path, html: { class: 'row form' } do |f|
+    .col-sm-9
+      = f.input :email, label: false, placeholder: t('activerecord.attributes.subscription.email'), class: ''
+    .col-sm-3
+      = f.submit t('common.subscribe'), class: 'submit'
