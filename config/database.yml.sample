@@ -22,4 +22,4 @@ production:
   database: juniorjobs_production
   user: postgres
   password: root
-  host: 127.0.0.1
+  host: postgres
