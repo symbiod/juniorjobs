@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :job do
+    status false
     title 'Разработчик'
     employment 'full'
     city  'Москва'
@@ -14,6 +15,10 @@ FactoryBot.define do
 
     trait :invalid do
       description nil
+    end
+
+    trait :wrong_token do
+      token nil
     end
   end
 end

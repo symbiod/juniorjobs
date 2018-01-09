@@ -11,25 +11,30 @@ module Web
     def create
       @job = CreateJob.new.call(current_user, job_params)
       if @job
-        redirect_to job_path(@job), notice: t('.success')
+        redirect_to job_path(@job), notice: t('common.jobs.create.success')
+      else
+        render :new, alert: t('common.jobs.create.fail')
+      end
+    end
+
+    def edit
+      check_token
+    end
+
+    def update
+      check_token
+      if @job.update(job_params.merge(status: false))
+        redirect_to job_path(@job), notice: t('common.jobs.update.success')
       else
         redirect_to edit_job_path(@job), alert: t('common.jobs.create.fail', @job.error.messages)
       end
     end
 
-    def edit
-      redirect_to job_path, notice: t('.incorrect_token') if @job.token != params[:token]
-    end
-
-    def update
-      if @job.update(job_params)
-        redirect_to job_path(@job), notice: t('.success')
-      else
-        render :edit
-      end
-    end
-
     private
+
+    def check_token
+      redirect_to @job, notice: t('common.jobs.update.incorrect_token') if @job.token != params[:token]
+    end
 
     def load_job
       @job = Job.find(params[:id])
@@ -37,6 +42,7 @@ module Web
 
     def job_params
       params.require(:job).permit(
+        :status,
         :title,
         :description,
         :requirements,
