@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
 
   VALID_ROLES = %w[junior company admin].freeze
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/

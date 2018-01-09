@@ -45,3 +45,4 @@ ru:
       login: "Войти"
       signup: "Зарегистрироваться"
       edit_user: "Изменить профиль"
+      github_login: "Войти через Github"
