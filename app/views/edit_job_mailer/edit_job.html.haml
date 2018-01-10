@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      = t('common.jobs.create.you_created_the_job_on_juniorjobs')
+    %p
+      = t('common.jobs.create.you_may_edit_it_on_this_link')
+      = link_to t('common.jobs.create.edit_job'), edit_job_path(@jop, token: @job.token)

@@ -9,20 +9,22 @@ module Web
     end
 
     def create
-      @job = current_user ? current_user.jobs.build(job_params) : Job.new(job_params)
-
-      if @job.save
+      @job = CreateJob.new.call(current_user, job_params)
+      if @job
         redirect_to job_path(@job), notice: t('common.jobs.create.success')
       else
         render :new, alert: t('common.jobs.create.fail')
       end
     end
 
-    def edit; end
+    def edit
+      check_token
+    end
 
     def update
-      if @job.save
-        redirect_to job_path(@job), notice: t('common.jobs.create.success')
+      check_token
+      if @job.update(job_params.merge(status: false))
+        redirect_to job_path(@job), notice: t('common.jobs.update.success')
       else
         redirect_to edit_job_path(@job), alert: t('common.jobs.create.fail', @job.error.messages)
       end
@@ -30,12 +32,17 @@ module Web
 
     private
 
+    def check_token
+      redirect_to @job, notice: t('common.jobs.update.incorrect_token') if @job.token != params[:token]
+    end
+
     def load_job
       @job = Job.find(params[:id])
     end
 
     def job_params
       params.require(:job).permit(
+        :status,
         :title,
         :description,
         :requirements,
@@ -52,7 +59,8 @@ module Web
         :company_name,
         :company_page,
         :company_phone,
-        :expired_at
+        :expired_at,
+        :token
       )
     end
   end

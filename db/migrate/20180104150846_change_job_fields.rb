@@ -2,7 +2,6 @@ class ChangeJobFields < ActiveRecord::Migration[5.1]
   def change
     remove_column :jobs, :tasks, :string
     remove_column :jobs, :condition, :string
-    remove_column :jobs, :status, :boolean
     remove_column :jobs, :employment_type, :string
 
     add_column :jobs, :company_name, :string, null: false
