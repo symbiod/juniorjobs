@@ -1,0 +1,22 @@
+= form_for @user do |f|
+  .form-group
+    = f.email_field :email,
+    placeholder: t('.email'), class: 'form-control', required: true, autofocus: true
+
+  .form-group
+    = f.password_field :password,
+    placeholder: t('.password'), class: 'form-control', required: true, autofocus: true
+
+  .form-group
+    = f.password_field :password_confirmation,
+    placeholder: t('.password_confirmation'), class: 'form-control', required: true, autofocus: true
+
+  .form-check
+    %label= t('.roles_label')
+    = f.collection_radio_buttons :roles, @roles, :itself, :itself,
+    { checked: ['company'], include_hidden: false }, { multiple: true } do |b|
+      .form-check-input
+        = b.radio_button
+        = b.label
+
+  = f.submit t('.save'), class: 'btn btn-default'

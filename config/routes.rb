@@ -14,4 +14,17 @@ Rails.application.routes.draw do
     resources :jobs
     resource :subscription, only: [:new, :create, :destroy]
   end
+
+  scope module: :auth do
+    get '/login', to: 'user_sessions#new', as: :login
+    resources :user_sessions, only: :create
+    post '/logout', to: 'user_sessions#destroy', as: :logout
+
+    resources :users, except: [:new, :index, :show]
+    get '/signup', to: 'users#new', as: :signup
+
+    post 'oauth/callback' => 'oauths#callback'
+    get 'oauth/callback' => 'oauths#callback'
+    get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
+  end
 end

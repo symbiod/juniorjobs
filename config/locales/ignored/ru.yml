@@ -267,3 +267,8 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+
+  subscribe: "Подписаться"
+  succesfully_subscribed_with: "Успешно подписан как: %{email}."
+  email: "Email: "
+  enter_email: "Введите email"
