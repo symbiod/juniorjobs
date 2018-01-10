@@ -1,0 +1,40 @@
+---
+ua:
+  auth:
+    shared:
+      login_alert: 'Сначала нужно войти'
+    user_sessions:
+      form:
+        email: 'Ваша почта'
+        password: 'Пароль'
+        login: 'Войти'
+      create:
+        success: 'Вы вошли как %{email}'
+        alert: 'Неправильные почта и/или пароль'
+      new:
+        login: 'Войти'
+      destroy:
+        logout: 'Вы вышли'
+    users:
+      new:
+        registration_label: 'Зарегистрироваться'
+      edit:
+        edit_user_label: 'Изменить свой профиль'
+        delete_user: 'Удалить свой профиль'
+        delete_user_confirmation: 'Точно хотите удалить свой профиль?'
+      create:
+        signup_success: 'Вы успешно зарегистрировались'
+        signup_fail: 'Возникли следующие ошибки: %{errors}'
+      update:
+        update_success: 'Вы успешно изменили свой профиль'
+        update_fail: 'Возникли следующие ошибки: %{errors}'
+      form:
+        email: 'Ваш email'
+        password: 'Пароль (минимум 6 символов)'
+        password_confirmation: 'Повторите пароль'
+        roles_label: 'Кто вы?'
+        save: 'Сохранить'
+    oauths:
+      callback:
+        notice: 'Вы успешно вошли через %{provider}'
+        alert: 'Возникли следующие ошибки: %{error}'
