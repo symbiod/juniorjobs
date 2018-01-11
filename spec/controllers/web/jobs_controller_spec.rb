@@ -45,4 +45,54 @@ RSpec.describe Web::JobsController, type: :controller do
 
     it { is_expected.to render_template(:show) }
   end
+
+  describe 'PUT #update' do
+    context 'update job with correct token' do
+      let(:user) { create(:user, :company) }
+      let(:job) { create(:job) }
+
+      before do
+        login_user(user)
+        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать') }
+      end
+
+      it 'updates job requirements' do
+        expect(job.reload.requirements).to eq 'Работать'
+      end
+
+      it { is_expected.to redirect_to(job_path(job)) }
+    end
+
+    context 'update job with incorrect token' do
+      let(:user) { create(:user, :company) }
+      let(:job) { create(:job) }
+
+      before do
+        login_user(user)
+        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать', token: 'wrong') }
+      end
+
+      it 'not updates job requirements' do
+        expect(job.reload.requirements).to eq 'Работать много и пить кофе'
+      end
+
+      it { is_expected.to redirect_to(job_path(job)) }
+    end
+
+    context 'update job with invalid attributes' do
+      let(:user) { create(:user, :company) }
+      let(:job) { create(:job) }
+
+      before do
+        login_user(user)
+        put 'update', params: { id: job.id, job: attributes_for(:job, :invalid, requirements: 'Работать') }
+      end
+
+      it 'not updates job' do
+        expect(job.reload.requirements).to eq 'Работать много и пить кофе'
+      end
+
+      it { is_expected.to redirect_to(edit_job_path(job)) }
+    end
+  end
 end

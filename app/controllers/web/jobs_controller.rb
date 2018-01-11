@@ -1,6 +1,7 @@
 module Web
   class JobsController < BaseController
     before_action :load_job, only: %i[show edit update]
+    before_action :check_token, only: %i[edit update]
 
     def show; end
 
@@ -10,30 +11,27 @@ module Web
 
     def create
       @job = CreateJob.new.call(current_user, job_params)
-      if @job
+      if @job.save
         redirect_to job_path(@job), notice: t('common.jobs.create.success')
       else
         render :new, alert: t('common.jobs.create.fail')
       end
     end
 
-    def edit
-      check_token
-    end
+    def edit; end
 
     def update
-      check_token
       if @job.update(job_params.merge(status: false))
         redirect_to job_path(@job), notice: t('common.jobs.update.success')
       else
-        redirect_to edit_job_path(@job), alert: t('common.jobs.create.fail', @job.error.messages)
+        redirect_to edit_job_path(@job), alert: t('common.jobs.create.fail', @job.errors.messages[:description].first)
       end
     end
 
     private
 
     def check_token
-      redirect_to @job, notice: t('common.jobs.update.incorrect_token') if @job.token != params[:token]
+      redirect_to @job, notice: t('common.jobs.update.incorrect_token') if @job.token != params[:job][:token]
     end
 
     def load_job
@@ -42,6 +40,7 @@ module Web
 
     def job_params
       params.require(:job).permit(
+        :id,
         :status,
         :title,
         :description,
