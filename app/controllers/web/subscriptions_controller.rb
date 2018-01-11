@@ -19,7 +19,7 @@ module Web
     private
 
     def subscription_params
-      params.require(:subscription).permit(:email)
+      params.require(:subscription).permit(:email, :active, :user_id)
     end
   end
 end
