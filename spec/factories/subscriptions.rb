@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :subscription do
-    email
+    email 'example@mail.com'
+    active true
 
     trait :with_user do
       user_id 1
