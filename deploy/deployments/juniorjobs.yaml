@@ -17,3 +17,14 @@ spec:
         env:
           - name: REDIS_HOST
             value: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: juniorjobs
+spec:
+  ports:
+  - port: 5000
+  selector:
+    app: juniorjobs
+  clusterIP: None
