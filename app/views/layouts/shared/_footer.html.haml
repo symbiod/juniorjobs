@@ -1,0 +1,14 @@
+.l-footer
+  %footer.footer-wrapper.footer-simple.footer-gray
+    .container
+      .row.col-p30
+        .col-sm-4.text-center
+          %ul.footer-links.clearfix
+            %li.pulled
+              %span= t('views.footer.supported_by')
+              = link_to 'HowToHireMe', 'https://howtohireme.ru', class: 'link'
+        .col-sm-4.clearfix.text-center
+          %ul.footer-social.clearfix.align-center
+            = render 'layouts/shared/links'
+        .col-sm-4.text-center
+          %p.copyright.pt0= t('views.footer.copyright', year: Date.today.year)

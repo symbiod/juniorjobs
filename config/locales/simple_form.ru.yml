@@ -1,0 +1,10 @@
+---
+ru:
+#  simple_form:
+#    error_notification:
+#      default_message: 'Посмотрите проблемы ниже:'
+#    'false': нет
+#    required:
+#      mark: "*"
+#      text: обязательное
+#    'true': Да

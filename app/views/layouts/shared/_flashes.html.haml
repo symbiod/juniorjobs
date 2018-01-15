@@ -1,0 +1,6 @@
+.l-flashes
+  - flashes.each do |type, message|
+    %div{ class:  ['alert', "flash-#{type}", 'js-flashes']}
+      .close{data: {dismiss: 'alert'}}  ×
+      %span.message= message
+

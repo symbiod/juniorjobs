@@ -1,0 +1,8 @@
+= javascript_include_tag :application, async: Rails.env.production?
+
+= yield :javascript
+
+- if Rails.env.test?
+  = javascript_tag do
+    $.fx.off = true;
+    $.ajaxSetup({ async: false });

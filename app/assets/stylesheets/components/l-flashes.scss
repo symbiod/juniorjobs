@@ -1,0 +1,22 @@
+@import 'global/settings';
+
+.l-flashes {
+  > .alert {
+    margin: 0 !important;
+    text-align: center;
+    color: $c-white;
+
+    &.flash-notice {
+      background-color: $c-notice;
+    }
+    &.flash-alert {
+      background-color: $c-alert;
+    }
+    &.flash-error {
+      background-color: $c-error;
+    }
+    &.flash-success {
+      background-color: $c-success;
+    }
+  }
+}

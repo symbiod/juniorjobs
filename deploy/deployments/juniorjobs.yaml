@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: juniorjobs-deployment
+spec:
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: juniorjobs
+    spec:
+      containers:
+      - name: juniorjobs
+        image: howtohireme/juniorjobs.ru:latest
+        ports:
+        - containerPort: 5000
+        env:
+          - name: REDIS_HOST
+            value: redis

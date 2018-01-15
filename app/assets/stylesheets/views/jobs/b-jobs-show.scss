@@ -1,0 +1,18 @@
+@import 'global/settings';
+
+.b-jobs{
+  .job-post-title{
+    h4{
+      font-weight: bold;
+    }
+  }
+  &-cart_company{
+    color: #303030;
+    font-size: 20px;
+  }
+}
+.job-phone{
+  font-size: 20px;
+  font-weight: 100;
+  color: #616161;
+}

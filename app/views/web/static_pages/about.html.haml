@@ -1,0 +1,9 @@
+= render 'shared/page_header', header: t('views.headers.about')
+
+%section.section
+  %p= t('views.about.mission')
+  %p= t('views.about.free')
+  %p= t('views.about.moderation')
+  %p
+    = t('views.about.code')
+    = link_to 'Github', 'https://github.com/howtohireme/juniorjobs.ru'

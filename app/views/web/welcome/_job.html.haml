@@ -1,0 +1,18 @@
+.row.blog-item
+  .col-sm-4.col-md-4.blog-caption
+    %h3.post-title= link_to job.title, job_path(job), style: 'color: #428bca;'
+    .sub-post-title.m0
+      %span
+        - if job.company_page.present?
+          = link_to job.company_name, job.company_page, style: 'color: #428bca;'
+        - else
+          = job.company_name
+      %span
+        - if job.city.present?
+          = "- #{job.city}#{job.remote ? ' / Возможно работать удаленно' : ''}"
+        - elsif job.remote.present?
+          = '- Возможно работать удаленно'
+    .sub-post-title.m0
+      %span= job.created_at.strftime('%d.%m.%Y')
+  .col-sm-8.col-md-8.blog-caption
+    %p= job.description

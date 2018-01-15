@@ -1,0 +1,24 @@
+@import 'global/settings';
+
+.l-footer {
+  font-family: $font-family-fira-sans !important;
+
+  .text-align-center {
+    text-align: center;
+  }
+
+  .pulled {
+    font-size: 13px;
+    margin: 0 0 0 20px;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    > a {
+      &:hover {
+        color: $c-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+%li.drop-down
+  %a{ href: '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown', 'aria-expanded': 'false' }
+    %i.fa.fa-user-circle
+    %span.caret
+  %ul.dropdown-menu
+    - if logged_in?
+      %li
+        = link_to t('views.headers.logout'), :logout, method: :post, class: 'navbar-link pull-right'
+        = link_to t('views.headers.edit_user'), edit_user_path(current_user), class: 'navbar-link pull-right'
+    - else
+      %li= link_to t('views.headers.login'), :login, class: 'navbar-link'
+      %li= link_to t('views.headers.github_login'), auth_at_provider_path(provider: :github), class: 'navbar-link'
+      %li= link_to t('views.headers.signup'), :signup, class: 'navbar-link'
