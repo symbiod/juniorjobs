@@ -2,33 +2,30 @@
   = render 'shared/page_header', header: @job.title
   %hr
   .row.form-group.well
-    .col-sm-3
-      %h4
-        = t("common.jobs.show.type_of_employment")
+    .col-sm-2
+      %h4 Тип занятости
       = t("activerecord.attributes.job.employments.#{@job.employment}")
 
     .col-sm-3
       %h4
-        = t("activerecord.attributes.job.company_name")
+        = t('activerecord.attributes.job.company_name')
       - if @job.company_page.present?
         = link_to @job.company_name, @job.company_page, class: 'b-jobs_company'
       - else
         = @job.company_name
 
     .col-sm-3
-      %h4
-        = t("common.jobs.show.reward")
+      %h4 Вознаграждение
       = t("activerecord.attributes.job.currencies.#{@job.currency}")
       = salary(@job)
 
 
-    .col-sm-3
-      %h4
-        = t("common.jobs.show.location")
+    .col-sm-4
+      %h4 Местонахождение
       - if @job.city.present?
-        = "#{@job.city}#{@job.remote ? +'/'+ t("activerecord.attributes.job.remote") : ''}"
+        = "#{@job.city}#{@job.remote ? +'/'+ t('activerecord.attributes.job.remote') : ''}"
       - elsif @job.remote.present?
-        = t("activerecord.attributes.job.remote")
+        = t('activerecord.attributes.job.remote')
 
 
   %article
@@ -43,22 +40,24 @@
         .clearfix
 
         %h4.job-post-title
-          = t("activerecord.attributes.job.description")
+          = t('activerecord.attributes.job.description')
         %p
           = simple_format(@job.description)
         %hr
         %h4.job-post-title
-          = t("activerecord.attributes.job.requirements")
+          = t('activerecord.attributes.job.requirements')
         %p
           = simple_format(@job.requirements)
 
 
       .col-sm-4.form-group.well.col-md-offset-1
 
-        %h4.b-jobs-cart_company.text-align-center
-          = t("activerecord.attributes.job.company_contact")
+        %h4.b-jobs-cart_company.text-align-center Компания
         %p.text-align-center
-          = @job.company_email
-        %p.text-align-center.job-phone
-          - if @job.company_phone.present?
-            = @job.company_phone
+          =@job.company_name
+        %p.text-align-center
+          =@job.company_email
+        %p.text-align-center
+          =@job.company_page
+        %p.text-align-center.job-phonet
+          =@job.company_phone
