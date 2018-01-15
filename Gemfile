@@ -15,6 +15,7 @@ gem 'dotenv'
 gem 'puma', '~> 3.7'
 
 # Common
+gem 'config'
 gem 'foreman'
 gem 'gibbon'
 gem 'mechanize'
@@ -47,15 +48,17 @@ gem 'enum_help'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'watir-rails'
   gem 'rails-controller-testing'
   gem 'letter_opener'
+  gem 'seed-fu', '~> 2.3'
 end
 
 group :test do
