@@ -58,6 +58,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'letter_opener'
   gem 'testgen'
+  gem 'data_magic'
 end
 
 group :test do
