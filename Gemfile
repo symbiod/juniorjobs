@@ -57,6 +57,7 @@ group :development, :test do
   gem 'watir-rails'
   gem 'rails-controller-testing'
   gem 'letter_opener'
+  gem 'testgen'
 end
 
 group :test do
