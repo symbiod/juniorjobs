@@ -9,7 +9,7 @@ module Web
 
       if @subscription.save
         flash[:notice] = t('common.success')
-      else 
+      else
         flash[:alert] = @subscription.errors.messages[:email].first
       end
 
@@ -19,7 +19,7 @@ module Web
     private
 
     def subscription_params
-      params.require(:subscription).permit(:email)
+      params.require(:subscription).permit(:email, :active, :user_id)
     end
   end
 end

@@ -11,6 +11,7 @@ class Job < ApplicationRecord
   enum employments: { full: 0, part: 1, contract: 2, internal: 3 }
   enum currencies: { rub: 0, usd: 1, byn: 2, uah: 3 }
 
+
   scope :published_today, Jobs::Published::TodayScope
   scope :published_yesterday, Jobs::Published::YesterdayScope
   scope :published_last_week, Jobs::Published::LastWeekScope
