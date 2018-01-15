@@ -5,7 +5,7 @@ module Web
     end
 
     def create
-      @subscription = CreateSubscription.new.call(current_user, params[:email], subscription_params)
+      @subscription = CreateSubscription.new.call(current_user, subscription_params)
 
       if @subscription.save
         flash[:notice] = t('common.success')
@@ -19,7 +19,7 @@ module Web
     private
 
     def subscription_params
-      params.require(:subscription).permit(:email, :active, :user_id)
+      params.require(:subscription).permit(:email, :active)
     end
   end
 end
