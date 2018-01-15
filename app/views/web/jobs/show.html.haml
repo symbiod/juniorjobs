@@ -1,102 +1,63 @@
--#= render 'shared/page_header', header: @job.title
--#%hr
--#.row
--#  .col-sm-2
--#    %h4 Тип занятости
--#    = @job.employment
--#
--#  .col-sm-3
--#    %h4 Компания
--#    - if @job.company_page.present?
--#      = link_to @job.company_name, @job.company_page, style: 'color: #428bca;'
--#    - else
--#      = @job.company_name
--#
--#  .col-sm-3
--#    %h4 Вознаграждение
--#    = salary(@job)
--#
--#
--#  .col-sm-4
--#    %h4 Местонахождение
--#    - if @job.city.present?
--#      = "#{@job.city}#{@job.remote ? ' / Возможно работать удаленно' : ''}"
--#    - elsif @job.remote.present?
--#      = '- Возможно работать удаленно'
--#
--#= @job.inspect
+.b-jobs
+  = render 'shared/page_header', header: @job.title
+  %hr
+  .row.form-group.well
+    .col-sm-2
+      %h4 Тип занятости
+      = t("activerecord.attributes.job.employments.#{@job.employment}")
 
--#%article.blog-post-content
--#  %h3.blog-post-title Ge
--#  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, eos, quam possimus quis id alias dolor laborum incidunt atque dignissimos ea reprehenderit ab. Maiores, praesentium, magnam, distinctio, pariatur repellendus dolore nostrum non voluptatem minus tempora modi voluptatibus voluptas cupiditate optio tempore facilis et consequuntur incidunt nam dolores mollitia explicabo veniam provident suscipit debitis alias assumenda maxime placeat vero asperiores atque sed laborum adipisci. Dolor ipsum quidem et ipsam expedita. Asperiores, blanditiis, adipisci ut corrupti sint deleniti fugiat ea quam vitae quia tempore laudantium. Nulla, quas, quae, obcaecati cum ea optio ipsum eius fugiat aliquid.
--#  .row.mb40.mt40
--#    .col-sm-6
--#      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem veritatis porro rem nesciunt consequatur nisi animi similique facere architecto ab lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, nulla!!
--#      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas alias fugiat eaque magni accusantium explicabo reiciendis quod rerum aliquid, eligendi quidem harum saepe praesentium distinctio ipsam eum voluptate veritatis illum?
--#      .mb30
--#      %h3.title-small.br-bottom Why use that
--#      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id accusamus, corporis consequuntur modi blanditiis, ea molestiae eligendi laboriosam fuga et aliquam sit porro pariatur exercitationem saepe ut harum odit, ipsa libero praesentium itaque voluptate.
--#    .col-sm-6
--#      .blog-post-image
--#        %img{:alt => "Blog post Image", :src => "images/demo/p07.jpg"}/
--#        .blog-image-source
--#          %p.mb0
--#            Image source:  
--#            %a.anchor-1{:href => "#"} shutterstock
--#  %p.mb40 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, itaque, ipsa. Tempora, laborum, itaque, eveniet ex quia eum impedit dolores ipsam numquam nihil nemo voluptates in asperiores facere assumenda tenetur minus natus architecto nesciunt temporibus similique pariatur nulla quae modi fugiat facilis laudantium totam. Nostrum, eum sequi veniam eaque nemo!
--#  %blockquote.blockquote.mb40
--#    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, nihil sed necessitatibus quod saepe modi cupiditate quis deleniti soluta enim voluptas quae sapiente eligendi vitae nulla expedita distinctio earum atque? Dolores, accusamus, blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore nostrum sed mollitia dolorum.
--#    %cite John Doe
--#  %h3.blog-post-title Extensive Documentation and Friendly Support
--#  %p.mb40 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, itaque voluptatem explicabo cupiditate commodi neque. Veritatis et consectetur totam, perferendis maxime labore soluta tenetur. Consequatur accusantium esse, optio, excepturi aspernatur, explicabo eum ullam facilis assumenda vero dicta quas. Ipsa esse consequatur unde sit eum voluptate molestiae facilis ut cum qui.
--#  %h3.blog-post-title Tons of elements and features
--#  .row.mb20
--#    .col-sm-6.col-md-3.xs-box
--#      %ul.unstyled
--#        %li
--#          %i.fa.fa-bar-chart.mr10
--#          \  Charts
--#        %li
--#          %i.fa.fa-camera.mr10
--#          \  Media
--#        %li
--#          %i.fa.fa-twitter.mr10
--#          \  Social Buttons
--#        %li
--#          %i.fa.fa-wordpress.mr10
--#          \  Icons
--#        %li
--#          %i.fa.fa-tasks.mr10
--#          \  Progress Bars
--#        %li
--#          %i.fa.fa-list-ul.mr10
--#          \  Tabs
--#        %li
--#          %i.fa.fa-bell-o.mr10
--#          \  Notifications
--#    .col-sm-6.col-md-3
--#      %ul.unstyled
--#        %li
--#          %i.fa.fa-chevron-right.fs-small.color-main.mr10
--#          \  Maps
--#        %li
--#          %i.fa.fa-chevron-right.fs-small.color-main.mr10
--#          \  Sliders
--#        %li
--#          %i.fa.fa-chevron-right.fs-small.color-main.mr10
--#          \  Tabs
--#        %li
--#          %i.fa.fa-chevron-right.fs-small.color-main.mr10
--#          \  Accordions
--#        %li
--#          %i.fa.fa-chevron-right.fs-small.color-main.mr10
--#          \  Toggles
--#        %li
--#          %i.fa.fa-chevron-right.fs-small.color-main.mr10
--#          \  Popovers
--#        %li
--#          %i.fa.fa-chevron-right.fs-small.color-main.mr10
--#          \  Media embeds
--#  %p.mb40 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, itaque voluptatem explicabo cupiditate commodi neque. Veritatis et consectetur totam, perferendis maxime labore soluta tenetur. Consequatur accusantium esse, optio, excepturi aspernatur, explicabo eum ullam facilis assumenda vero dicta quas. Ipsa esse consequatur unde sit eum voluptate molestiae facilis ut cum qui.
--#  %h3.blog-post-title.br-bottom Conclusion
--#  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, itaque voluptatem explicabo cupiditate commodi neque. Veritatis et consectetur totam, perferendis maxime labore soluta tenetur. Consequatur accusantium esse, optio, excepturi aspernatur.
+    .col-sm-3
+      %h4
+        = t('activerecord.attributes.job.company_name')
+      - if @job.company_page.present?
+        = link_to @job.company_name, @job.company_page, class: 'b-jobs_company'
+      - else
+        = @job.company_name
+
+    .col-sm-3
+      %h4 Вознаграждение
+      = t("activerecord.attributes.job.currencies.#{@job.currency}")
+      = salary(@job)
+
+
+    .col-sm-4
+      %h4 Местонахождение
+      - if @job.city.present?
+        = "#{@job.city}#{@job.remote ? +'/'+ t('activerecord.attributes.job.remote') : ''}"
+      - elsif @job.remote.present?
+        = t('activerecord.attributes.job.remote')
+
+
+  %article
+
+    .row
+      .col-sm-7.form-group.well.jobs-description
+        .b-jobs-name
+          %h1.col-sm-10
+            = @job.company_name
+          %span.col-sm-2
+            = @job.created_at.strftime("%d-%m-%Y")
+        .clearfix
+
+        %h4.job-post-title
+          = t('activerecord.attributes.job.description')
+        %p
+          = simple_format(@job.description)
+        %hr
+        %h4.job-post-title
+          = t('activerecord.attributes.job.requirements')
+        %p
+          = simple_format(@job.requirements)
+
+
+      .col-sm-4.form-group.well.col-md-offset-1
+
+        %h4.b-jobs-cart_company.text-align-center Компания
+        %p.text-align-center
+          =@job.company_name
+        %p.text-align-center
+          =@job.company_email
+        %p.text-align-center
+          =@job.company_page
+        %p.text-align-center.job-phonet
+          =@job.company_phone
