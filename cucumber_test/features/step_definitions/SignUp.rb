@@ -28,6 +28,6 @@ Given(/^I have credentials without email$/) do
 end
 
 And(/^account should not be created and use see signup form$/) do
-  @signup_page.text.include? = true
+  @signup_page.text.include?('Зарегистрироваться')
 
 end
