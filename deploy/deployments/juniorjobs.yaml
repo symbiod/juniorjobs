@@ -15,6 +15,13 @@ spec:
         ports:
         - containerPort: 5000
         env:
+          - name: SECRET_KEY_BASE
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: secret_key_base
+          - name: RAILS_LOG_TO_STDOUT
+            value: 'true'
           - name: REDIS_HOST
             value: redis
 ---
