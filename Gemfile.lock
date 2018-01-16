@@ -445,10 +445,12 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   country_select
   cucumber-rails
+  data_magic
   database_cleaner
   dotenv
   enum_help
   factory_bot_rails (~> 4.0)
+  faker
   foreman
   gibbon
   haml-rails (~> 1.0)
