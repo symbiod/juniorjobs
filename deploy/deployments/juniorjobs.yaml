@@ -24,6 +24,8 @@ spec:
             value: 'true'
           - name: REDIS_HOST
             value: redis
+          - name: RAILS_SERVE_STATIC_FILES
+            value: 'true'
 ---
 apiVersion: v1
 kind: Service
