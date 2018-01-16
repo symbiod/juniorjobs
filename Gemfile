@@ -59,6 +59,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'testgen'
   gem 'data_magic'
+  gem 'faker'
 end
 
 group :test do
