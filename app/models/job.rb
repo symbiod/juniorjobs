@@ -9,7 +9,7 @@ class Job < ApplicationRecord
   validates :salary_from, :salary_to, numericality: { only_integer: true }, allow_blank: true
 
   enum employments: { full: 0, part: 1, contract: 2, internal: 3 }
-  enum currency: { rub: 0, usd: 1, byn: 2, uah: 3 }
+  enum currencies: Settings.currencies
 
   scope :published_today, Jobs::Published::TodayScope
   scope :published_yesterday, Jobs::Published::YesterdayScope
