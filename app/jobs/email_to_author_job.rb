@@ -2,6 +2,6 @@ class EmailToAuthorJob < ApplicationJob
   queue_as :default
 
   def perform(id)
-    EditJobMailer.delay.edit_job_email(id).deliver
+    EditJobMailer.edit_job_email(id).deliver_later
   end
 end
