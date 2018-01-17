@@ -1,3 +1,4 @@
+<<<<<<< ea304cc685661a2037b1304f9108d5214914ce47
 # frozen_string_literal: true
 
 # parent class for workers each social web
@@ -40,4 +41,18 @@ class BaseWorker
       Компания: #{@job.company_name}
       Откликнуться: #{@link}"
   end
+=======
+class BaseWorker
+
+ def set_domain( job_id, post_to)
+    @job = Job.find_by(id: job_id)
+    @token = ENV["#{post_to}_TOKEN_#{@job.country}"]
+    @group_id = ENV["#{post_to}_GROUP_ID_#{@job.country}"]
+    @link = "http://juniorjobs.#{@job.country}/job/#{@job.id}"
+    @message = "Требуется:
+      #{@job.title} (#{@job.city}, от #{@job.salary_from}) \n
+      Компания2222222: #{@job.company_name}
+      Откликнуться: #{@link}"
+   end
+>>>>>>> add twitter
 end

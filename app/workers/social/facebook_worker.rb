@@ -8,9 +8,21 @@ class FacebookWorker < BaseWorker
     load_job(job_id)
     prepare_for('FACEBOOK')
 
+=======
+class FacebookWorker <  BaseWorker
+  include Sidekiq::Worker
+
+  def perform(job_id)
+    set_domain(job_id, post_to='FB')
+>>>>>>> add twitter
     @graph = Koala::Facebook::API.new(@token)
     @graph.put_wall_post(@message,
                          {
                          }, @group_id)
   end
 end
+
+ end
+
+ end
+>>>>>>> add twitter
