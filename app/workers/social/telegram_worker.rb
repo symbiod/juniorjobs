@@ -1,9 +1,9 @@
-class TelegramWorker
+  class TelegramWorker <  BaseWorker
   include Sidekiq::Worker
   require 'telegram/bot'
 
   def perform(job_id)
-    set_domain(job_id)
+    set_domain(job_id,post_to='TELEGRAM')
 
     Telegram::Bot::Client.run(@token) do |bot|
       bot.api.send_message(chat_id: @group_id, text: "#{@job.title} \n
@@ -11,10 +11,5 @@ class TelegramWorker
     end
    end
 
-  def set_domain(job_id)
-    @job = Job.find_by(id: job_id)
-    @token = ENV["TELEGRAM_TOKEN_#{@job.country}"]
-    @group_id = ENV["TELEGRAM_GROUP_ID_#{@job.country}"]
-    @tail = @job.country.downcase
-   end
+
 end

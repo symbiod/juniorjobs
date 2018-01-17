@@ -1,8 +1,9 @@
-class SocialWebsPoster
+class SocialWebPosterService
 
   def post_job(job_id)
-  VkWorker.perform_async(job_id)
-  FbWorker.perform_async(job_id)
+  VkontakteWorker.perform_async(job_id)
+  FacebookWorker.perform_async(job_id)
   TelegramWorker.perform_async(job_id)
+  TwitterWorker.perform_async(job_id)
   end
 end
