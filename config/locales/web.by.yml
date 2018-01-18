@@ -13,7 +13,12 @@ by:
         edit_job: 'редактировать вакансию.'
       update:
         incorrect_token: 'Неверный токен'
-        success: 'Вакансия отредактирована'        
+        success: 'Вакансия отредактирована'
+      show:
+        type_of_employment: Тип занятости
+        reward: Вознаграждение
+        location: Местонахождение
+        company: Компания
     subscribe: Подписаться
     success: Выполнено успешно
   views:
