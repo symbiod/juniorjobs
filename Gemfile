@@ -50,15 +50,17 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'watir', '~> 6.10'
+  gem 'page-object', '~> 2.0'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'watir-rails'
   gem 'rails-controller-testing'
   gem 'letter_opener'
-  gem 'seed-fu', '~> 2.3'
+  gem 'testgen'
+  gem 'data_magic'
+  gem 'faker'
 end
 
 group :test do
