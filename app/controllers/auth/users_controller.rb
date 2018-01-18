@@ -1,6 +1,5 @@
 module Auth
   class UsersController < BaseController
-    UNPERMITTED_ROLES = ['admin']
 
     before_action :load_user, only: %i[edit update destroy]
     before_action :load_roles, only: %i[new edit create update]
@@ -48,7 +47,7 @@ module Auth
     end
 
     def load_roles
-      @roles = User::VALID_ROLES - UNPERMITTED_ROLES
+      @roles = Settings.valid_roles - Settings.unpermitted_roles
     end
   end
 end
