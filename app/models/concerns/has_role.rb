@@ -3,8 +3,6 @@
 module HasRole
   extend ActiveSupport::Concern
 
-  VALID_ROLES = %w[junior company admin].freeze
-
   included do
     validates :roles, presence: true
     validate :roles_value, if: :roles_present?
@@ -14,7 +12,7 @@ module HasRole
 # @param values [Array<String, Symbol>]
   def add_roles(*values)
     values.map(&:to_s).each do |value|
-      roles << value if VALID_ROLES.include?(value) && !has_role?(value)
+      roles << value if Settings.valid_roles.include?(value) && !has_role?(value)
     end
   end
 
@@ -33,7 +31,7 @@ module HasRole
   private
 
   def roles_value
-    invalid_roles = roles - VALID_ROLES
+    invalid_roles = roles - Settings.valid_roles
     invalid_roles.each do |role|
       errors.add(:roles, "#{role} - is not a valid role")
     end
