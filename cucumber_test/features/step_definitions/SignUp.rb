@@ -16,7 +16,6 @@ Then(/^account should be created and user redirect to home page with success msg
 @home_page.text.include?(arg).should == true
 
 
-
 end
 
 Given(/^I have credentials without email$/) do
@@ -29,5 +28,4 @@ end
 
 And(/^account should not be created and use see signup form$/) do
   @signup_page.text.include?('Зарегистрироваться')
-
 end

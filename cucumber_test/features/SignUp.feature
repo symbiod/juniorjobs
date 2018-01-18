@@ -10,7 +10,6 @@ Feature: JuniorJobs sign up
     When I fill the sign up form and submit
     Then account should be created and user redirect to home page with success msg "Вы успешно зарегистрировались"
 
-
   Scenario: Sign up with blank name
     Given I have credentials without email
     When I fill the sign up form and submit
