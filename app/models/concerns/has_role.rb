@@ -13,7 +13,7 @@ module HasRole
   # @param values [Array<String, Symbol>]
   def add_roles(*values)
     values.map(&:to_s).each do |value|
-      roles << value if Settings.valid_roles.include?(value) && !role?(value)
+      roles << value if Settings.valid_roles.include?(value) && !has_role?(value)
     end
   end
 
