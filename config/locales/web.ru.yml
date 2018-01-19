@@ -15,11 +15,9 @@ ru:
         incorrect_token: 'Неверный токен'
         success: 'Вакансия отредактирована'
       show:
-        title: Название вакансии
         type_of_employment: Тип занятости
         reward: Вознаграждение
         location: Местонахождение
-        company: Компания
     subscribe: "Подписаться"
     success: Выполнено успешно
   views:
