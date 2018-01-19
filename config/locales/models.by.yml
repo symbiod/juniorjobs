@@ -21,9 +21,9 @@ by:
           internal: Стажировка
           part: Частичная занятость
         expired_ats:
-          month: На месяц - до %{date}
-          week: На неделю - до %{date}
-          weeks: На 2 недели - до %{date}
+          1_month: На месяц - до %{date}
+          1_week: На неделю - до %{date}
+          2_week: На 2 недели - до %{date}
         remote: Возможна удаленная работа
         requirements: Требования
         salary_by_agreement: По договоренности

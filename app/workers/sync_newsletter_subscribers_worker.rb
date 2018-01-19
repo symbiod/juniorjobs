@@ -8,7 +8,7 @@ class SyncNewsletterSubscribersWorker
   def perform
     offset = 0
     emails = user_emails(offset.to_s)
-    while emails.count > 0
+    while emails.count.positive?
       unsubscribe(emails)
       offset += 500
       emails = user_emails(offset.to_s)
@@ -17,7 +17,8 @@ class SyncNewsletterSubscribersWorker
 
   def user_emails(offset)
     gibbon = Gibbon::Request.new(api_key: ENV['ACCESS_KEY_ID'])
-    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members.retrieve(params: { "count": '500', "offset": offset, "status": 'unsubscribed' }).body['members'].pluck('email_address')
+    attributes = { params: { "count": '500', "offset": offset, "status": 'unsubscribed' } }
+    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members.retrieve(attributes).body['members'].pluck('email_address')
   end
 
   def unsubscribe(emails)
