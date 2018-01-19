@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
 class SyncNewsletterSubscribersWorker
   include Sidekiq::Worker
 
@@ -17,8 +15,7 @@ class SyncNewsletterSubscribersWorker
 
   def user_emails(offset)
     gibbon = Gibbon::Request.new(api_key: ENV['ACCESS_KEY_ID'])
-    attributes = { params: { "count": '500', "offset": offset, "status": 'unsubscribed' } }
-    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members.retrieve(attributes).body['members'].pluck('email_address')
+    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members.retrieve(params: { "count": '500', "offset": offset, "status": 'unsubscribed' }).body['members'].pluck('email_address')
   end
 
   def unsubscribe(emails)

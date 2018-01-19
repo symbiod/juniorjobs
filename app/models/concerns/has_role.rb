@@ -25,7 +25,7 @@ module HasRole
 
   # Check if model has role
   # @param value [#to_s]
-  def role?(value)
+  def has_role?(value)
     roles.include?(value.to_s)
   end
 

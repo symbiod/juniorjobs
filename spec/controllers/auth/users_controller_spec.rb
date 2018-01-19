@@ -1,11 +1,9 @@
 # frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe Auth::UsersController, type: :controller do
   describe 'POST #create' do
     subject { post 'create', params: params }
-    let(:default_attributes) { attributes_for(:user, :company) }
 
     context 'register new user with correct params' do
       let(:params) { { user: default_attributes.except(:crypted_password, :salt) } }
@@ -46,12 +44,11 @@ RSpec.describe Auth::UsersController, type: :controller do
     context 'update user with correct params' do
       let(:user) { create(:user, :junior) }
       let(:new_password) { 'newpassword' }
-      let(:params) do
+      let(:params) do 
         Hash(id: user.id, user: { email: user.email,
-                                  password: new_password,
-                                  password_confirmation: new_password,
-                                  roles: ['company'] })
-      end
+                                               password: new_password,
+                                               password_confirmation: new_password,
+                                               roles: ['company'] }) end
 
       before do
         login_user(user)
@@ -77,12 +74,11 @@ RSpec.describe Auth::UsersController, type: :controller do
 
     context 'update user with incorrect attributes' do
       let(:user) { create(:user, :junior) }
-      let(:params) do
+      let(:params) do 
         Hash(id: user.id, user: { email: user.email,
-                                  password: 'newpassword',
-                                  password_confirmation: 'newpassword2',
-                                  roles: [] })
-      end
+                                               password: 'newpassword',
+                                               password_confirmation: 'newpassword2',
+                                               roles: [] }) end
 
       before do
         login_user(user)
