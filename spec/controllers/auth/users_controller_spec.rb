@@ -5,9 +5,10 @@ require 'rails_helper'
 RSpec.describe Auth::UsersController, type: :controller do
   describe 'POST #create' do
     subject { post 'create', params: params }
+    let(:default_attributes) { attributes_for(:user, :company) }
 
     context 'register new user with correct params' do
-      let(:params) { Hash(user: attributes_for(:user, :company).except(:crypted_password, :salt)) }
+      let(:params) { { user: default_attributes.except(:crypted_password, :salt) } }
 
       it 'saves new user to database' do
         expect { subject }.to change(User.all, :count).by(1)
@@ -49,7 +50,8 @@ RSpec.describe Auth::UsersController, type: :controller do
         Hash(id: user.id, user: { email: user.email,
                                   password: new_password,
                                   password_confirmation: new_password,
-                                  roles: ['company'] }) end
+                                  roles: ['company'] })
+      end
 
       before do
         login_user(user)
@@ -79,7 +81,8 @@ RSpec.describe Auth::UsersController, type: :controller do
         Hash(id: user.id, user: { email: user.email,
                                   password: 'newpassword',
                                   password_confirmation: 'newpassword2',
-                                  roles: [] }) end
+                                  roles: [] })
+      end
 
       before do
         login_user(user)
