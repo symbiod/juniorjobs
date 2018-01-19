@@ -15,6 +15,7 @@ by:
         incorrect_token: 'Неверный токен'
         success: 'Вакансия отредактирована'
       show:
+        title: Название вакансии
         type_of_employment: Тип занятости
         reward: Вознаграждение
         location: Местонахождение
