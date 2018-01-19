@@ -8,5 +8,12 @@ AllCops:
     - 'bin/**/*'
     - 'config/**/*'
     - 'spec/controllers/auth/spec/controllers/auth/users_controller_spec.rb'
+    - 'lib/tasks/cucumber.rake'
+
 Metrics/LineLength:
   Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+

@@ -2,6 +2,7 @@
 
 module Web
   # TODO: documentation is missing for this class
+  # lets add it
   class SubscriptionsController < BaseController
     def new
       @subscription = Subscription.new

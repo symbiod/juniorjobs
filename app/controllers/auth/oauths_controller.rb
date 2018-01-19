@@ -14,15 +14,7 @@ module Auth
       if (@user = login_from(provider))
         redirect_to root_path, notice: t('.notice', provider: provider.titleize)
       else
-        begin
-          @user = create_from(provider) { |user| user.roles = ['junior'] }
-
-          reset_session
-          auto_login(@user)
-          redirect_to root_path, notice: t('.notice', provider: provider.titleize)
-        rescue StandardError => e
-          redirect_to root_path, alert: t('.alert', error: e.message)
-        end
+        create_user
       end
     end
 
