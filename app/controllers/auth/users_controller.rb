@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Auth
   class UsersController < BaseController
-
     before_action :load_user, only: %i[edit update destroy]
     before_action :load_roles, only: %i[new edit create update]
     before_action :require_login, only: %i[edit update destroy]

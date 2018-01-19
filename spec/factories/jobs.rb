@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :job do
     id 1
     status false
     title 'Разработчик'
     employment 'full'
-    city  'Москва'
+    city 'Москва'
     description 'Штатный программист'
     requirements 'Работать много и пить кофе'
 

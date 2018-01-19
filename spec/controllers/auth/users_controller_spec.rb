@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe Auth::UsersController, type: :controller do
   describe 'POST #create' do
+    subject { post 'create', params: params }
+
     context 'register new user with correct params' do
       let(:params) { Hash(user: attributes_for(:user, :company).except(:crypted_password, :salt)) }
-
-      subject { post 'create', params: params }
 
       it 'saves new user to database' do
         expect { subject }.to change(User.all, :count).by(1)
@@ -23,8 +24,6 @@ RSpec.describe Auth::UsersController, type: :controller do
 
     context 'register with incorrect attributes' do
       let(:params) { Hash(user: attributes_for(:user, :company).except(:crypted_password, :salt, :roles)) }
-
-      subject { post 'create', params: params }
 
       it 'not save new user to database' do
         expect { subject }.not_to change(User.all, :count)
@@ -44,11 +43,12 @@ RSpec.describe Auth::UsersController, type: :controller do
   describe 'PUT #update' do
     context 'update user with correct params' do
       let(:user) { create(:user, :junior) }
-      let(:new_password) { 'newpassword'}
-      let(:params) { Hash(id: user.id, user: { email: user.email,
-                                              password: new_password,
-                                              password_confirmation: new_password,
-                                              roles: ['company'] }) }
+      let(:new_password) { 'newpassword' }
+      let(:params) do 
+        Hash(id: user.id, user: { email: user.email,
+                                               password: new_password,
+                                               password_confirmation: new_password,
+                                               roles: ['company'] }) end
 
       before do
         login_user(user)
@@ -74,10 +74,11 @@ RSpec.describe Auth::UsersController, type: :controller do
 
     context 'update user with incorrect attributes' do
       let(:user) { create(:user, :junior) }
-      let(:params) { Hash(id: user.id, user: { email: user.email,
+      let(:params) do 
+        Hash(id: user.id, user: { email: user.email,
                                                password: 'newpassword',
                                                password_confirmation: 'newpassword2',
-                                               roles: [] }) }
+                                               roles: [] }) end
 
       before do
         login_user(user)

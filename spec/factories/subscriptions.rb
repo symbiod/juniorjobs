@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :subscription do
     email 'example@mail.com'
@@ -7,7 +9,7 @@ FactoryBot.define do
       association :user, factory: :user, strategy: :build
     end
 
-    factory :user_subscription,  traits: [:with_user]
+    factory :user_subscription, traits: [:with_user]
     factory :guest_subscription
   end
 end

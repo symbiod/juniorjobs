@@ -1,0 +1,9 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'spec/controllers/auth/spec/controllers/auth/users_controller_spec.rb'

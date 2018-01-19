@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Auth
   class OauthsController < BaseController
     skip_before_action :require_login, raise: false
@@ -16,7 +18,7 @@ module Auth
           reset_session
           auto_login(@user)
           redirect_to root_path, notice: t('.notice', provider: provider.titleize)
-        rescue => e
+        rescue StandardError => e
           redirect_to root_path, alert: t('.alert', error: e.message)
         end
       end
@@ -33,4 +35,3 @@ module Auth
     end
   end
 end
-
