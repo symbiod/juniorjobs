@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
-<<<<<<< cucumber_test
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
-=======
->>>>>>> Massive rubocop corrections
 module JobsHelper
   def country_name(job)
     country = ISO3166::Country[job.country]
