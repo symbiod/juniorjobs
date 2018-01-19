@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# TODO: documentation is missing for this class
+# We should consider addig some documentation here
 class User < ApplicationRecord
   authenticates_with_sorcery!
   include HasRole

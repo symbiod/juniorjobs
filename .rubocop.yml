@@ -3,7 +3,10 @@ AllCops:
     - '**/Rakefile'
     - '**/config.ru'
   Exclude:
+    - 'Gemfile'
     - 'db/**/*'
     - 'bin/**/*'
     - 'config/**/*'
     - 'spec/controllers/auth/spec/controllers/auth/users_controller_spec.rb'
+Metrics/LineLength:
+  Max: 120

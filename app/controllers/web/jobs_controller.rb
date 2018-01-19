@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Web
+  # TODO: documentation is missing for this class
+  # We should consider addig some documentation here
   class JobsController < BaseController
     before_action :load_job, only: %i[show edit update]
     before_action :check_token, only: %i[edit update]

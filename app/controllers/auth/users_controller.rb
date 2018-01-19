@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Auth
+  # TODO: documentation is missing for this class
+  # We should consider addig some documentation here
   class UsersController < BaseController
     before_action :load_user, only: %i[edit update destroy]
     before_action :load_roles, only: %i[new edit create update]
