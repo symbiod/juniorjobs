@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 module Auth
+  # TODO: documentation is missing for this class
+  # We should consider addig some documentation here
   class UserSessionsController < BaseController
     def new
       @user = User.new
@@ -25,4 +29,3 @@ module Auth
     end
   end
 end
-

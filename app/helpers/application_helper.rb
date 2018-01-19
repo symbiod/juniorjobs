@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# TODO: documentation is missing for this class
+# We should consider addig some documentation here
 module ApplicationHelper
   def render_shared(partial)
     render "layouts/shared/#{partial}"
@@ -5,7 +9,7 @@ module ApplicationHelper
 
   def body_class(options = {})
     extra_body_classes_symbol = options[:extra_body_classes_symbol] || :extra_body_classes
-    qualified_controller_name = controller.controller_path.gsub('/','-')
+    qualified_controller_name = controller.controller_path.tr('/', '-')
     basic_body_class = "#{qualified_controller_name} #{qualified_controller_name}-#{controller.action_name}"
 
     if content_for?(extra_body_classes_symbol)
@@ -25,10 +29,23 @@ module ApplicationHelper
 
   def expired_at_dates_for(job)
     [
-      [t('activerecord.attributes.job.expired_ats.week', date: expired_date_for(job, 1.week).strftime('%d/%m/%Y')), expired_date_for(job, 1.week)],
-      [t('activerecord.attributes.job.expired_ats.weeks', date: expired_date_for(job, 2.week).strftime('%d/%m/%Y')), expired_date_for(job, 2.week)],
-      [t('activerecord.attributes.job.expired_ats.month', date: expired_date_for(job, 1.month).strftime('%d/%m/%Y')), expired_date_for(job, 1.month)]
+      expires_at(job, '1_week'),
+      expires_at(job, '2_week'),
+      expires_at(job, '1_month')
     ]
+  end
+
+  # Returns option for select, according to passed modifier
+  # e.g. modifier can be '1_week'
+  # The method dynamically parses modifier and generated output for 1.week method
+  # @return Array<String>
+  def expires_at(job, modifier)
+    num, period = modifier.split('_')
+    num = num.to_i
+    text = t("activerecord.attributes.job.expired_ats.#{modifier}", date: expired_date_for(job, num.send(period)))
+           .strftime('%d/%m/%Y')
+    value = expired_date_for(job, num.send(:period))
+    [text, value]
   end
 
   private

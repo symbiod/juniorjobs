@@ -1,7 +1,9 @@
-module Auth
-  class UsersController < BaseController
-    UNPERMITTED_ROLES = ['admin']
+# frozen_string_literal: true
 
+module Auth
+  # TODO: documentation is missing for this class
+  # We should consider addig some documentation here
+  class UsersController < BaseController
     before_action :load_user, only: %i[edit update destroy]
     before_action :load_roles, only: %i[new edit create update]
     before_action :require_login, only: %i[edit update destroy]
@@ -48,7 +50,7 @@ module Auth
     end
 
     def load_roles
-      @roles = User::VALID_ROLES - UNPERMITTED_ROLES
+      @roles = Settings.valid_roles - Settings.unpermitted_roles
     end
   end
 end
