@@ -37,4 +37,6 @@ ua:
     oauths:
       callback:
         notice: 'Вы успешно вошли через %{provider}'
+      create_user:
+        notice: 'Вы успешно вошли через %{provider}'
         alert: 'Возникли следующие ошибки: %{error}'

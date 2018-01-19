@@ -44,24 +44,12 @@ module Web
 
     def job_params
       params.require(:job).permit(
-        :id,
-        :status,
-        :title,
-        :description,
-        :requirements,
-        :employment,
-        :city,
-        :country,
-        :remote,
-        :currency,
-        :salary_from,
-        :salary_to,
-        :salary_by_agreement,
-        :company_contact,
-        :company_email,
-        :company_name,
-        :company_page,
-        :company_phone,
+        :id, :status,
+        :title, :description,
+        :requirements, :employment,
+        :city, :country, :remote,
+        :currency, :salary_from, :salary_to, :salary_by_agreement,
+        :company_contact, :company_email, :company_name, :company_page, :company_phone,
         :expired_at,
         :token
       )

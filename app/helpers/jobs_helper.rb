@@ -9,7 +9,7 @@ module JobsHelper
   end
 
   def time_ago_from(time)
-    days = ((Time.now - time) / 1.day).floor
+    ((Time.now - time) / 1.day).floor
   end
 
   def salary(job)

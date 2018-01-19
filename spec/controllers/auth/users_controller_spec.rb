@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Auth::UsersController, type: :controller do
@@ -44,7 +45,7 @@ RSpec.describe Auth::UsersController, type: :controller do
     context 'update user with correct params' do
       let(:user) { create(:user, :junior) }
       let(:new_password) { 'newpassword' }
-      let(:params) do 
+      let(:params) do
         Hash(id: user.id, user: { email: user.email,
                                                password: new_password,
                                                password_confirmation: new_password,
@@ -74,7 +75,7 @@ RSpec.describe Auth::UsersController, type: :controller do
 
     context 'update user with incorrect attributes' do
       let(:user) { create(:user, :junior) }
-      let(:params) do 
+      let(:params) do
         Hash(id: user.id, user: { email: user.email,
                                                password: 'newpassword',
                                                password_confirmation: 'newpassword2',
