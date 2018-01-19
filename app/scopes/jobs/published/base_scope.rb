@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jobs
   module Published
     class BaseScope < Jobs::BaseScope

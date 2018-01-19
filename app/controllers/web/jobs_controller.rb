@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web
   class JobsController < BaseController
     before_action :load_job, only: %i[show edit update]
@@ -64,7 +66,6 @@ module Web
     end
   end
 end
-
 
 # t.string "title", null: false
 # t.text "description", null: false

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Auth
   class UserSessionsController < BaseController
     def new
@@ -25,4 +27,3 @@ module Auth
     end
   end
 end
-

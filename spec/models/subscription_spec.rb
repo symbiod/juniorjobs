@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Subscription, type: :model do
@@ -8,11 +10,11 @@ RSpec.describe Subscription, type: :model do
 
     before { subscription_invalid.valid? }
 
-    subject {subscription_invalid.errors[:email] }
+    subject { subscription_invalid.errors[:email] }
 
     it { is_expected.to include I18n.t('errors.subscription.attributes.email.invalid') }
   end
-  
+
   describe 'try to create subscription with blank email' do
     let(:subscription_blank) { build(:guest_subscription, email: '') }
 

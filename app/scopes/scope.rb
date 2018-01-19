@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Scope
   class << self
     delegate :call, to: :new

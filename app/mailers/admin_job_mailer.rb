@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdminJobMailer < ApplicationMailer
   default from: Settings.email_from
 

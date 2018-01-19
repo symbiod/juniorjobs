@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JobsHelper
   def country_name(job)
     country = ISO3166::Country[job.country]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def render_shared(partial)
     render "layouts/shared/#{partial}"
@@ -5,7 +7,7 @@ module ApplicationHelper
 
   def body_class(options = {})
     extra_body_classes_symbol = options[:extra_body_classes_symbol] || :extra_body_classes
-    qualified_controller_name = controller.controller_path.gsub('/','-')
+    qualified_controller_name = controller.controller_path.tr('/', '-')
     basic_body_class = "#{qualified_controller_name} #{qualified_controller_name}-#{controller.action_name}"
 
     if content_for?(extra_body_classes_symbol)
