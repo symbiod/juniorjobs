@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
+# TODO: documentation is missing for this class
+# We should consider addig some documentation here
 module DomainUtility
-  module_function
-
   DOMAINS = {
     ru: 'juniorjobs.ru',
     by: 'juniorjobs.by',

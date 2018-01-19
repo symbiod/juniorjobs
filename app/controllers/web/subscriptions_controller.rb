@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Web
+  # TODO: documentation is missing for this class
   class SubscriptionsController < BaseController
     def new
       @subscription = Subscription.new

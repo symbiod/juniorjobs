@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # This module adds roles to model (junior, company, admin by default), validates present of roles and their validity.
-
 module HasRole
   extend ActiveSupport::Concern
 
@@ -14,7 +13,7 @@ module HasRole
   # @param values [Array<String, Symbol>]
   def add_roles(*values)
     values.map(&:to_s).each do |value|
-      roles << value if Settings.valid_roles.include?(value) && !has_role?(value)
+      roles << value if Settings.valid_roles.include?(value) && !role?(value)
     end
   end
 
@@ -26,7 +25,7 @@ module HasRole
 
   # Check if model has role
   # @param value [#to_s]
-  def has_role?(value)
+  def role?(value)
     roles.include?(value.to_s)
   end
 

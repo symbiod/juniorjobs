@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Auth
+  # TODO: documentation is missing for this class
+  # We should consider addig some documentation here
   class OauthsController < BaseController
     skip_before_action :require_login, raise: false
 
