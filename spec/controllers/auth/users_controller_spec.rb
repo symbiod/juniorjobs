@@ -47,9 +47,9 @@ RSpec.describe Auth::UsersController, type: :controller do
       let(:new_password) { 'newpassword' }
       let(:params) do
         Hash(id: user.id, user: { email: user.email,
-                                               password: new_password,
-                                               password_confirmation: new_password,
-                                               roles: ['company'] }) end
+                                  password: new_password,
+                                  password_confirmation: new_password,
+                                  roles: ['company'] }) end
 
       before do
         login_user(user)
@@ -77,9 +77,9 @@ RSpec.describe Auth::UsersController, type: :controller do
       let(:user) { create(:user, :junior) }
       let(:params) do
         Hash(id: user.id, user: { email: user.email,
-                                               password: 'newpassword',
-                                               password_confirmation: 'newpassword2',
-                                               roles: [] }) end
+                                  password: 'newpassword',
+                                  password_confirmation: 'newpassword2',
+                                  roles: [] }) end
 
       before do
         login_user(user)
