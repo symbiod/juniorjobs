@@ -2,7 +2,7 @@
   = render 'shared/page_header', header: @job.title
   %hr
   .row.form-group.well
-    .col-sm-2
+    .col-sm-3
       %h4
         = t("common.jobs.show.type_of_employment")
       = t("activerecord.attributes.job.employments.#{@job.employment}")
@@ -22,7 +22,7 @@
       = salary(@job)
 
 
-    .col-sm-4
+    .col-sm-3
       %h4
         = t("common.jobs.show.location")
       - if @job.city.present?
@@ -56,12 +56,9 @@
       .col-sm-4.form-group.well.col-md-offset-1
 
         %h4.b-jobs-cart_company.text-align-center
-          = t("common.jobs.show.company")
+          = t("activerecord.attributes.job.company_contact")
         %p.text-align-center
-          =@job.company_name
-        %p.text-align-center
-          =@job.company_email
-        %p.text-align-center
-          =@job.company_page
+          = @job.company_email
         %p.text-align-center.job-phone
-          =@job.company_phone
+          - if @job.company_phone.present?
+            = @job.company_phone
