@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 module Web
+  # TODO: documentation is missing for this class
+  # lets add it
   class SubscriptionsController < BaseController
     def new
       @subscription = Subscription.new
@@ -9,7 +13,7 @@ module Web
 
       if @subscription.save
         flash[:notice] = t('common.success')
-      else 
+      else
         flash[:alert] = @subscription.errors.messages[:email].first
       end
 

@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# TODO: documentation is missing for this class
+# We should consider addig some documentation here
 class User < ApplicationRecord
   authenticates_with_sorcery!
   include HasRole
@@ -9,5 +13,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :authentications
 
   validates :password, confirmation: true, presence: true, length: { minimum: 6 }
-  validates :email, uniqueness: true, presence: true, format: { with: %r[#{Settings.email_regex}] }
+  validates :email, uniqueness: true, presence: true, format: { with: /#{Settings.email_regex}/ }
 end

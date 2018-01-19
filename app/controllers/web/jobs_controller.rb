@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 module Web
+  # TODO: documentation is missing for this class
+  # We should consider addig some documentation here
   class JobsController < BaseController
     before_action :load_job, only: %i[show edit update]
     before_action :check_token, only: %i[edit update]
@@ -40,31 +44,18 @@ module Web
 
     def job_params
       params.require(:job).permit(
-        :id,
-        :status,
-        :title,
-        :description,
-        :requirements,
-        :employment,
-        :city,
-        :country,
-        :remote,
-        :currency,
-        :salary_from,
-        :salary_to,
-        :salary_by_agreement,
-        :company_contact,
-        :company_email,
-        :company_name,
-        :company_page,
-        :company_phone,
+        :id, :status,
+        :title, :description,
+        :requirements, :employment,
+        :city, :country, :remote,
+        :currency, :salary_from, :salary_to, :salary_by_agreement,
+        :company_contact, :company_email, :company_name, :company_page, :company_phone,
         :expired_at,
         :token
       )
     end
   end
 end
-
 
 # t.string "title", null: false
 # t.text "description", null: false

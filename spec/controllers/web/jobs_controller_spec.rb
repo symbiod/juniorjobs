@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Web::JobsController, type: :controller do
@@ -5,7 +7,7 @@ RSpec.describe Web::JobsController, type: :controller do
     context 'with valid attributes and registered user' do
       let(:user) { create(:user, :company) }
       before { login_user(user) }
-      subject { post 'create', params: { job: attributes_for(:job) }}
+      subject { post 'create', params: { job: attributes_for(:job) } }
 
       it 'saves the new job to database' do
         expect { subject }.to change(Job.all, :count).by(1)
@@ -17,7 +19,7 @@ RSpec.describe Web::JobsController, type: :controller do
     end
 
     context 'with valid attributes and without user' do
-      subject { post 'create', params: { job: attributes_for(:job) }}
+      subject { post 'create', params: { job: attributes_for(:job) } }
 
       it 'saves the new job to database' do
         expect { subject }.to change(Job.all, :count).by(1)
@@ -29,7 +31,7 @@ RSpec.describe Web::JobsController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      subject { post 'create', params: { job: attributes_for(:job, :invalid) }}
+      subject { post 'create', params: { job: attributes_for(:job, :invalid) } }
 
       it 'does not save the job' do
         expect { subject }.to_not change(Job, :count)
@@ -41,7 +43,7 @@ RSpec.describe Web::JobsController, type: :controller do
 
   describe '#show' do
     let(:job) { create(:job) }
-    subject { get :show, params: { id: job.id }}
+    subject { get :show, params: { id: job.id } }
 
     it { is_expected.to render_template(:show) }
   end

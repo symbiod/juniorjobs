@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# TODO: documentation is missing for this class
+# We should consider addig some documentation here
 module JobsHelper
   def country_name(job)
     country = ISO3166::Country[job.country]
@@ -5,7 +9,7 @@ module JobsHelper
   end
 
   def time_ago_from(time)
-    days = ((Time.now - time) / 1.day).floor
+    ((Time.now - time) / 1.day).floor
   end
 
   def salary(job)

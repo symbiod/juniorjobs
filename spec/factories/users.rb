@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   sequence :email do |n|
     "person#{n}@example.com"
@@ -7,7 +9,7 @@ FactoryBot.define do
     email
     password 'secret'
     password_confirmation 'secret'
-    salt { salt = 'asdasdastr4325234324sdfds' }
+    salt { 'asdasdastr4325234324sdfds' }
     crypted_password { Sorcery::CryptoProviders::BCrypt.encrypt('secret', salt) }
 
     trait :junior do
