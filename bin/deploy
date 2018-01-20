@@ -1,7 +1,3 @@
 #!/bin/sh
 
-# Build image
-cp config/database.yml.sample config/database.yml
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-bin/build-image
-#kubectl apply -R -f deploy/
+kubectl apply -R -f deploy/
