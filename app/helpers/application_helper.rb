@@ -42,9 +42,9 @@ module ApplicationHelper
   def expires_at(job, modifier)
     num, period = modifier.split('_')
     num = num.to_i
-    text = t("activerecord.attributes.job.expired_ats.#{modifier}", date: expired_date_for(job, num.send(period)))
-           .strftime('%d/%m/%Y')
-    value = expired_date_for(job, num.send(:period))
+    text = t("activerecord.attributes.job.expired_ats.#{modifier}", 
+      date: expired_date_for(job, num.send(period)).strftime('%d/%m/%Y'))
+    value = expired_date_for(job, num.send(period))
     [text, value]
   end
 
