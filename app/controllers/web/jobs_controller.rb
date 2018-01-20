@@ -5,7 +5,7 @@ module Web
   # We should consider addig some documentation here
   class JobsController < BaseController
     before_action :load_job, only: %i[show edit update]
-    before_action :check_token, only: %i[edit update]
+    before_action :check_user, only: %i[edit update]
 
     def show; end
 
@@ -33,6 +33,14 @@ module Web
     end
 
     private
+
+    def check_user
+      if logged_in?
+        authorize @job
+      else
+        check_token
+      end
+    end
 
     def check_token
       redirect_to @job, notice: t('common.jobs.update.incorrect_token') if @job.token != params[:job][:token]

@@ -1,0 +1,18 @@
+%table.table.table-hover.table-condensed
+  %thead
+    %tr
+      %th
+        = t('admin.shared.email')
+      %th
+        = t('.created_at')
+      %th
+        = t('.status')
+  %tbody
+    - @subscriptions.each do |subscription|
+      %tr
+        %td
+          = subscription.email
+        %td
+          = subscription.created_at.strftime('%d-%m-%Y')
+        %td
+          = subscription.status

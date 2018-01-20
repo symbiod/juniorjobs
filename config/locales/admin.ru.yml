@@ -1,0 +1,31 @@
+---
+ru:
+  admin:
+    shared:
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      confirm_delete: 'Точно удалить?'
+      email: 'Email'
+    base:
+      check_admin:
+        permission_denied: 'У вас нет прав для просмотра данной страницы.'
+    users:
+      update:
+        update_fail: 'Возникли следующие ошибки при обновлении пользователя: %{errors}'
+        update_success: 'Профиль пользователя успешно обновлен.'
+      index:
+        created_at: 'Дата регистрации'
+        roles: 'Роли'
+      destroy:
+        success: 'Пользователь успешно удален.'
+    jobs:
+      index:
+        company_name: 'Компания'
+        job: 'Вакансия'
+        status: 'Статус'
+      destroy:
+        success: 'Вакансия успешно удалена.'
+    subscriptions:
+      index:
+        created_at: 'Начало подписки'
+        status: 'Статус'

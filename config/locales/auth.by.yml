@@ -3,6 +3,7 @@ by:
   auth:
     shared:
       login_alert: 'Сначала нужно войти'
+      athorize_alert: 'У вас нет прав для просмотра данной страницы'
     user_sessions:
       form:
         email: 'Ваша почта'
@@ -28,6 +29,8 @@ by:
       update:
         update_success: 'Вы успешно изменили свой профиль'
         update_fail: 'Возникли следующие ошибки: %{errors}'
+      destroy:
+        success: 'Профиль удален.'
       form:
         email: 'Ваш email'
         password: 'Пароль (минимум 6 символов)'

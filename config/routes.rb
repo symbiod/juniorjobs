@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # get '/robots.txt', to: 'seo#robots'
   # get '/sitemap.xml', to: 'seo#sitemap', format: 'xml'
   require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  require 'constraints/admin_constraint'
+
+  mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 
   scope module: :web do
     root 'welcome#index'
@@ -26,5 +28,11 @@ Rails.application.routes.draw do
     post 'oauth/callback' => 'oauths#callback'
     get 'oauth/callback' => 'oauths#callback'
     get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
+  end
+
+  namespace :admin do
+    resources :users, only: %i[index edit update destroy]
+    resources :subscriptions, only: :index
+    resources :jobs, only: %i[index edit update destroy]
   end
 end
