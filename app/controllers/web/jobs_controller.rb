@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module Web
-  # TODO: documentation is missing for this class
-  # We should consider addig some documentation here
   class JobsController < BaseController
     before_action :load_job, only: %i[show edit update]
     before_action :check_token, only: %i[edit update]
@@ -15,6 +13,7 @@ module Web
 
     def create
       @job = CreateJob.new.call(current_user, job_params)
+
       if @job.save
         redirect_to job_path(@job), notice: t('common.jobs.create.success')
       else
@@ -56,20 +55,3 @@ module Web
     end
   end
 end
-
-# t.string "title", null: false
-# t.text "description", null: false
-# t.string "employment_type", null: false
-# t.string "city"
-# t.boolean "remote"
-# t.string "currency"
-# t.integer "salary_from"
-# t.integer "salary_to"
-# t.boolean "salary_by_agreement"
-# t.text "requirements", null: false
-# t.string "company_name"
-# t.string "company_email"
-# t.string "company_contact"
-# t.string "company_page"
-# t.string "company_phone"
-# t.datetime "expired_at", null: false

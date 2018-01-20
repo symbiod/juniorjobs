@@ -12,22 +12,25 @@ ruby '2.5.0'
 # Rails
 gem 'dotenv'
 gem 'pg', '~> 0.18'
-gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.1.4'
 
 # Common
+gem 'annotate'
 gem 'config'
+gem 'draper'
 gem 'foreman'
 gem 'gibbon'
 gem 'i18n-tasks', '~> 0.9.19'
+gem 'interactor-rails'
+gem 'koala'
 gem 'mechanize'
 gem 'meta-tags'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sorcery'
-gem 'vkontakte_api', '~> 1.4'
-gem 'koala'
 gem 'telegram-bot-ruby'
 gem 'twitter'
+gem 'vkontakte_api', '~> 1.4'
 
 # Jobs
 gem 'sidekiq'
@@ -50,15 +53,19 @@ gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
 
+group :development do
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
+end
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  gem 'dotenv-rails'
-  gem 'rspec'
-  gem 'page-object'
   gem 'data_magic'
+  gem 'database_cleaner'
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
@@ -76,11 +83,16 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
 end
 
+# Linters
 group :development do
+  gem 'bundler-audit', require: false
+  # gem 'flay', require: false
+  # gem 'flay-haml', require: false
+  # gem 'flay-js', require: false
+  # gem 'flay-persistence', require: false
   gem 'haml_lint', require: false
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'rubocop'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
+  gem 'rails_best_practices', require: false
+  gem 'reek', require: false
+  gem 'rubocop', require: false
+  gem 'scss_lint', require: false
 end

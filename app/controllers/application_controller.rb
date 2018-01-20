@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 

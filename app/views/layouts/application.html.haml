@@ -1,26 +1,28 @@
 !!!
-%html{lang: I18n.locale}
+%html{ lang: I18n.locale }
   %head
-    %meta{charset: 'utf-8'}
-    %meta{content: 'NOODP', name: 'ROBOTS'}
-    %meta{content: 'text/html; charset=UTF-8', http_equiv: 'Content-Type'}
-    %meta{content: 'IE=edge', http_equiv: 'X-UA-Compatible'}
-    %meta{content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport'}
-    %meta{content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}
-    %title JuniorjobsRu
+    %meta{ charset: 'utf-8' }
+    %meta{ content: 'NOODP', name: 'ROBOTS' }
+    %meta{ content: 'text/html; charset=UTF-8', http_equiv: 'Content-Type' }
+    %meta{ content: 'IE=edge', http_equiv: 'X-UA-Compatible' }
+    %meta{ content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport' }
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %title JuniorJobs
     = csrf_meta_tags
 
     - if Rails.env.production?
       /
 
-    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel: 'stylesheet', integrity: 'sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin: 'anonymous'
+    -# haml-lint:disable LineLength
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+      integrity: 'sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin: 'anonymous', rel: 'stylesheet'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,700&amp;subset=cyrillic,cyrillic-ext,latin-ext'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Passion+One:700&amp;subset=latin-ext'
     = stylesheet_link_tag :application, media: 'all'
     /[if lte IE 8]
       = stylesheet_link_tag 'ie8', media: 'all'
 
-  %body{class: [body_class, 'l-body']}
+  %body{ class: [body_class, 'l-body'] }
     = render_shared 'flashes'
     = render_shared 'topbar'
     = render_shared 'header'

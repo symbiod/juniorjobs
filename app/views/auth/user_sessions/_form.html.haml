@@ -1,10 +1,7 @@
-= form_for :user_session, { url: user_sessions_path, class: 'form-group' } do |f|
+= form_for :user_session, url: user_sessions_path, class: 'form-group' do |f|
   .form-group
-    = f.email_field :email,
-    placeholder: t('.email'), class: 'form-control', required: true, autofocus: true
+    = f.email_field :email, placeholder: t('.email'), required: true, autofocus: true, class: 'form-control'
 
   .form-group
-    = f.password_field :password,
-    placeholder: t('.password'), class: 'form-control', required: true, autofocus: true
-
+    = f.password_field :password, placeholder: t('.password'), required: true, autofocus: true, class: 'form-control'
     = f.submit t('.login'), class: 'btn btn-default'

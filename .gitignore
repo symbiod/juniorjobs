@@ -50,5 +50,7 @@ log/
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+.kube/app-secrets.yml
+./node_modules
 deploy/secrets/application-secrets.yml
 kubeadm-single-node-cluster.conf
