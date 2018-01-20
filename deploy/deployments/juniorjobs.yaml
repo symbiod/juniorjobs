@@ -15,5 +15,25 @@ spec:
         ports:
         - containerPort: 5000
         env:
+          - name: SECRET_KEY_BASE
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: secret_key_base
+          - name: RAILS_LOG_TO_STDOUT
+            value: 'true'
           - name: REDIS_HOST
             value: redis
+          - name: RAILS_SERVE_STATIC_FILES
+            value: 'true'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: juniorjobs
+spec:
+  ports:
+  - port: 5000
+  selector:
+    app: juniorjobs
+  clusterIP: None

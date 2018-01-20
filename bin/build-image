@@ -1,2 +1,4 @@
+cp config/database.yml.sample config/database.yml
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 docker build -t howtohireme/juniorjobs.ru -f Dockerfile .
 docker push howtohireme/juniorjobs.ru
