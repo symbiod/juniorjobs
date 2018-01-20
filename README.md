@@ -21,3 +21,13 @@ git clone git@github.com:howtohireme/juniorjobs.ru.git
 bin/setup
 ```
 
+3. ENVIRONMENT VARIABLES:
+=> Gibbon & Mailchimp:
+* MAILCHIMP_LIST_ID
+* ACCESS_KEY_ID
+=> Github
+* GITHUB_CLIENT_ID
+* GITHUB_SECRET
+* CALLBACK_DOMAIN
+=> Redis
+* REDIS_HOST
