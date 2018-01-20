@@ -1,3 +1,4 @@
 #!/bin/sh
 
+sed -ie "s/THIS_STRING_IS_REPLACED_DURING_BUILD/$(date)/g" ./deploy/deployments/juniorjobs.yaml
 kubectl apply -R -f deploy/

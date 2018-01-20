@@ -12,6 +12,7 @@ spec:
       containers:
       - name: juniorjobs
         image: howtohireme/juniorjobs.ru:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
         env:
@@ -26,6 +27,8 @@ spec:
             value: redis
           - name: RAILS_SERVE_STATIC_FILES
             value: 'true'
+          - name: FOR_GODS_SAKE_PLEASE_REDEPLOY
+            value: 'Sun Jan 21 00:52:59 MSK 2018'
 ---
 apiVersion: v1
 kind: Service
