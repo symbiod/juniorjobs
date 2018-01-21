@@ -32,7 +32,7 @@ class TwitterWorker < BaseWorker
     generate_message
 
     @client.update(@message)
-end
+  end
 
   def prepare_tw
     @client = Twitter::REST::Client.new do |config|
@@ -41,5 +41,5 @@ end
       config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
-    end
+  end
 end

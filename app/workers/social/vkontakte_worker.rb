@@ -23,5 +23,5 @@ class VkontakteWorker < BaseWorker
     @vk = VkontakteApi::Client.new(@token)
     @vk.wall.post(owner_id: @group_id, from_group: 1, message: @message,
                   attachments: @link)
- end
+  end
 end
