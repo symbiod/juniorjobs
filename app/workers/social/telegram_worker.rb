@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Worker for send message to telegram channel (gem 'telegram-bot-ruby')
 class TelegramWorker < BaseWorker
   include Sidekiq::Worker
   require 'telegram/bot'
@@ -9,5 +12,5 @@ class TelegramWorker < BaseWorker
     Telegram::Bot::Client.run(@token) do |bot|
       bot.api.send_message(chat_id: @group_id, text: @message)
     end
-   end
   end
+end

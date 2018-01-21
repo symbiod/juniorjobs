@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Worker for publish post to facebook. (gem koala)
 class FacebookWorker < BaseWorker
   include Sidekiq::Worker
 
@@ -9,5 +12,5 @@ class FacebookWorker < BaseWorker
     @graph.put_wall_post(@message,
                          {
                          }, @group_id)
- end
- end
+  end
+end

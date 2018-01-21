@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# parent class for workers each social web
 class BaseWorker
   include Sidekiq::Worker
   include DomainUtility
@@ -29,7 +32,7 @@ class BaseWorker
 
   def generate_url
     @link = DOMAINS[@job.country.to_sym] + "/job#{@job.id}"
-end
+  end
 
   def generate_message
     @message = "Требуется:

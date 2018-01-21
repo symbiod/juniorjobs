@@ -14,7 +14,7 @@ class EmailDispatchesWorker
     attrs = { body: { email_address: email, status: 'subscribed' } }
     gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members(md5_email.downcase).upsert(attrs)
 
-    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members(md5_email.downcase).upsert(body: { email_address: email, status: 'subscribed' })
-
+    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members(md5_email.downcase).upsert(body:
+      { email_address: email, status: 'subscribed' })
   end
 end
