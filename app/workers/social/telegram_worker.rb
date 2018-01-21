@@ -1,15 +1,13 @@
-  class TelegramWorker <  BaseWorker
+class TelegramWorker < BaseWorker
   include Sidekiq::Worker
   require 'telegram/bot'
 
   def perform(job_id)
-    set_domain(job_id,post_to='TELEGRAM')
+    load_job(job_id)
+    prepare_for('TELEGRAM')
 
     Telegram::Bot::Client.run(@token) do |bot|
-      bot.api.send_message(chat_id: @group_id, text: "#{@job.title} \n
-     Ссылка: http://juniorjobs.#{@tail}/job/#{@job.id}")
+      bot.api.send_message(chat_id: @group_id, text: @message)
     end
    end
-
-
-end
+  end

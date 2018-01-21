@@ -75,10 +75,13 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 
+
+
+
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'dotenv-rails'
+
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'letter_opener'
