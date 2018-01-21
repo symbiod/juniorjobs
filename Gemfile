@@ -56,6 +56,9 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'rspec'
+  gem 'page-object'
+  gem 'data_magic'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'letter_opener'
