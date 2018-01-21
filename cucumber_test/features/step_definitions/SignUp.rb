@@ -14,8 +14,6 @@ end
 Then(/^account should be created and user redirect to home page with success msg "([^"]*)"$/) do |arg|
 @home_page = HomePage.new(@browser)
 @home_page.text.include?(arg).should == true
-
-
 end
 
 Given(/^I have credentials without email$/) do
