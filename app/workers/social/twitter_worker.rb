@@ -1,18 +1,21 @@
-  class TwitterWorker <  BaseWorker
+class TwitterWorker < BaseWorker
   include Sidekiq::Worker
 
-
   def perform(job_id)
-  client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = ENV["CONSUMER_KEY"]
-  config.consumer_secret     = ENV["CONSUMER_SECRET"]
+    prepare_tw
+    load_job(job_id)
+    generate_url
+    generate_message
 
-  config.access_token        = ENV["ACCESS_TOKEN"]
-  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
-end
-@job = Job.find_by(id: job_id)
-client.update("Требуется: #{@job.title} (#{@job.city}, от #{@job.salary_from})
-  http://juniorjobs.#{@job.country}/job/#{@job.id}")
+    @client.update(@message)
 end
 
+  def prepare_tw
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+    end
+    end
 end
