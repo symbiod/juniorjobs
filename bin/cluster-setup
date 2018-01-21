@@ -1,0 +1,3 @@
+#!/bin/sh
+
+#gcloud compute disks create --size 300GB --type pd-ssd db-data
