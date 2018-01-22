@@ -45,5 +45,10 @@
     %p.m0
       = 'Публикуя, вакансию вы соглашаетесь с'
       = link_to 'Условями работы сервиса', terms_path, class: ''
+  .form-group.well
+    %h3 #tags
+    = f.select :tag_list, {}, { class: "form_control" }, multiple: true, style: 'width: 100%'
+    %span= t('forms.comma_separator') 
+      
 
   = f.button :submit, t('common.submit'), style: 'color: white; background-color: #5cb85c;'

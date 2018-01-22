@@ -63,6 +63,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
@@ -389,6 +391,8 @@ GEM
     seed-fu (2.3.7)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
@@ -461,6 +465,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   byebug
   capybara (~> 2.13)
   clockwork
@@ -495,6 +500,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   seed-fu (~> 2.3)
+  select2-rails
   selenium-webdriver
   shoulda-matchers (~> 3.1)
   sidekiq

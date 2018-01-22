@@ -19,4 +19,6 @@ class Job < ApplicationRecord
   scope :published_yesterday, Jobs::Published::YesterdayScope
   scope :published_last_week, Jobs::Published::LastWeekScope
   scope :published_last_month, Jobs::Published::LastMonthScope
+
+  acts_as_taggable
 end
