@@ -11,6 +11,7 @@
 /tmp/
 config/database.yml
 /log/
+/.env
 # Used by dotenv library to load environment variables.
 # .env
 config/gibbon.env
