@@ -31,14 +31,14 @@ spec:
           - name: POSTGRES_DB
             value: juniorjobs_production
           - name: PGDATA
-            value: /var/lib/postgresql/data/pgdata
-        volumeMounts:
-          - name: db-data-volume
-            mountPath: /var/lib/postgresql/data/pgdata
-      volumes:
-        - name: db-data-volume
-          persistentVolumeClaim:
-            claimName: postgres-volume-claim
+            value: /pg_data
+        #volumeMounts:
+          #- name: db-data-volume
+            #mountPath: /pg_data
+      #volumes:
+        #- name: db-data-volume
+          #persistentVolumeClaim:
+            #claimName: postgres-volume-claim
 ---
 apiVersion: v1
 kind: Service
