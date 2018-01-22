@@ -67,14 +67,19 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     ast (2.3.0)
-    autoprefixer-rails (7.2.4)
+    autoprefixer-rails (7.2.5)
       execjs
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     backports (3.11.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    buftok (0.2.0)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.17.0)
@@ -89,6 +94,8 @@ GEM
     clockwork (2.0.2)
       activesupport
       tzinfo
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -135,10 +142,15 @@ GEM
     cucumber-wire (0.0.1)
     database_cleaner (1.6.2)
     deep_merge (1.1.1)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
     dry-container (0.6.0)
@@ -166,12 +178,12 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.12.0)
-    easy_translate (0.5.0)
-      json
+    easy_translate (0.5.1)
       thread
       thread_safe
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
+    equalizer (0.0.11)
     erubi (1.7.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -182,6 +194,11 @@ GEM
       railties (>= 3.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.12.2)
+      faraday (>= 0.7.4, < 1.0)
+    faraday_middleware-multi_json (0.0.6)
+      faraday_middleware
+      multi_json
     ffi (1.9.18)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
@@ -208,20 +225,28 @@ GEM
       rake (>= 10, < 13)
       rubocop (>= 0.50.0)
       sysexits (~> 1.1)
+    hashie (3.5.7)
     highline (1.7.10)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    http (3.0.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (>= 2.0.0.pre.pre2, < 3)
+      http_parser.rb (~> 0.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    http-form_data (2.0.0)
+    http_parser.rb (0.6.0)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (0.9.19)
+    i18n-tasks (0.9.20)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
-      easy_translate (>= 0.5.0)
+      easy_translate (>= 0.5.1)
       erubi
       highline (>= 1.7.3)
       i18n
@@ -229,6 +254,7 @@ GEM
       rainbow (~> 2.2)
       terminal-table (>= 1.5.1)
     i18n_data (0.8.0)
+    ice_nine (0.11.2)
     inflecto (0.0.2)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
@@ -248,9 +274,13 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    koala (3.0.0)
+      addressable
+      faraday
+      json (>= 1.8)
     launchy (2.4.3)
       addressable (~> 2.3)
-    letter_opener (1.5.0)
+    letter_opener (1.6.0)
       launchy (~> 2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -270,6 +300,8 @@ GEM
       nokogiri (~> 1.6)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     meta-tags (2.7.0)
       actionpack (>= 3.2.0, < 5.3)
     method_source (0.9.0)
@@ -281,10 +313,11 @@ GEM
     minitest (5.11.1)
     money (6.10.1)
       i18n (>= 0.6.4, < 1.0)
-    multi_json (1.12.2)
+    multi_json (1.13.1)
     multi_test (0.1.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    naught (1.1.0)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
     nio4r (2.2.0)
@@ -298,10 +331,11 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+    oj (3.3.10)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
-    patternfly-sass (3.35.1)
+    patternfly-sass (3.37.1)
       bootstrap-sass (~> 3.3.7)
       font-awesome-sass (~> 4.6.2)
       sass (~> 3.4.15)
@@ -403,6 +437,7 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    simple_oauth (0.3.1)
     sixarm_ruby_unaccent (1.2.0)
     sorcery (0.11.0)
       bcrypt (~> 3.1)
@@ -423,6 +458,10 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sysexits (1.2.0)
+    telegram-bot-ruby (0.8.6.1)
+      faraday
+      inflecto
+      virtus
     temple (0.8.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
@@ -430,15 +469,39 @@ GEM
     thread (0.2.2)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    twitter (6.2.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (~> 0.0.11)
+      http (~> 3.0)
+      http-form_data (~> 2.0)
+      http_parser.rb (~> 0.6.0)
+      memoizable (~> 0.4.0)
+      multipart-post (~> 2.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.3.0)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (4.1.2)
+    uglifier (4.1.3)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.4)
     unicode-display_width (1.3.0)
     unicode_utils (1.4.0)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
+    vkontakte_api (1.4.4)
+      faraday (>= 0.9.0)
+      faraday_middleware (>= 0.9.1)
+      faraday_middleware-multi_json (~> 0.0.6)
+      hashie (>= 2.0)
+      multi_json (>= 1.3)
+      oauth2 (>= 0.8)
+      oj (>= 2.12)
     watir (6.10.2)
       selenium-webdriver (~> 3.4, >= 3.4.1)
     watir-rails (2.0.0)
@@ -470,6 +533,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   dotenv
+  dotenv-rails
   enum_help
   factory_bot_rails (~> 4.0)
   faker!
@@ -480,6 +544,7 @@ DEPENDENCIES
   i18n-tasks (~> 0.9.19)
   jquery-rails
   kaminari
+  koala
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mechanize
@@ -502,7 +567,10 @@ DEPENDENCIES
   sorcery
   spring
   spring-watcher-listen (~> 2.0.0)
+  telegram-bot-ruby
+  twitter
   uglifier (>= 1.3.0)
+  vkontakte_api (~> 1.4)
   watir-rails
   web-console (>= 3.3.0)
 
