@@ -46,7 +46,8 @@ build-iPhoneSimulator/
 log/
 .ruby-version
 .envrc
+.envrc.backup
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
-.kube/app-secrets.yml
+deploy/secrets/application-secrets.yml

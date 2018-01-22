@@ -1,6 +1,12 @@
 #!/bin/sh
 
-sed -ie "s/THIS_STRING_IS_REPLACED_DURING_BUILD!/$(date)/g" deploy/deployments/juniorjobs.yaml
-rm deploy/deployments/juniorjobs.yaml
-mv deploy/deployments/juniorjobs.yamle deploy/deployments/juniorjobs.yaml
+#sed -ie "s/THIS_STRING_IS_REPLACED_DURING_BUILD!/$(date)/g" deploy/deployments/juniorjobs.yaml
+#rm deploy/deployments/juniorjobs.yaml
+#mv deploy/deployments/juniorjobs.yamle deploy/deployments/juniorjobs.yaml
+
+# Pull sensetive data from ENV
+envsubst < deploy/secrets/application-secrets.yaml.tmpl > deploy/secrets/application-secrets.yaml
+kubectl apply -f deploy/secrets/application-secrets.yaml
+rm deploy/secrets/application-secrets.yaml
+
 kubectl apply -R -f deploy/
