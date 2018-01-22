@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NavigationHelpers
   def goto(url)
     url = @cucumber_host + url

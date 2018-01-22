@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Routes
+  # dictionary
   class Mapper
     def self.path_for(route_name)
       mapping[route_name.to_sym][:path]
@@ -10,14 +13,14 @@ module Routes
 
     def self.mapping
       {
-          home: {
-            path: '/',
-            page_class: Pages::Home
-          },
-          signUp: {
-            path: '/signup',
-            page_class: Pages::SignUp
-          }
+        home: {
+          path: '/',
+          page_class: Pages::Home
+        },
+        signUp: {
+          path: '/signup',
+          page_class: Pages::SignUp
+        }
       }
     end
   end

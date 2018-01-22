@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-# this page describe home page
+
 module Pages
   class Home
+    # this page describe home page
     include PageObject
   end
 end

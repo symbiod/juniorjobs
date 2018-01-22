@@ -2,7 +2,7 @@
 
 Given(/^I am on the juniorjobs (\w+) page$/) do |page|
   goto url_for(page)
-  @current_page =  page_for(page)
+  @current_page = page_for(page)
 end
 
 When(/^I fill the sign up form and submit$/) do
