@@ -56,6 +56,7 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'dotenv-rails'
   gem 'rspec'
   gem 'page-object'
   gem 'data_magic'
