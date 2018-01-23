@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# module contain methods gor navigation on pages
 module NavigationHelpers
   def goto(url)
     url = @cucumber_host + url

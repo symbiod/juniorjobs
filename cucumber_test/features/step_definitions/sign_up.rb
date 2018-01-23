@@ -19,12 +19,7 @@ Then(/^user see success msg "([^"]*)"$/) do |text|
 end
 
 Given(/^I have credentials (\w+) (\w+)/) do |preposition, field|
-  if preposition == 'without'
-    @user = FactoryBot.create(:user)
-    @user.send("#{field}=", '')
-  else
-    @user = FactoryBot.create :user
-  end
+  @user.send("#{field}=", '') if preposition == 'without'
 end
 
 And(/^account should not be created and use see signup form$/) do

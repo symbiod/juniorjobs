@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-
 module Pages
+  # this class describe sign up page
   class SignUp
-    # this class describe sign up page
     include PageObject
 
     text_field   :user_email,   id: 'user_email'
