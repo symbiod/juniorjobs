@@ -18,10 +18,16 @@ $("#job_tag_list").select2
   		}
   	cache: true	
   }
+  createTag: (params) -> 
+    {
+      id: params.term
+      name: params.term
+    }
   tags: true
-  escapeMarkup: (markup) -> markup
   minimumInputLength: 2
   tokenSeparators: [',']
   templateResult: (item) -> item.name
-  templateSelection: (item) -> item.name
+  templateSelection: (item) ->  item.name
+  
+    
 
