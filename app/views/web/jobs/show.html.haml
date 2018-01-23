@@ -51,6 +51,11 @@
           = t("activerecord.attributes.job.requirements")
         %p
           = simple_format(@job.requirements)
+        %hr
+        %p
+          Tags:   
+          - @job.tag_list.each do |t| 
+            = link_to t, tag_path(t)  
 
 
       .col-sm-4.form-group.well.col-md-offset-1
@@ -62,3 +67,4 @@
         %p.text-align-center.job-phone
           - if @job.company_phone.present?
             = @job.company_phone
+

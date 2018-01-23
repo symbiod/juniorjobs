@@ -1,0 +1,7 @@
+= render'web/subscriptions/new'
+.row.mt20
+  .col-sm-12
+    %h3.title Найдено по тэгу #{@tag}  
+    -  @jobs_with_tag.each do |job|
+      = render 'job', job: job
+
