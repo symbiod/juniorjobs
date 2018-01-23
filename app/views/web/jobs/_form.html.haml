@@ -47,7 +47,7 @@
       = link_to 'Условями работы сервиса', terms_path, class: ''
   .form-group.well
     %h3 #tags
-    = f.select :tag_list, {}, { class: "form_control" }, multiple: true, style: 'width: 100%'
+    = f.select :tag_list, {}, { class: "form_control" }, multiple: true, style: "width: 100% display: none"
     %span= t('forms.comma_separator') 
       
 

@@ -40,7 +40,8 @@ gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
 gem 'patternfly-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem "select2-rails"
+gem 'select2-rails'
+gem 'underscore-rails'
 
 # Frontend:helpers
 gem 'country_select'

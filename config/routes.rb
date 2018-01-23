@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get '/about', to: 'static_pages#about'
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
-
+    get '/tags', to: 'tags#index'
     resources :jobs
     resource :subscription, only: [:new, :create, :destroy]
   end
