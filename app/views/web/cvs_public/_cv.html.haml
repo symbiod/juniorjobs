@@ -1,10 +1,6 @@
 .row.blog-item
   .col-sm-4.col-md-4.blog-caption
-<<<<<<< HEAD
-    %h3.post-title.cv-title= link_to cv.title, developer_path(cv)
-=======
     %h3.post-title= link_to cv.title, cvs_public_path(cv), style: 'color: #428bca;'
->>>>>>> Add cv to user + locales
     .sub-post-title.m0
       %span
         = cv.name
@@ -13,11 +9,7 @@
           = "- #{cv.city}"
         - if cv.remote.present?
           %br
-<<<<<<< HEAD
-          = t('activerecord.attributes.cv.remote')
-=======
           = 'Возможно работать удаленно'
->>>>>>> Add cv to user + locales
     .sub-post-title.m0
       %span= cv.created_at.strftime('%d.%m.%Y')
   .col-sm-8.col-md-8.blog-caption

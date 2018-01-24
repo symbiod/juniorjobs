@@ -2,11 +2,7 @@
   .row.mt20
     .col-sm-12
       %h3.title Резюме
-<<<<<<< HEAD
-      - @cvs.each do |cv|
-=======
       - for cv in @cvs
->>>>>>> Add cv to user + locales
         = render 'cv', cv: cv
 
   = paginate @cvs

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get '/developers', to: 'developer_cvs#index'
 
     resources :tags, only: [:index]
+    get '/cvs', to: 'cvs_public#index'
     resources :jobs
     resources :developer_cvs, only: [:index, :show], as: 'developers'
     resource :subscription, only: [:new, :create, :destroy]
