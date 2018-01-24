@@ -1,3 +1,16 @@
+## List of required ENV variables
+
+**General ENV variables**
+
+All these variables should be available at app startup
+
+* APP_SECRET
+* MAILCHIMP_LIST_ID
+* MAILCHIMP_ACCESS_KEY_ID
+* GITHUB_CLIENT_ID
+* GITHUB_SECRET
+* GITHUB_CALLBACK_DOMAIN
+
 **FOR VKONTAKTE:**
 1. [Create app for website](https://vk.com/apps?act=manage "Create app")
 2. Get permanent TOKEN for group, you can use next reqest:
@@ -27,3 +40,11 @@ CONSUMER_KEY = (consumer_key)
 CONSUMER_SECRET = (consumer_secret)
 ACCESS_TOKEN = (access_token)
  ACCESS_TOKEN_SECRET= (access_token_secret)
+
+## Adding new ENV variable
+
+* Use it in the code
+* Add it to this document
+* Add it to `deploy/secrets/application-secrets.yaml.tmpl`
+* Add it to `deploy/deployments/juniorjobs.yaml`
+* Ask to add it to CI/CD

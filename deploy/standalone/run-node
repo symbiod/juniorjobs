@@ -1,0 +1,20 @@
+gcloud compute instances create kubeadm-single-node-cluster \
+  --can-ip-forward \
+  --image-family ubuntu-1710 \
+  --image-project ubuntu-os-cloud \
+  --machine-type n1-standard-1 \
+  --metadata kubernetes-version=stable-1.8 \
+  --metadata-from-file startup-script=../kubeadm-single-node-cluster/startup.sh \
+  --tags kubeadm-single-node-cluster \
+  --scopes cloud-platform,logging-write
+
+gcloud compute firewall-rules create default-allow-kubeadm-single-node-cluster \
+  --allow tcp:6443 \
+  --target-tags kubeadm-single-node-cluster \
+  --source-ranges 0.0.0.0/0
+
+gcloud compute firewall-rules create ssh-allow-kubeadm-single-node-cluster \
+  --allow tcp:22\
+  --target-tags kubeadm-single-node-cluster \
+  --source-ranges 0.0.0.0/0
+

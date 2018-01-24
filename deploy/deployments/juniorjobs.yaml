@@ -12,6 +12,7 @@ spec:
       containers:
       - name: juniorjobs
         image: howtohireme/juniorjobs.ru:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
         env:
@@ -20,12 +21,39 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: secret_key_base
+          - name: MAILCHIMP_LIST_ID
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: mailchimp_list_id
+          - name: MAILCHIMP_ACCESS_KEY_ID
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: mailchimp_access_key_id
+          - name: GITHUB_CLIENT_ID
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: github_client_id
+          - name: GITHUB_SECRET
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: github_secret
+          - name: GITHUB_CALLBACK_DOMAIN
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: github_callback_domain
           - name: RAILS_LOG_TO_STDOUT
             value: 'true'
           - name: REDIS_HOST
             value: redis
           - name: RAILS_SERVE_STATIC_FILES
             value: 'true'
+          - name: FOR_GODS_SAKE_PLEASE_REDEPLOY
+            value: 'Sun Jan 21 20:07:02 MSK 2018'
 ---
 apiVersion: v1
 kind: Service
