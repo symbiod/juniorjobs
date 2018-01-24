@@ -3,27 +3,27 @@
 - if @jobs_published_today.any?
   .row.mt20
     .col-sm-12
-      %h3.title Последние
+      %h3.title= t('web.welcome.index.last') 
       - @jobs_published_today.each do |job|
         = render 'job', job: job
 
 - if @jobs_published_yesterday.any?
   .row.mt20
     .col-sm-12
-      %h3 Вчера
+      %h3= t('web.welcome.index.yesterday')
       - @jobs_published_yesterday.each do |job|
         = render 'job', job: job
 
 - if @jobs_published_last_week.any?
   .row.mt20
     .col-sm-12
-      %h3 За неделю
+      %h3= t('web.welcome.index.week')
       - @jobs_published_last_week.each do |job|
         = render 'job', job: job
 
 - if @jobs_published_last_month.any?
   .row.mt20
     .col-sm-12
-      %h3 За месяц
+      %h3= t('web.welcome.index.month')
       - @jobs_published_last_month.each do |job|
         = render 'job', job: job
