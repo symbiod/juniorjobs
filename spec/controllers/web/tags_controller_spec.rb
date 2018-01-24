@@ -5,8 +5,8 @@ RSpec.describe Web::TagsController, type: :controller do
 		before { @tags = ActsAsTaggableOn::Tag.all }
 		before { get 'index', params: { term: 'rub' } }
 
-		it "returns a successful 200 response" do
-       get :index, format: :json
+		it 'returns a successful 200 response' do
+      get :index, format: :json
       expect(response).to be_success
     end
 
