@@ -1,3 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-volume-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
@@ -11,14 +22,23 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: postgres:9.5
+        image: postgres:10.1
         ports:
-        - containerPort: 5432
+          - containerPort: 5432
         env:
           - name: POSTGRES_PASSWORD
             value: root
           - name: POSTGRES_DB
             value: juniorjobs_production
+          - name: PGDATA
+            value: /pg_data
+        #volumeMounts:
+          #- name: db-data-volume
+            #mountPath: /pg_data
+      #volumes:
+        #- name: db-data-volume
+          #persistentVolumeClaim:
+            #claimName: postgres-volume-claim
 ---
 apiVersion: v1
 kind: Service

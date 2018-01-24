@@ -114,7 +114,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.github.key = ENV['GITHUB_CLIENT_ID']
   config.github.secret = ENV['GITHUB_SECRET']
-  config.github.callback_url = "#{ENV['CALLBACK_DOMAIN']}/oauth/callback?provider=github"
+  config.github.callback_url = "#{ENV['GITHUB_CALLBACK_DOMAIN']}/oauth/callback?provider=github"
   config.github.user_info_mapping = { email: 'email' }
   # config.github.scope = ""
   #
