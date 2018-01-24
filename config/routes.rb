@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     get '/contact_us', to: 'static_pages#contact_us'
     resources :tags, only: [:index]
     resources :jobs
+    resources :cvs_public, only: [:index, :show] do
+      get '/cv/:id', to: 'cvs_public#show'
+    end
     resource :subscription, only: [:new, :create, :destroy]
   end
 
@@ -22,7 +25,9 @@ Rails.application.routes.draw do
     resources :user_sessions, only: :create
     post '/logout', to: 'user_sessions#destroy', as: :logout
 
-    resources :users, except: [:new, :index, :show]
+    resources :users, except: [:new, :index, :show] do
+      resources :cvs
+    end
     get '/signup', to: 'users#new', as: :signup
 
     post 'oauth/callback' => 'oauths#callback'
