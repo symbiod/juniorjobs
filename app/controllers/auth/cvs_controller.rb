@@ -27,7 +27,6 @@ module Auth
         redirect_to developer_cv_path(@cv), notice: t('common.cvs.update.success')
       else
         error_msg = @cv.errors.messages[:description].first
-
         redirect_to edit_user_cv_path(@cv), alert: t('common.cvs.create.fail', error_msg)
       end
     end
@@ -37,9 +36,7 @@ module Auth
         redirect_to root_path, notice: t('common.cvs.delete.success')
       else
         error_msg = @cv.errors.messages[:description].first
-
-        redirect_back fallback_location: root_path,
-        alert: t('common.cvs.delete.fail', error_msg)
+        redirect_back fallback_location: root_path, alert: t('common.cvs.delete.fail', error_msg)
       end
     end
 
