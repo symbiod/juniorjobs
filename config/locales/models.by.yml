@@ -34,3 +34,15 @@ by:
         title: Название вакансии
       subscription:
         email: Введите почту, чтоб подписаться на рассылку с новыми вакансиями
+      cv:
+        title: Желаемая должность
+        status: Вакансия опубликована
+        name: Фамилия Имя Отчество
+        description: Обо мне
+        education: Образование
+        skills: Ключевые навыки
+        work_experience: Опыт работы
+        address: Адресс
+        web_site: Web сайт
+        edit: Редактировать
+        delete: Удалить
