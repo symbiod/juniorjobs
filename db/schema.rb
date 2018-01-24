@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111123536) do
+ActiveRecord::Schema.define(version: 20180122185048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,33 @@ ActiveRecord::Schema.define(version: 20180111123536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
+  create_table "cvs", force: :cascade do |t|
+    t.boolean "status"
+    t.string "title", null: false
+    t.string "employment"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "country"
+    t.string "city"
+    t.boolean "remote"
+    t.string "currency"
+    t.integer "salary_from"
+    t.integer "salary_to"
+    t.boolean "salary_by_agreement"
+    t.text "education"
+    t.text "skills"
+    t.text "work_experience"
+    t.datetime "expired_at", null: false
+    t.string "address"
+    t.string "phone", null: false
+    t.string "email", null: false
+    t.string "web_site"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cvs_on_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|

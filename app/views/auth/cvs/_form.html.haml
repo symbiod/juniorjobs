@@ -1,0 +1,58 @@
+= simple_form_for [@cv.user, @cv], html: { class: 'container form mt40 mb40' } do |f|
+  = f.input :country, as: :hidden, label: false, input_html: { class: 'form-control', value: current_country }
+
+  .form-group.well
+    %h3 Создание Резюме
+    .row
+      .col-md-9
+        = f.input :title, label: false, placeholder: t('activerecord.attributes.cv.title')
+      .col-md-3
+        = f.input :status, as: :boolean, label: t('activerecord.attributes.cv.status'), :input_html => { :checked => true }
+    = f.input :name, label: false, placeholder: t('activerecord.attributes.cv.name')
+    = f.select :employment, Job.employments.keys.map { |type| [t("activerecord.attributes.job.employments.#{type}"), type] }, { label: false, include_blank: false }, { class: 'form-control' }
+    = f.input :description, label: false, placeholder: t('activerecord.attributes.cv.description'), input_html: { class: 'form-control mt20', rows: 10 }
+
+  .form-group.well
+    %h3 Навыки
+    = f.input :education, label: false, placeholder: t('activerecord.attributes.cv.education'), input_html: { class: 'form-control mt20', rows: 10 }
+    = f.input :skills, label: false, placeholder: t('activerecord.attributes.cv.skills'), input_html: { class: 'form-control mt20', rows: 10 }
+    = f.input :work_experience, label: false, placeholder: t('activerecord.attributes.cv.work_experience'), input_html: { class: 'form-control mt20', rows: 10 }
+
+  .form-group.well
+    %h3 Расположение
+    .row
+      .col-md-8
+        = f.input :city, label: false, placeholder: t('activerecord.attributes.job.city'), input_html: { class: 'form-control' }
+      .col-md-4
+        = f.input :remote, as: :boolean, label: t('activerecord.attributes.job.remote')
+
+  .form-group.well
+    %h3 Контакты
+    = f.input :address, label: false, placeholder: t('activerecord.attributes.cv.address')
+    = f.input :phone, label: false, placeholder: t('activerecord.attributes.job.company_phone')
+    = f.input :email, label: false, placeholder: t('activerecord.attributes.job.company_email')
+    = f.input :web_site, label: false, placeholder: t('activerecord.attributes.cv.web_site')
+
+  .form-group.well
+    %h3 Мотивация
+    .row
+      .col-md-3
+        = f.select :currency, Job.currencies.keys.map { |type| [t("activerecord.attributes.job.currencies.#{type}"), type] }, { label: false, include_blank: false }, { class: 'form-control' }
+      .col-md-3
+        = f.input :salary_from, label: false, placeholder: t('activerecord.attributes.job.salary_from'), input_html: { class: 'form-control' }
+      .col-md-3
+        = f.input :salary_to, label: false, placeholder: t('activerecord.attributes.job.salary_to'), input_html: { class: 'form-control' }
+      .col-md-3
+        = f.input :salary_by_agreement, as: :boolean, label: t('activerecord.attributes.job.salary_by_agreement'), input_html: { class: 'form-check-input' }, label_html: { class: 'form-check-label'}
+
+  .form-group.well
+    %h3 Время публикации вакансии
+    .form-group
+      = f.select :expired_at, expired_at_dates_for(f.object), { label: false, include_blank: false }, { class: 'form-control' }
+
+  .form-group.well
+    %p.m0
+      = 'Публикуя, вакансию вы соглашаетесь с'
+      = link_to 'Условями работы сервиса', terms_path, class: ''
+
+  = f.button :submit, t('common.submit'), style: 'color: white; background-color: #5cb85c;'
