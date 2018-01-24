@@ -24,6 +24,33 @@ ActiveRecord::Schema.define(version: 20180127100650) do
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
+  create_table "cvs", force: :cascade do |t|
+    t.boolean "status"
+    t.string "title", null: false
+    t.string "employment"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "country"
+    t.string "city"
+    t.boolean "remote"
+    t.string "currency"
+    t.integer "salary_from"
+    t.integer "salary_to"
+    t.boolean "salary_by_agreement"
+    t.text "education"
+    t.text "skills"
+    t.text "work_experience"
+    t.datetime "expired_at", null: false
+    t.string "address"
+    t.string "phone", null: false
+    t.string "email", null: false
+    t.string "web_site"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cvs_on_user_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
