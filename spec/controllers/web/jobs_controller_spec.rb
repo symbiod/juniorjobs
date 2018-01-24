@@ -19,7 +19,8 @@ RSpec.describe Web::JobsController, type: :controller do
     end
 
     context 'with valid attributes and without user' do
-      subject { post 'create', params: { job: attributes_for(:job) } }
+      let(:tag) { create(:tag_ruby) }
+      subject { post 'create', params: { job: attributes_for(:job), tag_list: ["ruby", "javascript", "remote"] } }
 
       it 'saves the new job to database' do
         expect { subject }.to change(Job.all, :count).by(1)
@@ -55,14 +56,18 @@ RSpec.describe Web::JobsController, type: :controller do
 
       before do
         login_user(user)
-        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать') }
+        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать', tag_list: ['java']) }
       end
 
       it 'updates job requirements' do
         expect(job.reload.requirements).to eq 'Работать'
-      end
+      end 
 
       it { is_expected.to redirect_to(job_path(job)) }
+      
+      it 'should return correct tags' do
+        expect(job.tag_list).to eq ['java']
+      end
     end
 
     context 'update job with incorrect token' do

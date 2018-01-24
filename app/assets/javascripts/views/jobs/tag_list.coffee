@@ -11,7 +11,7 @@ $("#job_tag_list").select2
   		{
   			results: _.map(data, (tag) ->
 	  			{
-	  				id: tag.id
+	  				id: tag.name
 	  				name: tag.name	
 	  			}
   			)
