@@ -12,5 +12,5 @@ end
 
 ActsAsTaggableOn::Tag.seed do |s|
   s.id    = 3
-  s.name = "#ruby"
+  s.name = "#remote"
 end
