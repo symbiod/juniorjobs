@@ -12,7 +12,7 @@ $("#job_tag_list").select2
   			results: _.map(data, (tag) ->
 	  			{
 	  				id: tag.name
-	  				name: tag.name	
+	  				name: tag.name
 	  			}
   			)
   		}
