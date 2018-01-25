@@ -17,3 +17,4 @@ RSpec.describe Web::TagsController, type: :controller do
 		end
 	end
 end
+  
