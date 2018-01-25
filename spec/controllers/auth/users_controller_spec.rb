@@ -99,22 +99,82 @@ RSpec.describe Auth::UsersController, type: :controller do
 
       it { is_expected.to render_template(:edit) }
     end
+
+    context 'other user cant edit profile' do
+      let(:user) { create(:user, :junior) }
+      let(:other_user) { create(:user, :junior) }
+      let(:new_password) { 'newpassword' }
+      let(:params) do
+        Hash(id: user.id, user: { email: user.email,
+                                  password: new_password,
+                                  password_confirmation: new_password,
+                                  roles: ['company'] })
+      end
+
+      before do
+        login_user(other_user)
+        put 'update', params: params
+      end
+
+      it 'not updates user password' do
+        expect(user.reload.valid_password?('newpassword')).to eq false
+      end
+
+      it 'not updates user role' do
+        expect(user.reload.roles).to eq(['junior'])
+      end
+    end
+
+    context 'user cannot upgrade own profile to admin' do
+      let(:user) { create(:user, :junior) }
+      let(:params) do
+        Hash(id: user.id, user: { email: user.email,
+                                  password: 'secret',
+                                  password_confirmation: 'secret',
+                                  roles: ['admin'] })
+      end
+
+      before do
+        login_user(user)
+        put 'update', params: params
+      end
+
+      it 'not updates user role' do
+        expect(user.reload.roles).not_to eq(['admin'])
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
-    let(:user) { create(:user, :company) }
+    context 'user delete own profile' do
+      let(:user) { create(:user, :company) }
 
-    before do
-      login_user(user, 'secret')
-      delete 'destroy', params: { id: user.id }
+      before do
+        login_user(user)
+        delete 'destroy', params: { id: user.id }
+      end
+
+      it 'delete user' do
+        expect(User.exists?(user.id)).to eq false
+      end
+
+      it 'redirects to main page' do
+        is_expected.to redirect_to root_path
+      end
     end
 
-    it 'delete user' do
-      expect(User.exists?(user.id)).to eq false
-    end
+    context 'other user cant delete profile' do
+      let(:user) { create(:user, :company) }
+      let(:other_user) { create(:user, :junior) }
 
-    it 'redirects to main page' do
-      is_expected.to redirect_to root_path
+      before do
+        login_user(other_user)
+        delete 'destroy', params: { id: user.id }
+      end
+
+      it 'not delete user' do
+        expect(User.exists?(user.id)).to eq true
+      end
     end
   end
 end

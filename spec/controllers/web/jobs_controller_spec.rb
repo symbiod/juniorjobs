@@ -50,11 +50,9 @@ RSpec.describe Web::JobsController, type: :controller do
 
   describe 'PUT #update' do
     context 'update job with correct token' do
-      let(:user) { create(:user, :company) }
       let(:job) { create(:job) }
 
       before do
-        login_user(user)
         put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать') }
       end
 
@@ -66,11 +64,9 @@ RSpec.describe Web::JobsController, type: :controller do
     end
 
     context 'update job with incorrect token' do
-      let(:user) { create(:user, :company) }
       let(:job) { create(:job) }
 
       before do
-        login_user(user)
         put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать', token: 'wrong') }
       end
 
@@ -81,9 +77,40 @@ RSpec.describe Web::JobsController, type: :controller do
       it { is_expected.to redirect_to(job_path(job)) }
     end
 
+    context 'update job by owner without token' do
+      let(:user) { create(:user, :company) }
+      let(:job) { create(:job, user: user) }
+
+      before do
+        login_user(user)
+        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать', token: '') }
+      end
+
+      it 'updates job requirements' do
+        expect(job.reload.requirements).to eq 'Работать'
+      end
+
+      it { is_expected.to redirect_to(job_path(job)) }
+    end
+
+    context 'not update job by other user' do
+      let(:user) { create(:user, :company) }
+      let(:other_user) { create(:user, :junior) }
+      let(:job) { create(:job, user: user) }
+
+      before do
+        login_user(other_user)
+        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать', token: '') }
+      end
+
+      it 'not updates job requirements' do
+        expect(job.reload.requirements).to eq 'Работать много и пить кофе'
+      end
+    end
+
     context 'update job with invalid attributes' do
       let(:user) { create(:user, :company) }
-      let(:job) { create(:job) }
+      let(:job) { create(:job, user: user) }
 
       before do
         login_user(user)
