@@ -1,0 +1,23 @@
+---
+by:
+  admin:
+    shared:
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      confirm_delete: 'Точно удалить?'
+    base:
+      check_admin:
+        permission_denied: 'У вас нет прав для просмотра данной страницы.'
+    jobs:
+      index:
+        company_name: 'Компания'
+        job: 'Вакансия'
+        status: 'Статус'
+      destroy:
+        success: 'Вакансия успешно удалена.'
+      aproove:
+        fail: 'Вакансию не получилось одобрить.'
+        success: 'Вакансия успешно одобрена.'
+      unaproove:
+        fail: 'Не получилось снять одобрение с вакансии.'
+        success: 'Одобрение с вакансии снято.'
