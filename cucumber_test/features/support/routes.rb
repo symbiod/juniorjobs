@@ -22,8 +22,8 @@ module Routes
           page_class: Pages::SignUp
         },
         new_vacancy: {
-            path: '/jobs/new',
-            page_class: Pages::NewVacancy
+          path: '/jobs/new',
+          page_class: Pages::NewVacancy
         }
       }
     end

@@ -21,6 +21,5 @@ module Pages
     checkbox :job_salary_by_agreement, id: 'job_salary_by_agreement'
     select_list :job_expired_at, id: 'job_expired_at'
     button :submit, name: 'commit'
-
   end
 end
