@@ -3,10 +3,11 @@
 module Admin
   # Controller for handling jobs in admin namespace.
   class JobsController < BaseController
-    before_action :load_job, only: %i[show edit update destroy]
+    before_action :load_job, except: %i[index]
+    before_action :load_jobs, only: %i[index]
 
     def index
-      @jobs = Job.order(:status).decorate
+      @jobs = JobDecorator.decorate_collection(@jobs)
     end
 
     def edit; end
@@ -24,15 +25,36 @@ module Admin
       redirect_to admin_jobs_path, notice: t('admin.jobs.destroy.success')
     end
 
+    def approve
+      if @job.approve!
+        redirect_to admin_jobs_path(show_status: 'not_approved'), notice: t('admin.jobs.approve.success')
+      else
+        redirect_to admin_jobs_path(show_status: 'not_approved'), alert: t('admin.jobs.approve.fail')
+      end
+    end
+
+    def not_approve
+      if @job.not_approve!
+        redirect_to admin_jobs_path(show_status: 'approved'), notice: t('admin.jobs.not_approve.success')
+      else
+        redirect_to admin_jobs_path(show_status: 'approved'), alert: t('admin.jobs.not_approve.fail')
+      end
+    end
+
     private
 
     def load_job
       @job = Job.find(params[:id])
     end
 
+    def load_jobs
+      return @jobs = Job.where(status: params[:show_status]) if params[:show_status]
+      @jobs = Job.order(:status)
+    end
+
     def job_params
       params.require(:job).permit(
-        :id, :status,
+        :id, :status, :show_status,
         :title, :description,
         :requirements, :employment,
         :city, :country, :remote,

@@ -3,6 +3,21 @@
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
 class Job < ApplicationRecord
+  include AASM
+
+  aasm column: 'status' do
+    state :not_approved, initial: true
+    state :approved
+
+    event :approve do
+      transitions from: :not_approved, to: :approved
+    end
+
+    event :not_approve do
+      transitions from: :approved, to: :not_approved
+    end
+  end
+
   belongs_to :user, optional: true
 
   validates :token, presence: true, unless: :owner?
