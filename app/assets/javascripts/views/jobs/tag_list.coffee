@@ -16,9 +16,9 @@ $("#job_tag_list").select2
 	  			}
   			)
   		}
-  	cache: true	
+  	cache: true
   }
-  createTag: (params) -> 
+  createTag: (params) ->
     {
       id: params.term
       name: params.term
