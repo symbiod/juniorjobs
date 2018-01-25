@@ -58,13 +58,10 @@ RSpec.describe Web::JobsController, type: :controller do
         login_user(user)
         put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать', tag_list: ['java']) }
       end
-
       it 'updates job requirements' do
         expect(job.reload.requirements).to eq 'Работать'
       end 
-
       it { is_expected.to redirect_to(job_path(job)) }
-      
       it 'should return correct tags' do
         expect(job.tag_list).to eq ['java']
       end
@@ -82,7 +79,6 @@ RSpec.describe Web::JobsController, type: :controller do
       it 'not updates job requirements' do
         expect(job.reload.requirements).to eq 'Работать много и пить кофе'
       end
-
       it { is_expected.to redirect_to(job_path(job)) }
     end
 
