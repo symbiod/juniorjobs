@@ -9,7 +9,7 @@ RSpec.describe Web::TagsController, type: :controller do
 		it 'returns a successful 200 response' do
       get :index, format: :json
       expect(response).to be_success
-    end
+    end   
 		it 'return all tags in json' do
 			get 'index', params: { term: 'rub' } 
 			parsed_response = JSON.parse(response.body)
@@ -17,4 +17,3 @@ RSpec.describe Web::TagsController, type: :controller do
 		end
 	end
 end
-  
