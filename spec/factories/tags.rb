@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tag_ruby do
     id 1
-    name "#ruby"  
+    name '#ruby'
   end
 end
