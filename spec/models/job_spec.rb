@@ -17,6 +17,24 @@ RSpec.describe Job, type: :model do
   it { should validate_numericality_of :salary_from }
   it { should validate_numericality_of :salary_to }
 
+  context 'status should be unaprooved' do
+    subject { build(:job, user: user) }
+
+    it { is_expected.to have_state(:unaprooved) }
+  end
+
+  context 'can be be aprooved' do
+    subject { build(:job, user: user) }
+
+    it { is_expected.to transition_from(:unaprooved).to(:aprooved).on_event(:aproove) }
+  end
+
+  context 'can be be unaprooved' do
+    subject { build(:job, user: user) }
+
+    it { is_expected.to transition_from(:aprooved).to(:unaprooved).on_event(:unaproove) }
+  end
+
   context 'should be valid' do
     subject { build(:job, user: user) }
 
