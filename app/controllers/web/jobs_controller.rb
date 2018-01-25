@@ -25,7 +25,7 @@ module Web
     def edit; end
 
     def update
-      if @job.update(job_params.merge(status: false))
+      if @job.update(job_params) && @job.unaproove!
         redirect_to job_path(@job), notice: t('common.jobs.update.success')
       else
         redirect_to edit_job_path(@job), alert: t('common.jobs.create.fail', @job.errors.messages[:description].first)

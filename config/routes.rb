@@ -27,4 +27,13 @@ Rails.application.routes.draw do
     get 'oauth/callback' => 'oauths#callback'
     get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
   end
+
+  namespace :admin do
+    resources :users, only: %i[index edit update destroy]
+    resources :subscriptions, only: :index
+    resources :jobs, only: %i[index edit update destroy] do
+      post 'aproove', on: :member
+      post 'unaproove', on: :member
+    end
+  end
 end
