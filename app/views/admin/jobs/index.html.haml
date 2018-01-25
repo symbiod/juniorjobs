@@ -1,0 +1,27 @@
+%table.table.table-hover.table-condensed
+  %thead
+    %tr
+      %th
+        = t('.job')
+      %th
+        = t('.company_name')
+      %th
+        = t('.status')
+      %th{ colspan: '3' }
+  %tbody
+    - @jobs.each do |job|
+      %tr
+        %td
+          = link_to job.title, job_path(job)
+        %td
+          = job.company_name
+        %td
+          = job.status
+        %td
+          = link_to t('admin.shared.edit'), edit_admin_job_path(job)
+          = link_to t('admin.shared.delete'), admin_job_path(job), method: :delete,
+          data: { confirm: t('admin.shared.confirm_delete') }
+          - if job.aasm.current_state == :aprooved
+            = link_to t('activerecord.attributes.job.unaproove'), unaproove_admin_job_path(job)
+          - else
+            = link_to t('activerecord.attributes.job.aproove'), aproove_admin_job_path(job)
