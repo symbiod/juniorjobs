@@ -55,6 +55,7 @@ RSpec.describe Web::JobsController, type: :controller do
 
       before do
         login_user(user)
+        job.aproove!
         put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать') }
       end
 
@@ -71,6 +72,7 @@ RSpec.describe Web::JobsController, type: :controller do
 
       before do
         login_user(user)
+        job.aproove!
         put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать', token: 'wrong') }
       end
 
@@ -87,6 +89,7 @@ RSpec.describe Web::JobsController, type: :controller do
 
       before do
         login_user(user)
+        job.aproove!
         put 'update', params: { id: job.id, job: attributes_for(:job, :invalid, requirements: 'Работать') }
       end
 

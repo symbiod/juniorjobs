@@ -3,6 +3,21 @@
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
 class Job < ApplicationRecord
+  include AASM
+
+  aasm column: 'status' do
+    state :unaprooved, initial: true
+    state :aprooved
+
+    event :aproove do
+      transitions from: :unaprooved, to: :aprooved
+    end
+
+    event :unaproove do
+      transitions from: :aprooved, to: :unaprooved
+    end
+  end
+
   belongs_to :user, optional: true
 
   validates :token, presence: true
