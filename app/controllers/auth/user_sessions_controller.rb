@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module Auth
-  # TODO: documentation is missing for this class
-  # We should consider addig some documentation here
   class UserSessionsController < BaseController
+    before_action :load_user_session, only: %i[create]
+
     def new
       @user = User.new
     end
 
     def create
-      if (@user = login(session_params[:email], session_params[:password]))
-        redirect_back_or_to(root_path, notice: t('.success', email: @user.email))
+      if @user
+        redirect_back_or_to root_path, notice: t('.success', email: @user.email)
       else
         flash.now[:alert] = t('.alert')
         render action: 'new'
@@ -26,6 +26,10 @@ module Auth
 
     def session_params
       params.require(:user_session).permit(:email, :password)
+    end
+
+    def load_user_session
+      @user = login(session_params[:email], session_params[:password])
     end
   end
 end

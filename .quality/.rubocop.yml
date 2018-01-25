@@ -1,14 +1,14 @@
 AllCops:
   TargetRubyVersion: 2.4
   Include:
-    - './**/Rakefile'
-    - './**/config.ru'
+    - '../**/Rakefile'
+    - '../**/config.ru'
   Exclude:
-    - './bin/**/*'
-    - './db/schema.rb'
-    - './db/migrate/*'
-    - './config/**/*'
-    - './lib/tasks/*'
+    - '../bin/**/*'
+    - '../db/schema.rb'
+    - '../db/migrate/*'
+    - '../config/**/*'
+    - '../lib/tasks/*'
 
 Documentation:
   Enabled: false
@@ -49,15 +49,15 @@ Layout/MultilineAssignmentLayout:
 
 Metrics/BlockLength:
   Exclude:
-    - './spec/**/*'
+    - '../spec/**/*'
 
 Metrics/LineLength:
   Max: 120
 
 Naming/FileName:
   Exclude:
-    - './**/Gemfile'
-    - './**/Rakefile'
+    - '../**/Gemfile'
+    - '../**/Rakefile'
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:

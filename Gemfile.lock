@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/activerecord-hackery/ransack.git
-  revision: be077384c750b86d6975011231b0b8c5aec89b29
+  revision: 8b36204916a0d3c3950cd1fc2e9cdb1f81e61ea5
   specs:
-    ransack (1.8.4)
+    ransack (1.8.6)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       activesupport (>= 3.0)
       i18n
-      polyamorous (~> 1.3)
+      polyamorous (~> 1.3.2)
 
 GIT
   remote: https://github.com/khusnetdinov/multipurpose_theme.git
@@ -54,6 +54,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.1.4)
       activesupport (= 5.1.4)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.1.4)
       activemodel (= 5.1.4)
       activesupport (= 5.1.4)
@@ -65,6 +69,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.2)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arel (8.0.0)
     ast (2.3.0)
     autoprefixer-rails (7.2.5)
@@ -81,6 +88,9 @@ GEM
       sass (>= 3.3.4)
     buftok (0.2.0)
     builder (3.2.3)
+    bundler-audit (0.6.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     byebug (9.1.0)
     capybara (2.17.0)
       addressable
@@ -94,6 +104,10 @@ GEM
     clockwork (2.0.2)
       activesupport
       tzinfo
+    code_analyzer (0.4.8)
+      sexp_processor
+    codeclimate-engine-rb (0.4.1)
+      virtus (~> 1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.2.2)
@@ -131,7 +145,7 @@ GEM
       backports (>= 3.8.0)
       cucumber-tag_expressions (~> 1.1.0)
       gherkin (>= 5.0.0)
-    cucumber-expressions (5.0.7)
+    cucumber-expressions (5.0.13)
     cucumber-rails (1.5.0)
       capybara (>= 1.1.2, < 3)
       cucumber (>= 1.3.8, < 4)
@@ -154,6 +168,12 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    draper (3.0.1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
     dry-container (0.6.0)
@@ -244,7 +264,7 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.0.0)
     http_parser.rb (0.6.0)
-    i18n (0.9.1)
+    i18n (0.9.3)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.20)
       activesupport (>= 4.0.2)
@@ -259,6 +279,10 @@ GEM
     i18n_data (0.8.0)
     ice_nine (0.11.2)
     inflecto (0.0.2)
+    interactor (3.1.0)
+    interactor-rails (2.1.1)
+      interactor (~> 3.0)
+      rails (>= 4.2, < 5.2)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -344,16 +368,16 @@ GEM
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
-    patternfly-sass (3.37.1)
+    patternfly-sass (3.37.6)
       bootstrap-sass (~> 3.3.7)
       font-awesome-sass (~> 4.6.2)
       sass (~> 3.4.15)
     pg (0.21.0)
-    polyamorous (1.3.2)
+    polyamorous (1.3.3)
       activerecord (>= 3.0)
     powerpack (0.1.1)
     public_suffix (3.0.1)
-    puma (3.11.0)
+    puma (3.11.2)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -380,6 +404,14 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_best_practices (1.19.0)
+      activesupport
+      code_analyzer (>= 0.4.8)
+      erubis
+      i18n
+      json
+      require_all
+      ruby-progressbar
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -393,6 +425,13 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redis (4.0.1)
+    reek (4.7.3)
+      codeclimate-engine-rb (~> 0.4.0)
+      parser (>= 2.4.0.0, < 2.5)
+      rainbow (~> 2.0)
+    request_store (1.4.0)
+      rack (>= 1.4)
+    require_all (1.5.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -433,6 +472,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scss_lint (0.55.0)
+      rake (>= 0.9, < 13)
+      sass (~> 3.4.20)
     seed-fu (2.3.7)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
@@ -495,7 +537,7 @@ GEM
       simple_oauth (~> 0.3.0)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (4.1.3)
+    uglifier (4.1.4)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -538,6 +580,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
+  bundler-audit
   byebug
   capybara (~> 2.13)
   clockwork
@@ -549,6 +593,7 @@ DEPENDENCIES
   database_cleaner
   dotenv
   dotenv-rails
+  draper
   enum_help
   factory_bot_rails (~> 4.0)
   faker!
@@ -557,6 +602,7 @@ DEPENDENCIES
   haml-rails (~> 1.0)
   haml_lint
   i18n-tasks (~> 0.9.19)
+  interactor-rails
   jquery-rails
   kaminari
   koala
@@ -571,11 +617,14 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-controller-testing
+  rails_best_practices
   ransack!
+  reek
   rspec
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
+  scss_lint
   seed-fu (~> 2.3)
   selenium-webdriver
   shoulda-matchers (~> 3.1)

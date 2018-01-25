@@ -1,5 +1,9 @@
 {
   "name": "juniorjobs_ru",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "coffeelint": "^2.0.7",
+    "jshint": "^2.9.5"
+  }
 }
