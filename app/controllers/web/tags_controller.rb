@@ -10,4 +10,3 @@ module Web
     end
   end
 end
-
