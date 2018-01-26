@@ -1,16 +1,16 @@
 AllCops:
   TargetRubyVersion: 2.4
   Include:
-    - '**/Rakefile'
-    - '**/config.ru'
+    - '../**/Rakefile'
+    - '../**/config.ru'
 
   Exclude:
-    - 'Gemfile'
-    - 'db/**/*'
-    - 'bin/**/*'
-    - 'config/**/*'
-    - 'lib/tasks/cucumber.rake'
-    - 'cucumber_test/features/support/env.rb'
+    - '../Gemfile'
+    - '../db/**/*'
+    - '../bin/**/*'
+    - '../config/**/*'
+    - '../lib/tasks/cucumber.rake'
+    - '../cucumber_test/features/support/env.rb'
 
 Documentation:
   Enabled: false
@@ -51,15 +51,15 @@ Layout/MultilineAssignmentLayout:
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*'
+    - '../spec/**/*'
 
 Metrics/LineLength:
   Max: 120
 
 Naming/FileName:
   Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
+    - '../Gemfile'
+    - '../Rakefile'
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:

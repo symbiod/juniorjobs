@@ -1,5 +1,6 @@
 ruby:
-  config_file: .rubocop.yml
+  config_file: ./.quality/.rubocop.yml
+
 haml:
   config_file: .haml-lint.yml
 
