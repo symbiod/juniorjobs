@@ -11,7 +11,7 @@
         - if job.city.present?
           = "- #{job.city}#{job.remote ? ' / Возможно работать удаленно' : ''}"
         - elsif job.remote.present?
-          = '- Возможно работать удаленно'
+          = t('web.welcome.job.remote')
     .sub-post-title.m0
       %span= job.created_at.strftime('%d.%m.%Y')
   .col-sm-8.col-md-8.blog-caption

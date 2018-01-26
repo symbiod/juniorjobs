@@ -3,7 +3,7 @@
 - if @jobs_published_today.any?
   .row.mt20
     .col-sm-12
-      %h3.title= t('web.welcome.index.last') 
+      %h3.title= t('web.welcome.index.last')
       - @jobs_published_today.each do |job|
         = render 'job', job: job
 
