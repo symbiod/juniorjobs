@@ -1,7 +1,10 @@
-ruby:
-  config_file: ./.quality/.rubocop.yml
-
 haml:
   config_file: ./.quality/.haml-lint.yml
+
+scss:
+  config_file: ./quality/.scss-lint.yml
+
+ruby:
+  config_file: ./.quality/.rubocop.yml
 
 fail_on_violations: true
