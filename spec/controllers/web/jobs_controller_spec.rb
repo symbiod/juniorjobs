@@ -63,7 +63,7 @@ RSpec.describe Web::JobsController, type: :controller do
       it 'updates job requirements' do
         expect(job.reload.requirements).to eq 'Работать много и пить кофе'
       end
-      #it { is_expected.to redirect_to(job_path(job)) }
+      # it { is_expected.to redirect_to(job_path(job)) }
       it 'should return correct tags' do
         expect(job.tag_list).to eq ['java']
       end
