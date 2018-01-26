@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Web
-	class TagsController < ApplicationController
-		def index
-			if params[:term]
-				@tags = ActsAsTaggableOn::Tag.all
-				render json: @tags
-			end		
-		end
-	end
+  # TODO: documentation is missing for this class
+  # We should consider addig some documentation here
+  class TagsController < ApplicationController
+    def index
+      @tags = ActsAsTaggableOn::Tag.all
+      render json: @tags
+    end
+  end
 end

@@ -1,10 +1,6 @@
 $("#job_tag_list").select2
   ajax: {
   	url: '/tags'
-  	data: (params) -> 
-  		{
-  			term: params.term
-  		}
   	dataType: 'json'
   	quietMillis: 250
   	processResults: (data, params) ->

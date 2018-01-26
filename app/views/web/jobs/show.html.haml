@@ -53,13 +53,11 @@
           = simple_format(@job.requirements)
         %hr
         %p
-          = t('forms.hashtags')   
-          - @job.tag_list.each do |t| 
-            = link_to t, tag_path(t) 
-
+          = t('forms.hashtags')
+          - @job.tag_list.each do |t|
+            = link_to t, tag_path(t)
 
       .col-sm-4.form-group.well.col-md-offset-1
-
         %h4.b-jobs-cart_company.text-align-center
           = t("activerecord.attributes.job.company_contact")
         %p.text-align-center

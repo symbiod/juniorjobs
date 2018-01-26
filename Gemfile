@@ -49,7 +49,6 @@ gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
 
-#Hashtags
 gem 'acts-as-taggable-on'
 
 group :development, :test do
