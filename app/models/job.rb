@@ -28,4 +28,3 @@ class Job < ApplicationRecord
     user_id.present?
   end
 end
-
