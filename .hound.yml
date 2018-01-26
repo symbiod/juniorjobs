@@ -2,6 +2,6 @@ ruby:
   config_file: ./.quality/.rubocop.yml
 
 haml:
-  config_file: .haml-lint.yml
+  config_file: ./.quality/.haml-lint.yml
 
 fail_on_violations: true

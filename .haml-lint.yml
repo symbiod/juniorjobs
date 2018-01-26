@@ -1,4 +1,0 @@
-linters:
-  LineLength:
-    enabled: true
-    max: 120
