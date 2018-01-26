@@ -8,7 +8,8 @@ ru:
         alert: 'Возникли следующие ошибки: %{error}'
         notice: Вы успешно вошли через %{provider}
     shared:
-      login_alert: Сначала нужно войти
+      login_alert: 'Сначала нужно войти'
+      athorize_alert: 'У вас нет прав для просмотра данной страницы'
     user_sessions:
       create:
         alert: Неправильные почта и/или пароль
@@ -40,3 +41,17 @@ ru:
       update:
         update_fail: 'Возникли следующие ошибки: %{errors}'
         update_success: Вы успешно изменили свой профиль
+      destroy:
+        success: 'Профиль удален.'
+      form:
+        email: 'Ваш email'
+        password: 'Пароль (минимум 6 символов)'
+        password_confirmation: 'Повторите пароль'
+        roles_label: 'Кто вы?'
+        save: 'Сохранить'
+    oauths:
+      callback:
+        notice: 'Вы успешно вошли через %{provider}'
+      create_user:
+        notice: 'Вы успешно вошли через %{provider}'
+        alert: 'Возникли следующие ошибки: %{error}'

@@ -30,10 +30,6 @@ data:
 
       include /etc/nginx/conf.d/*.conf;
 
-      upstream app_server {
-        server juniorjobs:5000 fail_timeout=0;
-      }
-
       server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -51,7 +47,10 @@ data:
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
           proxy_set_header X-Forwarded-Proto $scheme;
           proxy_set_header Host $http_host;
-          proxy_pass http://app_server;
+
+          resolver 127.0.0.1:53 ipv6=off;
+          set $backend "http://juniorjobs:5000";
+          proxy_pass $backend;
         }
 
         error_page 500 /500.html;

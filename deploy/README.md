@@ -2,6 +2,10 @@
 * postgres persisted volume
 * mailchimp keys
 
+### Dependencies
+* minikube
+* `gettext` package
+
 ### Usage:
 
 `kubectl apply -f .kube/app-secrets.yml`

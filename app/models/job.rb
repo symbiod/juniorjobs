@@ -5,7 +5,7 @@
 class Job < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :token, presence: true
+  validates :token, presence: true, unless: :owner?
   validates :title, length: { minimum: 5, maximum: 50 }
   validates :description, length: { minimum: 10, maximum: 1200 }
   validates :title, :employment, :description, :requirements, presence: true
@@ -21,4 +21,10 @@ class Job < ApplicationRecord
   scope :published_last_month, Jobs::Published::LastMonthScope
 
   acts_as_taggable
+
+  private
+
+  def owner?
+    user_id.present?
+  end
 end

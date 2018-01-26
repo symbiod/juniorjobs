@@ -13,18 +13,24 @@ ruby '2.5.0'
 gem 'dotenv'
 gem 'pg', '~> 0.18'
 gem 'rails', '~> 5.1.4'
-
 gem 'puma', '~> 3.7'
 
 # Common
 gem 'config'
 gem 'foreman'
+gem 'dry-validation'
 gem 'gibbon'
 gem 'i18n-tasks', '~> 0.9.19'
+gem 'interactor', '~> 3.0'
 gem 'mechanize'
 gem 'meta-tags'
+gem 'pundit'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sorcery'
+gem 'vkontakte_api', '~> 1.4'
+gem 'koala'
+gem 'telegram-bot-ruby'
+gem 'twitter'
 
 # Jobs
 gem 'sidekiq'
@@ -34,6 +40,7 @@ gem 'clockwork'
 
 # Frontend
 gem 'coffee-rails', '~> 4.2'
+gem 'draper'
 gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
 gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
@@ -56,11 +63,17 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-
+  gem 'dotenv-rails'
+  gem 'rspec'
+  gem 'page-object'
+  gem 'data_magic'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'letter_opener'
+  gem 'page-object'
   gem 'rails-controller-testing'
+  gem 'rspec'
   gem 'rspec-rails'
   gem 'seed-fu', '~> 2.3'
   gem 'selenium-webdriver'

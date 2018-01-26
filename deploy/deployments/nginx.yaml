@@ -18,6 +18,15 @@ spec:
             - name: nginx-config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+        - name: dnsmasq
+          image: "janeczku/go-dnsmasq:release-1.0.5"
+          args:
+            - --listen
+            - "127.0.0.1:53"
+            - --default-resolver
+            - --append-search-domains
+            - --hostsfile=/etc/hosts
+            - --verbose
       volumes:
         - name: nginx-config
           configMap:

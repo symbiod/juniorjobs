@@ -16,7 +16,7 @@ class SyncNewsletterSubscribersWorker
   end
 
   def user_emails(offset)
-    gibbon = Gibbon::Request.new(api_key: ENV['ACCESS_KEY_ID'])
+    gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_ACCESS_KEY_ID'])
     attributes = { params: { "count": '500', "offset": offset, "status": 'unsubscribed' } }
     gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members.retrieve(attributes).body['members'].pluck('email_address')
   end
