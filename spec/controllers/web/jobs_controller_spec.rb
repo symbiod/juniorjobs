@@ -20,7 +20,7 @@ RSpec.describe Web::JobsController, type: :controller do
 
     context 'with valid attributes and without user' do
       let(:tag) { create(:tag_ruby) }
-      subject { post 'create', params: { job: attributes_for(:job), tag_list: ["ruby", "javascript", "remote"] } }
+      subject { post 'create', params: { job: attributes_for(:job), tag_list: %w[ruby javascript remote] } }
 
       it 'saves the new job to database' do
         expect { subject }.to change(Job.all, :count).by(1)
@@ -60,7 +60,7 @@ RSpec.describe Web::JobsController, type: :controller do
       end
       it 'updates job requirements' do
         expect(job.reload.requirements).to eq 'Работать'
-      end 
+      end
       it { is_expected.to redirect_to(job_path(job)) }
       it 'should return correct tags' do
         expect(job.tag_list).to eq ['java']
