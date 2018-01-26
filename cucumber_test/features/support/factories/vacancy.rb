@@ -8,7 +8,7 @@ FactoryBot.define do
     employment Faker::Name.last_name
     requirements Faker::Name.last_name
     salary_from rand(1000)
-    salary_to rand(1000)
+    salary_to 500
     company_name Faker::Company.name
     company_contact Faker::Company.swedish_organisation_number
     company_email "nn24086+#{Time.now.to_i}@gmail.com"
