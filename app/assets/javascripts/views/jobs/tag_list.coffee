@@ -25,5 +25,3 @@ $("#job_tag_list").select2
   templateResult: (item) -> item.name
   templateSelection: (item) ->  item.name
   
-    
-
