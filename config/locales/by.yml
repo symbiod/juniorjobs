@@ -4,3 +4,28 @@ by:
     comma_separator: Comma separator
     found_by_tag: Found by tag
     hashtags: Hashtags
+  layouts:
+    shared:
+      topbar:
+        add: Добавить вакансию
+        free: Публикация совершенно бесплатна и не требует регистрации.
+  web:
+    jobs:
+      form:
+        company: Компания
+        conditions: Условями работы сервиса
+        desc: Описание Вакансии
+        location: Расположение
+        motivation: Мотивация
+        public: Публикуя, вакансию вы соглашаетесь с
+        time: Время публикации вакансии
+    welcome:
+      index:
+        last: Последние
+        month: За месяц
+        week: За неделю
+        yesterday: Вчера
+      job:
+        remote1: " / Возможно работать удаленно"
+        remote2: "- Возможно работать удаленно"
+

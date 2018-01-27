@@ -63,9 +63,6 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'dotenv-rails'
-  gem 'rspec'
-  gem 'page-object'
   gem 'data_magic'
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.0'
