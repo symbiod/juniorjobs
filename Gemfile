@@ -85,6 +85,7 @@ end
 group :development do
   gem 'haml_lint', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'reek'
   gem 'rubocop'
   gem 'scss_lint', require: false
   gem 'spring'

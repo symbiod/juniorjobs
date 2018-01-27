@@ -102,6 +102,8 @@ GEM
     clockwork (2.0.2)
       activesupport
       tzinfo
+    codeclimate-engine-rb (0.4.1)
+      virtus (~> 1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.2.2)
@@ -410,6 +412,10 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redis (4.0.1)
+    reek (4.7.3)
+      codeclimate-engine-rb (~> 0.4.0)
+      parser (>= 2.4.0.0, < 2.5)
+      rainbow (~> 2.0)
     request_store (1.4.0)
       rack (>= 1.4)
     rspec (3.7.0)
@@ -603,6 +609,7 @@ DEPENDENCIES
   rails (~> 5.1.4)
   rails-controller-testing
   ransack!
+  reek
   rspec
   rspec-rails
   rubocop
