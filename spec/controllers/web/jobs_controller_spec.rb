@@ -57,7 +57,7 @@ RSpec.describe Web::JobsController, type: :controller do
       before do
         login_user(user)
         put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать') }
-        job.tag_list = "java"
+        job.tag_list = 'java'
         job.save
       end
       it 'updates job requirements' do

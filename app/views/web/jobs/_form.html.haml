@@ -40,7 +40,6 @@
     %h3= t('web.jobs.form.time')
     .form-group
       = f.select :expired_at, expired_at_dates_for(f.object), { label: false, include_blank: false }, { class: 'form-control' }
-
   .form-group.well
     %p.m0
       = t('web.jobs.form.public')
