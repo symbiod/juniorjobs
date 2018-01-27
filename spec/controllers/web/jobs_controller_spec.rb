@@ -61,7 +61,7 @@ RSpec.describe Web::JobsController, type: :controller do
         job.save
       end
       it 'updates job requirements' do
-         # (job.reload.requirements).to eq 'Работать много и пить кофе'
+         # (job.reload.requirements).to eq ''
       end
       it 'should return correct tags' do
         expect(job.tag_list).to eq ['java']
