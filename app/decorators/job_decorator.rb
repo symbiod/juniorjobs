@@ -4,7 +4,7 @@
 class JobDecorator < ApplicationDecorator
   delegate_all
 
-  def status
-    object.status? ? t('decorators.job.active_status') : t('decorators.job.expired_status')
+  def expiration
+    Date.today < object.expired_at ? t('decorators.job.active_status') : t('decorators.job.expired_status')
   end
 end

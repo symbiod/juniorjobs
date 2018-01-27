@@ -1,0 +1,16 @@
+%tr
+  %td
+    = link_to job.title, job_path(job)
+  %td
+    = job.company_name
+  %td
+    = job.expiration
+  %td
+    = link_to t('admin.shared.edit'), edit_admin_job_path(job)
+    = link_to t('admin.shared.delete'), admin_job_path(job), method: :delete,
+    data: { confirm: t('admin.shared.confirm_delete') }
+  %td
+    - if job.status == 'approved'
+      = link_to t('activerecord.attributes.job.not_approve'), not_approve_admin_job_path(job), method: :post
+    - else
+      = link_to t('activerecord.attributes.job.approve'), approve_admin_job_path(job), method: :post

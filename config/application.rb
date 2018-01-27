@@ -48,6 +48,7 @@ module JuniorjobsRu
     config.i18n.default_locale = :ru
     config.autoload_paths += Dir[Rails.root.join('app', 'workers', '{**}')]
     config.autoload_paths += Dir[Rails.root.join('app', 'services', '{**}')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'decorators', '{**}')]
     config.generators do |g|
       g.test_framework :rspec,
                         view_spec:false,

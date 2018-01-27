@@ -5,12 +5,21 @@ by:
       check_admin:
         permission_denied: У вас нет прав для просмотра данной страницы.
     jobs:
-      destroy:
-        success: Вакансия успешно удалена.
       index:
-        company_name: Компания
-        job: Вакансия
-        status: Статус
+        all_jobs: 'Все вакансии'
+        approved_jobs: 'Одобренные вакансии'
+        not_approved_jobs: 'Неодобренные вакансии'
+        company_name: 'Компания'
+        job: 'Вакансия'
+        expired: 'Истекает:'
+      destroy:
+        success: 'Вакансия успешно удалена.'
+      approve:
+        fail: 'Вакансию не получилось одобрить.'
+        success: 'Вакансия успешно одобрена.'
+      not_approve:
+        fail: 'Не получилось снять одобрение с вакансии.'
+        success: 'Одобрение с вакансии снято.'
     shared:
       confirm_delete: Точно удалить?
       delete: Удалить
