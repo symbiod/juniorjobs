@@ -74,14 +74,14 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    ast (2.3.0)
+    ast (2.4.0)
     autoprefixer-rails (7.2.5)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    backports (3.11.0)
+    backports (3.11.1)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -89,7 +89,7 @@ GEM
       sass (>= 3.3.4)
     buftok (0.2.0)
     builder (3.2.3)
-    byebug (9.1.0)
+    byebug (10.0.0)
     capybara (2.17.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -155,14 +155,10 @@ GEM
     deep_merge (1.1.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-
-    descendants_tracker (0.0.4)
-      thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
-
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
@@ -172,10 +168,6 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
-able (0.7.0)
-    dotenv-rails (2.2.1)
-      dotenv (= 2.2.1)
-      railties (>= 3.2, < 5.2)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
     dry-container (0.6.0)
@@ -203,25 +195,11 @@ able (0.7.0)
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.12.0)
-
-    easy_translate (0.5.0)
-      json
-
     easy_translate (0.5.1)
->>>>>>> add twitter
       thread
       thread_safe
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
-
-    equalizer (0.0.11)
-
-
-    dotenv-rails (2.2.1)
-      dotenv (= 2.2.1)
-      railties (>= 3.2, < 5.2)
-
-
     equalizer (0.0.11)
     erubi (1.7.0)
     erubis (2.7.0)
@@ -266,9 +244,6 @@ able (0.7.0)
       sysexits (~> 1.1)
     hashie (3.5.7)
     highline (1.7.10)
-
-    hashie (3.5.7)
-    highline (1.7.10)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -284,7 +259,6 @@ able (0.7.0)
     http-form_data (2.0.0)
     http_parser.rb (0.6.0)
     i18n (0.9.3)
-    i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.20)
       activesupport (>= 4.0.2)
@@ -297,8 +271,6 @@ able (0.7.0)
       rainbow (~> 2.2)
       terminal-table (>= 1.5.1)
     i18n_data (0.8.0)
-    ice_nine (0.11.2)
-
     ice_nine (0.11.2)
     inflecto (0.0.2)
     interactor (3.1.0)
@@ -320,18 +292,6 @@ able (0.7.0)
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    koala (3.0.0)
-      addressable
-      faraday
-      json (>= 1.8)
-    launchy (2.4.3)
-      addressable (~> 2.3)
-    letter_opener (1.6.0)
-
-    launchy (2.4.3)
-      addressable (~> 2.3)
-   letter_opener (1.5.0)
-      launchy (~> 2.2)
     koala (3.0.0)
       addressable
       faraday
@@ -368,7 +328,7 @@ able (0.7.0)
     mime-types-data (3.2016.0521)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.11.1)
+    minitest (5.11.3)
     money (6.10.1)
       i18n (>= 0.6.4, < 1.0)
     multi_json (1.13.1)
@@ -389,25 +349,22 @@ able (0.7.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    oj (3.3.10)
- 
+    oj (3.4.0)
     page-object (2.2.4)
       page_navigation (>= 0.10)
       selenium-webdriver (~> 3.0)
       watir (~> 6.8)
     page_navigation (0.10)
       data_magic (>= 0.22)
-
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
-    patternfly-sass (3.37.2)
-    patternfly-sass (3.37.1)
+    patternfly-sass (3.37.9)
       bootstrap-sass (~> 3.3.7)
       font-awesome-sass (~> 4.6.2)
       sass (~> 3.4.15)
     pg (0.21.0)
-    polyamorous (1.3.2)
+    polyamorous (1.3.3)
       activerecord (>= 3.0)
     powerpack (0.1.1)
     public_suffix (3.0.1)
@@ -560,7 +517,6 @@ able (0.7.0)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uglifier (4.1.4)
-    uglifier (4.1.3)
       execjs (>= 0.3.0, < 3)
     underscore-rails (1.8.3)
     unf (0.1.4)
@@ -581,7 +537,7 @@ able (0.7.0)
       multi_json (>= 1.3)
       oauth2 (>= 0.8)
       oj (>= 2.12)
-    watir (6.10.2)
+    watir (6.10.3)
       selenium-webdriver (~> 3.4, >= 3.4.1)
     watir-rails (2.0.0)
       rack
@@ -619,7 +575,6 @@ DEPENDENCIES
   dotenv-rails
   draper
   dry-validation
-  enum_hel  dotenv-rails
   enum_help
   factory_bot_rails (~> 4.0)
   faker!
@@ -631,8 +586,6 @@ DEPENDENCIES
   interactor (~> 3.0)
   jquery-rails
   kaminari
-  koala
-  letter_opener
   koala
   letter_opener
   listen (>= 3.0.5, < 3.2)

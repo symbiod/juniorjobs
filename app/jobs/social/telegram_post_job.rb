@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-# Worker for send message to telegram channel (gem 'telegram-bot-ruby')
-class TelegramWorker < BaseWorker
-  include Sidekiq::Worker
+# Job for send message to telegram channel (gem 'telegram-bot-ruby')
+class TelegramPostJob < BasePostJob
   require 'telegram/bot'
 
   def perform(job_id)

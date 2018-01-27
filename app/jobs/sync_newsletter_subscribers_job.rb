@@ -2,8 +2,8 @@
 
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
-class SyncNewsletterSubscribersWorker
-  include Sidekiq::Worker
+class SyncNewsletterSubscribersJob < ApplicationJob
+  queue_as :default
 
   def perform
     offset = 0

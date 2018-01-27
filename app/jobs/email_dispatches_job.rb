@@ -4,19 +4,13 @@ require 'gibbon'
 
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
-class EmailDispatchesWorker
-  include Sidekiq::Worker
+class EmailDispatchesJob < ApplicationJob
+  queue_as :default
 
   def perform(email)
     md5_email = Digest::MD5.hexdigest(email)
     gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_ACCESS_KEY_ID'])
-
-    gibbon = Gibbon::Request.new(api_key: ENV['ACCESS_KEY_ID'])
-
     attrs = { body: { email_address: email, status: 'subscribed' } }
     gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members(md5_email.downcase).upsert(attrs)
-
-    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members(md5_email.downcase).upsert(body:
-      { email_address: email, status: 'subscribed' })
   end
 end

@@ -33,13 +33,6 @@ gem 'koala'
 gem 'telegram-bot-ruby'
 gem 'twitter'
 
-
-
-gem 'i18n-tasks', '~> 0.9.19'
-gem 'koala'
-gem 'telegram-bot-ruby'
-gem 'twitter'
-
 # Jobs
 gem 'sidekiq'
 
@@ -71,11 +64,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
-  gem 'dotenv-rails'
-
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'data_magic'
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
