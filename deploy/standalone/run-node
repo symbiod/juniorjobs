@@ -18,3 +18,10 @@ gcloud compute firewall-rules create ssh-allow-kubeadm-single-node-cluster \
   --target-tags kubeadm-single-node-cluster \
   --source-ranges 0.0.0.0/0
 
+gcloud compute firewall-rules create http-allow-kubeadm-single-node-cluster \
+  --allow tcp:80\
+  --target-tags kubeadm-single-node-cluster \
+  --source-ranges 0.0.0.0/0
+
+# kubectl expose deployment nginx-deployment --type=NodePort --port=80
+
