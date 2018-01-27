@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'aasm/rspec'
 
 RSpec.describe Admin::JobsController, type: :controller do
   describe 'GET #index' do
@@ -54,6 +55,62 @@ RSpec.describe Admin::JobsController, type: :controller do
 
       it 'show forbidden status' do
         expect(response).to have_http_status(:forbidden)
+      end
+    end
+
+    context 'admin can approve job' do
+      let(:job) { create(:job) }
+      let(:admin) { create(:user, :admin) }
+
+      before do
+        login_user(admin)
+        put 'approve', params: { id: job.id }
+      end
+
+      it 'admin approve job' do
+        expect(job.reload.status).to eq 'approved'
+      end
+    end
+
+    context 'admin can not_approve job' do
+      let(:job) { create(:job, :approved) }
+      let(:admin) { create(:user, :admin) }
+
+      before do
+        login_user(admin)
+        put 'not_approve', params: { id: job.id }
+      end
+
+      it 'admin not_approve job' do
+        expect(job.reload.status).to eq 'not_approved'
+      end
+    end
+
+    context "user can't approve job" do
+      let(:job) { create(:job) }
+      let(:user) { create(:user, :company) }
+
+      before do
+        login_user(user)
+        put 'approve', params: { id: job.id }
+      end
+
+      it 'user approve job' do
+        expect(job.reload.status).to eq 'not_approved'
+      end
+    end
+
+    context "user can't not_approve job" do
+      let(:job) { create(:job, :approved) }
+      let(:user) { create(:user, :company) }
+
+      before do
+        login_user(user)
+        put 'not_approve', params: { id: job.id }
+      end
+
+      it 'user approve job' do
+        expect(job.reload.status).to eq 'approved'
       end
     end
   end

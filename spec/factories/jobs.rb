@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :job do
-    id 1
-    status false
     title 'Разработчик'
     employment 'full'
     city 'Москва'
@@ -18,6 +16,10 @@ FactoryBot.define do
 
     trait :invalid do
       description nil
+    end
+
+    trait :approved do
+      status :approved
     end
   end
 end

@@ -17,6 +17,24 @@ RSpec.describe Job, type: :model do
   it { should validate_numericality_of :salary_from }
   it { should validate_numericality_of :salary_to }
 
+  context 'status should be not_approved' do
+    subject { build(:job, user: user) }
+
+    it { is_expected.to have_state(:not_approved) }
+  end
+
+  context 'can be approved' do
+    subject { build(:job, user: user) }
+
+    it { is_expected.to transition_from(:not_approved).to(:approved).on_event(:approve) }
+  end
+
+  context 'can be not_approved' do
+    subject { build(:job, user: user) }
+
+    it { is_expected.to transition_from(:approved).to(:not_approved).on_event(:not_approve) }
+  end
+
   context 'should be valid' do
     subject { build(:job, user: user) }
 

@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     get '/about', to: 'static_pages#about'
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
-    get '/tags', to: 'tags#index'
     resources :tags, only: [:index]
     resources :jobs
     resource :subscription, only: [:new, :create, :destroy]
@@ -34,6 +33,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: %i[index edit update destroy]
     resources :subscriptions, only: :index
-    resources :jobs, only: %i[index edit update destroy]
+    resources :jobs, only: %i[index edit update destroy] do
+      post 'approve', on: :member
+      post 'not_approve', on: :member
+    end
   end
 end

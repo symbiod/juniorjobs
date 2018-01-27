@@ -3,6 +3,7 @@ by:
   activerecord:
     attributes:
       job:
+        approve: Одобрить
         city: Город
         company_contact: Контакт
         company_email: Почта
@@ -24,6 +25,7 @@ by:
           1_month: На месяц - до %{date}
           1_week: На неделю - до %{date}
           2_week: На 2 недели - до %{date}
+        not_approve: Снять одобрение
         remote: Возможна удаленная работа
         requirements: Требования
         salary_by_agreement: По договоренности
