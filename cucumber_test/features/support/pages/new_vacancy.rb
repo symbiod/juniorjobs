@@ -23,22 +23,31 @@ module Pages
     button :submit, name: 'commit'
 
     def fill_form(vacancy)
-      self.job_title = vacancy.title
       # select.job_employment_full
-      self.job_description = vacancy.description
-      self.job_requirements = vacancy.requirements
-      self.job_city = vacancy.city
-      # check.job_remote
-      self.job_company_name = vacancy.company_name
-      self.job_company_page = vacancy.title
-      self.job_company_contact = vacancy.company_contact
-      self.job_company_phone = vacancy.company_contact
-      self.job_company_email = vacancy.company_email
       # job_currency.select_usd
-      self.job_salary_from = vacancy.salary_from
-      self.job_salary_to = vacancy.salary_to
-      # checkbox.job_salary_by_agreement
-      # submint
+      # self.job_expired_at
+
+      forms_methods_mapping.each do |method|
+        elem = "job_#{method}="
+        self.send(elem, vacancy.send(method))
+      end
+      # checkbox.job_remote if vacancy.remote
+      # checkbox.job_salary_by_agreement if vacancy.salary_by_agreement
+    end
+
+    private
+
+    def forms_methods_mapping
+      %w[title description
+         requirements
+         city
+         company_name
+         company_page
+         company_contact
+         company_phone
+         company_email
+         salary_from
+         salary_to]
     end
   end
 end
