@@ -1,25 +1,31 @@
 ---
 ua:
   common:
-    submit: Отправить
     jobs:
       create:
+        edit_job: редактировать вакансию.
         fail: 'Вакансия не сохранена: %{error}'
-        success: 'Новая вакансия успешно добавлена'
-        fail: 'Вакансия не сохранена: %{error}'
-        job_was_created_and_needs_to_review: "Вакансия была создана и нуждается в одобрении."
+        job_was_created_and_needs_to_review: Вакансия была создана и нуждается в одобрении.
+        success: Новая вакансия успешно добавлена
+        you_created_the_job_on_juniorjobs: Вы создали вакансию на juniorjobs.
         you_may_edit_it_on_this_link: 'Вы можете редактировать ей по ссылке:'
-        you_created_the_job_on_juniorjobs: 'Вы создали вакансию на juniorjobs.'
-        edit_job: 'редактировать вакансию.'
-      update:
-        incorrect_token: 'Неверный токен'
-        success: 'Вакансия отредактирована'
       show:
-        type_of_employment: Тип занятости
-        reward: Вознаграждение
         location: Местонахождение
+        reward: Вознаграждение
+        type_of_employment: Тип занятости
+      update:
+        incorrect_token: Неверный токен
+        success: Вакансия отредактирована
+    submit: Отправить
     subscribe: Подписаться
     success: Выполнено успешно
+  decorators:
+    job:
+      active_status: Активна
+      expired_status: Неактивна
+    subscription:
+      active_status: Активна
+      expired_status: Неактивна
   views:
     about:
       code: Исходный код проекта на
@@ -39,21 +45,14 @@ ua:
     headers:
       about: О проекте
       contact_us: Контакты
+      edit_user: Изменить профиль
+      github_login: Войти через Github
+      login: Войти
+      logout: Выйти
+      signup: Зарегистрироваться
       terms: Условия использования
-      logout: "Выйти"
-      login: "Войти"
-      signup: "Зарегистрироваться"
-      edit_user: "Изменить профиль"
-      github_login: "Войти через Github"
     terms:
       author: Автор этого сайта не несет никакой ответственности в отношении предоставляемой посетителями информации.
       free: Вакансии публикуются бесплатно. Размещаемая информация передается без изменений и принадлежит ее авторам.
       moderation: Для поддержания качества контента, публикуемые вакансии проходят предварительную проверку на соответствие тематике проекта.
-      not_allowed: Недопускается к публикации любая информация, которая может привести к нарушению законов Республики Украина или любой другой страны.
-  decorators:
-    job:
-      active_status: 'Активна'
-      expired_status: 'Неактивна'
-    subscription:
-      active_status: 'Активна'
-      expired_status: 'Неактивна'
+      not_allowed: Недопускается к публикации любая информация, которая может привести к нарушению законов Республики Белорусь или любой другой страны.
