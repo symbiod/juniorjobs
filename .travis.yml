@@ -13,13 +13,13 @@ services:
   - docker
   - redis-server
 
-before_install:
-  - gem update --system
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+#before_install:
+#  - gem update --system
+#  - psql -c 'create database travis_ci_test;' -U postgres
+#  - cp config/database.yml.travis config/database.yml
 
 script:
-  - bin/script
+  - bin/shipit
 
 #deploy:
 #  provider: script
