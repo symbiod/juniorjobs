@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #sed -ie "s/THIS_STRING_IS_REPLACED_DURING_BUILD!/$(date)/g" deploy/deployments/juniorjobs.yaml
 #rm deploy/deployments/juniorjobs.yaml

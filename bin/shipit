@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #bin/build-image
 deploy/standalone/setup-kubectl
 deploy/run
