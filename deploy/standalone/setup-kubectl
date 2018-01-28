@@ -2,8 +2,6 @@
  
 # Install kubernetes and set config
 echo "Install Kubectl"
-#curl -LO https://storage.googleapis.com/kubernetes-release/release/1.8.7/bin/linux/amd64/kubectl
-#chmod +x ./kubectl
 
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 cat <<EOF > kubernetes.list
