@@ -23,6 +23,6 @@ script:
 
 deploy:
   provider: script
-  script: bin/build-image
+  script: bin/shipit
   on:
     branch: master

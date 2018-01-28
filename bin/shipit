@@ -1,0 +1,3 @@
+bin/build-image
+deploy/standalone/setup-kubectl
+deploy/run

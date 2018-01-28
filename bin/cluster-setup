@@ -1,4 +1,0 @@
-#!/bin/sh
-gcloud config set compute/zone us-central1-a
-gcloud container clusters get-credentials juniorjobs
-#gcloud compute disks create --size 300GB --type pd-ssd db-data
