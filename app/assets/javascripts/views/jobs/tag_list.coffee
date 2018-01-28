@@ -1,18 +1,18 @@
 $("#job_tag_list").select2
   ajax: {
-  	url: '/tags'
-  	dataType: 'json'
-  	quietMillis: 250
-  	processResults: (data, params) ->
-  		{
-  			results: _.map(data, (tag) ->
-	  			{
-	  				id: tag.name
-	  				name: tag.name
-	  			}
-  			)
-  		}
-  	cache: true
+    url: '/tags'
+    dataType: 'json'
+    quietMillis: 250
+    processResults: (data, params) ->
+      {
+        results: _.map(data, (tag) ->
+          {
+            id: tag.name
+            name: tag.name
+          }
+        )
+      }
+    cache: true
   }
   createTag: (params) ->
     {
