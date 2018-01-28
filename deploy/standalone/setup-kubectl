@@ -12,7 +12,7 @@ EOF
 
 sudo mv kubernetes.list /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
-sudo apt-get install -y kubectl=1.8.7-00
+sudo apt-get install -y --allow-unauthenticated kubectl=1.8.7-00
 
 mkdir ${HOME}/.kube
 cp deploy/standalone/kubeconfig.template ${HOME}/.kube/config
