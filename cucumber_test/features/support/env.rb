@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# include NavigationHelpers
+
 require 'rspec'
 require 'watir'
 require 'page-object'
@@ -9,5 +11,3 @@ require 'database_cleaner'
 World(PageObject::PageFactory)
 
 Dir['./features/support/helpers/*.rb'].each { |file| require file }
-
-include NavigationHelpers
