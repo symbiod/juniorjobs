@@ -570,9 +570,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  brakeman
   aasm
   acts-as-taggable-on
+  brakeman
   byebug
   capybara (~> 2.13)
   clockwork

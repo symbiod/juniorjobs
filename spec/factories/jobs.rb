@@ -2,7 +2,6 @@
 
 FactoryBot.define do
   factory :job do
-    status false
     title 'Разработчик'
     employment 'full'
     city 'Москва'
