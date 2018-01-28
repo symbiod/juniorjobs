@@ -1,5 +1,9 @@
 ---
 ua:
+  forms:
+    comma_separator: Comma separator
+    found_by_tag: Found by tag
+    hashtags: Hashtags
   layouts:
     shared:
       topbar:

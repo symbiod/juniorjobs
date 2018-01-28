@@ -2,6 +2,8 @@
 #= require theme/bootstrap.min.js
 #= require jquery_ujs
 #= require theme
+#= require select2
+#= require underscore
 #= require_tree ./components
 #= require_tree ./initializers
 #= require_tree ./views

@@ -48,12 +48,16 @@ gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
 gem 'patternfly-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'select2-rails'
+gem 'underscore-rails'
 
 # Frontend:helpers
 gem 'country_select'
 gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
+
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

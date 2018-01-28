@@ -59,25 +59,8 @@ module Web
         :currency, :salary_from, :salary_to, :salary_by_agreement,
         :company_contact, :company_email, :company_name, :company_page, :company_phone,
         :expired_at,
-        :token
+        :token, :tag, tag_list: []
       )
     end
   end
 end
-
-# t.string "title", null: false
-# t.text "description", null: false
-# t.string "employment_type", null: false
-# t.string "city"
-# t.boolean "remote"
-# t.string "currency"
-# t.integer "salary_from"
-# t.integer "salary_to"
-# t.boolean "salary_by_agreement"
-# t.text "requirements", null: false
-# t.string "company_name"
-# t.string "company_email"
-# t.string "company_contact"
-# t.string "company_page"
-# t.string "company_phone"
-# t.datetime "expired_at", null: false

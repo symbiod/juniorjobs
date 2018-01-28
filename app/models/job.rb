@@ -35,6 +35,8 @@ class Job < ApplicationRecord
   scope :published_last_week, Jobs::Published::LastWeekScope
   scope :published_last_month, Jobs::Published::LastMonthScope
 
+  acts_as_taggable
+
   private
 
   def owner?
