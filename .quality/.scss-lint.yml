@@ -75,7 +75,7 @@ linters:
     enabled: true
 
   ImportantRule:
-    enabled: true
+    enabled: false
 
   ImportPath:
     enabled: true
@@ -103,7 +103,7 @@ linters:
 
   NestingDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 5
     ignore_parent_selectors: false
 
   PlaceholderInExtend:
@@ -123,6 +123,49 @@ linters:
     ignore_unspecified: false
     min_properties: 2
     separate_groups: false
+    order:
+      - position
+      - display
+      -
+      - margin
+      - margin-top
+      - margin-right
+      - margin-bottom
+      - margin-left
+      - padding
+      - padding-top
+      - padding-right
+      - padding-bottom
+      - padding-left
+      -
+      - max-width
+      - max-height
+      -
+      - width
+      - height
+      -
+      - float
+      - overflow
+      -
+      - border
+      - border-top
+      - border-right
+      - border-bottom
+      - border-left
+      - border-radius
+      -
+      - font-family
+      - font-size
+      - font-weight
+      - line-height
+      - vertical-align
+      - text-align
+      -
+      - color
+      - background-color
+      - background
+      -
+      - opacity
 
   PropertySpelling:
     enabled: true
@@ -148,13 +191,13 @@ linters:
 
   QualifyingElement:
     enabled: true
-    allow_element_with_attribute: false
+    allow_element_with_attribute: true
     allow_element_with_class: false
     allow_element_with_id: false
 
   SelectorDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 5
 
   SelectorFormat:
     enabled: true
@@ -209,7 +252,7 @@ linters:
 
   StringQuotes:
     enabled: true
-    style: single_quotes # or double_quotes
+    style: double_quotes
 
   TrailingSemicolon:
     enabled: true
@@ -243,7 +286,12 @@ linters:
     enabled: true
     identifier_list: base
     additional_identifiers: []
-    excluded_identifiers: []
+    excluded_identifiers:
+      - -webkit-transform
+      - -moz-transform
+      - -ms-transform
+      - -o-transform
+      - transform
 
   ZeroUnit:
     enabled: true

@@ -9,6 +9,7 @@ AllCops:
     - '../db/**/*'
     - '../bin/**/*'
     - '../config/**/*'
+    - '../vendor/**/*'
     - '../lib/tasks/cucumber.rake'
     - '../cucumber_test/features/support/env.rb'
 
