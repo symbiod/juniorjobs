@@ -2,8 +2,9 @@
  
 # Install kubernetes and set config
 echo "Install Kubectl"
-curl -LO https://storage.googleapis.com/kubernetes-release/release/1.8.7/bin/linux/amd64/kubectl
-chmod +x ./kubectl
+#curl -LO https://storage.googleapis.com/kubernetes-release/release/1.8.7/bin/linux/amd64/kubectl
+#chmod +x ./kubectl
+sudo apt-get install -y kubeadm=1.8.7-00
 
 mkdir ${HOME}/.kube
 cp deploy/standalone/kubeconfig.template ${HOME}/.kube/config
