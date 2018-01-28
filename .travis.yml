@@ -24,5 +24,5 @@ script:
 deploy:
   provider: script
   script: bin/shipit
-  #on:
-  #  branch: master
+  on:
+    branch: master
