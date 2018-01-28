@@ -5,8 +5,10 @@
 #mv deploy/deployments/juniorjobs.yamle deploy/deployments/juniorjobs.yaml
 
 # Pull sensetive data from ENV
+echo "Setup k8s template"
 envsubst < deploy/secrets/application-secrets.yaml.tmpl > deploy/secrets/application-secrets.yaml
 kubectl apply -f deploy/secrets/application-secrets.yaml
 rm deploy/secrets/application-secrets.yaml
 
+echo "Run deploy"
 kubectl apply -R -f deploy/
