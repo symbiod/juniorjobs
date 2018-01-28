@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   require 'constraints/admin_constraint'
 
-  mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
+  mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint
 
   scope module: :web do
     root 'welcome#index'
@@ -29,11 +29,11 @@ Rails.application.routes.draw do
 
   scope module: :auth do
     get '/login', to: 'user_sessions#new', as: :login
-    resources :user_sessions, only: :create
     post '/logout', to: 'user_sessions#destroy', as: :logout
+    resources :user_sessions, only: :create
 
-    resources :users, except: [:new, :index, :show]
     get '/signup', to: 'users#new', as: :signup
+    resources :users, except: [:new, :index, :show]
 
     post 'oauth/callback' => 'oauths#callback'
     get 'oauth/callback' => 'oauths#callback'

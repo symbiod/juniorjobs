@@ -8,8 +8,9 @@ module Web
       @subscription = Subscription.new
     end
 
+    # TODO: interactors
     def create
-      @subscription = CreateSubscription.new.call(current_user, subscription_params)
+      @subscription = CreateSubscription.call(current_user, subscription_params)
 
       if @subscription.save
         flash[:notice] = t('common.success')
@@ -19,6 +20,7 @@ module Web
 
       redirect_to root_path
     end
+    # TODO: interactors
 
     private
 

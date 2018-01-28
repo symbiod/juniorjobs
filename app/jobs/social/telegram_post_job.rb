@@ -5,11 +5,12 @@ class TelegramPostJob < BasePostJob
   require 'telegram/bot'
 
   def perform(job_id)
-    load_job(job_id)
+    super
+
     prepare_for('TELEGRAM')
 
-    Telegram::Bot::Client.run(@token) do |bot|
-      bot.api.send_message(chat_id: @group_id, text: @message)
+    Telegram::Bot::Client.run(token) do |bot|
+      bot.api.send_message(chat_id: group_id, text: message)
     end
   end
 end

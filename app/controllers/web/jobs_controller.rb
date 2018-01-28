@@ -13,24 +13,31 @@ module Web
       @job = Job.new
     end
 
+    # TODO: interactor
     def create
-      @job = CreateJob.new.call(current_user, job_params)
+      @job = CreateJob.call(current_user, job_params)
+
       if @job.save
+        EmailJobService.call(@job.id)
         redirect_to job_path(@job), notice: t('common.jobs.create.success')
       else
         render :new, alert: t('common.jobs.create.fail')
       end
     end
+    # TODO: interactor
 
     def edit; end
 
+    # TODO: interactor
     def update
-      if UpdateJob.new.call(@job, job_params)
+      if UpdateJob.call(@job, job_params)
+        EmailJobService.call(@job.id)
         redirect_to job_path(@job), notice: t('common.jobs.update.success')
       else
         redirect_to edit_job_path(@job), alert: t('common.jobs.create.fail', @job.errors.messages[:description].first)
       end
     end
+    # TODO: interactor
 
     private
 

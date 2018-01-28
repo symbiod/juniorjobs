@@ -3,11 +3,12 @@
 # Job for publish post to facebook. (gem koala)
 class FacebookPostJob < BasePostJob
   def perform(job_id)
-    load_job(job_id)
+    super
     prepare_for('FACEBOOK')
-    @graph = Koala::Facebook::API.new(@token)
-    @graph.put_wall_post(@message,
-                         {
-                         }, @group_id)
+    client.put_wall_post(message, {}, group_id)
+  end
+
+  def client
+    Koala::Facebook::API.new(token)
   end
 end
