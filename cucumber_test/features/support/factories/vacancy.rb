@@ -22,6 +22,6 @@ FactoryBot.define do
     salary_from { rand(1000) }
     salary_to { rand(1001..2000) }
     salary_by_agreement Faker::Boolean.boolean
-    expired_at { [(Time.now + 24 * 6 * 360), (Time.now + 24 * 13 * 360)][rand(0..1)] }
+    expired_at { ['На неделю', 'На 2 недели', 'На месяц'][rand(0..1)] }
   end
 end

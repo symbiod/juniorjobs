@@ -23,22 +23,43 @@ module Pages
     button :submit, name: 'commit'
 
     def fill_form(vacancy)
-      # select.job_employment_full
-      # job_currency.select_usd
-      # self.job_expired_at
-
-      forms_methods_mapping.each do |method|
-        elem = "job_#{method}="
-        self.send(elem, vacancy.send(method))
-      end
-      # checkbox.job_remote if vacancy.remote
-      # checkbox.job_salary_by_agreement if vacancy.salary_by_agreement
+      fill_all_elements(vacancy)
+      set_job_expired_at(vacancy)
     end
 
     private
 
-    def forms_methods_mapping
-      %w[title description
+    def fill_all_elements(vacancy)
+      all_elements_mapping.each do |method|
+        fill_field(method, vacancy) if vacancy.send(method)
+      end
+    end
+
+    def fill_job_expired_at(vacancy)
+      options = job_expired_at_options
+      res = nil
+      options.each do |option|
+        res = option if option.include? vacancy.expired_at
+      end
+      self.job_expired_at = res
+    end
+
+    def fill_field(method, vacancy)
+      if element_is?(method, 'TextField') || element_is?(method, 'SelectList')
+        elem = "job_#{method}="
+        send(elem, vacancy.send(method))
+      elsif element_is?(method, 'CheckBox')
+        send("check_job_#{method}")
+      end
+    end
+
+    def element_is?(element, elements_class)
+      send("job_#{element}_element").class.to_s.include?(elements_class)
+    end
+
+    def all_elements_mapping
+      %w[title
+         description
          requirements
          city
          company_name
@@ -47,7 +68,11 @@ module Pages
          company_phone
          company_email
          salary_from
-         salary_to]
+         salary_to
+         remote
+         salary_by_agreement
+         employment
+         currency]
     end
   end
 end
