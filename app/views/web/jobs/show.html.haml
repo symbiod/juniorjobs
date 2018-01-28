@@ -11,7 +11,7 @@
       %h4
         = t("activerecord.attributes.job.company_name")
       - if @job.company_page.present?
-        = link_to @job.company_name, @job.company_page, class: 'b-jobs_company'
+        = link_to @job.company_name, @job.company_page, class: 'b-jobs_company', target: :_blank
       - else
         = @job.company_name
 
