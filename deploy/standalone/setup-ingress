@@ -1,8 +1,7 @@
 curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/namespace.yaml \
     | kubectl apply -f -
 
-curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/default-backend.yaml \
-    | kubectl apply -f -
+kubectl apply -f deploy/standalone/ingress/default-backend.yaml
 
 curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/configmap.yaml \
     | kubectl apply -f -
@@ -18,3 +17,5 @@ curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/rb
 
 curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/with-rbac.yaml \
     | kubectl apply -f -
+
+# http://blog.will3942.com/nginx-kubernetes-bare-metal
