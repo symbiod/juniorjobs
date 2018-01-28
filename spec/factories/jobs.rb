@@ -2,7 +2,6 @@
 
 FactoryBot.define do
   factory :job do
-    id 1
     title 'Разработчик'
     employment 'full'
     city 'Москва'
