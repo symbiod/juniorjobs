@@ -4,8 +4,8 @@ require 'gibbon'
 
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
-class EmailDispatchesWorker
-  include Sidekiq::Worker
+class EmailDispatchesJob < ApplicationJob
+  queue_as :default
 
   def perform(email)
     md5_email = Digest::MD5.hexdigest(email)

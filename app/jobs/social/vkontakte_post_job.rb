@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-# Worker for publish post to vk. (gem 'vkontakte_api')
-class VkontakteWorker < BaseWorker
-  include Sidekiq::Worker
-
+# Job for publish post to vk. (gem 'vkontakte_api')
+class VkontaktePostJob < BasePostJob
   def perform(job_id)
     load_job(job_id)
     prepare_for('VKONTAKTE')

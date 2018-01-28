@@ -61,8 +61,7 @@ module JuniorjobsRu
 
 
     config.autoload_paths += %W[
-      #{config.root}/app/workers
-      #{config.root}/app/workers/social
+      #{config.root}/app/jobs/social
     ]
 
   end

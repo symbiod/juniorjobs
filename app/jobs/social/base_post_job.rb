@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # parent class for workers each social web
-class BaseWorker
-  include Sidekiq::Worker
+class BasePostJob < ApplicationJob
   include DomainUtility
+  queue_as :default
 
   def perform(_job_id)
     raise NotImplementedError
