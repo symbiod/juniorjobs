@@ -38,6 +38,7 @@ build-iPhoneSimulator/
 /.bundle/
 /vendor/bundle
 /lib/bundler/man/
+/node_modules/
 
 .rvmrc
 
