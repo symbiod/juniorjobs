@@ -19,10 +19,10 @@ before_install:
   - cp config/database.yml.travis config/database.yml
 
 script:
-  - bundle exec rake
+  - bin/script
 
-deploy:
-  provider: script
-  script: bin/shipit
-  on:
-    branch: master
+#deploy:
+#  provider: script
+#  script: bin/shipit
+#  on:
+#    branch: master
