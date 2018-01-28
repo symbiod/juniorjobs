@@ -1,4 +1,5 @@
 gcloud compute instances delete kubeadm-single-node-cluster --quiet
-gcloud compute firewall-rules delete default-allow-kubeadm-single-node-cluster --quiet
+gcloud compute firewall-rules delete kubeapi-allow-kubeadm-single-node-cluster --quiet
 gcloud compute firewall-rules delete ssh-allow-kubeadm-single-node-cluster --quiet
+gcloud compute firewall-rules delete http-allow-kubeadm-single-node-cluster --quiet
 rm kubeadm-single-node-cluster.conf
