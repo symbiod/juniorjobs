@@ -4,6 +4,8 @@ module Pages
   # this page describe new vacancy page
   class NewVacancy
     include PageObject
+    form :new_job_form, id: 'new_job'
+
     text_field :job_title, id: 'job_title'
     select_list :job_employment, id: 'job_employment'
     text_area :job_description, id: 'job_description'
@@ -24,7 +26,7 @@ module Pages
 
     def fill_form(vacancy)
       fill_all_elements(vacancy)
-      set_job_expired_at(vacancy)
+      fill_job_expired_at(vacancy)
     end
 
     private
