@@ -1,0 +1,7 @@
+ruby:
+  config_file: .rubocop.yml
+
+haml:
+  ignore_file: .hamlignore
+
+fail_on_violations: true
