@@ -8,5 +8,5 @@ require_relative '../config/sidekiq'
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
 module Clockwork
-  every(1.day, 'sync_emails_subscribers.job') { SyncNewsletterSubscribersWorker.perform_async }
+  every(1.day, 'sync_emails_subscribers.job') { SyncNewsletterSubscribersJob.perform_later }
 end

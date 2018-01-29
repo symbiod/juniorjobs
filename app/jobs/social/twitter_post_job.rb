@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-# Worker for publish post to twitter. (gem 'twitter')
-class TwitterWorker < BaseWorker
-  include Sidekiq::Worker
-
+# Job for publish post to twitter. (gem 'twitter')
+class TwitterPostJob < BasePostJob
   def perform(job_id)
     prepare_tw
     load_job(job_id)

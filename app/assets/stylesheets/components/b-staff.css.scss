@@ -2,11 +2,10 @@
 
 .b-staff {
   .sign-in {
+    position: relative;
     margin: $gutter auto;
     padding: $gutter;
-    border: 1px solid $c-light-gray;
-    position: relative;
     max-width: 450px;
-
+    border: 1px solid $c-light-gray;
   }
 }

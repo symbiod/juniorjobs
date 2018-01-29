@@ -1,0 +1,25 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "062b164e220140ae64a7aa919719a319e0e9603093f19ec9991e950d8a380c82",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in link_to href",
+      "file": "app/views/web/jobs/show.html.haml",
+      "line": 14,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(Job.find(params[:id]).company_name, Job.find(params[:id]).company_page, :class => \"b-jobs_company\", :target => :_blank)",
+      "render_path": [{"type":"controller","class":"Web::JobsController","method":"show","line":11,"file":"app/controllers/web/jobs_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "web/jobs/show"
+      },
+      "user_input": "Job.find(params[:id]).company_page",
+      "confidence": "Weak",
+      "note": ""
+    }
+  ],
+  "updated": "2018-01-28 20:18:18 +0300",
+  "brakeman_version": "4.1.1"
+}

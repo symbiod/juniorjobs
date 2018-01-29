@@ -1,5 +1,5 @@
 %li.drop-down
-  %a{ href: '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown', 'aria-expanded': 'false' }
+  = link_to 'javascript:;', data: { toggle: :dropdown }, aria: { expanded: false }, class: 'dropdown-toggle' do
     %i.fa.fa-user-circle
     %span.caret
   %ul.dropdown-menu

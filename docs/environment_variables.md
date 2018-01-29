@@ -48,3 +48,4 @@ ACCESS_TOKEN = (access_token)
 * Add it to `deploy/secrets/application-secrets.yaml.tmpl`
 * Add it to `deploy/deployments/juniorjobs.yaml`
 * Ask to add it to CI/CD
+

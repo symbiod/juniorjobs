@@ -17,12 +17,13 @@ before_install:
   - gem update --system
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - npm install
 
 script:
   - bundle exec rake
 
 deploy:
   provider: script
-  script: bin/build-image
+  script: bin/shipit
   on:
     branch: master

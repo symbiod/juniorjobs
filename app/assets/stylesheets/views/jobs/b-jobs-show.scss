@@ -1,4 +1,4 @@
-@import 'global/settings';
+@import "global/settings";
 
 $font-size: 20px;
 
@@ -8,14 +8,17 @@ $font-size: 20px;
       font-weight: bold;
     }
   }
+
   &-cart_company {
-    color: $c-dark-gray;
     font-size: $font-size;
+    color: $c-dark-gray;
   }
+
   &_company {
     color: $c-blue;
   }
 }
+
 .job-phone {
   font-size: $font-size;
   font-weight: 100;

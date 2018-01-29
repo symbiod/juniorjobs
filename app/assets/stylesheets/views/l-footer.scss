@@ -1,4 +1,4 @@
-@import 'global/settings';
+@import "global/settings";
 
 .l-footer {
   font-family: $font-family-fira-sans !important;
@@ -8,8 +8,8 @@
   }
 
   .pulled {
+    margin: 0 0 0 $gutter;
     font-size: 13px;
-    margin: 0 0 0 20px;
 
     &:first-child {
       margin: 0;

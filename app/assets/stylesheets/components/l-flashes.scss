@@ -1,4 +1,4 @@
-@import 'global/settings';
+@import "global/settings";
 
 .l-flashes {
   > .alert {
@@ -9,12 +9,15 @@
     &.flash-notice {
       background-color: $c-notice;
     }
+
     &.flash-alert {
       background-color: $c-alert;
     }
+
     &.flash-error {
       background-color: $c-error;
     }
+
     &.flash-success {
       background-color: $c-success;
     }

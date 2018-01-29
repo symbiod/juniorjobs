@@ -1,6 +1,5 @@
 ### TODO:
 * postgres persisted volume
-* mailchimp keys
 
 ### Dependencies
 * minikube
@@ -12,7 +11,7 @@
 
 `kubectl edit secret/app-secrets`
 
-`kubectl apply -R -f deploy/`
+`deploy/run`
 
 Run shell in container: `kubectl exec -it pod-id -- bash`
 
