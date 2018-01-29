@@ -4,7 +4,7 @@ Feature: JuniorJobs sign up
   I need to sign up
 
   Background:
-    Given I am on the juniorjobs signUp page
+    Given I am on the juniorjobs sign_up page
 
   Scenario: Sign up with valid credentials
     Given I have credentials with all fields

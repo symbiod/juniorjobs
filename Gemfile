@@ -76,6 +76,9 @@ group :development, :test do
   gem 'seed-fu', '~> 2.3'
   gem 'selenium-webdriver'
   gem 'watir-rails'
+  gem 'dotenv-rails'
+  gem 'page-object'
+  gem 'data_magic'
 end
 
 group :test do

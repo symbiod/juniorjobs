@@ -20,7 +20,7 @@ before_install:
   - npm install
 
 script:
-  - bundle exec rake
+  - bundle exec rspec
 
 deploy:
   provider: script

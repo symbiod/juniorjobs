@@ -17,9 +17,13 @@ module Routes
           path: '/',
           page_class: Pages::Home
         },
-        signUp: {
+        sign_up: {
           path: '/signup',
           page_class: Pages::SignUp
+        },
+        new_vacancy: {
+          path: '/jobs/new',
+          page_class: Pages::NewVacancy
         }
       }
     end
