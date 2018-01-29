@@ -59,7 +59,7 @@ module Web
         :currency, :salary_from, :salary_to, :salary_by_agreement,
         :company_contact, :company_email, :company_name, :company_page, :company_phone,
         :expired_at,
-        :token, :tag, tag_list: []
+        :token, :tag, { tag_list: [] }
       )
     end
   end
