@@ -51,8 +51,8 @@
         %hr
         %p
           = t('forms.hashtags')
-          - @job.tag_list.each do |tag|
-            = tag
+          - @job.tag_list.each do |t|
+            = link_to(t + ',', tag_path(t))
 
       .col-sm-4.form-group.well.col-md-offset-1
         %h4.b-jobs-cart_company.text-align-center
