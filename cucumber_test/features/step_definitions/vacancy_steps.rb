@@ -20,8 +20,3 @@ end
 And(/^user see error message: ([^"]*)$/) do |text|
   expect(@current_page.text).to be_include(text)
 end
-
-
-Given(/^default vacancies exist$/) do
-  pending
-end
