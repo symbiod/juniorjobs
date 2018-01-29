@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dotenv'
 
 Rails.application.configure do

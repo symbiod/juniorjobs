@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # get '/robots.txt', to: 'seo#robots'
   # get '/sitemap.xml', to: 'seo#sitemap', format: 'xml'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
     get 'tags/:tag', to: 'welcome#index', as: :tag
     resources :tags, only: [:index]
     resources :jobs
-    resource :subscription, only: [:new, :create, :destroy]
+    resource :subscription, only: %i[new create destroy]
   end
 
   scope module: :auth do
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     resources :user_sessions, only: :create
     post '/logout', to: 'user_sessions#destroy', as: :logout
 
-    resources :users, except: [:new, :index, :show]
+    resources :users, except: %i[new index show]
     get '/signup', to: 'users#new', as: :signup
 
     post 'oauth/callback' => 'oauths#callback'

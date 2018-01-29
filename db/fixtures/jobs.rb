@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faker'
 
 Job.destroy_all
@@ -19,8 +21,8 @@ Job.destroy_all
     s.company_email = Faker::Internet.email
     s.company_name = Faker::Company.name
     s.requirements = Faker::Job.key_skill
-    s.salary_from = [*1..3].sample*10000
-    s.salary_to = [*3..20].sample*10000
+    s.salary_from = [*1..3].sample * 10_000
+    s.salary_to = [*3..20].sample * 10_000
     s.salary_by_agreement = [*0..1].sample
     s.remote = [*0..1].sample
     s.city = Faker::Address.city

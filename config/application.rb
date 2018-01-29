@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'active_model/railtie'
@@ -51,18 +53,16 @@ module JuniorjobsRu
     config.autoload_paths += Dir[Rails.root.join('app', 'decorators', '{**}')]
     config.generators do |g|
       g.test_framework :rspec,
-                        view_spec:false,
-                        helper_specs: false,
-                        routing_specs: false,
-                        request_specs: false,
-                        controller_spec: true
+                       view_spec: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       request_specs: false,
+                       controller_spec: true
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
-
 
     config.autoload_paths += %W[
       #{config.root}/app/jobs/social
     ]
-
   end
 end

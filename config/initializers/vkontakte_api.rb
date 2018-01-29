@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 VkontakteApi.configure do |config|
   # Authorization parameters (not needed when using an external authorization):
   # config.app_id       = '123'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'gibbon'
 
 gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_ACCESS_KEY_ID'])

@@ -12,26 +12,26 @@ ruby '2.5.0'
 # Rails
 gem 'dotenv'
 gem 'pg', '~> 0.18'
-gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.1.4'
 
 # Common
 gem 'aasm'
 gem 'config'
-gem 'foreman'
 gem 'dry-validation'
+gem 'foreman'
 gem 'gibbon'
 gem 'i18n-tasks', '~> 0.9.19'
 gem 'interactor', '~> 3.0'
+gem 'koala'
 gem 'mechanize'
 gem 'meta-tags'
 gem 'pundit'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sorcery'
-gem 'vkontakte_api', '~> 1.4'
-gem 'koala'
 gem 'telegram-bot-ruby'
 gem 'twitter'
+gem 'vkontakte_api', '~> 1.4'
 
 # Jobs
 gem 'sidekiq'
@@ -47,8 +47,8 @@ gem 'jquery-rails'
 gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
 gem 'patternfly-sass'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
 gem 'select2-rails'
+gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
 
 # Frontend:helpers
@@ -63,8 +63,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
   gem 'data_magic'
+  gem 'database_cleaner'
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
@@ -93,4 +93,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-

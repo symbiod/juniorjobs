@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SorceryExternal < ActiveRecord::Migration[5.1]
   def change
     create_table :authentications do |t|
@@ -7,6 +9,6 @@ class SorceryExternal < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :authentications, [:provider, :uid]
+    add_index :authentications, %i[provider uid]
   end
 end
