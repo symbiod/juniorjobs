@@ -8,8 +8,9 @@ And(/^user see his vacancy$/) do
   pending
 end
 
-Given(/^user have vacancy with ([^"]*) ([^"]*)$/) do |preposition, field|
-  @vacancy.send("#{field}=", '') if preposition == 'blank'
+Given(/^user have vacancy ([^"]*) with ([^"]*)$/) do |field, data|
+  data = data == nil ? '' : Faker::Lorem.characters(data.to_i)
+  @vacancy.send("#{field}=", data)
 end
 
 Then(/^user see vacancy form$/) do
@@ -22,9 +23,5 @@ end
 
 
 Given(/^default vacancies exist$/) do
-  @dataset = Datasets::Resolver.get_list(:crm_candidate, 'candidates').values
-  @dataset.each do |candidate|
-    Models::Crm::CrmCandidate.create!(candidate)
-  end
-  @crm_candidates = Models::Crm::CrmCandidate.all
+  pending
 end

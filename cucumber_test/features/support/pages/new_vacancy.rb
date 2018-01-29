@@ -47,7 +47,9 @@ module Pages
     end
 
     def fill_field(method, vacancy)
-      if element_is?(method, 'TextField') || element_is?(method, 'SelectList')
+      if element_is?(method, 'TextField') ||
+          element_is?(method, 'SelectList') ||
+          element_is?(method, 'TextArea')
         elem = "job_#{method}="
         send(elem, vacancy.send(method))
       elsif element_is?(method, 'CheckBox')
