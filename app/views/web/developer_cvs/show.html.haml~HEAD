@@ -1,6 +1,7 @@
 .b-jobs
   = render 'shared/page_header', header: @cv.name
-  - if(current_user.present? && current_user.cvs.include?(@cv))
+  -# - if current_user.present? && current_user.cvs.include?(@cv)
+  - if policy(@cv).owner?
     = link_to t("activerecord.attributes.cv.edit"), edit_user_cv_path(@cv.user, @cv)
     = " - "
     = link_to t("activerecord.attributes.cv.delete"), user_cv_path(@cv), method: :delete
@@ -21,10 +22,7 @@
     .col-sm-4
       %h4
         = t("common.jobs.show.location")
-      - if @cv.city.present?
-        = "#{@cv.city}#{@cv.remote ? +'/'+ t("activerecord.attributes.job.remote") : ''}"
-      - elsif @cv.remote.present?
-        = t("activerecord.attributes.job.remote")
+      = @cv.decorate.city_remote
 
   %article
 
