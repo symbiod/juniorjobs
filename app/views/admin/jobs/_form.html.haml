@@ -2,7 +2,7 @@
   = f.input :country, as: :hidden, label: false, input_html: { class: 'form-control', value: current_country }
 
   .form-group.well
-    %h3 Описание Вакансии
+    %h3= t('admin.jobs.form.desc')
     = f.input :title, label: false, placeholder: t('activerecord.attributes.job.title')
     - collection = Job.employments.keys.map { |type| [t("activerecord.attributes.job.employments.#{type}"), type] }
     = f.select :employment, collection, label: false, include_blank: false, class: 'form-control'
@@ -12,7 +12,7 @@
       input_html: { class: 'form-control', rows: 20 }
 
   .form-group.well
-    %h3 Расположение
+    %h3= t('admin.jobs.form.location')
     .row
       .col-md-8
         = f.input :city, label: false, placeholder: t('activerecord.attributes.job.city'),
@@ -21,7 +21,7 @@
         = f.input :remote, as: :boolean, label: t('activerecord.attributes.job.remote')
 
   .form-group.well
-    %h3 Компания
+    %h3= t('admin.jobs.form.company')
     = f.input :company_name, label: false, placeholder: t('activerecord.attributes.job.company_name')
     = f.input :company_page, label: false, placeholder: t('activerecord.attributes.job.company_page')
     = f.input :company_contact, label: false, placeholder: t('activerecord.attributes.job.company_contact')
@@ -29,7 +29,7 @@
     = f.input :company_email, label: false, placeholder: t('activerecord.attributes.job.company_email')
 
   .form-group.well
-    %h3 Мотивация
+    %h3= t('admin.jobs.form.motivation')
     .row
       .col-md-3
         - collection = Job.currencies.keys.map { |type| [t("activerecord.attributes.job.currencies.#{type}"), type] }
@@ -45,7 +45,7 @@
           input_html: { class: 'form-check-input' }, label_html: { class: 'form-check-label' }
 
   .form-group.well
-    %h3 Время публикации вакансии
+    %h3= t('admin.jobs.form.time')
     .form-group
       = f.select :expired_at, expired_at_dates_for(f.object), label: false, include_blank: false, class: 'form-control'
 
