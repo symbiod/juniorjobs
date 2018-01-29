@@ -56,10 +56,6 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'dotenv-rails'
-  gem 'dotenv-rails'
-  gem 'rspec'
-  gem 'page-object'
-  gem 'data_magic'
   gem 'rspec'
   gem 'page-object'
   gem 'data_magic'
@@ -74,6 +70,9 @@ group :development, :test do
   gem 'seed-fu', '~> 2.3'
   gem 'selenium-webdriver'
   gem 'watir-rails'
+  gem 'dotenv-rails'
+  gem 'page-object'
+  gem 'data_magic'
 end
 
 group :test do
