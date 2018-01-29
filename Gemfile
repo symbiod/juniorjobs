@@ -62,22 +62,17 @@ gem 'acts-as-taggable-on'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'data_magic'
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'letter_opener'
-  gem 'page-object'
   gem 'rails-controller-testing'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'seed-fu', '~> 2.3'
-  gem 'selenium-webdriver'
-  gem 'watir-rails'
   gem 'dotenv-rails'
-  gem 'page-object'
   gem 'data_magic'
 end
 
@@ -96,4 +91,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
