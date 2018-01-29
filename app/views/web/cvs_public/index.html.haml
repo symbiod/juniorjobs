@@ -1,8 +1,0 @@
-.row
-  .row.mt20
-    .col-sm-12
-      %h3.title Резюме
-      - for cv in @cvs
-        = render 'cv', cv: cv
-
-  = paginate @cvs
