@@ -1,5 +1,13 @@
 ---
 ua:
+  admin:
+    jobs:
+      form:
+        company: Компания
+        desc: Описание Вакансии
+        location: Расположение
+        motivation: Мотивация
+        time: Время публикации вакансии
   forms:
     comma_separator: Comma separator
     found_by_tag: Found by tag
