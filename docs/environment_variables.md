@@ -1,3 +1,14 @@
+## Using environment variables
+
+We follow [12 factor app](https://12factor.net/) principles for projects.
+In order to use ENV variables for app configuration you can use one of the following approaches:
+
+* [direnv app](https://direnv.net/) for autoloading project ENV variables
+* [dotenv gem](https://github.com/bkeepers/dotenv) for autoloading ENV variables on dev machine
+* Explicitly setting ENV variables at your shell rc file(not recommended because of possible collisions)
+
+Choose whatever works for you the best, but keep in mind, that all `.env` or `.envrc` files should be included at `.gitignore`.
+
 ## List of required ENV variables
 
 **General ENV variables**
@@ -5,6 +16,7 @@
 All these variables should be available at app startup
 
 * APP_SECRET
+* REDIS_HOST
 * MAILCHIMP_LIST_ID
 * MAILCHIMP_ACCESS_KEY_ID
 * GITHUB_CLIENT_ID

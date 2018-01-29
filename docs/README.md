@@ -1,12 +1,4 @@
-### Infrastructure
+# JuniorJobs documentation
 
-Public Docker images are located at [https://hub.docker.com/u/howtohireme/dashboard/](https://hub.docker.com/u/howtohireme/dashboard/)
-
-To build image run 
-
-`bin/build-image`
-
-To deploy app run
-
-`bin/deploy`
-
+* [Environment variables](https://github.com/howtohireme/juniorjobs.ru/blob/master/docs/environment_variables.md)
+* [Infrastructure](https://github.com/howtohireme/juniorjobs.ru/blob/master/docs/infrastructure.md)
