@@ -1,0 +1,302 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/clock.rb",
+			"settings":
+			{
+				"buffer_size": 380,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 139.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"repl:s",
+				"SublimeREPL: Rails"
+			],
+			[
+				"REPL",
+				"Set Syntax: Io Repl"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"gl",
+				"Glue - Launch"
+			],
+			[
+				"glu",
+				"Glue - Launch"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"boxy",
+				"Boxy Theme: Preferences"
+			],
+			[
+				"them",
+				"UI: Select Theme"
+			],
+			[
+				"box",
+				"Boxy Theme: Preferences"
+			],
+			[
+				"col",
+				"UI: Select Color Scheme"
+			],
+			[
+				"colo",
+				"UI: Select Color Scheme"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"ay",
+				"ayu: Activate theme"
+			]
+		],
+		"width": 462.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"print(a)",
+			"print 'f'",
+			"print a",
+			"help",
+			"print a",
+			"a = 'sf'",
+			"rails c",
+			"help",
+			"cd ../",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app/views",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app/views/auth"
+	],
+	"file_history":
+	[
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app/controllers/auth/cvs_controller.rb",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/README.md",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/Gemfile",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/.hound.yml",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/.hamlignore",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/.haml-lint.yml",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app/views/web/cvs_public/_cv.html.haml",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app/views/web/cvs_public/show.html.haml",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app/views/web/cvs_public/index.html.haml",
+		"/Users/pavlick/Documents/RubyCode/rails/juniorjobs.ru/app/assets/stylesheets/views/l-header.scss",
+		"/Users/pavlick/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/pavlick/Documents/rubypr/sbtest.rb"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/clock.rb",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 218.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

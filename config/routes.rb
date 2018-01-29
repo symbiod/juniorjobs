@@ -10,12 +10,10 @@ Rails.application.routes.draw do
     get '/about', to: 'static_pages#about'
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
-    get '/cvs', to: 'cvs_public#index'
+    get '/developers', to: 'developer_cvs#index'
 
     resources :jobs
-    resources :cvs_public, only: [:index, :show] do
-      get '/cv/:id', to: 'cvs_public#show'
-    end
+    resources :developer_cvs, only: [:index, :show], as: 'developers'
     resource :subscription, only: [:new, :create, :destroy]
   end
 
