@@ -9,7 +9,7 @@ And(/^user see his vacancy$/) do
 end
 
 Given(/^user have vacancy ([^"]*) with ([^"]*)$/) do |field, data|
-  data = data == nil ? '' : Faker::Lorem.characters(data.to_i)
+  data = data.nil? ? '' : Faker::Lorem.characters(data.to_i)
   @vacancy.send("#{field}=", data)
 end
 
