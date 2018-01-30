@@ -10,24 +10,17 @@ module Auth
       login_at(provider)
     end
 
+    # TODO: Use interactors
     def callback
-      if (@user = login_from(provider))
-        redirect_to root_path, notice: t('.notice', provider: provider.titleize)
-      else
-        create_user
-      end
+      @user = login_from(provider)
+      create_user_from(provider) unless @user
+      redirect_to root_path, notice: t('auth.oauths.callback.notice', provider: provider.titleize)
+    rescue StandardError => error
+      redirect_to root_path, alert: t('auth.oauths.callback.alert', error: error.message)
     end
+    # TODO: Use interactors
 
     private
-
-    def create_user
-      @user = create_from(provider) { |user| user.roles = ['junior'] }
-      reset_session
-      auto_login(@user)
-      redirect_to root_path, notice: t('.notice', provider: provider.titleize)
-    rescue StandardError => e
-      redirect_to root_path, alert: t('.alert', error: e.message)
-    end
 
     def auth_params
       params.permit(:code, :provider)
@@ -35,6 +28,11 @@ module Auth
 
     def provider
       auth_params[:provider]
+    end
+
+    def create_user_from(provider)
+      @user = create_from(provider) { |user| user.roles = ['junior'] }
+      reset_session && auto_login(@user)
     end
   end
 end

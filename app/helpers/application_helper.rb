@@ -35,22 +35,10 @@ module ApplicationHelper
     ]
   end
 
-  # Returns option for select, according to passed modifier
-  # e.g. modifier can be '1_week'
-  # The method dynamically parses modifier and generated output for 1.week method
-  # @return Array<String>
   def expires_at(job, modifier)
-    num, period = modifier.split('_')
-    num = num.to_i
-    text = t("activerecord.attributes.job.expired_ats.#{modifier}",
-             date: expired_date_for(job, num.send(period)).strftime('%d/%m/%Y'))
-    value = expired_date_for(job, num.send(period))
-    [text, value]
-  end
-
-  private
-
-  def expired_date_for(job, interval)
-    (job.persisted? ? job.created_at.to_date : Date.current) + interval
+    interval = parse_interval(modifier)
+    date = (job.persisted? ? job.created_at.to_date : Date.current) + interval
+    text = t("activerecord.attributes.job.expired_ats.#{modifier}", date: date.strftime('%d/%m/%Y'))
+    [text, date]
   end
 end

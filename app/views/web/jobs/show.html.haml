@@ -19,13 +19,13 @@
       %h4
         = t('common.jobs.show.reward')
       = t("activerecord.attributes.job.currencies.#{@job.currency}")
-      = salary(@job)
+      = @job.salary
 
     .col-sm-3
       %h4
         = t('common.jobs.show.location')
       - if @job.city.present?
-        = @job.city + ' ' + @job.remote ? + ' / ' + t('activerecord.attributes.job.remote') : ''
+        = @job.location
       - elsif @job.remote.present?
         = t('activerecord.attributes.job.remote')
 

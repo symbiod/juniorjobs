@@ -3,8 +3,9 @@
 # TODO: documentation is missing for this class
 # We should consider addig some documentation here
 class User < ApplicationRecord
-  authenticates_with_sorcery!
   include HasRole
+
+  authenticates_with_sorcery!
 
   has_many :authentications, dependent: :destroy
   has_many :jobs

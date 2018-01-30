@@ -3,12 +3,11 @@
 # Controller for handling jobs in admin namespace.
 module Web
   module Admin
-    class JobsController < Web::Admin::BaseController
+    class JobsController < BaseController
       before_action :load_job, except: %i[index]
-      before_action :load_jobs, only: %i[index]
 
       def index
-        @jobs = JobDecorator.decorate_collection(@jobs)
+        @jobs = Job.status(params[:show_status]).decorate
       end
 
       def edit; end
@@ -27,43 +26,40 @@ module Web
       end
 
       def approve
-        if @job.approve!
-          redirect_to admin_jobs_path(show_status: 'not_approved'), notice: t('admin.jobs.approve.success')
-        else
-          redirect_to admin_jobs_path(show_status: 'not_approved'), alert: t('admin.jobs.approve.fail')
-        end
+        message = @job.approve! ? localized_notice(:approved) : localized_alert(:approved)
+        redirect_to admin_jobs_path(show_status: 'not_approved'), message
       end
 
       def not_approve
-        if @job.not_approve!
-          redirect_to admin_jobs_path(show_status: 'approved'), notice: t('admin.jobs.not_approve.success')
-        else
-          redirect_to admin_jobs_path(show_status: 'approved'), alert: t('admin.jobs.not_approve.fail')
-        end
+        message = @job.not_approve! ? localized_notice(:not_approved) : localized_alert(:not_approved)
+        redirect_to admin_jobs_path(show_status: 'approved'), message
       end
 
       private
 
       def load_job
-        @job = Job.find(params[:id])
-      end
-
-      def load_jobs
-        return @jobs = Job.where(status: params[:show_status]) if params[:show_status]
-        @jobs = Job.order(:status)
+        @job = Job.find(params[:id]).decorate
       end
 
       def job_params
         params.require(:job).permit(
-          :id, :status, :show_status,
-          :title, :description,
-          :requirements, :employment,
-          :city, :country, :remote,
-          :currency, :salary_from, :salary_to, :salary_by_agreement,
-          :company_contact, :company_email, :company_name, :company_page, :company_phone,
-          :expired_at,
-          :token
+          :id, :status, :show_status, :title, :description, :requirements,
+          :employment, :city, :country, :remote, :currency, :salary_from,
+          :salary_to, :salary_by_agreement, :company_contact, :company_email,
+          :company_name, :company_page, :company_phone, :expired_at, :token
         )
+      end
+
+      def localized_notice(locale)
+        { notice: t("admin.jobs.#{locale}.success") }
+      end
+
+      def localized_alert(locale)
+        { alert: t("admin.jobs.#{locale}.fail") }
+      end
+
+      def show_status_params
+        params[:show_status]
       end
     end
   end

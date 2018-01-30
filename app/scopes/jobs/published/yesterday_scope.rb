@@ -6,7 +6,7 @@ module Jobs
     # We should consider addig some documentation here
     class YesterdayScope < BaseScope
       def call
-        @scope.where('created_at::date = ?', Date.today - 1.day)
+        scope.where('created_at::date = ?', TimeUtility.yesterday)
       end
     end
   end

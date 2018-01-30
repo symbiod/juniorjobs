@@ -2,7 +2,7 @@
 
 # Service for start all jobs for pubslish
 class SocialWebPosterService
-  def post_job(job_id)
+  def self.post_job(job_id)
     VkontaktePostJob.perform_later(job_id)
     FacebookPostJob.perform_later(job_id)
     TelegramPostJob.perform_later(job_id)

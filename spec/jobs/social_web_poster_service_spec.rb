@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe SocialWebPosterService do
   ActiveJob::Base.queue_adapter = :test
-  let(:post) { SocialWebPosterService.new.post_job(1) }
+  let(:post) { SocialWebPosterService.post_job(1) }
 
   it 'VkontakteWorker is working' do
     expect { post }.to have_enqueued_job(VkontaktePostJob)

@@ -5,18 +5,7 @@
 class Job < ApplicationRecord
   include AASM
 
-  aasm column: 'status' do
-    state :not_approved, initial: true
-    state :approved
-
-    event :approve do
-      transitions from: :not_approved, to: :approved
-    end
-
-    event :not_approve do
-      transitions from: :approved, to: :not_approved
-    end
-  end
+  acts_as_taggable
 
   belongs_to :user, optional: true
 
@@ -35,7 +24,20 @@ class Job < ApplicationRecord
   scope :published_last_week, Jobs::Published::LastWeekScope
   scope :published_last_month, Jobs::Published::LastMonthScope
 
-  acts_as_taggable
+  scope :status, Jobs::StatusScope
+
+  aasm column: 'status' do
+    state :not_approved, initial: true
+    state :approved
+
+    event :approve do
+      transitions from: :not_approved, to: :approved
+    end
+
+    event :not_approve do
+      transitions from: :approved, to: :not_approved
+    end
+  end
 
   private
 

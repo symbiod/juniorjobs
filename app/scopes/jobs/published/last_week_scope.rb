@@ -6,9 +6,9 @@ module Jobs
     # We should consider addig some documentation here
     class LastWeekScope < BaseScope
       def call
-        @scope
-          .where('created_at::date < ?', Date.today - 1.day)
-          .where('created_at::date >= ?', Date.today - 1.week)
+        scope
+          .where('created_at::date < ?', TimeUtility.yesterday)
+          .where('created_at::date >= ?', TimeUtility.last_week)
       end
     end
   end

@@ -4,9 +4,9 @@ module Jobs
   module Published
     # TODO: documentation is missing for this class
     # We should consider addig some documentation here
-    class BaseScope < Jobs::BaseScope
-      def initialize(scope = Job.all)
-        super(scope.where('expired_at::date > ? AND status = ?', Date.today, 'approved'))
+    class BaseScope < Scope
+      def initialize
+        @scope = Job.where('expired_at::date > ? AND status = ?', ::TimeUtility.today, 'approved')
       end
     end
   end
