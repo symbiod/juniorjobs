@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :tags, only: [:index]
     resources :jobs
     resource :subscription, only: [:new, :create, :destroy]
+
     namespace :admin do
+      root 'dashboard#index'
       resources :users, only: %i[index edit update destroy]
       resources :subscriptions, only: :index
       resources :jobs, only: %i[index edit update destroy] do

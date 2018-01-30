@@ -4,6 +4,7 @@
 module Web
   module Admin
     class BaseController < Web::BaseController
+      layout 'admin'
       before_action :require_login, :check_admin
 
       private

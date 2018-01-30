@@ -1,0 +1,24 @@
+%header{class: ['l-header', 'header-wrapper', 'header-dark']}
+  .container
+    .row
+      .col-sm-12.col-md-3
+        = link_to 'JuniorJobsAdmin', admin_root_path, class: 'role'
+      .col-sm-12.col-md-9
+        %nav.navbar-right
+          %ul.menu.menu-light
+            %li.toggle-menu{style: 'display: none;'}
+              %i.fa.fa-bars
+            %li
+              = link_to admin_users_path, class: ['c-composite-link'] do
+                %i.fa.fa-users.fa-large
+                = t('views.headers.users')
+            %li
+              = link_to admin_subscriptions_path, class: ['c-composite-link'] do
+                %i.fa.fa-rss
+                = t('views.headers.subscriptions')
+            %li
+              = link_to admin_jobs_path, class: ['last', 'c-composite-link'] do
+                %i.fa.fa-list
+                = t('views.headers.jobs')
+            %li
+              = render 'layouts/shared/auth_links'
