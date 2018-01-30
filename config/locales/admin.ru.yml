@@ -10,13 +10,6 @@ ru:
         success: Вакансия успешно одобрена.
       destroy:
         success: Вакансия успешно удалена.
-      index:
-        all_jobs: Все вакансии
-        approved_jobs: Одобренные вакансии
-        company_name: Компания
-        expired: 'Истекает:'
-        job: Вакансия
-        not_approved_jobs: Неодобренные вакансии
       not_approve:
         fail: Не получилось снять одобрение с вакансии.
         success: Одобрение с вакансии снято.
@@ -25,16 +18,27 @@ ru:
       delete: Удалить
       edit: Редактировать
       email: Email
-    subscriptions:
-      index:
-        created_at: Начало подписки
-        status: Статус
     users:
       destroy:
         success: Пользователь успешно удален.
-      index:
-        created_at: Дата регистрации
-        roles: Роли
       update:
         update_fail: 'Возникли следующие ошибки при обновлении пользователя: %{errors}'
         update_success: Профиль пользователя успешно обновлен.
+  web:
+    admin:
+      jobs:
+        index:
+          all_jobs: Все вакансии
+          approved_jobs: Одобренные вакансии
+          company_name: Компания
+          expired: 'Статус'
+          job: Вакансия
+          not_approved_jobs: Неодобренные вакансии
+      subscriptions:
+        index:
+          created_at: Начало подписки
+          status: Статус
+      users:
+        index:
+          created_at: Дата регистрации
+          roles: Роли

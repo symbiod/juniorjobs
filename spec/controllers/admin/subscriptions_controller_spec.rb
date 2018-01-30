@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Admin::SubscriptionsController, type: :controller do
+RSpec.describe Web::Admin::SubscriptionsController, type: :controller do
   describe 'GET #index' do
     subject do
       login_user(user)

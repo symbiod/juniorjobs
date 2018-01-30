@@ -15,6 +15,14 @@ Rails.application.routes.draw do
     resources :tags, only: [:index]
     resources :jobs
     resource :subscription, only: [:new, :create, :destroy]
+    namespace :admin do
+      resources :users, only: %i[index edit update destroy]
+      resources :subscriptions, only: :index
+      resources :jobs, only: %i[index edit update destroy] do
+        post 'approve', on: :member
+        post 'not_approve', on: :member
+      end
+    end
   end
 
   scope module: :auth do
@@ -28,14 +36,5 @@ Rails.application.routes.draw do
     post 'oauth/callback' => 'oauths#callback'
     get 'oauth/callback' => 'oauths#callback'
     get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
-  end
-
-  namespace :admin do
-    resources :users, only: %i[index edit update destroy]
-    resources :subscriptions, only: :index
-    resources :jobs, only: %i[index edit update destroy] do
-      post 'approve', on: :member
-      post 'not_approve', on: :member
-    end
   end
 end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Admin::UsersController, type: :controller do
+RSpec.describe Web::Admin::UsersController, type: :controller do
   describe 'GET #index' do
     subject do
       login_user(user)

@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'aasm/rspec'
 
-RSpec.describe Admin::JobsController, type: :controller do
+RSpec.describe Web::Admin::JobsController, type: :controller do
   describe 'GET #index' do
     subject do
       login_user(user)
