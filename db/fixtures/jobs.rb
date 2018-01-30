@@ -25,5 +25,6 @@ Job.destroy_all
     s.remote = [*0..1].sample
     s.city = Faker::Address.city
     s.country = Faker::Address.country
+    s.status = %w[approved not_approved].sample
   end
 end
