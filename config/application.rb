@@ -17,52 +17,35 @@ module JuniorjobsRu
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.assets.quiet = true
 
     config.autoload_paths += %W[
-      #{config.root}/app/utilities
-      #{config.root}/app/scopes
+      #{Rails.root}/app/decorators/*
+      #{Rails.root}/app/interactors/*
+      #{Rails.root}/app/jobs/*
+      #{Rails.root}/app/scopes/*
+      #{Rails.root}/app/utilities/*
       #{Rails.root}/config/settings.yml
     ]
-
-    config.assets.quiet = true
 
     config.generators do |generate|
       generate.template_engine :haml
       generate.helper true
+      generate.helper_specs true
       generate.javascript_engine false
       generate.request_specs false
       generate.routing_specs true
       generate.stylesheets false
       generate.view_specs false
+      generate.controller_spec true
+      generate.fixture_replacement :factory_bot, dir: 'spec/factories'
       generate.test_framework :rspec
     end
 
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.active_job.queue_adapter = :sidekiq
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
-    config.autoload_paths += Dir[Rails.root.join('app', 'workers', '{**}')]
-    config.autoload_paths += Dir[Rails.root.join('app', 'services', '{**}')]
-    config.autoload_paths += Dir[Rails.root.join('app', 'decorators', '{**}')]
-    config.generators do |g|
-      g.test_framework :rspec,
-                        view_spec:false,
-                        helper_specs: false,
-                        routing_specs: false,
-                        request_specs: false,
-                        controller_spec: true
-      g.fixture_replacement :factory_bot, dir: 'spec/factories'
-    end
-
-
-    config.autoload_paths += %W[
-      #{config.root}/app/jobs/social
-    ]
-
   end
 end
