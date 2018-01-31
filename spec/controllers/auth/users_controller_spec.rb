@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Auth::UsersController, type: :controller do
+RSpec.describe Web::Auth::UsersController, type: :controller do
   describe 'POST #create' do
     subject { post 'create', params: params }
     let(:default_attributes) { attributes_for(:user, :company) }

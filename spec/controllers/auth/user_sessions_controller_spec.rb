@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Auth::UserSessionsController, type: :controller do
+RSpec.describe Web::Auth::UserSessionsController, type: :controller do
   describe 'POST #create' do
     let(:user) { create(:user, :company) }
 
