@@ -18,15 +18,13 @@ RSpec.describe Web::TagsController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:job) { create(:job, :approved, :with_tag_list) }
     subject { get 'show', params: { id: 'java' } }
-    
+    let(:job) { create(:job, :approved, :with_tag_list) }
     job_list = Job.tagged_with('java')
 
     it { is_expected.to render_template(:jobs_with_tag) }
     it 'return job`s list with matched tag' do
       expect(job_list).to eq([job])
     end
-    
   end
 end
