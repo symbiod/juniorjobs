@@ -12,6 +12,7 @@ AllCops:
     - '../vendor/**/*'
     - '../lib/tasks/cucumber.rake'
     - '../cucumber_test/features/support/env.rb'
+    - 'app/views/kaminari/**/*'
 
 Documentation:
   Enabled: false
@@ -56,6 +57,9 @@ Metrics/BlockLength:
 
 Metrics/LineLength:
   Max: 120
+
+Metrics/MethodLength:
+  Max: 20
 
 Naming/FileName:
   Exclude:
