@@ -5,3 +5,4 @@ email_regex: '\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z'
 email_from: 'office@howtohireme.ru'
 admin_email: 'office@howtohireme.ru'
 github: 'https://github.com/howtohireme/juniorjobs.ru'
+emails_offset: 500
