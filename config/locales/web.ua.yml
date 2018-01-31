@@ -17,6 +17,7 @@ ua:
         incorrect_token: Неверный токен
         success: Вакансия отредактирована
     submit: Отправить
+    subscribe: Подписаться
     cvs:
       create:
         fail: 'Резюме не сохранено: %{error}'
@@ -26,7 +27,6 @@ ua:
       delete:
         success: 'Резюме удалено'
         fail: 'Резюме не удалено: %{error}'
-    subscribe: Подписаться
     success: Выполнено успешно
   decorators:
     job:

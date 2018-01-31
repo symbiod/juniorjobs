@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Web
   # TODO: documentation is missing for this class
   # We should consider addig some documentation here
@@ -8,7 +10,13 @@ module Web
     end
 
     def show
-      @cv = Cv.find(params[:id])
+      @cv = load_cv
+    end
+
+    private
+
+    def load_cv
+      @cv = Cv.cvs.find(params[:id])
     end
   end
 end

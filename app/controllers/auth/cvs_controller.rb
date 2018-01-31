@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Auth
   # This class adds possibility to add and handle Curriculum Vitae
   class CvsController < BaseController
-    before_action :load_cv, only: [:show, :edit, :update, :destroy]
+    before_action :load_cv, only: %i[show edit update destroy]
 
     def index
       @cvs = current_user.cvs.order('updated_at').page(params[:page]).per(6)
@@ -61,7 +63,7 @@ module Auth
         :education, :skills, :work_experience,
         :expired_at,
         :address, :phone, :email, :web_site
-        )
+      )
     end
   end
 end
