@@ -10,7 +10,7 @@ end
 ruby '2.5.0'
 
 # Rails
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'pg', '~> 0.18'
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
@@ -19,15 +19,17 @@ gem 'puma', '~> 3.7'
 gem 'aasm'
 gem 'config'
 gem 'foreman'
+gem 'draper'
 gem 'dry-validation'
 gem 'gibbon'
-gem 'i18n-tasks', '~> 0.9.19'
 gem 'interactor', '~> 3.0'
 gem 'mechanize'
 gem 'meta-tags'
 gem 'pundit'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sorcery'
+
+# Socials
 gem 'vkontakte_api', '~> 1.4'
 gem 'koala'
 gem 'telegram-bot-ruby'
@@ -41,7 +43,6 @@ gem 'clockwork'
 
 # Frontend
 gem 'coffee-rails', '~> 4.2'
-gem 'draper'
 gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
 gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
@@ -49,14 +50,12 @@ gem 'patternfly-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'select2-rails'
-gem 'underscore-rails'
 
 # Frontend:helpers
 gem 'country_select'
 gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
-
 gem 'acts-as-taggable-on'
 
 group :development, :test do
@@ -64,16 +63,13 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
   gem 'data_magic'
-  gem 'dotenv-rails'
+
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'letter_opener'
   gem 'rails-controller-testing'
-  gem 'rspec'
   gem 'rspec-rails'
   gem 'seed-fu', '~> 2.3'
-  gem 'dotenv-rails'
-  gem 'data_magic'
 end
 
 group :test do
@@ -84,6 +80,7 @@ end
 group :development do
   gem 'brakeman', require: false
   gem 'haml_lint', require: false
+  gem 'i18n-tasks', '~> 0.9.19'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'reek'
   gem 'rubocop'
