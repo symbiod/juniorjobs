@@ -16,6 +16,19 @@ Rails.application.routes.draw do
     resources :jobs
     resource :subscription, only: [:new, :create, :destroy]
 
+    scope module: :auth do
+      get '/login', to: 'user_sessions#new', as: :login
+      post '/logout', to: 'user_sessions#destroy', as: :logout
+      resources :user_sessions, only: :create
+
+      get '/signup', to: 'users#new', as: :signup
+      resources :users, except: [:new, :index, :show]
+
+      post 'oauth/callback' => 'oauths#callback'
+      get 'oauth/callback' => 'oauths#callback'
+      get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
+    end
+
     namespace :admin do
       root 'dashboard#index'
       resources :users, only: %i[index edit update destroy]
@@ -25,18 +38,5 @@ Rails.application.routes.draw do
         post 'not_approve', on: :member
       end
     end
-  end
-
-  scope module: :auth do
-    get '/login', to: 'user_sessions#new', as: :login
-    post '/logout', to: 'user_sessions#destroy', as: :logout
-    resources :user_sessions, only: :create
-
-    get '/signup', to: 'users#new', as: :signup
-    resources :users, except: [:new, :index, :show]
-
-    post 'oauth/callback' => 'oauths#callback'
-    get 'oauth/callback' => 'oauths#callback'
-    get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
   end
 end
