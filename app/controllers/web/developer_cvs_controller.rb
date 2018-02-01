@@ -4,9 +4,10 @@ module Web
   # TODO: documentation is missing for this class
   # We should consider addig some documentation here
   class DeveloperCvsController < BaseController
+
     def index
       @user = current_user
-      @cvs = Cv.where(status: true).order('updated_at').page(params[:page]).per(6)
+      @cvs = Cv.where(status: true).order(updated_at: :desc).page(params[:page]).per(6)
     end
 
     def show
@@ -16,7 +17,7 @@ module Web
     private
 
     def load_cv
-      @cv = Cv.cvs.find(params[:id])
+      @cv = Cv.find(params[:id])
     end
   end
 end
