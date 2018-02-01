@@ -36,7 +36,7 @@ module ApplicationHelper
   end
 
   def expires_at(job, modifier)
-    interval = parse_interval(modifier)
+    interval = TimeUtility.parse_interval(modifier)
     date = (job.persisted? ? job.created_at.to_date : Date.current) + interval
     text = t("activerecord.attributes.job.expired_ats.#{modifier}", date: date.strftime('%d/%m/%Y'))
     [text, date]

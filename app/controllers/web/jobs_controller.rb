@@ -54,7 +54,7 @@ module Web
     end
 
     def load_job
-      @job = Job.find(params[:id])
+      @job = Job.find(params[:id]).decorate
     end
 
     def job_params
