@@ -5,8 +5,7 @@ require_relative '../config/boot'
 require_relative '../config/environment'
 require_relative '../config/sidekiq'
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
+# Periodically synchronizes the mailing list with mailchimp
 module Clockwork
-  every(1.day, 'sync_emails_subscribers.job') { SyncNewsletterSubscribersJob.perform_later }
+  every(1.day, 'sync_emails.job') { SyncSubscribersJob.perform_later }
 end
