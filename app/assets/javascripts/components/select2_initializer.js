@@ -1,17 +1,17 @@
+'use strict';
+
 this.Select2Initializer = (function() {
   function Select2Initializer(formEl) {
     this.formElement = formEl;
-    var self = this;
     this.bindSelect2Listener(this.formElement);
-  }    
-  
-  Select2Initializer.prototype.bindSelect2Listener = function(el){
+  }
+  Select2Initializer.prototype.bindSelect2Listener = function(el) {
     $(el).select2({
       ajax: {
         url: '/tags',
         dataType: 'json',
         quietMillis: 250,
-        processResults: function(data, params) {
+        processResults: function(data) {
           return {
             results: _.map(data, function(tag) {
               return {
@@ -40,11 +40,8 @@ this.Select2Initializer = (function() {
       }
     });
   };
-
-    return Select2Initializer;
-  
+  return Select2Initializer;
 })();
-
 
 $(function() {
   return new Select2Initializer();

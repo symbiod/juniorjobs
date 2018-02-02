@@ -21,5 +21,9 @@ FactoryBot.define do
     trait :approved do
       status :approved
     end
+
+    trait :with_tag_list do
+      tag_list %i[ruby java php js]
+    end
   end
 end

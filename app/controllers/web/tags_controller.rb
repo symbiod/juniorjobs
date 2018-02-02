@@ -11,7 +11,7 @@ module Web
 
     def show
       @jobs_with_tag = Job.tagged_with(params[:id])
-      render  "web/welcome/jobs_with_tag"
+      render 'web/welcome/jobs_with_tag'
     end
   end
 end

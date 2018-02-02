@@ -51,7 +51,7 @@
         %p
           = t('forms.hashtags')
           - @tags.each do |tag|
-            = tag.tag_link
+            =  TagDecorator.new(tag).tag_link
      
       .col-sm-4.form-group.well.col-md-offset-1
         %h4.b-jobs-cart_company.text-align-center

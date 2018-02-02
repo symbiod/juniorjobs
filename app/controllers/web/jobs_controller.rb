@@ -7,10 +7,10 @@ module Web
     before_action :load_job, only: %i[show edit update]
     before_action :check_user, only: %i[edit update]
 
-    def show 
+    def show
       @tags = @job.tag_list
     end
-    
+
     def new
       @job = Job.new
     end

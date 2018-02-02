@@ -6,3 +6,4 @@
 #= require_tree ./components
 #= require_tree ./initializers
 #= require_tree ./views
+#= require underscore
