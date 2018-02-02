@@ -4,12 +4,9 @@
 class SyncSubscribersJob < ApplicationJob
   queue_as :default
 
-  def perform(all_emails = EmailsService.all_emails)
-    offset = 0
-    loop do
-      emails = UnsubscribedUsersService.call(all_emails, offset)
-      break unless emails.count.positive?
-      offset += Settings.emails_offset
-    end
+  def perform
+    result = UnsubscribedUsersInteractor.call
+    message = result.fail? ? 'We have no unsubscribed users' : "Synchonized unsubscribed users #{result}"
+    logger.info message
   end
 end

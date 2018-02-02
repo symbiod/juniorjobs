@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'gibbon'
 require 'singleton'
 
 # Gets the current mailing list from mailchimp
