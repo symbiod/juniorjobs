@@ -83,6 +83,7 @@ end
 
 group :development do
   gem 'brakeman', require: false
+  gem 'bundler-audit'
   gem 'haml_lint', require: false
   gem 'i18n-tasks', '~> 0.9.19'
   gem 'reek'
