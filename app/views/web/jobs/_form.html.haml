@@ -57,7 +57,7 @@
       = link_to t('web.jobs.form.conditions'), terms_path, class: ''
   .form-group.well
     %h3 #tags
-    = f.select :tag_list, {}, multiple: true, style: 'width: 100% display: none', class: 'form_control'
+    = f.select :tag_list, {}, {}, { multiple: true, style: 'width: 100%', class: 'form_control hidden' }  
     %span= t('forms.comma_separator')
 
   = f.button :submit, t('common.submit'), style: 'color: white; background-color: #5cb85c;'

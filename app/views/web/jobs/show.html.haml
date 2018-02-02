@@ -6,7 +6,6 @@
       %h4
         = t('common.jobs.show.type_of_employment')
       = t("activerecord.attributes.job.employments.#{@job.employment}")
-
     .col-sm-3
       %h4
         = t('activerecord.attributes.job.company_name')
@@ -51,9 +50,9 @@
         %hr
         %p
           = t('forms.hashtags')
-          - @job.tag_list.each do |tag|
-            = tag
-
+          - @tags.each do |tag|
+            = tag.tag_link
+     
       .col-sm-4.form-group.well.col-md-offset-1
         %h4.b-jobs-cart_company.text-align-center
           = t('activerecord.attributes.job.company_contact')

@@ -2,7 +2,7 @@ this.Select2Initializer = (function() {
   function Select2Initializer(formEl) {
     this.formElement = formEl;
     var self = this;
-     this.bindSelect2Listener(this.formElement);
+    this.bindSelect2Listener(this.formElement);
   }    
   
   Select2Initializer.prototype.bindSelect2Listener = function(el){
