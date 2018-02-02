@@ -26,19 +26,4 @@ module ApplicationHelper
   def current_country
     :ru
   end
-
-  def expired_at_dates_for(job)
-    [
-      expires_at(job, '1_week'),
-      expires_at(job, '2_week'),
-      expires_at(job, '1_month')
-    ]
-  end
-
-  def expires_at(job, modifier)
-    interval = TimeUtility.parse_interval(modifier)
-    date = (job.persisted? ? job.created_at.to_date : Date.current) + interval
-    text = t("activerecord.attributes.job.expired_ats.#{modifier}", date: date.strftime('%d/%m/%Y'))
-    [text, date]
-  end
 end

@@ -10,7 +10,7 @@ module Web
     def show; end
 
     def new
-      @job = Job.new
+      @job = Job.new.decorate
     end
 
     # TODO: interactor
