@@ -89,6 +89,9 @@ GEM
     brakeman (4.1.1)
     buftok (0.2.0)
     builder (3.2.3)
+    bundler-audit (0.6.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     byebug (10.0.0)
     capybara (2.17.0)
       addressable
@@ -531,6 +534,7 @@ DEPENDENCIES
   aasm
   acts-as-taggable-on
   brakeman
+  bundler-audit
   byebug
   capybara (~> 2.13)
   clockwork
