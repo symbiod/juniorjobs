@@ -7,9 +7,9 @@ module Socials
   class BasePostJob < ApplicationJob
     queue_as :default
 
-    attr_reader :token, :group_id, :message
+    attr_reader :token, :group_id, :message, :job, :link
 
-    def perform(_job_id)
+    def perform(job_id)
       load_job(job_id)
     end
 
@@ -23,7 +23,7 @@ module Socials
     end
 
     def load_job(job_id)
-      @job = Job.find_by(id: job_id)
+      @job = Job.find_by(id: job_id).decorate
     end
 
     def load_token(provider)
@@ -35,14 +35,11 @@ module Socials
     end
 
     def generate_url
-      @link = CountryUtility::DOMAINS[job.country.to_sym] + "/job#{job.id}"
+      @link = "http://#{CountryUtility::DOMAINS[job.country.to_sym]}/job/#{job.id}"
     end
 
     def generate_message
-      @message = "Требуется:
-        #{job.title} (#{job.city}, от #{job.salary_from}) \n
-        Компания: #{job.company_name}
-        Откликнуться: #{link}"
+      @message = job.message + link
     end
   end
 end

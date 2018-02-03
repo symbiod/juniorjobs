@@ -44,4 +44,33 @@ class JobDecorator < ApplicationDecorator
     text = t("activerecord.attributes.job.expired_ats.#{modifier}", date: date.strftime('%d/%m/%Y'))
     [text, date]
   end
+
+  def message
+    "#{I18n.t('socials.required')}: «#{model.title}» (#{model.city}," \
+      "#{offer}.) \n
+        #{I18n.t('socials.company')}:  «#{model.company_name}» #{employment}. " \
+       "#{remote}\n
+       #{I18n.t('socials.link_to_vacancy')}: "
+  end
+
+  def remote
+    I18n.t('socials.remote') if model.remote
+  end
+
+  def employment
+    I18n.t("socials.employment.#{model.employment}")
+  end
+
+  def offer
+    if model.salary_by_agreement
+      I18n.t('socials.by_agreement')
+    else " #{I18n.t('socials.from')} #{model.salary_from}" \
+      " #{I18n.t('socials.to')} #{model.salary_to} " +
+      I18n.t("socials.#{model.currency}")
+    end
+  end
+
+  def test
+    model.title
+  end
 end
