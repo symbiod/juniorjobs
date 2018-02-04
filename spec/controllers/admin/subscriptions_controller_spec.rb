@@ -20,5 +20,12 @@ RSpec.describe Web::Admin::SubscriptionsController, type: :controller do
 
       it { is_expected.to have_http_status(:forbidden) }
     end
+
+    context 'anonim cant see subscriptions' do
+      it 'redirects to login path' do
+        get :index
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 end
