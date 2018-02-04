@@ -62,6 +62,7 @@ gem 'simple_form'
 
 # Infrastructure
 gem 'newrelic_rpm'
+gem 'rollbar'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

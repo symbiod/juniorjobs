@@ -17,6 +17,7 @@ All these variables should be available at app startup
 
 * APP_SECRET
 * NEWRELIC_KEY
+* ROLLBAR_ACCESS_TOKEN
 * REDIS_HOST
 * MAILCHIMP_LIST_ID
 * MAILCHIMP_ACCESS_KEY_ID
