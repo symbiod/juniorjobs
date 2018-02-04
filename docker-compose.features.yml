@@ -1,0 +1,50 @@
+version: '3'
+services:
+
+  redis:
+    image: redis
+
+  app:
+    image: howtohireme/juniorjobs.ru
+    environment:
+      - REDIS_HOST=redis
+      # HINT: uncomment this variable to debug build
+      #- RAILS_LOG_TO_STDOUT=true
+      #- RAILS_ENV=features
+    depends_on:
+      - postgres
+      - redis
+    command: >
+      /bin/bash -c "
+        while ! nc -z postgres 5432;
+        do
+          echo Waiting for PG;
+          sleep 1;
+        done;
+        rake db:migrate:with_data;
+        rm -f /app/tmp/pids/server.pid;
+        foreman start;
+      "
+
+  postgres:
+    image: postgres:9.5
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=juniorjobs_features
+
+  features:
+    image: howtohireme/juniorjobs-features
+    depends_on:
+        - app
+    environment:
+      - CUCUMBER_HOST=http://app:5000
+      - POSTGRES_HOST=postgres
+    command: >
+      /bin/bash -c "
+        while ! nc -z app 5000;
+        do
+          echo Waiting for app;
+          sleep 1;
+        done;
+        cucumber;
+      "
