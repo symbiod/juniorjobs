@@ -13,6 +13,7 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       let(:user) { create(:user, :admin) }
 
       it { is_expected.to render_template(:index) }
+      it { is_expected.to have_http_status(:success) }
     end
 
     context 'non admin cant see users list' do
@@ -21,7 +22,7 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       it { is_expected.to have_http_status(:forbidden) }
     end
 
-    context 'anonim cant see users list' do
+    context 'anonym cant see users list' do
       it 'redirects to login path' do
         get :index
         expect(response).to redirect_to login_path
@@ -57,7 +58,7 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       end
 
       it 'redirects to user list' do
-        is_expected.to redirect_to(admin_users_path)
+        expect(response).to redirect_to(admin_users_path)
       end
     end
 
@@ -86,7 +87,7 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       end
     end
 
-    context 'anonim cant edit users in admin namespace' do
+    context 'anonym cant edit users in admin namespace' do
       let(:user) { create(:user, :junior) }
       let(:params) do
         { id: user.id,
@@ -120,7 +121,7 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       end
 
       it 'redirects to main page' do
-        is_expected.to redirect_to admin_users_path
+        expect(response).to redirect_to admin_users_path
       end
     end
 
@@ -139,7 +140,7 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       end
     end
 
-    context 'anonim cant delete users in admin namespace' do
+    context 'anonym cant delete users in admin namespace' do
       it 'redirects to login path' do
         delete 'destroy', params: { id: user.id }
         expect(response).to redirect_to login_path
