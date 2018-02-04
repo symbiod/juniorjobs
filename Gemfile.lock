@@ -321,6 +321,7 @@ GEM
     naught (1.1.0)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
+    newrelic_rpm (4.8.0.341)
     nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -393,6 +394,8 @@ GEM
       rainbow (~> 2.0)
     request_store (1.4.0)
       rack (>= 1.4)
+    rollbar (2.15.5)
+      multi_json
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -568,6 +571,7 @@ DEPENDENCIES
   mechanize
   meta-tags
   multipurpose_theme!
+  newrelic_rpm
   patternfly-sass
   pg (~> 0.18)
   puma (~> 3.7)
@@ -576,6 +580,7 @@ DEPENDENCIES
   rails-controller-testing
   ransack!
   reek
+  rollbar
   rspec-rails
   rubocop
   sass-rails (~> 5.0)

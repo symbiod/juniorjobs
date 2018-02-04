@@ -21,6 +21,16 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: secret_key_base
+          - name: NEWRELIC_KEY
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: newrelic_key
+          - name: ROLLBAR_ACCESS_TOKEN
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: rollbar_access_token
           - name: MAILCHIMP_LIST_ID
             valueFrom:
                 secretKeyRef:
