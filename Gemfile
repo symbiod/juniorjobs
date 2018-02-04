@@ -60,6 +60,9 @@ gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
 
+# Infrastructure
+gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'

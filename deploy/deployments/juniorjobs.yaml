@@ -21,6 +21,11 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: secret_key_base
+          - name: NEWRELIC_KEY
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: newrelic_key
           - name: MAILCHIMP_LIST_ID
             valueFrom:
                 secretKeyRef:

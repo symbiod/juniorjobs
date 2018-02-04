@@ -16,6 +16,7 @@ Choose whatever works for you the best, but keep in mind, that all `.env` or `.e
 All these variables should be available at app startup
 
 * APP_SECRET
+* NEWRELIC_KEY
 * REDIS_HOST
 * MAILCHIMP_LIST_ID
 * MAILCHIMP_ACCESS_KEY_ID
