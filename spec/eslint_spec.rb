@@ -8,6 +8,13 @@ RSpec.describe 'EslintEnsurance' do
   end
   let(:result) { "#{command} --format json" }
 
+  before do
+    json = JSON.parse(result)
+    puts json.inspect
+    puts json.first['errorCount']
+    puts json.first['warningCount']
+  end
+
   it 'does not have eslint warnings' do
     warnings = JSON.parse(result).first['warningCount']
     message = "Reek #{warnings} warnings, run '#{command}' to show them"
