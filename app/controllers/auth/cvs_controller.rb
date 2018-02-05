@@ -53,7 +53,7 @@ module Auth
     def load_cv
       @cv = current_user.cvs.find(params[:id])
       authorize @cv
-    end
+    end 
 
     def cv_params
       params.require(:cv).permit(
