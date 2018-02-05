@@ -10,6 +10,10 @@ class CvPolicy < ApplicationPolicy
     admin? || owner?
   end
 
+  def create?
+    admin? || owner?
+  end
+
   def destroy?
     update?
   end
