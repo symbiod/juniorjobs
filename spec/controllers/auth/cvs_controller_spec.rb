@@ -14,7 +14,11 @@ RSpec.describe Auth::CvsController, type: :controller do
     end
 
     it 'without user' do
+<<<<<<< HEAD
       expect { get :index }.to raise_error(ActionController::UrlGenerationError)
+=======
+      expect{ get :index }.to raise_error(ActionController::UrlGenerationError)
+>>>>>>> Add specs
     end
   end
 
@@ -46,10 +50,15 @@ RSpec.describe Auth::CvsController, type: :controller do
     end
 
     context 'with valid attributes and without user' do
+<<<<<<< HEAD
       subject { post :create, params: { cv: attributes_for(:cv) } }
 
       it 'without user, with correct cv params' do
         expect { subject }.to raise_error(ActionController::UrlGenerationError)
+=======
+      it 'without user, with correct cv params' do
+        expect{ post :create, params: { cv: attributes_for(:cv) } }.to raise_error(ActionController::UrlGenerationError)
+>>>>>>> Add specs
       end
     end
   end
