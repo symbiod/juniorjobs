@@ -8,7 +8,7 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
     let(:default_attributes) { attributes_for(:user, :company) }
 
     context 'register new user with correct params' do
-      let(:params) { { user: default_attributes.except(:crypted_password, :salt) } }
+      let(:params) { { user: { email: 'email@mail.com', password: 'qwerty', password_confirmation: 'qwerty', roles: 'junior' } } }
 
       it 'saves new user to database' do
         expect { subject }.to change(User.all, :count).by(1)

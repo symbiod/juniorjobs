@@ -7,6 +7,7 @@ module Web
     class UsersController < Web::Auth::BaseController
       before_action :load_user, only: %i[edit update destroy]
       before_action :load_roles, only: %i[new edit create update]
+      before_action :set_roles_params_to_arr, only: %i[create] 
       before_action :require_login, :authorize_user, only: %i[edit update destroy]
 
       def new
@@ -81,6 +82,11 @@ module Web
 
       def validate_params
         UserSchema.with(valid_roles: @roles).call(user_params)
+      end
+
+      def set_roles_params_to_arr
+        roles = Array.new(1, params[:user][:roles])
+        params[:user][:roles] = roles
       end
       # TODO: Use interactors
     end
