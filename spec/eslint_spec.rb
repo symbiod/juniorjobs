@@ -6,7 +6,14 @@ RSpec.describe 'EslintEnsurance' do
   let(:command) do
     './node_modules/eslint/bin/eslint.js app/assets/javascripts -c ./.quality/.eslintrc.yml'
   end
-  let(:result) { `#{command} --format json` }
+  let(:result) { "#{command} --format json" }
+
+  before do
+    json = JSON.parse(result)
+    puts json.inspect
+    puts json.first['errorCount']
+    puts json.first['warningCount']
+  end
 
   it 'does not have eslint warnings' do
     warnings = JSON.parse(result).first['warningCount']

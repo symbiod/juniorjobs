@@ -34,3 +34,22 @@ ua:
         title: Название вакансии
       subscription:
         email: Введите почту, чтоб подписаться на рассылку с новыми вакансиями
+      cv:
+        cv: Резюме
+        title: Желаемая должность
+        status: Вакансия опубликована
+        name: Фамилия Имя
+        description: Обо мне
+        education: Образование
+        skills: Ключевые навыки
+        work_experience: Опыт работы
+        address: Адресс
+        web_site: Web сайт
+        remote: Возможна удаленная работа
+        edit: Редактировать
+        delete: Удалить
+        create_cv: Создание Резюме
+        placement: Расположение
+        contacts: Контакты
+        motivation: Мотивация
+        publicaton_time: Время публикации вакансии

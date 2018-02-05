@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :authentications, dependent: :destroy
   has_many :jobs
+  has_many :cvs, dependent: :destroy
   has_one :subscription
 
   accepts_nested_attributes_for :authentications

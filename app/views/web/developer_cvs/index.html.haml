@@ -1,0 +1,8 @@
+.row
+  .row.mt20
+    .col-sm-12
+      %h3.title= t('activerecord.attributes.cv.cv')
+      - @cvs.each do |cv|
+        = render 'cv', cv: cv
+
+  = paginate @cvs
