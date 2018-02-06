@@ -2,9 +2,9 @@
   .container.pl0
     .row
       .col-sm-12
-        %h1.title-large.mb0
+        %h1.title-large.mb0#job-title
           = job.title
-        %span
+        %span#publication-period
           = job.created_at.strftime('%d-%m-%Y')
           = '-'
           = job.expired_at.strftime('%d-%m-%Y')
