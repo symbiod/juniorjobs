@@ -10,11 +10,10 @@ require File.expand_path('../../config/environment', __FILE__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+Dir['./spec/support/**/*.rb'].each do |file|
+  require file
+end
 
-require 'support/factory_bot'
-require 'support/shoulda_matchers'
-require 'support/sorcery'
-require 'support/active_job'
 require 'sidekiq/testing'
 require 'bullet'
 

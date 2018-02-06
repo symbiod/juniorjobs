@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     get '/about', to: 'static_pages#about'
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
+
+    resources :jobs, except: [:index]
     resources :tags, only: [:index]
-    resources :jobs
     resource :subscription, only: [:new, :create, :destroy]
 
     scope module: :auth do
