@@ -1,0 +1,75 @@
+.b-jobs
+  = render 'shared/page_header', header: @cv.name
+  -# - if current_user.present? && current_user.cvs.include?(@cv)
+  - if policy(@cv).owner?
+    = link_to t("activerecord.attributes.cv.edit"), edit_user_cv_path(@cv.user, @cv)
+    = " - "
+    = link_to t("activerecord.attributes.cv.delete"), user_cv_path(@cv), method: :delete
+  %hr
+  .row.form-group.well
+    .col-sm-4
+      %h4
+        = t("common.jobs.show.type_of_employment")
+      = t("activerecord.attributes.job.employments.#{@cv.employment}")
+
+    .col-sm-4
+      %h4
+        = t("common.jobs.show.reward")
+      = t("activerecord.attributes.job.currencies.#{@cv.currency}")
+      = salary(@cv)
+
+
+    .col-sm-4
+      %h4
+        = t("common.jobs.show.location")
+      = @cv.decorate.city_remote
+
+  %article
+
+    .row
+      .col-sm-8.form-group.well.jobs-description
+        .b-jobs-name
+          %h1.col-sm-10
+            = @cv.title
+          %span.col-sm-2
+            = @cv.created_at.strftime("%d-%m-%Y")
+        .clearfix
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.description")
+        %p
+          = simple_format(@cv.description)
+        %hr
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.education")
+        %p
+          = simple_format(@cv.education)
+        %hr
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.skills")
+        %p
+          = simple_format(@cv.skills)
+        %hr
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.work_experience")
+        %p
+          = simple_format(@cv.work_experience)
+
+      .col-sm-3.form-group.well.col-md-offset-1
+
+        %h4.b-jobs-cart_company.text-align-center
+          = t("activerecord.attributes.job.company_contact")
+        .text-align-center
+          = @cv.email
+          - if @cv.phone.present?
+            %br
+            = @cv.phone
+          - if @cv.address.present?
+            %br
+            = @cv.address
+          - if @cv.web_site.present?
+            %br
+            = link_to @cv.web_site, @cv.web_site

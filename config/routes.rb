@@ -12,8 +12,13 @@ Rails.application.routes.draw do
     get '/about', to: 'static_pages#about'
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
+    get '/developers', to: 'developer_cvs#index'
+
     resources :tags, only: [:index]
+    get '/developers', to: 'developer_cvs#index'
+
     resources :jobs
+    resources :developer_cvs, only: [:index, :show], as: 'developers'
     resource :subscription, only: [:new, :create, :destroy]
 
     scope module: :auth do
@@ -22,7 +27,9 @@ Rails.application.routes.draw do
       resources :user_sessions, only: :create
 
       get '/signup', to: 'users#new', as: :signup
-      resources :users, except: [:new, :index, :show]
+      resources :users, except: [:new, :index, :show] do
+        resources :cvs
+      end
 
       post 'oauth/callback' => 'oauths#callback'
       get 'oauth/callback' => 'oauths#callback'

@@ -1,0 +1,10 @@
+@import "global/settings";
+
+.cv-title a {
+  color: $c-blue;
+}
+
+.cv-form input[type="submit"] {
+  color: $c-white;
+  background-color: $c-green;
+}
