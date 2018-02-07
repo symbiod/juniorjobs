@@ -16,7 +16,7 @@ module Web
     private
 
     def load_cv
-      @cv = Cv.find(params[:id])
+      @cv = Cv.find(params[:id]).decorate
     end
   end
 end

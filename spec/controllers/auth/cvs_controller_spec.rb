@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Auth::CvsController, type: :controller do
+RSpec.describe Web::Auth::CvsController, type: :controller do
   describe '#index' do
     let(:user) { create(:user, :junior) }
     let(:cv) { create(:cv, user_id: user.id) }

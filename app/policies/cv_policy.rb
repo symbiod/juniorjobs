@@ -27,6 +27,6 @@ class CvPolicy < ApplicationPolicy
   end
 
   def owner?
-    user == record.user && !user.nil?
+    user == record.user && user
   end
 end
