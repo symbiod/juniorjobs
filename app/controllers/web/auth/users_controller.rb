@@ -59,7 +59,7 @@ module Web
 
       # TODO: Use interactors
       def valid_user?
-        if user_persisted?
+        if user_persisted? 
           user_schema_valid? && @user.update(user_schema_params)
         else
           @user = User.new(user_schema_params)
@@ -80,7 +80,12 @@ module Web
       end
 
       def validate_params
+        params[:user][:roles] = Array.new(1, params[:user][:roles]) unless roles_param_is_array? 
         UserSchema.with(valid_roles: @roles).call(user_params)
+      end
+
+      def roles_param_is_array?
+        params[:user][:roles].kind_of?(Array)
       end
 
       # TODO: Use interactors
