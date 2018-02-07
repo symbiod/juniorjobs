@@ -1,0 +1,10 @@
+%tr
+  %td
+    = subscription.email
+  %td
+    = subscription.created_at.strftime('%d-%m-%Y')
+  %td
+    = subscription.status
+  %td
+    = link_to t('admin.shared.delete'), admin_subscription_path(subscription), method: :delete,
+data: { confirm: t('admin.shared.confirm_delete') }

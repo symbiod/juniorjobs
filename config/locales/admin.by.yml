@@ -38,6 +38,8 @@ by:
         index:
           created_at: Начало подписки
           status: Статус
+        unsubscribe:
+          success: Подписка удалена
       users:
         index:
           created_at: Дата регистрации

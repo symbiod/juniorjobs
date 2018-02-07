@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get '/contact_us', to: 'static_pages#contact_us'
     resources :tags, only: [:index]
     resources :jobs
-    resource :subscription, only: [:new, :create, :destroy]
+    resource :subscription, only: [:new, :create]
 
     scope module: :auth do
       get '/login', to: 'user_sessions#new', as: :login
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root 'dashboard#index'
       resources :users, only: %i[index edit update destroy]
-      resources :subscriptions, only: :index
+      resources :subscriptions, only: [:index, :destroy]
       resources :jobs, only: %i[index edit update destroy] do
         post 'approve', on: :member
         post 'not_approve', on: :member
