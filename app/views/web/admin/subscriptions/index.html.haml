@@ -8,11 +8,4 @@
       %th
         = t('.status')
   %tbody
-    - @subscriptions.each do |subscription|
-      %tr
-        %td
-          = subscription.email
-        %td
-          = subscription.created_at.strftime('%d-%m-%Y')
-        %td
-          = subscription.status
+    = render @subscriptions
