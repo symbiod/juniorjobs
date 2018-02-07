@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# TODO: documentation is missing for this class
+# We should consider addig some documentation here
 class Cv < ApplicationRecord
   belongs_to :user
 
@@ -11,8 +13,4 @@ class Cv < ApplicationRecord
 
   enum employments: { full: 0, part: 1, contract: 2, internal: 3 }
   enum currencies: Settings.currencies
-
-  def decorate
-    @decorate ||= CvDecorator.new self
-  end
 end

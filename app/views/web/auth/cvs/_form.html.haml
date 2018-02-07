@@ -48,7 +48,7 @@
   .form-group.well
     %h3= t('activerecord.attributes.cv.publicaton_time')
     .form-group
-      = f.select :expired_at, expired_at_dates_for(f.object), { label: false, include_blank: false }, { class: 'form-control' }
+      = f.select :expired_at, f.object.decorate.expired_at_dates, { label: false, include_blank: false }, { class: 'form-control' }
 
   .form-group.well
     %p.m0
