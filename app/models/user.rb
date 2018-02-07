@@ -15,14 +15,14 @@ class User < ApplicationRecord
 
   validates :password, confirmation: true, presence: true, length: { minimum: 6 }
   validates :email, uniqueness: true, presence: true, format: { with: /#{Settings.email_regex}/ }
-  validate :roles, :is_array
+  validate  :roles_array?
 
   
   private
 
-  def is_array
-    if !roles.kind_of?(Array)
-      roles.errors.add(:roles, "must be an array")
+  def roles_array?
+    unless roles.kind_of?(Array)
+      errors.add(:roles, 'must be an array')
     end
-  end  
+  end
 end
