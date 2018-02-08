@@ -42,9 +42,9 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
           expect(logged_in?).to eq true
         end
       end
-      
+
       let(:params) { Hash(user: attributes_for(:user, :company).except(:crypted_password, :salt, :roles)) }
-      
+
       it 'not save new user to database' do
         expect { subject }.not_to change(User.all, :count)
       end
