@@ -1,63 +1,50 @@
 .b-jobs
-  = render 'shared/page_header', header: @job.title
-  %hr
-  .row.form-group.well
-    .col-sm-3
-      %h4
-        = t('common.jobs.show.type_of_employment')
-      = t("activerecord.attributes.job.employments.#{@job.employment}")
-    .col-sm-3
-      %h4
-        = t('activerecord.attributes.job.company_name')
+  = render 'shared/page_header', job: @job
+  .row.form-group.well.mt20
+    .col-sm-5
+      %h4= t('activerecord.attributes.job.company_name')
       - if @job.company_page.present?
         = link_to @job.company_name, @job.company_page, class: 'b-jobs_company', target: :_blank
       - else
         = @job.company_name
-
-    .col-sm-3
-      %h4
-        = t('common.jobs.show.reward')
+    .col-sm-2
+      %h4= t('common.jobs.show.type_of_employment')
+      = t("activerecord.attributes.job.employments.#{@job.employment}")
+    .col-sm-2
+      %h4= t('common.jobs.show.reward')
       = t("activerecord.attributes.job.currencies.#{@job.currency}")
       = @job.salary
-
     .col-sm-3
-      %h4
-        = t('common.jobs.show.location')
+      %h4= t('common.jobs.show.location')
       - if @job.city.present?
         = @job.location
       - elsif @job.remote.present?
         = t('activerecord.attributes.job.remote')
 
-  %article
-    .row
-      .col-sm-7.form-group.well.jobs-description
-        .b-jobs-name
-          %h1.col-sm-10
-            = @job.company_name
-          %span.col-sm-2
-            = @job.created_at.strftime('%d-%m-%Y')
-        .clearfix
 
-        %h4.job-post-title
-          = t('activerecord.attributes.job.description')
-        %p
-          = simple_format(@job.description)
-        %hr
-        %h4.job-post-title
-          = t('activerecord.attributes.job.requirements')
-        %p
-          = simple_format(@job.requirements)
-        %hr
+  .row.form-group.well
+    .col-sm-12
+      %h4.job-post-title= t('activerecord.attributes.job.description')
+      %p= simple_format(@job.description)
+      %hr
+      %h4.job-post-title= t('activerecord.attributes.job.requirements')
+      %p= simple_format(@job.requirements)
+      %hr
+      %p
         %p
           = t('forms.hashtags')
           - @tags.each do |tag|
             =  TagDecorator.new(tag).tag_link
-     
-      .col-sm-4.form-group.well.col-md-offset-1
-        %h4.b-jobs-cart_company.text-align-center
-          = t('activerecord.attributes.job.company_contact')
-        %p.text-align-center
-          = @job.company_email
-        %p.text-align-center.job-phone
-          - if @job.company_phone.present?
-            = @job.company_phone
+        
+  .row.form-group.well
+    .col-sm-4
+      %h4= t('activerecord.attributes.job.company_email')
+      = @job.company_email
+    .col-sm-4
+      - if @job.company_contact.present?
+        %h4= t('activerecord.attributes.job.company_contact')
+        = @job.company_contact
+    .col-sm-4
+      - if @job.company_phone.present?
+        %h4= t('activerecord.attributes.job.company_phone')
+        = @job.company_phone

@@ -61,6 +61,10 @@ gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
 
+# Infrastructure
+gem 'newrelic_rpm'
+gem 'rollbar'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -77,6 +81,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'bullet'
 end
 
 group :test do
@@ -84,6 +89,7 @@ end
 
 group :development do
   gem 'brakeman', require: false
+  gem 'bundler-audit'
   gem 'haml_lint', require: false
   gem 'i18n-tasks', '~> 0.9.19'
   gem 'reek'
