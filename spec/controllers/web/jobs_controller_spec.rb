@@ -49,6 +49,19 @@ RSpec.describe Web::JobsController, type: :controller do
     it { is_expected.to render_template(:show) }
   end
 
+  describe 'redirect to root if job not exists' do
+    let(:job) { create(:job, id: 1000) }
+    let(:user) { create(:user, :company) }
+
+    before do
+      login_user(user)
+      job.destroy
+    end
+
+    subject { get :show, params: { id: 1000 } }
+    it { is_expected.to redirect_to(root_path) }
+  end
+
   describe 'PUT #update' do
     let(:user) { create(:user, :company) }
 
