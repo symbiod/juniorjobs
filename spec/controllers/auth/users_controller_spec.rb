@@ -25,6 +25,24 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
     end
 
     context 'register with incorrect attributes' do
+      # test if roles type return not array, but string
+      context 'with incorrect roles params, must be converted in array and log in' do
+        let(:params) { Hash(user: attributes_for(:user, roles: 'company').except(:crypted_password, :salt)) }
+
+        it 'save new user to database' do
+          expect { subject }.to change(User.all, :count).by(1)
+        end
+
+        it 'redirects to main page' do
+          is_expected.to redirect_to(root_path)
+        end
+
+        it 'user auto login' do
+          post 'create', params: params
+          expect(logged_in?).to eq true
+        end
+      end
+
       let(:params) { Hash(user: attributes_for(:user, :company).except(:crypted_password, :salt, :roles)) }
 
       it 'not save new user to database' do

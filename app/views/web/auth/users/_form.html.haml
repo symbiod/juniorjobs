@@ -14,10 +14,10 @@
   .form-check
     %label
       = t('auth.users.form.roles_label')
-    = f.collection_radio_buttons :roles, @roles, :itself, :itself, checked: ['company'],
-    include_hidden: false, multiple: true do |b|
+    = f.collection_radio_buttons :roles, @roles, :itself, :itself, { checked: ['company'], include_hidden: false }, { multiple: true } do |b|
       .form-check-input
-        = b.radio_button
+        = b.radio_button  
         = b.label
+      
 
   = f.submit t('auth.users.form.save'), class: 'btn btn-default'
