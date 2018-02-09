@@ -1,0 +1,9 @@
+.row
+  .col-md-3
+    = f.select :currency, Job.currencies.keys.map { |type| [t("activerecord.attributes.job.currencies.#{type}"), type] }, { label: false, include_blank: false }, { class: 'form-control' }
+  .col-md-3
+    = f.input :salary_from, label: false, placeholder: t('activerecord.attributes.job.salary_from'), input_html: { class: 'form-control' }
+  .col-md-3
+    = f.input :salary_to, label: false, placeholder: t('activerecord.attributes.job.salary_to'), input_html: { class: 'form-control' }
+  .col-md-3
+    = f.input :salary_by_agreement, as: :boolean, label: t('activerecord.attributes.job.salary_by_agreement'), input_html: { class: 'form-check-input' }, label_html: { class: 'form-check-label'}

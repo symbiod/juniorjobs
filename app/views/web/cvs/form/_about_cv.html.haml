@@ -1,0 +1,14 @@
+.row
+  .col-md-9
+    = f.input :title, label: false, placeholder: t('activerecord.attributes.cv.title')
+  .col-md-3
+    = f.input :status, as: :boolean, label: t('activerecord.attributes.cv.status'), :input_html => { :checked => true }
+.row
+  .col-md-12
+    = f.input :name, label: false, placeholder: t('activerecord.attributes.cv.name')
+    = f.select :employment, Job.employments.keys.map { |type| [t("activerecord.attributes.job.employments.#{type}"), type] }, { label: false, include_blank: false }, { class: 'form-control' }
+    = f.input :description, label: false, placeholder: t('activerecord.attributes.cv.description'), input_html: { class: 'form-control mt20', rows: 10 }
+
+    = f.input :education, label: false, placeholder: t('activerecord.attributes.cv.education'), input_html: { class: 'form-control mt20', rows: 10 }
+    = f.input :skills, label: false, placeholder: t('activerecord.attributes.cv.skills'), input_html: { class: 'form-control mt20', rows: 10 }
+    = f.input :work_experience, label: false, placeholder: t('activerecord.attributes.cv.work_experience'), input_html: { class: 'form-control mt20', rows: 10 }

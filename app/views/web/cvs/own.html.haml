@@ -1,0 +1,10 @@
+.row.mt20
+  .col-sm-6
+    %h3.title= t('activerecord.attributes.cv.cv')
+  .col-sm-6.text-right
+    = link_to t('views.headers.new_user_cv'), new_cv_path, class: ['c-composite-link', 'new-cv']
+
+- @cvs.each do |cv|
+  = render 'cv', cv: cv
+
+= paginate @cvs

@@ -1,6 +1,7 @@
 skip_frontmatter: false
 exclude:
   - '../lib/*'
+  - 'app/views/kaminari/**/*'
 
 linters:
   AlignmentTabs:

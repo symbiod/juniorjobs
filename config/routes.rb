@@ -13,8 +13,11 @@ Rails.application.routes.draw do
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
 
-    resources :jobs, except: [:index]
     resources :tags, only: [:index]
+    resources :jobs, except: [:index]
+    resources :cvs do
+      get :own, on: :collection
+    end
     resource :subscription, only: [:new, :create, :destroy]
 
     scope module: :auth do

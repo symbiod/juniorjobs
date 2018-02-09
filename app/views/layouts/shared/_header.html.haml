@@ -9,6 +9,10 @@
             %li.toggle-menu.display-none
               %i.fa.fa-bars
             %li
+              = link_to cvs_path, class: ['c-composite-link', 'cvs-link'] do
+                %i.fa.fa-address-card
+                = t('views.headers.cvs')
+            %li
               = link_to about_path, class: ['c-composite-link'] do
                 %i.fa.fa-question-circle.fa-large
                 = t('views.headers.about')
@@ -26,10 +30,13 @@
                   %i.fa.fa-sign-in
                   = t('views.headers.login')
               - else
-                = link_to 'javascript:;', class: ['last', 'c-composite-link'] do
+                = link_to 'javascript:;', class: ['last', 'c-composite-link', 'profile-list'] do
                   %i.fa.fa-user
                   = t('views.headers.settings')
                 %ul.submenu
+                  %li
+                    = link_to own_cvs_path, class: ['own-cvs'] do
+                      = t('views.headers.user_cvs')
                   %li
                     = link_to edit_user_path(current_user) do
                       = t('views.headers.edit_user')

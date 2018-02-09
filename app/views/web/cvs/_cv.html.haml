@@ -1,0 +1,16 @@
+.row.blog-item
+  .col-sm-4.col-md-4.blog-caption
+    %h3.post-title.cv-title= link_to cv.title, cv_path(cv)
+    .sub-post-title.m0
+      %span
+        = cv.name
+      %span
+        - if cv.city.present?
+          = "- #{cv.city}"
+        - if cv.remote.present?
+          %br
+          = t('activerecord.attributes.cv.remote')
+    .sub-post-title.m0
+      %span= cv.created_at.strftime('%d.%m.%Y')
+  .col-sm-8.col-md-8.blog-caption
+    %p= cv.description
