@@ -7,6 +7,7 @@ services:
   juniorjobs:
     image: howtohireme/juniorjobs.ru
     environment:
+      - FEATURES=true
       - REDIS_HOST=redis
       - SECRET_KEY_BASE=NGQ2ZGM3MjkxYzM5YTg1ZDg1NTFlYThiNzAxYWI1NjMyZTU2ODk0OGMzNzYyYjJhMGM5Y2U0YmE2YjE3ZGExMTkxODFjNGE4NTgzZTM2MjA5YjNmN2JmOGEyMjk2MmYyODA2OGIzM2VkZmZjNmRlMWNjYjgxMWZmZjIyMWQyZTYK
       - RAILS_SERVE_STATIC_FILES=true
