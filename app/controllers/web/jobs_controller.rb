@@ -8,7 +8,8 @@ module Web
     before_action :check_user, only: %i[edit update]
 
     def show
-      @tags = @job.tag_list
+      @tags = TagDecorator.decorate_collection(@job.tag_list)
+      # @tags = @job.tag_list.decorate
     end
 
     def new
