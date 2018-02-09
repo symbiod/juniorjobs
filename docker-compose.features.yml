@@ -4,15 +4,14 @@ services:
   redis:
     image: redis
 
-  app:
+  juniorjobs:
     image: howtohireme/juniorjobs.ru
     environment:
       - REDIS_HOST=redis
       - SECRET_KEY_BASE=NGQ2ZGM3MjkxYzM5YTg1ZDg1NTFlYThiNzAxYWI1NjMyZTU2ODk0OGMzNzYyYjJhMGM5Y2U0YmE2YjE3ZGExMTkxODFjNGE4NTgzZTM2MjA5YjNmN2JmOGEyMjk2MmYyODA2OGIzM2VkZmZjNmRlMWNjYjgxMWZmZjIyMWQyZTYK
       - RAILS_SERVE_STATIC_FILES=true
       # HINT: uncomment this variable to debug build
-      - RAILS_LOG_TO_STDOUT=true
-      #- RAILS_ENV=features
+      #- RAILS_LOG_TO_STDOUT=true
     ports:
       - "3000:5000"
     depends_on:
@@ -39,9 +38,9 @@ services:
   features:
     image: howtohireme/juniorjobs-features
     depends_on:
-        - app
+        - juniorjobs
     environment:
-      - CUCUMBER_HOST=http://app:5000
+      - CUCUMBER_HOST=http://juniorjobs:5000
       - CUCUMBER_ENV=features
       - POSTGRES_HOST=postgres
       - POSTGRES_DB=juniorjobs_production
@@ -49,7 +48,7 @@ services:
       - POSTGRES_PASSWORD=root
     command: >
       /bin/bash -c "
-        while ! nc -z app 5000;
+        while ! nc -z juniorjobs 5000;
         do
           echo Waiting for app;
           sleep 1;
