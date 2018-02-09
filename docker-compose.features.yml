@@ -8,9 +8,13 @@ services:
     image: howtohireme/juniorjobs.ru
     environment:
       - REDIS_HOST=redis
+      - SECRET_KEY_BASE=NGQ2ZGM3MjkxYzM5YTg1ZDg1NTFlYThiNzAxYWI1NjMyZTU2ODk0OGMzNzYyYjJhMGM5Y2U0YmE2YjE3ZGExMTkxODFjNGE4NTgzZTM2MjA5YjNmN2JmOGEyMjk2MmYyODA2OGIzM2VkZmZjNmRlMWNjYjgxMWZmZjIyMWQyZTYK
+      - RAILS_SERVE_STATIC_FILES=true
       # HINT: uncomment this variable to debug build
-      #- RAILS_LOG_TO_STDOUT=true
+      - RAILS_LOG_TO_STDOUT=true
       #- RAILS_ENV=features
+    ports:
+      - "3000:5000"
     depends_on:
       - postgres
       - redis
@@ -21,7 +25,7 @@ services:
           echo Waiting for PG;
           sleep 1;
         done;
-        rake db:migrate:with_data;
+        rake db:migrate;
         rm -f /app/tmp/pids/server.pid;
         foreman start;
       "
@@ -30,7 +34,7 @@ services:
     image: postgres:9.5
     environment:
       - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=juniorjobs_features
+      - POSTGRES_DB=juniorjobs_production
 
   features:
     image: howtohireme/juniorjobs-features
@@ -38,7 +42,11 @@ services:
         - app
     environment:
       - CUCUMBER_HOST=http://app:5000
+      - CUCUMBER_ENV=features
       - POSTGRES_HOST=postgres
+      - POSTGRES_DB=juniorjobs_production
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
     command: >
       /bin/bash -c "
         while ! nc -z app 5000;
