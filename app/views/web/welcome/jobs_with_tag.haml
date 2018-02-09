@@ -6,5 +6,5 @@
     = t('forms.found_by_tag')
     = @tag
     -  @jobs_with_tag.each do |job|
-      = render 'job', job: job
+      = render partial: 'web/welcome/job', :locals => { :job => job }
 

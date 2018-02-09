@@ -8,5 +8,10 @@ module Web
       @tags = ActsAsTaggableOn::Tag.all
       render json: @tags
     end
+
+    def show
+      @jobs_with_tag = Job.tagged_with(params[:id])
+      render 'web/welcome/jobs_with_tag'
+    end
   end
 end

@@ -53,6 +53,7 @@ gem 'patternfly-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'underscore-rails'
 
 # Frontend:helpers
 gem 'country_select'

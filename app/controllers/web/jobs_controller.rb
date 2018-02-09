@@ -7,7 +7,10 @@ module Web
     before_action :load_job, only: %i[show edit update]
     before_action :check_user, only: %i[edit update]
 
-    def show; end
+    def show
+      @tags = TagDecorator.decorate_collection(@job.tag_list)
+      # @tags = @job.tag_list.decorate
+    end
 
     def new
       @job = Job.new.decorate

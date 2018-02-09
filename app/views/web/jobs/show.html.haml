@@ -21,6 +21,7 @@
       - elsif @job.remote.present?
         = t('activerecord.attributes.job.remote')
 
+
   .row.form-group.well
     .col-sm-12
       %h4.job-post-title= t('activerecord.attributes.job.description')
@@ -30,9 +31,11 @@
       %p= simple_format(@job.requirements)
       %hr
       %p
-        = t('forms.hashtags')
-        - @job.tag_list.each do |tag|
-          = tag
+        %p
+          = t('forms.hashtags')
+          - @tags.each do |tag|
+            =  TagDecorator.new(tag).tag_link
+        
   .row.form-group.well
     .col-sm-4
       %h4= t('activerecord.attributes.job.company_email')
