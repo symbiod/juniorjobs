@@ -1,20 +1,20 @@
 .b-jobs
   = render 'shared/page_header', job: @job
   .row.form-group.well.mt20
-    .col-sm-5
+    .col-sm-5#company-name
       %h4= t('activerecord.attributes.job.company_name')
       - if @job.company_page.present?
         = link_to @job.company_name, @job.company_page, class: 'b-jobs_company', target: :_blank
       - else
         = @job.company_name
-    .col-sm-2
+    .col-sm-2#job-employment
       %h4= t('common.jobs.show.type_of_employment')
       = t("activerecord.attributes.job.employments.#{@job.employment}")
-    .col-sm-2
+    .col-sm-2#reward
       %h4= t('common.jobs.show.reward')
       = t("activerecord.attributes.job.currencies.#{@job.currency}")
       = @job.salary
-    .col-sm-3
+    .col-sm-3#job-location
       %h4= t('common.jobs.show.location')
       - if @job.city.present?
         = @job.location
@@ -24,24 +24,24 @@
   .row.form-group.well
     .col-sm-12
       %h4.job-post-title= t('activerecord.attributes.job.description')
-      %p= simple_format(@job.description)
+      %p#job-description= simple_format(@job.description)
       %hr
       %h4.job-post-title= t('activerecord.attributes.job.requirements')
-      %p= simple_format(@job.requirements)
+      %p#job-requirements= simple_format(@job.requirements)
       %hr
-      %p
+      %p#job-tag-list
         = t('forms.hashtags')
         - @job.tag_list.each do |tag|
           = tag
   .row.form-group.well
-    .col-sm-4
+    .col-sm-4#job-company-email
       %h4= t('activerecord.attributes.job.company_email')
       = @job.company_email
-    .col-sm-4
+    .col-sm-4#job-company-contact
       - if @job.company_contact.present?
         %h4= t('activerecord.attributes.job.company_contact')
         = @job.company_contact
-    .col-sm-4
+    .col-sm-4#job-company-phone
       - if @job.company_phone.present?
         %h4= t('activerecord.attributes.job.company_phone')
         = @job.company_phone

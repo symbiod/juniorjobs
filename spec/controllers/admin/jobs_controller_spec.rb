@@ -21,6 +21,13 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
 
       it { is_expected.to have_http_status(:forbidden) }
     end
+
+    context 'anonim cant see jobs list in admin namespace' do
+      it 'redirects to login path' do
+        get :index
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 
   describe 'PUT #update' do
@@ -113,6 +120,15 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
         expect(job.reload.status).to eq 'approved'
       end
     end
+
+    context 'anonim cant edit jobs in admin namespace' do
+      let(:job) { create(:job, :approved) }
+
+      it 'redirects to login path' do
+        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать') }
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -149,6 +165,13 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
 
       it 'show forbidden status' do
         expect(response).to have_http_status(:forbidden)
+      end
+    end
+
+    context 'anonim cant delete jobs in admin namespace' do
+      it 'redirects to login path' do
+        delete 'destroy', params: { id: job.id }
+        expect(response).to redirect_to login_path
       end
     end
   end

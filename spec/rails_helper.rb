@@ -65,8 +65,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-
   # Wrap each test in Bullet api
+  config.include Rails.application.routes.url_helpers, type: :routing
+
   if Bullet.enable?
     config.before(:each) do
       Bullet.start_request

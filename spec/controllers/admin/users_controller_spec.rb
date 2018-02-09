@@ -20,6 +20,13 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
 
       it { is_expected.to have_http_status(:forbidden) }
     end
+
+    context 'anonim cant see users list' do
+      it 'redirects to login path' do
+        get :index
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 
   describe 'PUT #update' do
@@ -78,11 +85,29 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
         expect(response).to have_http_status(:forbidden)
       end
     end
+
+    context 'anonim cant edit users in admin namespace' do
+      let(:user) { create(:user, :junior) }
+      let(:params) do
+        { id: user.id,
+          user:
+            { email: user.email,
+              password: 'secret',
+              password_confirmation: 'secret',
+              roles: ['admin'] } }
+      end
+
+      it 'redirects to login path' do
+        put 'update', params: params
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
+    let(:user) { create(:user, :company) }
+
     context 'admin can delete users' do
-      let(:user) { create(:user, :company) }
       let(:admin) { create(:user, :admin) }
 
       before do
@@ -100,8 +125,6 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
     end
 
     context 'other user cant delete profiles in admin namespace' do
-      let(:user) { create(:user, :company) }
-
       before do
         login_user(user)
         delete 'destroy', params: { id: user.id }
@@ -113,6 +136,13 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
 
       it 'show forbidden status' do
         expect(response).to have_http_status(:forbidden)
+      end
+    end
+
+    context 'anonim cant delete users in admin namespace' do
+      it 'redirects to login path' do
+        delete 'destroy', params: { id: user.id }
+        expect(response).to redirect_to login_path
       end
     end
   end
