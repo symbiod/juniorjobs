@@ -6,3 +6,7 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+task 'db:seed' do
+  Rake::Task['db:seed_fu'].invoke
+end
