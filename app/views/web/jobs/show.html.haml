@@ -1,5 +1,14 @@
 .b-jobs
-  = render 'shared/page_header', job: @job
+  %section.section-bg.m0.pb0
+    .container.pl0
+      .row
+        .col-sm-12
+          %h1.title-large.mb0#job-title
+            = @job.title
+          %span#publication-period
+            = @job.created_at.strftime('%d-%m-%Y')
+            = '-'
+            = @job.expired_at.strftime('%d-%m-%Y')
   .row.form-group.well.mt20
     .col-sm-5#company-name
       %h4= t('activerecord.attributes.job.company_name')
