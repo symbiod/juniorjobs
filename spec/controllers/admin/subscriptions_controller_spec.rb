@@ -13,6 +13,7 @@ RSpec.describe Web::Admin::SubscriptionsController, type: :controller do
       let(:user) { create(:user, :admin) }
 
       it { is_expected.to render_template(:index) }
+      it { is_expected.to have_http_status(:success) }
     end
 
     context 'non admin cant see subscriptions list' do
@@ -21,7 +22,7 @@ RSpec.describe Web::Admin::SubscriptionsController, type: :controller do
       it { is_expected.to have_http_status(:forbidden) }
     end
 
-    context 'anonim cant see subscriptions' do
+    context 'anonym cant see subscriptions' do
       it 'redirects to login path' do
         get :index
         expect(response).to redirect_to login_path
