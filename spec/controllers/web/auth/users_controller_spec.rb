@@ -4,23 +4,29 @@ require 'rails_helper'
 
 RSpec.describe Web::Auth::UsersController, type: :controller do
   describe 'POST #create' do
-    subject { post 'create', params: params }
     let(:default_attributes) { attributes_for(:user, :company) }
 
     context 'register new user with correct params' do
       let(:params) { { user: default_attributes.except(:crypted_password, :salt) } }
 
+      subject { post 'create', params: params }
+
       it 'saves new user to database' do
         expect { subject }.to change(User.all, :count).by(1)
       end
 
-      it 'redirects to main page' do
-        is_expected.to redirect_to(root_path)
-      end
+      context 'login registred' do
+        before do
+          post 'create', params: params
+        end
 
-      it 'user auto login' do
-        post 'create', params: params
-        expect(logged_in?).to eq true
+        it 'redirects to main page' do
+          expect(response).to redirect_to(root_path)
+        end
+
+        it 'user auto login' do
+          expect(logged_in?).to eq true
+        end
       end
     end
 
@@ -45,17 +51,20 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
 
       let(:params) { Hash(user: attributes_for(:user, :company).except(:crypted_password, :salt, :roles)) }
 
+      before do
+        post 'create', params: params
+      end
+
       it 'not save new user to database' do
         expect { subject }.not_to change(User.all, :count)
       end
 
       it 'redirects to main page' do
-        is_expected.to render_template(:new)
+        expect(response).to render_template(:new)
       end
 
       it 'user not login' do
-        post 'create', params: params
-        expect(logged_in?).to eq false
+        expect(logged_in?).to be_falsey
       end
     end
   end
@@ -77,7 +86,7 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
       end
 
       it 'updates user password' do
-        expect(user.reload.valid_password?(new_password)).to eq true
+        expect(user.reload.valid_password?(new_password)).to be_truthy
       end
 
       it 'updates user role' do
@@ -85,11 +94,11 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
       end
 
       it 'redirects to main page' do
-        is_expected.to redirect_to(root_path)
+        expect(response).to redirect_to(root_path)
       end
 
       it 'user auto login after update' do
-        expect(logged_in?).to eq true
+        expect(logged_in?).to be_truthy
       end
     end
 
@@ -108,14 +117,16 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
       end
 
       it 'not updates user password' do
-        expect(user.reload.valid_password?('newpassword')).to eq false
+        expect(user.reload.valid_password?('newpassword')).to be_falsey
       end
 
       it 'not updates user role' do
         expect(user.reload.roles).to eq(['junior'])
       end
 
-      it { is_expected.to render_template(:edit) }
+      it 'should render template' do
+        expect(response).to render_template(:edit)
+      end
     end
 
     context 'other user cant edit profile' do
@@ -135,7 +146,7 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
       end
 
       it 'not updates user password' do
-        expect(user.reload.valid_password?('newpassword')).to eq false
+        expect(user.reload.valid_password?('newpassword')).to be_falsey
       end
 
       it 'not updates user role' do
@@ -173,11 +184,11 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
       end
 
       it 'delete user' do
-        expect(User.exists?(user.id)).to eq false
+        expect(User.exists?(user.id)).to be_falsey
       end
 
       it 'redirects to main page' do
-        is_expected.to redirect_to root_path
+        expect(response).to redirect_to(root_path)
       end
     end
 
@@ -191,7 +202,7 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
       end
 
       it 'not delete user' do
-        expect(User.exists?(user.id)).to eq true
+        expect(User.exists?(user.id)).to be_truthy
       end
     end
   end

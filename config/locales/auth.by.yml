@@ -35,7 +35,7 @@ by:
         password: Пароль (минимум 6 символов)
         password_confirmation: Повторите пароль
         roles_label: Кто вы?
-        save: Сохранить
+        submit: Отправить
       new:
         registration_label: Зарегистрироваться
       update:

@@ -1,4 +1,14 @@
-.container
-  %h2
-    = t('auth.user_sessions.new.login')
-  = render 'form'
+%section.page-sign-in.mb40
+  .container
+    .row
+      .col-sm-8.col-sm-offset-2
+        .mb20= render 'shared/job_page_header', header: t('auth.user_sessions.new.login')
+        = simple_form_for :user_session, url: user_sessions_path, html: { class: 'b-sign-in form' } do |f|
+          .form-group
+            = f.input :email, required: true, autofocus: true, placeholder: 'email', label: false, class: 'form-control'
+          .form-group
+            = f.input :password, required: true, placeholder: 'password', label: false, class: 'form-control'
+          .form-group
+            .div
+              = f.button :submit, 'sign_in', class: ''
+

@@ -1,23 +1,19 @@
-= form_for @user do |f|
+= simple_form_for @user, html: { class: 'b-sign-in form' } do |f|
   .form-group
-    = f.email_field :email, placeholder: t('auth.users.form.email'), required: true,
-      autofocus: true, class: 'form-control'
+    = f.input :email, placeholder: t('auth.users.form.email'), required: true,
+      label: false, autofocus: true, class: 'form-control'
 
   .form-group
-    = f.password_field :password, placeholder: t('auth.users.form.password'), required: true,
-      autofocus: true, class: 'form-control'
+    = f.input :password, placeholder: t('auth.users.form.password'), required: true,
+      label: false, autofocus: true, class: 'form-control'
 
   .form-group
-    = f.password_field :password_confirmation, placeholder: t('auth.users.form.password_confirmation'),
-      required: true, autofocus: true, class: 'form-control'
+    = f.input :password_confirmation, placeholder: t('auth.users.form.password_confirmation'),
+      label: false, required: true, autofocus: true, class: 'form-control'
 
   .form-check
-    %label
-      = t('auth.users.form.roles_label')
-    = f.collection_radio_buttons :roles, @roles, :itself, :itself, { checked: ['company'], include_hidden: false }, { multiple: true } do |b|
-      .form-check-input
-        = b.radio_button  
-        = b.label
-      
+    - collection = @roles.map { |type| [t("activerecord.attributes.user.roles.#{type}"), type] }
+    = f.input :roles, collection: collection, placeholder: t('auth.users.form.roles_label'),
+      label: false, include_blank: false, input_html: { class: 'form-control' }
 
-  = f.submit t('auth.users.form.save'), class: 'btn btn-default'
+  = f.submit t('auth.users.form.submit'), class: 'btn btn-default'
