@@ -54,7 +54,12 @@ module Web
     end
 
     def load_job
-      @job = Job.find(params[:id]).decorate
+      job = Job.find_by(id: params[:id])
+      if job
+        @job = job.decorate
+      else
+        redirect_to root_path
+      end
     end
 
     def job_params

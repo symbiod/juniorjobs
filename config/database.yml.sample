@@ -12,7 +12,7 @@ development:
 
 test:
   <<: *settings
-  database: juniorjobs
+  database: juniorjobs_testing
   user: postgres
   password: root
   host: 127.0.0.1

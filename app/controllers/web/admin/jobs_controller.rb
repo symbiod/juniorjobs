@@ -3,7 +3,7 @@
 # Controller for handling jobs in admin namespace.
 module Web
   module Admin
-    class JobsController < BaseController
+    class JobsController < Web::Admin::BaseController
       before_action :load_job, except: %i[index]
 
       def index

@@ -18,7 +18,7 @@
     = stylesheet_link_tag :application, media: 'all'
     /[if lte IE 8]
       = stylesheet_link_tag 'ie8', media: 'all'
-
+    = render_shared 'metrika' if Rails.env.production? && !ENV['FEATURES']
     -# haml-lint:enable LineLength
 
   %body.l-body{ class: [body_class] }

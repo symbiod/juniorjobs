@@ -1,10 +1,10 @@
-= render 'shared/page_header', header: t('views.headers.about')
-
 %section.section
-  This is CD version
   %p= t('views.about.mission')
   %p= t('views.about.free')
   %p= t('views.about.moderation')
   %p
     = t('views.about.code')
     = link_to 'Github', Settings.github, target: :_blank
+  %p
+    Resivion:
+    = link_to ENV['REVISION'], "https://github.com/howtohireme/juniorjobs/commit/#{ENV['REVISION']}"

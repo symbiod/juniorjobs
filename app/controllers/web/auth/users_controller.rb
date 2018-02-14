@@ -80,8 +80,15 @@ module Web
       end
 
       def validate_params
+        roles_param = params[:user][:roles]
+        params['user']['roles'] = Array.new(1, roles_param) unless roles_param_is_array?
         UserSchema.with(valid_roles: @roles).call(user_params)
       end
+
+      def roles_param_is_array?
+        params[:user][:roles].is_a?(Array)
+      end
+
       # TODO: Use interactors
     end
   end

@@ -21,6 +21,7 @@ before_install:
 
 script:
   - bundle exec rspec
+  - bin/dfeatures
 
 deploy:
   provider: script

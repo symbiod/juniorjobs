@@ -21,6 +21,16 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: secret_key_base
+          - name: NEWRELIC_KEY
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: newrelic_key
+          - name: ROLLBAR_ACCESS_TOKEN
+            valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: rollbar_access_token
           - name: MAILCHIMP_LIST_ID
             valueFrom:
                 secretKeyRef:
@@ -52,8 +62,8 @@ spec:
             value: redis
           - name: RAILS_SERVE_STATIC_FILES
             value: 'true'
-          - name: FOR_GODS_SAKE_PLEASE_REDEPLOY
-            value: 'Sun Jan 21 20:07:02 MSK 2018'
+          - name: REVISION
+            value: ${REVISION}
 ---
 apiVersion: v1
 kind: Service

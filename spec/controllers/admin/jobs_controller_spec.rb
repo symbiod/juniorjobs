@@ -14,12 +14,20 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
       let(:user) { create(:user, :admin) }
 
       it { is_expected.to render_template(:index) }
+      it { is_expected.to have_http_status(:success) }
     end
 
     context 'non admin cant see jobs list in admin namespace' do
       let(:user) { create(:user, :junior) }
 
       it { is_expected.to have_http_status(:forbidden) }
+    end
+
+    context 'anonym cant see jobs list in admin namespace' do
+      it 'redirects to login path' do
+        get :index
+        expect(response).to redirect_to login_path
+      end
     end
   end
 
@@ -37,7 +45,9 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
         expect(job.reload.requirements).to eq 'Работать'
       end
 
-      it { is_expected.to redirect_to(admin_jobs_path) }
+      it 'redirects to admin jobs path' do
+        expect(response).to redirect_to admin_jobs_path
+      end
     end
 
     context 'user cannot update job in admin namespace' do
@@ -113,6 +123,15 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
         expect(job.reload.status).to eq 'approved'
       end
     end
+
+    context 'anonim cant edit jobs in admin namespace' do
+      let(:job) { create(:job, :approved) }
+
+      it 'redirects to login path' do
+        put 'update', params: { id: job.id, job: attributes_for(:job, requirements: 'Работать') }
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -131,7 +150,7 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
       end
 
       it 'redirects to admin jobs page' do
-        is_expected.to redirect_to admin_jobs_path
+        expect(response).to redirect_to admin_jobs_path
       end
     end
 
@@ -149,6 +168,13 @@ RSpec.describe Web::Admin::JobsController, type: :controller do
 
       it 'show forbidden status' do
         expect(response).to have_http_status(:forbidden)
+      end
+    end
+
+    context 'anonym cant delete jobs in admin namespace' do
+      it 'redirects to login path' do
+        delete 'destroy', params: { id: job.id }
+        expect(response).to redirect_to login_path
       end
     end
   end

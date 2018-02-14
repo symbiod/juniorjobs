@@ -13,12 +13,20 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       let(:user) { create(:user, :admin) }
 
       it { is_expected.to render_template(:index) }
+      it { is_expected.to have_http_status(:success) }
     end
 
     context 'non admin cant see users list' do
       let(:user) { create(:user, :junior) }
 
       it { is_expected.to have_http_status(:forbidden) }
+    end
+
+    context 'anonym cant see users list' do
+      it 'redirects to login path' do
+        get :index
+        expect(response).to redirect_to login_path
+      end
     end
   end
 
@@ -50,7 +58,7 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       end
 
       it 'redirects to user list' do
-        is_expected.to redirect_to(admin_users_path)
+        expect(response).to redirect_to(admin_users_path)
       end
     end
 
@@ -78,11 +86,29 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
         expect(response).to have_http_status(:forbidden)
       end
     end
+
+    context 'anonym cant edit users in admin namespace' do
+      let(:user) { create(:user, :junior) }
+      let(:params) do
+        { id: user.id,
+          user:
+            { email: user.email,
+              password: 'secret',
+              password_confirmation: 'secret',
+              roles: ['admin'] } }
+      end
+
+      it 'redirects to login path' do
+        put 'update', params: params
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
+    let(:user) { create(:user, :company) }
+
     context 'admin can delete users' do
-      let(:user) { create(:user, :company) }
       let(:admin) { create(:user, :admin) }
 
       before do
@@ -95,13 +121,11 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
       end
 
       it 'redirects to main page' do
-        is_expected.to redirect_to admin_users_path
+        expect(response).to redirect_to admin_users_path
       end
     end
 
     context 'other user cant delete profiles in admin namespace' do
-      let(:user) { create(:user, :company) }
-
       before do
         login_user(user)
         delete 'destroy', params: { id: user.id }
@@ -113,6 +137,13 @@ RSpec.describe Web::Admin::UsersController, type: :controller do
 
       it 'show forbidden status' do
         expect(response).to have_http_status(:forbidden)
+      end
+    end
+
+    context 'anonym cant delete users in admin namespace' do
+      it 'redirects to login path' do
+        delete 'destroy', params: { id: user.id }
+        expect(response).to redirect_to login_path
       end
     end
   end

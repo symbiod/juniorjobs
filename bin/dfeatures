@@ -1,0 +1,9 @@
+#!/bin/bash
+docker rm juniorjobs_features_1
+docker rmi juniorjobs-features
+
+docker-compose -f docker-compose.features.yml up --abort-on-container-exit
+exit_status=$?
+
+docker logs juniorjobs_features_1
+exit $exit_status
