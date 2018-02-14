@@ -28,9 +28,7 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
           expect(logged_in?).to eq true
         end
       end
-    end
 
-    context 'register with incorrect attributes' do
       # test if roles type return not array, but string
       context 'with incorrect roles params, must be converted in array and log in' do
         let(:params) { Hash(user: attributes_for(:user, roles: 'company').except(:crypted_password, :salt)) }
@@ -48,7 +46,9 @@ RSpec.describe Web::Auth::UsersController, type: :controller do
           expect(logged_in?).to eq true
         end
       end
+    end
 
+    context 'register with incorrect attributes' do
       let(:params) { Hash(user: attributes_for(:user, :company).except(:crypted_password, :salt, :roles)) }
 
       before do
