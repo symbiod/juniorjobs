@@ -9,6 +9,10 @@
           .form-group
             = f.input :password, required: true, placeholder: 'password', label: false, class: 'form-control'
           .form-group
-            .div
-              = f.button :submit, 'sign_in', class: ''
-
+            .row
+              .col-sm-4
+                = f.submit t('auth.user_sessions.new.login'), style: 'white; background-color: #5cb85c;'
+              .col-sm-4.text-align-center.mt10
+                = link_to t('views.headers.github_login'), auth_at_provider_path(provider: :github), class: 'mt20'
+              .col-sm-4.text-align-center.mt10
+                = link_to t('views.headers.signup'), :signup, class: 'mt20'

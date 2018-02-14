@@ -28,7 +28,7 @@
               - else
                 = link_to 'javascript:;', class: ['last', 'c-composite-link'] do
                   %i.fa.fa-user
-                  = t('views.header.settings')
+                  = t('views.headers.settings')
                 %ul.submenu
                   %li
                     = link_to edit_user_path(current_user), class: '' do
@@ -37,9 +37,3 @@
                     = link_to logout_path, method: :post, class: '' do
                       %i.fa.fa-sign-in
                       = t('views.headers.logout')
-
-
-                  -# - else
-                    -# %li= link_to t('views.headers.login'), :login, class: 'navbar-link'
-                    -# %li= link_to t('views.headers.github_login'), auth_at_provider_path(provider: :github), class: 'navbar-link'
-                    -# %li= link_to t('views.headers.signup'), :signup, class: 'navbar-link'
