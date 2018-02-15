@@ -28,11 +28,7 @@
       %hr
       %h4.job-post-title= t('activerecord.attributes.job.requirements')
       %p#job-requirements= simple_format(@job.requirements)
-      %hr
-      %p#job-tag-list
-        = t('forms.hashtags')
-        - @job.tag_list.each do |tag|
-          = tag
+      
   .row.form-group.well
     .col-sm-4#job-company-email
       %h4= t('activerecord.attributes.job.company_email')

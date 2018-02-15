@@ -31,7 +31,7 @@ ru:
           all_jobs: Все вакансии
           approved_jobs: Одобренные вакансии
           company_name: Компания
-          expired: 'Статус'
+          expired: Статус
           job: Вакансия
           not_approved_jobs: Неодобренные вакансии
       subscriptions:
