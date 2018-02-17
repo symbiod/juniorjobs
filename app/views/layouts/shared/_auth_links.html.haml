@@ -9,5 +9,6 @@
         = link_to t('views.headers.edit_user'), edit_user_path(current_user), class: 'navbar-link pull-right'
     - else
       %li= link_to t('views.headers.login'), :login, class: 'navbar-link'
-      %li= link_to t('views.headers.github_login'), auth_at_provider_path(provider: :github), class: 'navbar-link'
+      -#TODO: fix github signup on production
+      -#%li= link_to t('views.headers.github_login'), auth_at_provider_path(provider: :github), class: 'navbar-link'
       %li= link_to t('views.headers.signup'), :signup, class: 'navbar-link'
