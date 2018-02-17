@@ -8,10 +8,6 @@ ua:
         location: Расположение
         motivation: Мотивация
         time: Время публикации вакансии
-  forms:
-    comma_separator: Comma separator
-    found_by_tag: Found by tag
-    hashtags: Hashtags
   layouts:
     shared:
       topbar:
