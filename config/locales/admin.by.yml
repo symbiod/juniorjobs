@@ -19,6 +19,7 @@ by:
       edit: Редактировать
       email: Email
     users:
+      edit: Редактирование профиля
       destroy:
         success: Пользователь успешно удален.
       update:

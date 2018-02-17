@@ -6,5 +6,4 @@
         = simple_form_for @user, html: { class: 'b-sign-in form' } do |f|
           = render 'form', f: f
           .form-group
-            = f.button :submit, t('auth.users.form.submit'), class: 'btn btn-default',
-              style: 'color: white; background-color: #5cb85c;'
+            = f.button :submit, t('auth.users.form.submit'), class: 'btn btn-default submit-button'

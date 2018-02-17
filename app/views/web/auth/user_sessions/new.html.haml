@@ -11,7 +11,7 @@
           .form-group
             .row
               .col-sm-4
-                = f.submit t('auth.user_sessions.new.login'), style: 'white; background-color: #5cb85c;'
+                = f.submit t('auth.user_sessions.new.login'), class: 'submit-button'
               .col-sm-4.text-align-center.mt10
                 = link_to t('views.headers.github_login'), auth_at_provider_path(provider: :github), class: 'mt20'
               .col-sm-4.text-align-center.mt10

@@ -1,2 +1,8 @@
-.row
-  = render 'form', job: @job
+%section.page-sign-in.mb40
+  .container
+    .row
+      .col-sm-10.col-sm-offset-1
+        .mb20= render 'shared/job_page_header', header: t('admin.users.edit')
+        = simple_form_for @job, url: admin_job_path(@job), method: :put, html: { class: 'container form mt40 mb40' } do |f|
+          = render 'web/jobs/form', f: f
+          = f.button :submit, t('common.submit'), class: 'submit-button'
