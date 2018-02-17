@@ -12,7 +12,7 @@ ru:
         company_phone: Телефон
         currencies:
           byn: BYN
-          rub: RYB
+          rub: RUB
           uah: UAH
           usd: USD
         description: Описание проекта
