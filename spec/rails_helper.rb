@@ -15,6 +15,7 @@ Dir['./spec/support/**/*.rb'].each do |file|
 end
 
 require 'sidekiq/testing'
+require 'webmock/rspec'
 require 'bullet'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
