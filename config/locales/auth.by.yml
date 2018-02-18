@@ -3,8 +3,8 @@ by:
   auth:
     oauths:
       callback:
-        notice: Вы успешно вошли через %{provider}
         alert: 'Возникли следующие ошибки: %{error}'
+        notice: Вы успешно вошли через %{provider}
     shared:
       athorize_alert: У вас нет прав для просмотра данной страницы
       login_alert: Сначала нужно войти
@@ -14,10 +14,6 @@ by:
         success: Вы вошли как %{email}
       destroy:
         logout: Вы вышли
-      form:
-        email: Ваша почта
-        login: Войти
-        password: Пароль
       new:
         login: Войти
     users:
@@ -36,6 +32,7 @@ by:
         password_confirmation: Повторите пароль
         roles_label: Кто вы?
         save: Сохранить
+        submit: Отправить
       new:
         registration_label: Зарегистрироваться
       update:

@@ -17,8 +17,23 @@
                 %i.fa.fa-check
                 = t('views.headers.terms')
             %li
-              = link_to contact_us_path, class: ['last', 'c-composite-link'] do
+              = link_to contact_us_path, class: ['c-composite-link'] do
                 %i.fa.fa-envelope
                 = t('views.headers.contact_us')
-            %li
-              = render 'layouts/shared/auth_links'
+            %li.last
+              - unless logged_in?
+                = link_to login_path, class: ['last', 'c-composite-link'] do
+                  %i.fa.fa-sign-in
+                  = t('views.headers.login')
+              - else
+                = link_to 'javascript:;', class: ['last', 'c-composite-link'] do
+                  %i.fa.fa-user
+                  = t('views.headers.settings')
+                %ul.submenu
+                  %li
+                    = link_to edit_user_path(current_user) do
+                      = t('views.headers.edit_user')
+                  %li
+                    = link_to logout_path, method: :post do
+                      %i.fa.fa-sign-in
+                      = t('views.headers.logout')

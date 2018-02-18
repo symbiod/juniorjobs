@@ -5,16 +5,18 @@ module Web
     # TODO: documentation is missing for this class
     # We should consider addig some documentation here
     class UserSessionsController < Web::Auth::BaseController
+      before_action :load_user, only: %i[create]
+
       def new
         @user = User.new
       end
 
       def create
-        if (@user = login(session_params[:email], session_params[:password]))
-          redirect_back_or_to(root_path, notice: t('auth.user_sessions.create.success', email: @user.email))
+        if @user
+          redirect_back_or_to root_path, notice: t('auth.user_sessions.create.success', email: @user.email)
         else
           flash.now[:alert] = t('auth.user_sessions.create.alert')
-          render action: 'new'
+          render :new
         end
       end
 
@@ -24,6 +26,10 @@ module Web
       end
 
       private
+
+      def load_user
+        @user = login(session_params[:email], session_params[:password])
+      end
 
       def session_params
         params.require(:user_session).permit(:email, :password)

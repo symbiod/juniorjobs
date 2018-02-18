@@ -19,6 +19,7 @@ ru:
       edit: Редактировать
       email: Email
     users:
+      edit: Редактирование профиля
       destroy:
         success: Пользователь успешно удален.
       update:
@@ -31,7 +32,7 @@ ru:
           all_jobs: Все вакансии
           approved_jobs: Одобренные вакансии
           company_name: Компания
-          expired: 'Статус'
+          expired: Статус
           job: Вакансия
           not_approved_jobs: Неодобренные вакансии
       subscriptions:

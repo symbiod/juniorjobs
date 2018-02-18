@@ -16,7 +16,7 @@ RSpec.describe Web::Auth::UserSessionsController, type: :controller do
       end
 
       it 'redirects to main page' do
-        is_expected.to redirect_to root_path
+        expect(response).to redirect_to(root_path)
       end
     end
 
@@ -26,11 +26,11 @@ RSpec.describe Web::Auth::UserSessionsController, type: :controller do
       end
 
       it 'user not logged in' do
-        expect(logged_in?).to eq false
+        expect(logged_in?).to be_falsey
       end
 
       it 'redirects to main page' do
-        is_expected.to render_template(:new)
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -44,11 +44,11 @@ RSpec.describe Web::Auth::UserSessionsController, type: :controller do
     end
 
     it 'session is destroyed' do
-      expect(logged_in?).to eq false
+      expect(logged_in?).to be_falsey
     end
 
     it 'redirects to main page' do
-      is_expected.to redirect_to root_path
+      expect(response).to redirect_to(root_path)
     end
   end
 end
