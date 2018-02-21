@@ -4,8 +4,8 @@ module Web
   # TODO: documentation is missing for this class
   # We should consider addig some documentation here
   class JobsController < BaseController
-    before_action :load_job, only: %i[show edit update]
-    before_action :check_user, only: %i[edit update]
+    before_action :load_job, only: %i[show edit update destroy]
+    before_action :check_user, only: %i[edit update destroy]
 
     def show; end
 
@@ -38,6 +38,11 @@ module Web
       end
     end
     # TODO: interactor
+    
+    def destroy 
+      @job.destroy
+      redirect_to jobs_path, notice: t('common.jobs.delete.success')
+    end
 
     private
 
@@ -50,7 +55,7 @@ module Web
     end
 
     def check_token
-      redirect_to @job, notice: t('common.jobs.update.incorrect_token') if @job.token != params[:job][:token]
+      redirect_to @job, notice: t('common.jobs.auth.incorrect_token') if @job.token != params[:job][:token]
     end
 
     def load_job
@@ -64,10 +69,14 @@ module Web
 
     def job_params
       params.require(:job).permit(
-        :id, :status, :title, :description, :requirements, :employment, :city, :country,
-        :remote, :currency, :salary_from, :salary_to, :salary_by_agreement, :company_contact,
-        :company_email, :company_name, :company_page, :company_phone, :expired_at, :token,
-        :tag, tag_list: []
+        :id, :status,
+        :title, :description,
+        :requirements, :employment,
+        :city, :country, :remote,
+        :currency, :salary_from, :salary_to, :salary_by_agreement,
+        :company_contact, :company_email, :company_name, :company_page, :company_phone,
+        :expired_at,
+        :token, :tag, tag_list: []
       )
     end
   end
