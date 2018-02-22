@@ -166,7 +166,7 @@ RSpec.describe Web::JobsController, type: :controller do
       it 'delete job' do
         expect(Job.exists?(job.id)).to eq false
       end
-      it {is_expected.to redirect_to(jobs_path)}
+      it {is_expected.to redirect_to(root_path)}
     end
     
     context 'not delete job with incorrect token' do
@@ -192,7 +192,7 @@ RSpec.describe Web::JobsController, type: :controller do
       it 'delete job' do
         expect(Job.exists?(job.id)).to eq false
       end
-      it{ is_expected.to redirect_to(jobs_path) }
+      it{ is_expected.to redirect_to(root_path) }
     end
 
     context 'not delete job by other user' do
