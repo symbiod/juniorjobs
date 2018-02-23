@@ -1,2 +1,4 @@
 .row
-  = render 'form', job: @job
+  = simple_form_for @job, html: { class: 'container form mt40 mb40' } do |f|
+    = render 'form', f: f
+    = f.button :submit, t('common.submit'), class: 'submit-button'

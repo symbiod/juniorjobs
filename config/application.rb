@@ -27,6 +27,7 @@ module JuniorjobsRu
       #{Rails.root}/app/utilities/*
       #{Rails.root}/config/settings.yml
     ]
+    config.autoload_paths += Dir["#{config.root}/app/interactors/**/"]
 
     config.generators do |generate|
       generate.template_engine :haml

@@ -14,10 +14,6 @@ by:
         success: Вы вошли как %{email}
       destroy:
         logout: Вы вышли
-      form:
-        email: Ваша почта
-        login: Войти
-        password: Пароль
       new:
         login: Войти
     users:
@@ -36,6 +32,7 @@ by:
         password_confirmation: Повторите пароль
         roles_label: Кто вы?
         save: Сохранить
+        submit: Отправить
       new:
         registration_label: Зарегистрироваться
       update:

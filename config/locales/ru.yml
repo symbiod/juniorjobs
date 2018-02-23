@@ -1,13 +1,5 @@
 ---
 ru:
-  admin:
-    jobs:
-      form:
-        company: Компания
-        desc: Описание Вакансии
-        location: Расположение
-        motivation: Мотивация
-        time: Время публикации вакансии
   forms:
     found_by_tag: Found by tag
   layouts:
