@@ -5,8 +5,8 @@ require 'gibbon'
 class UnsubscribedUsersInteractor
   include Interactor
 
-  def call(emails = context.emails || unsubscribed_emails)
-    if emails.count.positive?
+  def call
+    if UnsubscribedUsersInteractor.unsubscribed_emails.count.positive?
       Subscription.unsubscribe(emails)
     else
       context.fail!
