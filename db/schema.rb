@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127100650) do
+ActiveRecord::Schema.define(version: 20180131035016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,27 @@ ActiveRecord::Schema.define(version: 20180127100650) do
     t.string "token", null: false
     t.string "status", default: "not_approved"
     t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "responces", force: :cascade do |t|
+    t.text "body"
+    t.string "resume"
+    t.bigint "job_id"
+    t.string "email"
+    t.string "linkedin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_responces_on_job_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.text "body"
+    t.bigint "job_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_responses_on_job_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -96,4 +117,7 @@ ActiveRecord::Schema.define(version: 20180127100650) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "responces", "jobs"
+  add_foreign_key "responses", "jobs"
+  add_foreign_key "responses", "users"
 end
