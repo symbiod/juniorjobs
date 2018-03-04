@@ -8,5 +8,7 @@
     = t('views.about.code')
     = link_to 'Github', Settings.github, target: :_blank
   %p
+    = link_to t('views.about.contributors'), contributors_path
+  %p
     Resivion:
     = link_to ENV['REVISION'], "https://github.com/howtohireme/juniorjobs/commit/#{ENV['REVISION']}"
