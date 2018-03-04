@@ -9,11 +9,7 @@ class ContributorsBuilder
   end
 
   def contributors_logins
-    logins = []
-    contributors.each do |contributor|
-      logins << contributor.login
-    end
-    logins
+    contributors.map(&:login)
   end
 
   # return [objects - contributors]
