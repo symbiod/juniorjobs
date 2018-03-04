@@ -6,16 +6,26 @@ require_relative '../../config/initializers/apps_redis'
 class ContributorsService
   class << self
     def contributors
-      redis.lrange(list, 0, -1)
+      contributors = redis.lrange(list, 0, -1)
+      contributors.empty? ? reload_list : contributors
     end
 
-    def logins_add_to_list
-      redis.rpush(list, load_logins)
+    def reload_list
+      destroy_list
+      add_to_list
       add_expire
       contributors
     end
 
     private
+
+    def destroy_list
+      redis.del(list)
+    end
+
+    def add_to_list
+      redis.rpush(list, load_logins)
+    end
 
     def load_logins
       ContributorsBuilder.new.contributors_logins
