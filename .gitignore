@@ -19,6 +19,7 @@ config/mailchimp.env
 config/redis.env
 dump.rdb
 .generators
+.DS_Store
 
 ## Specific to RubyMotion:
 .dat*

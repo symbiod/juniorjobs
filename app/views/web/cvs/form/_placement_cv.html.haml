@@ -1,0 +1,5 @@
+.row
+  .col-md-8
+    = f.input :city, label: false, placeholder: t('activerecord.attributes.job.city'), input_html: { class: 'form-control' }
+  .col-md-4
+    = f.input :remote, as: :boolean, label: t('activerecord.attributes.job.remote')

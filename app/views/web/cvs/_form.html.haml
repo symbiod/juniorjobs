@@ -1,0 +1,30 @@
+= simple_form_for @cv, html: { class: 'container form mt40 mb40 cv-form' } do |f|
+  = f.input :country, as: :hidden, label: false, input_html: { class: 'form-control', value: current_country }
+
+  .form-group.well
+    %h3= t('activerecord.attributes.cv.create_cv')
+    = render 'web/cvs/form/about_cv', f: f
+
+  .form-group.well
+    %h3= t('activerecord.attributes.cv.placement')
+    = render 'web/cvs/form/placement_cv', f: f
+
+  .form-group.well
+    %h3= t('activerecord.attributes.cv.contacts')
+    = render 'web/cvs/form/contacts_cv', f: f
+
+  .form-group.well
+    %h3= t('activerecord.attributes.cv.salary')
+    = render 'web/cvs/form/motivation_cv', f: f
+
+  .form-group.well
+    %h3= t('activerecord.attributes.cv.publicaton_time')
+    .form-group
+      = f.input :expired_at, collection: f.object.decorate.expired_at_dates, label: false, include_blank: false, input_html: { class: 'form-control' }
+
+  .form-group.well
+    %p.m0
+      = t('web.cvs.form.public')
+      = link_to t('web.jobs.form.conditions'), terms_path, class: ''
+
+  = f.button :submit, t('common.submit')

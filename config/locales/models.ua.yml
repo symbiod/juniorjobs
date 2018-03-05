@@ -41,3 +41,24 @@ ua:
           company: Компания
           junior: Джуниор
           one: Роль
+      cv:
+        cv: Резюме
+        title: Желаемая должность
+        status: Вакансия опубликована
+        name: Фамилия Имя
+        description: Обо мне
+        education: Образование
+        skills: Ключевые навыки
+        work_experience: Опыт работы
+        address: Адрес
+        web_site: Web сайт
+        remote: Возможна удаленная работа
+        edit: Редактировать
+        delete: Удалить
+        create_cv: Описание должности
+        placement: Расположение
+        contacts: Контакты
+        salary: Зарплата
+        publicaton_time: Время публикации вакансии
+        email: E-mail
+        phone: Телефон

@@ -1,0 +1,75 @@
+.b-jobs
+  %section.section-bg.m0.pb0
+    .container.pl0
+      .row
+        .col-sm-12
+          %h1.title-large.mb0#cv-name
+            = @cv.name
+  - if policy(@cv).owner?
+    = link_to t("activerecord.attributes.cv.edit"), edit_cv_path(@cv)
+    = " - "
+    = link_to t("activerecord.attributes.cv.delete"), cv_path(@cv), method: :delete
+  %hr
+  .row.form-group.well
+    .col-sm-4#cv-employment
+      %h4
+        = t("common.jobs.show.type_of_employment")
+      = t("activerecord.attributes.job.employments.#{@cv.employment}")
+    .col-sm-4#cv-reward
+      %h4
+        = t("common.jobs.show.reward")
+      = t("activerecord.attributes.job.currencies.#{@cv.currency}")
+      = @cv.salary
+    .col-sm-4#cv-location
+      %h4
+        = t("common.jobs.show.location")
+      = @cv.city_remote
+
+  %article
+    .row
+      .col-sm-12.form-group.well.jobs-description
+        .b-jobs-name
+          %h1.col-sm-10#cv-title
+            = @cv.title
+          %span.col-sm-2#cv-publication-period
+            = @cv.created_at.strftime("%d-%m-%Y")
+        .clearfix
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.description")
+        %p#cv-description
+          = simple_format(@cv.description)
+        %hr
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.education")
+        %p#cv-education
+          = simple_format(@cv.education)
+        %hr
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.skills")
+        %p#cv-skills
+          = simple_format(@cv.skills)
+        %hr
+
+        %h4.job-post-title
+          = t("activerecord.attributes.cv.work_experience")
+        %p#cv-work-experience
+          = simple_format(@cv.work_experience)
+  .row.form-group.well
+    .col-sm-3#cv-email
+      %h4= t('activerecord.attributes.cv.email')
+      = @cv.email
+    .col-sm-3#cv-phone
+      - if @cv.phone.present?
+        %h4= t('activerecord.attributes.cv.phone')
+        = @cv.phone
+    .col-sm-3#cv-address
+      - if @cv.address.present?
+        %h4= t('activerecord.attributes.cv.address')
+        = @cv.address
+    .col-sm-3#cv-web-site
+      - if @cv.web_site.present?
+        %h4= t('activerecord.attributes.cv.web_site')
+        = link_to @cv.web_site, @cv.web_site
