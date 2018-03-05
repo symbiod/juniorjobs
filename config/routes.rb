@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
     get '/about', to: 'static_pages#about'
+    get '/contributors', to: 'static_pages#contributors'
     get '/terms', to: 'static_pages#terms'
     get '/contact_us', to: 'static_pages#contact_us'
 

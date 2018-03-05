@@ -1,0 +1,6 @@
+= render 'shared/job_page_header', header: t('views.headers.contributors')
+
+%section.section
+  - @contributors.each do |contributor|
+    %p
+      = link_to contributor, "https://github.com/howtohireme/juniorjobs/commits?author=#{contributor}", target: :_blank

@@ -15,6 +15,8 @@ gem 'dotenv-rails'
 gem 'foreman'
 gem 'pg', '~> 0.18'
 gem 'rails', '~> 5.1.4'
+gem 'redis'
+gem 'redis-namespace'
 gem 'puma', '~> 3.7'
 
 # Models
@@ -37,6 +39,7 @@ gem 'koala'
 gem 'telegram-bot-ruby'
 gem 'twitter'
 gem 'vkontakte_api', '~> 1.4'
+gem 'octokit', '~> 4.0'
 
 # Jobs
 gem 'sidekiq'
@@ -82,10 +85,6 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webmock'
   gem 'bullet'
-end
-
-group :test do
-  gem 'database_cleaner'
 end
 
 group :development do
