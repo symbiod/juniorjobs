@@ -8,6 +8,8 @@ class LoadContributorsJob < ApplicationJob
     load_contributors
   end
 
+  private
+
   def load_contributors
     ContributorsService.reload_list
   end

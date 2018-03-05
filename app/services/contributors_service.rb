@@ -6,7 +6,7 @@ require_relative '../../config/initializers/apps_redis'
 class ContributorsService
   class << self
     def contributors
-      contributors = redis.lrange(list, 0, -1)
+      contributors = redis.lrange(key_name, 0, -1)
       contributors.empty? ? reload_list : contributors
     end
 
@@ -20,11 +20,11 @@ class ContributorsService
     private
 
     def destroy_list
-      redis.del(list)
+      redis.del(key_name)
     end
 
     def add_to_list
-      redis.rpush(list, load_logins)
+      redis.rpush(key_name, load_logins)
     end
 
     def load_logins
@@ -32,14 +32,14 @@ class ContributorsService
     end
 
     def add_expire
-      redis.expire(list, 604_800)
+      redis.expire(key_name, 604_800)
     end
 
     def redis
       AppsRedis.instance.connection
     end
 
-    def list
+    def key_name
       'contributors'
     end
   end

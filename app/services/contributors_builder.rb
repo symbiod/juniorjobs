@@ -12,6 +12,8 @@ class ContributorsBuilder
     contributors.map(&:login)
   end
 
+  private
+
   # return [objects - contributors]
   def contributors
     @contributors ||= @client.contributors('howtohireme/juniorjobs')
