@@ -46,7 +46,8 @@ module Web
           :id, :status, :show_status, :title, :description, :requirements,
           :employment, :city, :country, :remote, :currency, :salary_from,
           :salary_to, :salary_by_agreement, :company_contact, :company_email,
-          :company_name, :company_page, :company_phone, :expired_at, :token
+          :company_name, :company_page, :company_phone, :expired_at, :token,
+          :tag_list
         )
       end
 

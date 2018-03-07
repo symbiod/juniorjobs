@@ -40,9 +40,15 @@
     .form-group {
       margin: 0;
 
-      .submit {
-        padding: 7px !important;
+      .form-control {
+        background-color: $c-white;
       }
+
+    }
+
+    .submit {
+      padding: 7px !important;
+      background-color: $c-white;
     }
   }
 }
@@ -72,4 +78,15 @@
 .submit-button {
   color: $c-white !important;
   background-color: $c-success !important;
+}
+
+.time {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.blog-item {
+  border: 1px solid;
+  border-radius: 4px;
+  background: $c-white;
 }

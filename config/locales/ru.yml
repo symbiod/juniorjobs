@@ -1,9 +1,5 @@
 ---
 ru:
-  forms:
-    comma_separator: Comma separator
-    found_by_tag: Found by tag
-    hashtags: Hashtags
   layouts:
     shared:
       topbar:
@@ -19,12 +15,11 @@ ru:
         motivation: Мотивация
         public: Публикуя, вакансию вы соглашаетесь с
         time: Время публикации вакансии
+        tags: Теги
+        tags_description: Теги для вакансии, через запятую. Будут отображаться на главной странице. Минимум 3.
     welcome:
       index:
         last: Последние
         month: За месяц
         week: За неделю
         yesterday: Вчера
-      job:
-        remote1: " / Возможно работать удаленно"
-        remote2: "- Возможно работать удаленно"

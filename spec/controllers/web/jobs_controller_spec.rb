@@ -87,7 +87,7 @@ RSpec.describe Web::JobsController, type: :controller do
     let(:params) do
       {
         id: job.id,
-        job: attributes_for(:job, requirements: 'Работать').merge(token: job.token, tag_list: ['java'])
+        job: attributes_for(:job, requirements: 'Работать').merge(token: job.token)
       }
     end
 
@@ -107,7 +107,7 @@ RSpec.describe Web::JobsController, type: :controller do
       let(:params) do
         {
           id: job.id,
-          job: attributes_for(:job, requirements: 'Работать').merge(token: job.token, tag_list: ['java'])
+          job: attributes_for(:job, requirements: 'Работать').merge(token: job.token)
         }
       end
 

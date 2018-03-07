@@ -15,6 +15,7 @@ class Job < ApplicationRecord
   validates :title, :employment, :description, :requirements, presence: true
   validates :company_name, :company_contact, :company_email, presence: true
   validates :salary_from, :salary_to, numericality: { only_integer: true }, allow_blank: true
+  validates :tag_list, length: { minimum: 3, maximum: 7 }
 
   enum employments: { full: 0, part: 1, contract: 2, internal: 3 }
   enum currencies: Settings.currencies
