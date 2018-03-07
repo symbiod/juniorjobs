@@ -11,11 +11,12 @@ module Web
       @base_url = site_url
     end
 
-    # def sitemap
-    #   respond_to do |format|
-    #     format.xml
-    #   end
-    # end
+    def sitemap
+      @jobs = Job.status(:approved).pluck(:id)
+      respond_to do |format|
+        format.xml
+      end
+    end
 
     private
 
