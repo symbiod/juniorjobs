@@ -9,3 +9,17 @@ telegram: 'https://t.me/juniorjobs'
 twitter_name: 'https://twitter.com/juniorjobs'
 github: 'https://github.com/howtohireme/juniorjobs.ru'
 emails_offset: 500
+site_url: 'https://juniorjobs.ru'
+
+seo:
+  allowed:
+    - '/robots.txt'
+    - '/about'
+    - '/contributors'
+    - '/terms'
+    - '/contact_us'
+    - '/jobs/*'
+
+  disallow:
+    - '/admin'
+
