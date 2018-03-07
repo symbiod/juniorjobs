@@ -13,6 +13,7 @@ FactoryBot.define do
     company_email 'email@example.com'
     expired_at Date.current + 1 .week
     token 'token'
+    tag_list 'tag1, tag2, tag3'
 
     trait :invalid do
       description nil

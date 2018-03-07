@@ -20,7 +20,7 @@
               = link_to contact_us_path, class: ['c-composite-link'] do
                 %i.fa.fa-envelope
                 = t('views.headers.contact_us')
-            %li.last
+            -#%li.last
               - unless logged_in?
                 = link_to login_path, class: ['last', 'c-composite-link'] do
                   %i.fa.fa-sign-in
