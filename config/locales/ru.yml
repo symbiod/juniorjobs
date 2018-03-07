@@ -28,3 +28,21 @@ ru:
       job:
         remote1: " / Возможно работать удаленно"
         remote2: "- Возможно работать удаленно"
+  socials:
+      required: Требуется
+      from: от
+      to:   до
+      remote: Возможно удалённо
+      company: Компания
+      by_agreement: по договорённости
+      full_time: Полный рабочий день
+      link_to_vacancy: Откликнуться на вакансию
+      employment:
+        full: Полная занятость
+        part: Частичная занятость
+        contract: Контракт
+        inernal: Стажировка
+      byn: BR
+      rub: руб
+      uah: Гривень
+      usd: USD
