@@ -1,5 +1,3 @@
-= render 'web/subscriptions/banner'
-
 - if @jobs_published_today.any?
   .row.mt20
     .col-sm-12
@@ -27,3 +25,5 @@
       %h3= t('web.welcome.index.month')
       - @jobs_published_last_month.each do |job|
         = render 'job', job: job
+
+= render 'web/subscriptions/banner'

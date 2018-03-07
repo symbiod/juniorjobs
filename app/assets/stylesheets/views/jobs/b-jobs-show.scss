@@ -3,6 +3,14 @@
 $font-size: 20px;
 
 .b-jobs {
+  .row {
+    background: $c-white;
+
+    &:not(:first-child) {
+      border: 1px solid;
+    }
+  }
+
   .job-post-title {
     h4 {
       font-weight: bold;
