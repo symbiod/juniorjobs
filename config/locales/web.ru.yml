@@ -14,8 +14,11 @@ ru:
         reward: Вознаграждение
         type_of_employment: Тип занятости
       update:
-        incorrect_token: Неверный токен
         success: Вакансия отредактирована
+      delete:
+        success: Вакансия удалена
+      auth:
+        incorrect_token: Неверный токен
     submit: Отправить
     subscribe: Подписаться
     success: Выполнено успешно
