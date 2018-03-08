@@ -22,6 +22,8 @@ ru:
     submit: Отправить
     subscribe: Подписаться
     success: Выполнено успешно
+    delete: Удалить
+    delete_surr: "[Удалить]"
   decorators:
     job:
       active_status: Активна

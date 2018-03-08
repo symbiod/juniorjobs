@@ -41,7 +41,7 @@ module Web
     
     def destroy 
       @job.destroy
-      redirect_to jobs_path, notice: t('common.jobs.delete.success')
+      redirect_to root_path, notice: t('common.jobs.delete.success')
     end
 
     private

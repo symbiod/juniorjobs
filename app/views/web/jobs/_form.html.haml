@@ -3,6 +3,10 @@
 .form-group.well
   %h3
     = t('web.jobs.form.desc')
+    - if action_name == 'edit'
+      = link_to t('common.delete_surr'), job_path(@job), method: :delete,
+      data: { confirm: t('common.jobs.delete.success') }
+ 
   = f.input :title, label: false, placeholder: t('activerecord.attributes.job.title')
   - collection = Job.employments.keys.map { |type| [t("activerecord.attributes.job.employments.#{type}"), type] }
   = f.input :employment, collection: collection, label: false, include_blank: false, input_html: { class: 'form-control' }

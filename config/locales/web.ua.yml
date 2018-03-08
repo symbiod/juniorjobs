@@ -16,9 +16,15 @@ ua:
       update:
         incorrect_token: Неверный токен
         success: Вакансия отредактирована
+      delete:
+        success: Вакансия удалена
+
     submit: Отправить
     subscribe: Подписаться
     success: Выполнено успешно
+    delete: Удалить
+    delete_surr: "[Удалить]"
+
   decorators:
     job:
       active_status: Активна
