@@ -84,7 +84,6 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webmock'
-  gem 'bullet'
 end
 
 group :development do
@@ -96,4 +95,5 @@ group :development do
   gem 'rubocop'
   gem 'scss_lint', require: false
   gem 'web-console', '>= 3.3.0'
+  gem 'bullet'
 end
