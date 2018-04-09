@@ -41,10 +41,4 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.active_job.queue_adapter = :test
 
-  # Configuration bullet
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.bullet_logger = true
-    Bullet.raise = true # raise an error if n+1 query occurs
-  end
 end
