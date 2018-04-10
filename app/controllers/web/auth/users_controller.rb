@@ -8,17 +8,18 @@ module Web
       before_action :load_user, only: %i[edit update destroy]
       before_action :load_roles, only: %i[new edit create update]
       before_action :require_login, :authorize_user, only: %i[edit update destroy]
+      before_action :call_interactor, only: %i[create update]
 
       def new
         @user = User.new
       end
 
       def create
-        if valid_user?
+        if @result.success?
           auto_login(@user)
           redirect_back_or_to root_path, notice: t('auth.users.create.signup_success')
         else
-          flash[:alert] = t('auth.users.create.signup_fail', errors: @user.errors.full_messages)
+          flash[:alert] = t('auth.users.create.signup_fail', errors: @result.message)
           render :new
         end
       end
@@ -26,10 +27,10 @@ module Web
       def edit; end
 
       def update
-        if valid_user?
+        if @result.success?
           redirect_back_or_to root_path, notice: t('auth.users.update.update_success')
         else
-          flash[:alert] = t('auth.users.update.update_fail', errors: @user.errors.full_messages)
+          flash[:alert] = t('auth.users.update.update_fail', errors: @result.message)
           render :edit
         end
       end
@@ -53,43 +54,10 @@ module Web
         authorize @user
       end
 
-      def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation, roles: [])
+      def call_interactor
+        @result = Users::OrganizeInteractor.call(params: params, roles: @roles, user: @user)
+        @user = @result.user
       end
-
-      # TODO: Use interactors
-      def valid_user?
-        if user_persisted?
-          user_schema_valid? && @user.update(user_schema_params)
-        else
-          @user = User.new(user_schema_params)
-          user_schema_valid? && @user.save
-        end
-      end
-
-      def user_persisted?
-        @user.present? && @user.persisted?
-      end
-
-      def user_schema_valid?
-        validate_params.success?
-      end
-
-      def user_schema_params
-        validate_params.output
-      end
-
-      def validate_params
-        roles_param = params[:user][:roles]
-        params['user']['roles'] = Array.new(1, roles_param) unless roles_param_is_array?
-        UserSchema.with(valid_roles: @roles).call(user_params)
-      end
-
-      def roles_param_is_array?
-        params[:user][:roles].is_a?(Array)
-      end
-
-      # TODO: Use interactors
     end
   end
 end
