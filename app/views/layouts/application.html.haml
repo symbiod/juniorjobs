@@ -9,7 +9,10 @@
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
     %meta{ content: '74505c635f55a186', name: 'yandex-verification' }
     %title JuniorjobsRu
+    %meta{ content: yield(:description).to_s, name: 'description' }/
+    %meta{ content: yield(:keywords).to_s, name: 'keywords' }/
     = csrf_meta_tags
+    = display_meta_tags
 
     -# haml-lint:disable LineLength
     = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
