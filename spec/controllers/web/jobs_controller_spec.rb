@@ -200,4 +200,61 @@ RSpec.describe Web::JobsController, type: :controller do
       it { is_expected.to redirect_to(edit_job_path(job)) }
     end
   end
+  describe 'DELETE #destroy' do
+    let(:user) { create(:user, :company) }
+    
+    context 'delete job with correct token' do
+      let(:job) { create(:job, :approved) }
+    
+      before do 
+        delete 'destroy', params: { id: job.id, job: attributes_for(:job, token: job.token)  }
+      end
+    
+      it 'delete job' do
+        expect(Job.exists?(job.id)).to eq false
+      end
+      it {is_expected.to redirect_to(jobs_path)}
+    end
+    
+    context 'not delete job with incorrect token' do
+      let(:job) { create(:job, :approved) }
+        
+      before do
+        delete 'destroy', params: { id: job.id, job: attributes_for(:job, token: 'wrong_token') }
+      end
+
+      it 'not delete job' do
+        expect(Job.exists?(job.id)).to eq true
+      end
+      it { is_expected.to redirect_to(job_path(job)) }
+    end
+    
+    context 'delete job by owner without token' do
+      let(:job) { create(:job, :approved, user: user) }
+
+      before do
+        login_user(user)
+        delete 'destroy', params: { id: job.id }
+      end
+      it 'delete job' do
+        expect(Job.exists?(job.id)).to eq false
+      end
+      it{ is_expected.to redirect_to(jobs_path) }
+    end
+
+    context 'not delete job by other user' do
+      let(:job) { create(:job, :approved)}
+      let(:other_user) { create(:user, :junior) }
+
+      before do
+        login_user(other_user)
+        delete 'destroy', params: { id: job.id }
+      end
+
+      it 'not delete job' do
+        expect(Job.exists?(job.id)).to eq true
+      end
+      it{ is_expected.to redirect_to(root_path) }
+    end
+  end
 end
