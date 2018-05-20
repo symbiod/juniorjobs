@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
+# Responsoble for time methods
 module TimeUtility
   module_function
 

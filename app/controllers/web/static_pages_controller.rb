@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
 module Web
-  # TODO: documentation is missing for this class
-  # We should consider addig some documentation here
+  # Controller responsible for rendering static pages
   class StaticPagesController < BaseController
-    def about; end
-
-    def contributors
-      @contributors = ContributorsService.contributors
+    def about
+      @contributors = Integrations::Github::ContributorsInteractor.call.result
     end
 
     def terms; end

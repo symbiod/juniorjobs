@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# # frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -9,7 +9,6 @@ RSpec.describe Subscription, type: :model do
     let(:subscription_invalid) { build(:guest_subscription, email: 'qwerty') }
 
     before { subscription_invalid.valid? }
-
     subject { subscription_invalid.errors[:email] }
 
     it { is_expected.to include I18n.t('errors.subscription.attributes.email.invalid') }
@@ -19,7 +18,6 @@ RSpec.describe Subscription, type: :model do
     let(:subscription_blank) { build(:guest_subscription, email: '') }
 
     before { subscription_blank.valid? }
-
     subject { subscription_blank.errors[:email] }
 
     it { is_expected.to include I18n.t('errors.subscription.attributes.email.blank') }
@@ -30,21 +28,9 @@ RSpec.describe Subscription, type: :model do
     let(:duplicate_subscription) { build(:guest_subscription, email: 'mail@mail.com') }
 
     before { duplicate_subscription.valid? }
-
     subject { duplicate_subscription.errors[:email] }
 
     it { is_expected.to include I18n.t('errors.subscription.attributes.email.taken') }
-  end
-
-  describe 'registered user can to subscribe and unsubscribe' do
-    let(:email) { 'mail@mail.com' }
-    let(:subscription) { create(:user_subscription, email: email) }
-
-    before { subscription.destroy }
-
-    subject { Subscription.find_by(email: email) }
-
-    it { is_expected.to be_falsey }
   end
 
   describe 'create subscription with right email' do

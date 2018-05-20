@@ -2,4 +2,8 @@
 
 .l-header {
   background-color: $c-blue;
+
+  .menu > li > a {
+    color: $c-white;
+  }
 }

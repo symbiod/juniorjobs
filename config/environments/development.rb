@@ -11,6 +11,7 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -24,14 +25,13 @@ Rails.application.configure do
     }
   else
     config.action_controller.perform_caching = false
-
     config.cache_store = :null_store
   end
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :letter_opener
-
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
@@ -56,7 +56,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Configuration bullet
-  config.after_initialize do 
+  config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
     Bullet.bullet_logger = true

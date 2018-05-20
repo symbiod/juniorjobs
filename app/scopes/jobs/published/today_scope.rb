@@ -2,8 +2,7 @@
 
 module Jobs
   module Published
-    # TODO: documentation is missing for this class
-    # We should consider addig some documentation here
+    # Keeps jobs scope that published today
     class TodayScope < BaseScope
       def call
         scope.where('created_at::date = ?', TimeUtility.today)

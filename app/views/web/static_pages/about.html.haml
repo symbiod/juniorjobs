@@ -1,6 +1,7 @@
+= render_shared 'meta_tags'
 = render 'shared/job_page_header', header: t('views.headers.about')
 
-%section.section
+%section.section#about
   %p= t('views.about.mission')
   %p= t('views.about.free')
   %p= t('views.about.moderation')
@@ -8,7 +9,7 @@
     = t('views.about.code')
     = link_to 'Github', Settings.github, target: :_blank
   %p
-    = link_to t('views.about.contributors'), contributors_path
-  %p
     Resivion:
     = link_to ENV['REVISION'], "https://github.com/howtohireme/juniorjobs/commit/#{ENV['REVISION']}"
+
+= render 'contributors'

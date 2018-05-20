@@ -1,6 +1,23 @@
-require 'simplecov'
-SimpleCov.start
 # frozen_string_literal: true
+
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter '/config/'
+  add_filter '/spec/'
+
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Decorators', 'app/decorators'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Interactors', 'app/interactors'
+  add_group 'Jobs', 'app/jobs'
+  add_group 'Mailers', 'app/mailers'
+  add_group 'Models', 'app/models'
+  add_group 'Policies', 'app/policies'
+  add_group 'Scopes', 'app/scopes'
+  add_group 'Services', 'app/services'
+  add_group 'Utilities', 'app/utilities'
+end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'

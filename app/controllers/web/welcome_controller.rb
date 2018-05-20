@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Web
-  # TODO: documentation is missing for this class
-  # We should consider addig some documentation here
+  # Responsible for home page with jobs devided in 4 groups
+  # by creation date
   class WelcomeController < BaseController
     def index
       @jobs_published_today = Job.published_today

@@ -1,14 +1,12 @@
 currencies: ['rub', 'usd', 'byn', 'uah']
-valid_roles: ['junior', 'company', 'admin']
-unpermitted_roles: ['admin']
-email_regex: '\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z'
 email_from: 'office@howtohireme.ru'
-admin_email: 'office@howtohireme.ru'
 contacts_email: 'juniorjobs.email@gmail.com'
 telegram: 'https://t.me/juniorjobs'
 twitter_name: 'https://twitter.com/juniorjobs'
-github: 'https://github.com/howtohireme/juniorjobs.ru'
+github: 'https://github.com/howtohireme/juniorjobs'
+
 emails_offset: 500
+
 site_url: 'https://juniorjobs.ru'
 
 seo:
@@ -20,6 +18,5 @@ seo:
     - '/contact_us'
     - '/jobs/*'
 
-  disallow:
-    - '/admin'
-
+  description: "JuniorJobs Description"
+  keywords: "JuniorJobs Keywords"

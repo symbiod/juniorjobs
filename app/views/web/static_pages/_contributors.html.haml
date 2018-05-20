@@ -1,0 +1,6 @@
+%h4= t('views.about.contributors')
+
+%section.section#contributors
+  - @contributors.each do |contributor|
+    %p
+      = link_to contributor, "https://github.com/howtohireme/juniorjobs/commits?author=#{contributor}", target: :_blank

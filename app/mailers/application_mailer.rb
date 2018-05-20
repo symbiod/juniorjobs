@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
+# Keeps common mailer methods
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: Settings.contacts_email
   layout 'mailer'
 end

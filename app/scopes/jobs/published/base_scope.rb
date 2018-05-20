@@ -2,13 +2,11 @@
 
 module Jobs
   module Published
-    # TODO: documentation is missing for this class
-    # We should consider addig some documentation here
-    class BaseScope < Scope
-      QUERY = 'expired_at::date > ? AND status = ?'
-
+    # Keeps main jobs published selected by approved status and expiration time
+    class BaseScope < Jobs::BaseScope
       def initialize
-        @scope = Job.includes(:tags, :tag_taggings).where(QUERY, ::TimeUtility.today, 'approved')
+        @scope = super.includes(:tags, :tag_taggings)
+                      .where('expired_at::date > ? AND status = ?', ::TimeUtility.today, 'approved')
       end
     end
   end

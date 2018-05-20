@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
+# Keeps base scope implementation
 class Scope
   attr_reader :scope
 
@@ -10,10 +9,6 @@ class Scope
   end
 
   def initialize
-    raise NotImplementedError
-  end
-
-  def call
     raise NotImplementedError
   end
 end

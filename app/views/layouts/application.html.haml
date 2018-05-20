@@ -1,6 +1,7 @@
 !!!
 %html{ lang: I18n.locale }
   %head
+    %title Juniorjobs
     %meta{ charset: 'utf-8' }
     %meta{ content: 'NOODP', name: 'ROBOTS' }
     %meta{ content: 'text/html; charset=UTF-8', http_equiv: 'Content-Type' }
@@ -8,9 +9,8 @@
     %meta{ content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport' }
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
     %meta{ content: '74505c635f55a186', name: 'yandex-verification' }
-    %title JuniorjobsRu
-    %meta{ content: yield(:description).to_s, name: 'description' }/
-    %meta{ content: yield(:keywords).to_s, name: 'keywords' }/
+    %meta{ content: yield(:description), name: 'description' }
+    %meta{ content: yield(:keywords), name: 'keywords' }
     = csrf_meta_tags
     = display_meta_tags
 
@@ -22,16 +22,16 @@
     = stylesheet_link_tag :application, media: 'all'
     /[if lte IE 8]
       = stylesheet_link_tag 'ie8', media: 'all'
-    = render_shared 'metrika' if Rails.env.production? && !ENV['FEATURES']
     -# haml-lint:enable LineLength
+
+    = render_shared 'metrika_counter' if Rails.env.production? && !ENV['FEATURES']
 
   %body.l-body{ class: [body_class] }
     = render_shared 'flashes'
-    = render_shared 'topbar'
     = render_shared 'header'
+    = render_shared 'topbar'
     .l-page
       .container
         = yield
     = render_shared 'footer'
     = render_shared 'javascript'
-

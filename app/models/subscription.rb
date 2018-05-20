@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
+# Keeps subscription model
 class Subscription < ApplicationRecord
   belongs_to :user, optional: true
 
   validates :email, presence: true, uniqueness: { case_sensitive: false },
-                    format: { with: /#{Settings.email_regex}/, on: :create }
+            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
   class << self
     def unsubscribe(emails)

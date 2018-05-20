@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Decorate methods for Job model. Example: @jobs = Job.all.decorate
+# Decorate methods for Job model.
 class JobDecorator < ApplicationDecorator
   delegate_all
 
@@ -30,9 +30,9 @@ class JobDecorator < ApplicationDecorator
     city + ' ' + (remote ? + ' / ' + t('activerecord.attributes.job.remote') : '')
   end
 
-  def country_name
-    CountryUtility.translate(country)
-  end
+  # def country_name
+  #   CountryUtility.translate(country)
+  # end
 
   def expired_at_dates
     EXPIRED_INTERVALS.map { |interval| expired_at_for(interval) }

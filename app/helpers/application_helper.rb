@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
+# Responsible for common helpers methods for layout
 module ApplicationHelper
   def render_shared(partial)
     render "layouts/shared/#{partial}"
@@ -9,8 +8,8 @@ module ApplicationHelper
 
   def body_class(options = {})
     extra_body_classes_symbol = options[:extra_body_classes_symbol] || :extra_body_classes
-    qualified_controller_name = controller.controller_path.tr('/', '-')
-    basic_body_class = "#{qualified_controller_name} #{qualified_controller_name}-#{controller.action_name}"
+    qualified_name = controller.controller_path.tr('/', '-')
+    basic_body_class = "#{qualified_name} #{qualified_name}-#{controller.action_name}"
 
     if content_for?(extra_body_classes_symbol)
       [basic_body_class, content_for(extra_body_classes_symbol)].join(' ')
@@ -19,11 +18,11 @@ module ApplicationHelper
     end
   end
 
-  def flashes
-    flash.to_hash.slice('alert', 'error', 'notice', 'success')
+  def provide_description(string)
+    provide(:description, string)
   end
 
-  def current_country
-    :ru
+  def provide_keywords(string)
+    provide(:keywords, string)
   end
 end

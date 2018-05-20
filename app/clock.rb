@@ -5,8 +5,8 @@ require_relative '../config/boot'
 require_relative '../config/environment'
 require_relative '../config/sidekiq'
 
-# Periodically synchronizes the mailing list with mailchimp
+# Responsible for scheduled jobs
 module Clockwork
-  every(1.day, 'sync_emails.job') { SyncSubscribersJob.perform_later }
-  every(1.week, 'load_contributors.job') { LoadContributorsJob.perform_later }
+  every(1.day, 'github.update_contributors.job') { Integrations::Github::UpdateContributorsJob.perform_later }
+  # every(1.day, 'sync_emails.job') { SyncSubscribersJob.perform_later }
 end

@@ -1,6 +1,7 @@
+= render_shared 'meta_tags'
 = render 'shared/job_page_header', header: t('views.headers.contact_us')
 
-%section.section
+%section.section#contact_us
   %p= t('views.contacts.text')
   = t('views.contacts.email')
   = mail_to Settings.contacts_email, Settings.contacts_email

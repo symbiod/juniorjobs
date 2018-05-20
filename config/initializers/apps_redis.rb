@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'singleton'
 
 class AppsRedis
@@ -7,4 +9,3 @@ class AppsRedis
     @connection ||= Redis::Namespace.new("juniorjobs", redis: Redis.new(host: ENV['REDIS_HOST']))
   end
 end
-

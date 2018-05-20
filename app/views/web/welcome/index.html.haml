@@ -1,7 +1,4 @@
-= provide(:description, 'JuniorJobs it is resource for free publication of vacancies')
-= provide(:keywords, 'Vacancies, junior, job, jobs, work, remote, free, developers, testers')
-
-= render 'web/subscriptions/banner'
+= render_shared 'meta_tags'
 
 - if @jobs_published_today.any?
   .row.mt20
@@ -31,4 +28,3 @@
       - @jobs_published_last_month.each do |job|
         = render 'job', job: job
 
-= render 'web/subscriptions/banner'

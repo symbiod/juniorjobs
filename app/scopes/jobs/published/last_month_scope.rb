@@ -2,13 +2,11 @@
 
 module Jobs
   module Published
-    # TODO: documentation is missing for this class
-    # We should consider addig some documentation here
+    # Keeps jobs scope that were published from last week untill last month
     class LastMonthScope < BaseScope
       def call
-        scope
-          .where('created_at::date < ?', TimeUtility.last_week)
-          .where('created_at::date >= ?', TimeUtility.last_month)
+        scope.where('created_at::date < ?', TimeUtility.last_week)
+              .where('created_at::date >= ?', TimeUtility.last_month)
       end
     end
   end

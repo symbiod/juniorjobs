@@ -7,13 +7,13 @@ xml.tag! 'urlset',
          'xmlns:video' => 'http://www.google.com/schemas/sitemap-video/1.1' do
   @allowed_routes[0..-2].each do |route|
     xml.url do
-      xml.loc "#{site_url}#{route}"
+      xml.loc "#{@base_url}#{route}"
     end
   end
 
   @jobs.each do |job_id|
     xml.url do
-      xml.loc "#{site_url}/jobs/#{job_id}"
+      xml.loc "#{@base_url}/jobs/#{job_id}"
     end
   end
 end

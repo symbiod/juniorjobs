@@ -1,0 +1,6 @@
+.well.subscription#subscription-form
+  = simple_form_for :subscription, url: subscription_path, html: { class: 'row form' } do |f|
+    .col-sm-9
+      = f.input :email, label: false, required: true, placeholder: t('activerecord.attributes.subscription.email'), class: ''
+    .col-sm-3
+      = f.submit t('common.subscribe'), class: 'submit'
