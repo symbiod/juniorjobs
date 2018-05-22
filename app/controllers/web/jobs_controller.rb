@@ -18,7 +18,6 @@ module Web
       @job = CreateJob.call(current_user, job_params)
 
       if @job.save
-        EmailJobService.call(@job.id)
         redirect_to job_path(@job), notice: t('common.jobs.create.success')
       else
         render :new, alert: t('common.jobs.create.fail')
@@ -31,7 +30,6 @@ module Web
     # TODO: interactor
     def update
       if UpdateJob.call(@job, job_params)
-        EmailJobService.call(@job.id)
         redirect_to job_path(@job), notice: t('common.jobs.update.success')
       else
         redirect_to edit_job_path(@job), alert: t('common.jobs.create.fail', @job.errors.messages[:description].first)
