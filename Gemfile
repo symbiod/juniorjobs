@@ -67,13 +67,15 @@ gem 'simple_form'
 gem 'newrelic_rpm'
 gem 'rollbar'
 
+# Seeds
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
   gem 'data_magic'
   gem 'factory_bot_rails', '~> 4.0'
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rails-controller-testing'
