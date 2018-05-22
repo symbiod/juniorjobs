@@ -18,6 +18,7 @@ module Web
       @job = CreateJob.call(current_user, job_params)
 
       if @job.save
+        @job.approve!
         redirect_to job_path(@job), notice: t('common.jobs.create.success')
       else
         render :new, alert: t('common.jobs.create.fail')
