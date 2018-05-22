@@ -24,6 +24,7 @@ module JuniorjobsRu
       #{Rails.root}/app/interactors/*
       #{Rails.root}/app/jobs/*
       #{Rails.root}/app/scopes/*
+      #{Rails.root}/app/services/*
       #{Rails.root}/app/utilities/*
       #{Rails.root}/config/settings.yml
     ]
