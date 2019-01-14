@@ -392,7 +392,7 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (4.0.1)
+    redis (4.1.0)
     redis-namespace (1.6.0)
       redis (>= 3.0.4)
     reek (4.7.3)
