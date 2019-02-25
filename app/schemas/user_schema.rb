@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-UserSchema = Dry::Validation.Form do
+UserSchema = Dry::Validation.Schema do
   configure do
     option :valid_roles
     config.messages = :i18n
