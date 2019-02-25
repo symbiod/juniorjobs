@@ -36,6 +36,9 @@ chdir APP_ROOT do
   puts "\n== Seed database =="
   system! 'bin/rails db:seed_fu'
 
+  puts "\n== Install Node dependencies =="
+  system! 'npm install'
+
   puts "\n== Removing old logs and tempfiles =="
   system! 'bin/rails log:clear tmp:clear'
 

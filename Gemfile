@@ -95,6 +95,7 @@ group :development do
   gem 'i18n-tasks', '~> 0.9.19'
   gem 'reek'
   gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'scss_lint', require: false
   gem 'web-console', '>= 3.3.0'
   gem 'bullet'

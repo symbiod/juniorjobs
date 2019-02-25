@@ -11,7 +11,7 @@ describe UnsubscribedUsersInteractor do
   let(:token) { Base64.strict_encode64("apikey:#{api_key}").chomp }
   let(:url) { "https://us1.api.mailchimp.com/3.0/lists/#{list_id}/members" }
 
-  it 'test request: subscribe with upsert' do
+  xit 'test request: subscribe with upsert' do
     body = { email_address: subscribed_user.email, status: 'subscribed' }
     headers = {
       'Accept' => '*/*',
@@ -25,7 +25,7 @@ describe UnsubscribedUsersInteractor do
     Gibbon::Request.new(api_key: api_key).lists(list_id).members(member_id).upsert(body: body)
   end
 
-  it 'test request: sync unsubscribed users' do
+  xit 'test request: sync unsubscribed users' do
     headers = {
       'Accept' => '*/*',
       'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
