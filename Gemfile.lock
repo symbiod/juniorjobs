@@ -28,7 +28,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    aasm (5.0.1)
+    aasm (5.0.5)
       concurrent-ruby (~> 1.0)
     actioncable (5.1.6.1)
       actionpack (= 5.1.6.1)
@@ -118,7 +118,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     config (1.7.1)
       activesupport (>= 3.0)
       deep_merge (~> 1.2.1)
