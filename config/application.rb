@@ -15,17 +15,12 @@ Bundler.require(*Rails.groups)
 
 module JuniorjobsRu
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.assets.quiet = true
 
     config.autoload_paths += %W[
-      #{Rails.root}/app/decorators/*
-      #{Rails.root}/app/interactors/*
       #{Rails.root}/app/jobs/*
-      #{Rails.root}/app/scopes/*
       #{Rails.root}/app/services/*
-      #{Rails.root}/app/utilities/*
       #{Rails.root}/config/settings.yml
     ]
     config.autoload_paths += Dir["#{config.root}/app/interactors/**/"]
@@ -33,7 +28,7 @@ module JuniorjobsRu
     config.generators do |generate|
       generate.template_engine :haml
       generate.helper true
-      generate.helper_specs true
+      generate.helper_specs false
       generate.javascript_engine false
       generate.request_specs false
       generate.routing_specs true

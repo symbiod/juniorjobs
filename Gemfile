@@ -7,80 +7,78 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.0'
+ruby '2.5.5'
 
 # Rails
-gem 'config'
 gem 'dotenv-rails'
 gem 'foreman'
+gem 'meta-tags'
 gem 'pg', '~> 0.18'
-gem 'rails', '~> 5.1.4'
+gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.1'
 gem 'redis'
 gem 'redis-namespace'
-gem 'puma', '~> 3.7'
 
 # Models
-gem 'aasm'
-gem 'acts-as-taggable-on'
-gem 'draper'
+# gem 'aasm'
+# gem 'acts-as-taggable-on'
+
 gem 'dry-validation'
-gem 'pundit'
+gem 'dry-auto_inject'
+# gem 'pundit'
 
 # Common
 gem 'gibbon'
-gem 'interactor', '~> 3.0'
-gem 'mechanize'
-gem 'meta-tags'
-gem 'ransack', github: 'activerecord-hackery/ransack'
-gem 'sorcery'
+# gem 'interactor', '~> 3.0'
+# gem 'mechanize'
+# gem 'ransack', github: 'activerecord-hackery/ransack'
+# gem 'sorcery'
 
 # Socials
 gem 'koala'
 gem 'telegram-bot-ruby'
 gem 'twitter'
 gem 'vkontakte_api', '~> 1.4'
-gem 'octokit', '~> 4.0'
+# gem 'octokit', '~> 4.0'
 
 # Jobs
+gem 'clockwork'
 gem 'sidekiq'
 
-# Cron
-gem 'clockwork'
-
 # Frontend
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
-gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
-gem 'patternfly-sass'
+# gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
+# gem 'patternfly-sass'
 gem 'sass-rails', '~> 5.0'
-gem 'select2-rails'
+# gem 'select2-rails'
 gem 'uglifier', '>= 1.3.0'
 
 # Frontend:helpers
-gem 'country_select'
-gem 'enum_help'
+# gem 'country_select'
+# gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
 
 # Infrastructure
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 gem 'rollbar'
 
-# Seeds
-gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
-
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara', '~> 2.13'
+  # gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
-  gem 'data_magic'
+  # gem 'data_magic'
   gem 'factory_bot_rails', '~> 4.0'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'pry'
+  gem 'pry-rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'seed-fu', '~> 2.3'
+  # gem 'seed-fu', '~> 2.3'
   gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring'

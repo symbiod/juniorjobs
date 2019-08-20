@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
-# TODO: documentation is missing for this class
-# We should consider addig some documentation here
 module ApplicationHelper
-  def render_shared(partial)
-    render "layouts/shared/#{partial}"
-  end
-
   def body_class(options = {})
     extra_body_classes_symbol = options[:extra_body_classes_symbol] || :extra_body_classes
     qualified_controller_name = controller.controller_path.tr('/', '-')
@@ -19,11 +13,15 @@ module ApplicationHelper
     end
   end
 
+  def current_country
+    :ru
+  end
+
   def flashes
     flash.to_hash.slice('alert', 'error', 'notice', 'success')
   end
 
-  def current_country
-    :ru
+  def render_shared(partial)
+    render "layouts/shared/#{partial}"
   end
 end

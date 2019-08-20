@@ -55,3 +55,10 @@ deploy/secrets/application-secrets.yml
 kubeadm-single-node-cluster.conf
 
 cucumber_test/features/step_definitions/sign_up\.rb~fix Hund comment
+
+.vagrant
+!.vagrant/machines
+!.vagrant/rgloader
+
+ubuntu-bionic-18.04-cloudimg-console.log
+

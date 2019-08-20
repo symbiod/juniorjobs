@@ -2,12 +2,10 @@
 
 module Jobs
   module Published
-    # TODO: documentation is missing for this class
-    # We should consider addig some documentation here
-    class TodayScope < BaseScope
-      def call
-        scope.where('created_at::date = ?', TimeUtility.today)
-      end
-    end
+    # class TodayScope < BaseScope
+    #   def call
+    #     scope.where('created_at::date = ?', TimeUtility.today)
+    #   end
+    # end
   end
 end
