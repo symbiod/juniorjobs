@@ -105,7 +105,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
-    clockwork (2.0.3)
+    clockwork (2.0.4)
+      activesupport
       tzinfo
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
@@ -517,7 +518,7 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
