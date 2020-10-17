@@ -7,68 +7,52 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.0'
+ruby '2.5.1'
 
-# Rails
-gem 'config'
-gem 'dotenv-rails'
-gem 'foreman'
-gem 'pg', '~> 0.18'
-gem 'rails', '~> 5.1.4'
-gem 'redis'
-gem 'redis-namespace'
-gem 'puma', '~> 3.7'
-
-# Models
-gem 'aasm'
+gem 'aasm', '5.1.1'
 gem 'acts-as-taggable-on'
-gem 'draper'
+gem 'clockwork'
+gem 'coffee-rails', '~> 4.2'
+gem 'config'
+gem 'country_select'
+gem 'draper', '4.0.1'
 gem 'dry-validation'
-gem 'pundit'
-
-# Common
+gem 'dotenv-rails'
+gem 'enum_help'
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+gem 'foreman'
 gem 'gibbon'
 gem 'interactor', '~> 3.0'
+gem 'haml-rails', '~> 1.0'
+gem 'jquery-rails', '4.4.0'
+gem 'json', '2.3.0'
+gem 'kaminari', '1.2.1'
+gem 'koala'
 gem 'mechanize'
 gem 'meta-tags'
+gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
+gem 'newrelic_rpm', '6.13.1'
+gem 'octokit', '~> 4.0'
+gem 'patternfly-sass'
+gem 'pg', '~> 0.21'
+gem 'pundit'
+gem 'puma', '~> 3.12.6'
+gem 'rack', '2.1.4'
+gem 'rails', '~> 5.2.4.4'
 gem 'ransack', github: 'activerecord-hackery/ransack'
-gem 'sorcery'
-
-# Socials
-gem 'koala'
+gem 'redis'
+gem 'redis-namespace'
+gem 'rollbar', '3.0.1'
+gem 'sass-rails', '~> 5.0'
+gem 'select2-rails'
+gem 'sidekiq'
+gem 'simple_form', '5.0.3'
+gem 'sorcery', '0.15.0'
 gem 'telegram-bot-ruby'
 gem 'twitter'
 gem 'vkontakte_api', '~> 1.4'
-gem 'octokit', '~> 4.0'
-
-# Jobs
-gem 'sidekiq'
-
-# Cron
-gem 'clockwork'
-
-# Frontend
-gem 'coffee-rails', '~> 4.2'
-gem 'haml-rails', '~> 1.0'
-gem 'jquery-rails'
-gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'
-gem 'patternfly-sass'
-gem 'sass-rails', '~> 5.0'
-gem 'select2-rails'
 gem 'uglifier', '>= 1.3.0'
-
-# Frontend:helpers
-gem 'country_select'
-gem 'enum_help'
-gem 'kaminari'
-gem 'simple_form'
-
-# Infrastructure
-gem 'newrelic_rpm'
-gem 'rollbar'
-
-# Seeds
-gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+gem 'websocket-extensions', '0.1.5'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -89,7 +73,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'brakeman', require: false
+  gem 'brakeman', '4.10.0', require: false
+  gem 'bullet'
   gem 'bundler-audit'
   gem 'haml_lint', require: false
   gem 'i18n-tasks', '~> 0.9.19'
@@ -98,5 +83,4 @@ group :development do
   gem 'rubocop-rspec'
   gem 'scss_lint', require: false
   gem 'web-console', '>= 3.3.0'
-  gem 'bullet'
 end
