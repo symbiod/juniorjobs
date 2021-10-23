@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.1'
+ruby '2.5.5'
 
 gem 'aasm', '5.1.1'
 gem 'acts-as-taggable-on'
@@ -38,8 +38,8 @@ gem 'pg', '~> 0.21'
 gem 'pundit'
 gem 'puma', '~> 3.12.6'
 gem 'rack', '2.1.4'
-gem 'rails', '~> 5.2.4.4'
-gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'rails', '~> 5.2.4.6'
+gem 'ransack', '~> 2.3.2'
 gem 'redis'
 gem 'redis-namespace'
 gem 'rollbar', '3.0.1'
