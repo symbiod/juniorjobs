@@ -4,14 +4,6 @@ GIT
   specs:
     multipurpose_theme (0.1.1)
 
-GIT
-  remote: https://github.com/stympy/faker.git
-  revision: f160a89366404cfd8ac6ea7c45bb64c61c0dd74b
-  branch: master
-  specs:
-    faker (2.19.0)
-      i18n (>= 1.6, < 2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -193,6 +185,8 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -339,6 +333,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -349,6 +344,9 @@ GEM
       connection_pool (~> 2.2)
     newrelic_rpm (6.13.1)
     nio4r (2.5.8)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     oauth (0.5.6)
@@ -589,6 +587,7 @@ GEM
     yml_reader (0.7)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
 
 DEPENDENCIES
@@ -610,7 +609,7 @@ DEPENDENCIES
   dry-validation
   enum_help
   factory_bot_rails (~> 4.0)
-  faker!
+  faker
   foreman
   gibbon
   haml-rails (~> 1.0)
@@ -663,7 +662,7 @@ DEPENDENCIES
   websocket-extensions (= 0.1.5)
 
 RUBY VERSION
-   ruby 2.5.5p157
+   ruby 2.7.6p219
 
 BUNDLED WITH
    2.2.29
