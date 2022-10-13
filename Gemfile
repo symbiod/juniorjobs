@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.5'
+ruby File.read('.ruby-version').strip
 
 gem 'aasm', '5.1.1'
 gem 'acts-as-taggable-on'
@@ -19,7 +19,7 @@ gem 'draper', '4.0.1'
 gem 'dry-validation'
 gem 'dotenv-rails'
 gem 'enum_help'
-gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+gem 'faker'
 gem 'foreman'
 gem 'gibbon'
 gem 'interactor', '~> 3.0'

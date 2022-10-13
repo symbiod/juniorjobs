@@ -45,7 +45,6 @@ build-iPhoneSimulator/
 .byebug_history
 .idea/
 log/
-.ruby-version
 .envrc
 .envrc.backup
 config/settings.local.yml
