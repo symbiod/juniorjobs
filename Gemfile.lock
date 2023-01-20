@@ -375,7 +375,7 @@ GEM
     pundit (2.1.1)
       activesupport (>= 3.0.0)
     racc (1.6.0)
-    rack (2.1.4)
+    rack (2.1.4.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.6)
@@ -631,7 +631,7 @@ DEPENDENCIES
   pg (~> 0.21)
   puma (~> 3.12.6)
   pundit
-  rack (= 2.1.4)
+  rack (= 2.1.4.2)
   rails (~> 5.2.4.6)
   rails-controller-testing
   ransack (~> 2.3.2)
