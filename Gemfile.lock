@@ -122,7 +122,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
-    date (3.3.3)
+    date (3.5.1)
     deep_merge (1.2.2)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -307,10 +307,12 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    logger (1.7.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    mail (2.8.1)
+    mail (2.9.1)
+      logger
       mini_mime (>= 0.1.1)
       net-imap
       net-pop
@@ -345,14 +347,14 @@ GEM
     net-http-digest_auth (1.4.1)
     net-http-persistent (4.0.2)
       connection_pool (~> 2.2)
-    net-imap (0.4.1)
+    net-imap (0.6.6)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.1)
+    net-protocol (0.3.0)
       timeout
-    net-smtp (0.4.0)
+    net-smtp (0.5.1)
       net-protocol
     newrelic_rpm (6.13.1)
     nio4r (2.5.9)
@@ -562,7 +564,7 @@ GEM
     thor (1.2.2)
     thread_safe (0.3.6)
     tilt (2.3.0)
-    timeout (0.4.0)
+    timeout (0.6.1)
     twitter (7.0.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
