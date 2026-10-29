@@ -112,7 +112,7 @@ GEM
       countries (~> 5.0)
     crack (0.4.5)
       rexml
-    crass (1.0.6)
+    crass (1.0.8)
     data_magic (1.2)
       faker (>= 1.1.2)
       yml_reader (>= 0.6)
